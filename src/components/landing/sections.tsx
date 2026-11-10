@@ -6,6 +6,7 @@ import { Link } from '@tanstack/react-router';
 import { ArrowRight, Check, Copy } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { toast } from 'sonner';
+import { AnimationContainer } from './animation-container';
 import { SignetPlate } from './signet-plate';
 
 const money = (n: number) => `$${n.toFixed(2)}`;
@@ -86,7 +87,10 @@ export function SessionSection() {
   return (
     <section id='session' className='relative z-[4] bg-white py-12 md:py-20'>
       <Wrap>
-        <h2 className='text-center font-display text-[clamp(34px,3.1vw,46px)] leading-[1.15] font-semibold tracking-[-0.016em]'>Set enforceable limits.</h2>
+        <AnimationContainer>
+          <h2 className='text-center font-display text-[clamp(34px,3.1vw,46px)] leading-[1.15] font-semibold tracking-[-0.016em]'>Set enforceable limits.</h2>
+        </AnimationContainer>
+        <AnimationContainer delay={0.1}>
         <div ref={ref} className='relative mt-10 aspect-[.7] md:aspect-[1.75]'>
           <div className='absolute inset-0'>
             <SignetPlate scene='ledger' aspect={1.75} progress={0.75} src={PLATE_IMAGES.session || undefined} label='Daily spending bars rising toward a dashed limit line' />
@@ -143,11 +147,12 @@ export function SessionSection() {
             </ul>
           </div>
         </div>
+        </AnimationContainer>
         <div className='mt-10 grid gap-6 md:mt-14 md:grid-cols-3 md:gap-10'>
-          {SESSION_CARD.points.map((p) => (
-            <div key={p} className='border-t border-foreground pt-4 text-[15px] leading-[1.4]'>
+          {SESSION_CARD.points.map((p, i) => (
+            <AnimationContainer key={p} delay={i * 0.1} className='border-t border-foreground pt-4 text-[15px] leading-[1.4]'>
               {p}
-            </div>
+            </AnimationContainer>
           ))}
         </div>
       </Wrap>
@@ -158,11 +163,13 @@ export function SessionSection() {
 export function LineSection({ id, text, align = 'left', link }: { id: string; text: string; align?: 'left' | 'right'; link: { label: string; to?: string; href?: string } }) {
   return (
     <section id={id} className='relative z-[4] bg-white py-10 md:py-12'>
-      <Wrap className={cn('flex flex-col', align === 'right' ? 'max-md:items-start md:items-end md:text-right' : 'items-start')}>
+      <Wrap>
+        <AnimationContainer className={cn('flex flex-col', align === 'right' ? 'max-md:items-start md:items-end md:text-right' : 'items-start')}>
         <p className='max-w-[720px] font-display text-2xl leading-[1.35] font-semibold text-balance text-muted-foreground'>{text}</p>
         <TextLink to={link.to} href={link.href}>
           {link.label}
         </TextLink>
+        </AnimationContainer>
       </Wrap>
     </section>
   );
@@ -210,11 +217,13 @@ export function HowSection() {
   return (
     <section id='how' className='relative z-[4] bg-white py-12 md:py-20'>
       <Wrap>
-        <p className='mb-[18px] text-[13px] text-text-3'>How it works</p>
-        <h2 className='font-display text-[clamp(34px,3.1vw,46px)] leading-[1.15] font-semibold tracking-[-0.016em]'>Three steps to a first payment.</h2>
+        <AnimationContainer>
+          <p className='mb-[18px] text-[13px] text-text-3'>How it works</p>
+          <h2 className='font-display text-[clamp(34px,3.1vw,46px)] leading-[1.15] font-semibold tracking-[-0.016em]'>Three steps to a first payment.</h2>
+        </AnimationContainer>
         <div className='mt-10 grid gap-14 md:mt-16 md:grid-cols-3 md:gap-10'>
           {HOW_STEPS.map((s, i) => (
-            <div key={s.n}>
+            <AnimationContainer key={s.n} delay={i * 0.12}>
               <div className='relative aspect-[4/5]'>
                 <div className='absolute inset-0'><SignetPlate scene={s.scene} aspect={0.8} progress={s.level} src={PLATE_IMAGES.how[i] || undefined} /></div>
                 <div className='absolute inset-x-3 top-1/2 flex h-[104px] -translate-y-1/2 flex-col justify-center rounded-md border bg-white px-3.5 shadow-[0_1px_2px_rgba(27,30,36,.04),0_12px_40px_rgba(27,30,36,.10)]'>
@@ -225,7 +234,7 @@ export function HowSection() {
                 <span className='font-sans text-[13px] text-text-3'>{s.n}</span>
                 {s.title}
               </h3>
-            </div>
+            </AnimationContainer>
           ))}
         </div>
       </Wrap>
@@ -307,6 +316,7 @@ export function ClosingSection() {
   return (
     <section className='relative z-[4] bg-white pt-16 pb-12 text-center md:pt-24 md:pb-20'>
       <Wrap>
+        <AnimationContainer>
         <h2 className='mb-9 font-display text-[clamp(34px,3.1vw,46px)] leading-[1.15] font-semibold tracking-[-0.016em]'>Give your agent a Signet.</h2>
         <Link
           to='/login'
@@ -315,9 +325,10 @@ export function ClosingSection() {
         >
           Get started
         </Link>
-        <div className='relative mt-14 aspect-[1.6] md:aspect-[3.4]'>
+        </AnimationContainer>
+        <AnimationContainer delay={0.1} className='relative mt-14 aspect-[1.6] md:aspect-[3.4]'>
           <SignetPlate scene='orbit' aspect={3.4} src={PLATE_IMAGES.close || undefined} label='Rings of services orbiting the Signet mark' />
-        </div>
+        </AnimationContainer>
       </Wrap>
     </section>
   );
