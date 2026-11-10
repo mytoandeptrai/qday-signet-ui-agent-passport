@@ -1,0 +1,165 @@
+{
+  "title": "Akaun Pintar",
+  "description": "Urus Akaun Pintar anda dan konfigurasinya.",
+  "buttons": {
+    "createSmartAccount": "Cipta Akaun Pintar",
+    "disconnect": "Putuskan sambungan",
+    "cancel": "Batal",
+    "create": "Cipta",
+    "rename": "Namakan semula",
+    "save": "Simpan",
+    "delete": "Padam",
+    "creating": "Mencipta…",
+    "retry": "Cuba semula"
+  },
+  "emptyState": {
+    "notConnectedTitle": "Sambungkan dompet anda untuk melihat Akaun Pintar anda",
+    "notConnectedDescription": "Akaun Pintar dicipta oleh dan dimiliki oleh dompet anda. Sambungkannya untuk melihat baki dan mengurus akaun.",
+    "usdcNotSupported": "Akaun Pintar USDC belum tersedia (MVP)."
+  },
+  "token": {
+    "usd8": {
+      "activeNote": "Aktif · QDay Chain"
+    },
+    "usdc": {
+      "disabledNote": "Dilancarkan kemudian · Base"
+    }
+  },
+  "limit": {
+    "reachedMessage": "Anda telah mencapai maksimum {{limit}} Akaun Pintar untuk perniagaan dan persekitaran ini.",
+    "usage": "{{used}} / {{limit}} Akaun Pintar"
+  },
+  "labels": {
+    "smart-accounts": "Akaun Pintar",
+    "track-smart-accounts-information-and-their-balances": "Jejak maklumat dan baki Akaun Pintar anda.",
+    "selectToken": "Pilih token",
+    "availableBalance": "Baki tersedia"
+  },
+  "table": {
+    "headers": {
+      "name": "Nama akaun",
+      "slug": "Slug",
+      "address": "Alamat",
+      "balance": "Baki",
+      "status": "Status",
+      "action": "Tindakan",
+      "date": "Dicipta pada"
+    }
+  },
+  "status": {
+    "active": "Aktif",
+    "unavailable": "Belum tersedia",
+    "creating": "Sedang dibuat",
+    "failed": "Gagal",
+    "failedRetryable": "Penggunaan gagal. Anda boleh mencuba semula.",
+    "failedFinal": "Penggunaan gagal dan tidak boleh dicuba semula. Padamkannya dan cipta Akaun Pintar baharu."
+  },
+  "createModal": {
+    "title": "Cipta Akaun Pintar",
+    "description": "Lancarkan Akaun Pintar USD8 baharu di QDay Chain.",
+    "fields": {
+      "name": {
+        "label": "Nama akaun",
+        "placeholder": "cth. Dompet Kedai Utama"
+      },
+      "owner": {
+        "label": "Pemilik",
+        "placeholder": "Sambungkan dompet anda untuk mengisi medan ini"
+      },
+      "slug": {
+        "label": "Slug: {{name}}"
+      }
+    },
+    "feeEstimateNote": "Yuran penciptaan ~3 USD8 (anggaran, dibayar daripada dompet anda).",
+    "errors": {
+      "slugConflict": "Nama ini sudah digunakan. Sila pilih nama lain."
+    },
+    "steps": {
+      "intro": "Selepas anda klik Cipta, anda akan melalui langkah-langkah berikut:",
+      "running": "Mencipta Akaun Pintar anda. Jangan tutup tetingkap ini.",
+      "walletPrompt": "Buka dompet anda untuk meneruskan",
+      "reserving": {
+        "title": "Tempah nama akaun",
+        "description": "Disemak selepas anda memasukkan kod Google Authenticator."
+      },
+      "signing": {
+        "title": "Tandatangan dalam dompet anda",
+        "description": "Meluluskan persediaan akaun. Tandatangan tidak dikenakan gas."
+      },
+      "funding": {
+        "title": "Tambah USD8 untuk yuran gas",
+        "description": "Menghantar sedikit USD8 dari akaun sedia ada anda ke akaun baharu untuk membayar yuran gas. Dilangkau jika akaun baharu sudah mempunyai cukup."
+      },
+      "submitting": {
+        "title": "Hantar permintaan",
+        "description": "Sistem merekodkan penggunaan dan menjejakinya sehingga akaun aktif."
+      }
+    },
+    "notSponsoredNote": "Akaun Pintar pertama anda adalah percuma. Akaun ini tidak ditaja: yuran rangkaiannya dibayar dalam USD8, jadi lebih kurang {{amount}} USD8 dipindahkan dahulu dari {{source}} ke akaun baharu. Baki yang tidak digunakan kekal dalam akaun baharu.",
+    "notEnoughUsd8": "USD8 tidak mencukupi untuk membayar yuran rangkaian Akaun Pintar baharu. Salah satu Akaun Pintar anda memerlukan sekurang-kurangnya {{amount}} USD8; sila deposit USD8 dahulu."
+  },
+  "renameModal": {
+    "fields": {
+      "name": {
+        "label": "Nama akaun"
+      }
+    },
+    "errors": {
+      "slugConflict": "Nama ini sudah digunakan. Sila pilih nama lain."
+    }
+  },
+  "deleteModal": {
+    "title": "Padam Akaun Pintar",
+    "description": "Adakah anda pasti mahu memadam \"{{name}}\"? Alamat on-chain kekal dilancarkan, tetapi tidak lagi boleh diurus dalam Portal.",
+    "errors": {
+      "catalogInUse": "Tidak boleh dipadam: alamat ini masih dirujuk oleh payTo dalam katalog produk anda."
+    }
+  },
+  "detail": {
+    "balanceLabel": "Baki USD8",
+    "tx": {
+      "title": "Transaksi",
+      "filters": {
+        "all": "Semua Akaun Pintar"
+      },
+      "headers": {
+        "timestamp": "Masa",
+        "smartAccount": "Akaun Pintar",
+        "direction": "Arah",
+        "amount": "Jumlah",
+        "txHash": "Hash tx",
+        "status": "Status"
+      },
+      "direction": {
+        "incoming": "Masuk",
+        "outgoing": "Keluar"
+      },
+      "status": {
+        "confirmed": "Disahkan",
+        "pending": "Belum selesai",
+        "failed": "Gagal"
+      }
+    }
+  },
+  "messages": {
+    "deployFailed": "Pelancaran gagal atau dibatalkan. Sila cuba lagi.",
+    "renameSuccess": "Akaun Pintar berjaya dinamakan semula.",
+    "deleteSuccess": "Akaun Pintar berjaya dipadam.",
+    "walletNotConnected": "Sambungkan dompet anda sebelum mencipta Akaun Pintar.",
+    "wrongNetwork": "Sila tukar dompet anda ke rangkaian QDay sebelum meneruskan.",
+    "deployRequested": "Permintaan dihantar. Akaun Pintar anda sedang dibuat — anda boleh menjejak kemajuannya dalam jadual.",
+    "retryRequested": "Percubaan semula diminta. Penggunaan sedang dihantar semula.",
+    "accountAlreadyDeployed": "Alamat ini sudah wujud pada rantaian. Sila cuba lagi; alamat baharu akan digunakan.",
+    "noFundingSource": "Deposit USD8 ke salah satu Akaun Pintar anda dahulu; ia membayar yuran rangkaian akaun baharu."
+  },
+  "confirmModal": {
+    "retry": {
+      "title": "Cuba semula penggunaan",
+      "description": "Cuba semula mencipta \"{{name}}\"? Sistem akan menghantar semula penggunaan."
+    },
+    "delete": {
+      "title": "Padam Akaun Pintar",
+      "description": "Padam \"{{name}}\"? Penggunaannya gagal dan tidak boleh dicuba semula, jadi belum ada apa-apa pada rantaian."
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "title": "SDK & dokumen",
+  "description": "Semua yang anda perlukan untuk mula membina dengan QDay.",
+  "buttons": {
+    "download": "Muat turun"
+  },
+  "labels": {
+    "installation": "Pemasangan",
+    "selectSdk": "Pilih SDK",
+    "packageManager": "Pengurus pakej"
+  },
+  "states": {
+    "listError": {
+      "title": "SDK tidak dapat dimuatkan",
+      "description": "Muat semula halaman untuk mencuba lagi."
+    },
+    "docError": {
+      "title": "Belum ada dokumen untuk SDK ini",
+      "description": "Pilih SDK lain, atau semak semula selepas keluaran seterusnya."
+    }
+  }
+}

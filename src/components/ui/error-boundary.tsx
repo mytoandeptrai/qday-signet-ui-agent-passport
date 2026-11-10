@@ -1,0 +1,54 @@
+import { RefreshCw } from 'lucide-react';
+import { Component, type ErrorInfo, type ReactNode } from 'react';
+import { i18n } from '@/integrations/i18n';
+import { Button } from './button';
+
+interface Props {
+  children: ReactNode;
+}
+
+interface State {
+  hasError: boolean;
+  error?: Error;
+}
+
+export class ErrorBoundary extends Component<Props, State> {
+  public state: State = {
+    hasError: false,
+  };
+
+  public static getDerivedStateFromError(error: Error): State {
+    return { hasError: true, error };
+  }
+
+  public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+    console.error('Error caught:', error, errorInfo);
+    // You could send the error to a monitoring service here
+  }
+
+  public render() {
+    if (this.state.hasError) {
+      return (
+        <div className='flex min-h-screen items-center justify-center bg-primary'>
+          <div className='p-8 text-center'>
+            <h1 className='mb-4 font-bold text-3xl text-white' role='alert'>
+              {i18n.t('errors.boundary.title')}
+            </h1>
+            <p className='mb-8 text-gray-400'>{i18n.t('errors.boundary.description')}</p>
+            <Button
+              onClick={() => window.location.reload()}
+              aria-label={i18n.t('errors.boundary.refresh')}
+              variant='outline'
+              type='button'
+            >
+              <RefreshCw className='h-4 w-4' />
+              <span>{i18n.t('errors.boundary.refresh')}</span>
+            </Button>
+          </div>
+        </div>
+      );
+    }
+
+    return this.props.children;
+  }
+}

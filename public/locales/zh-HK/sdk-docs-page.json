@@ -1,0 +1,22 @@
+{
+  "title": "SDK 及文件",
+  "description": "開始使用 QDay 開發所需的一切。",
+  "buttons": {
+    "download": "下載"
+  },
+  "labels": {
+    "installation": "安裝",
+    "selectSdk": "選擇 SDK",
+    "packageManager": "套件管理工具"
+  },
+  "states": {
+    "listError": {
+      "title": "無法載入 SDK",
+      "description": "請重新整理頁面再試。"
+    },
+    "docError": {
+      "title": "此 SDK 暫無文件",
+      "description": "請選擇其他 SDK，或於下次發佈後再查看。"
+    }
+  }
+}

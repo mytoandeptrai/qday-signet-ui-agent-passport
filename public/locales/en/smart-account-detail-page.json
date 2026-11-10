@@ -1,0 +1,102 @@
+{
+  "title": "Smart Account Detail",
+  "description": "View the details of your Smart Account, including current balances and recent transaction history.",
+  "labels": {
+    "smartAccountId": "Smart Account ID",
+    "availableBalance": "Available balance",
+    "balanceSynced": "Balance synced {{time}}",
+    "balanceNotSynced": "Balance not synced yet",
+    "address": "Address",
+    "owner": "Owner",
+    "slug": "Slug",
+    "chain": "Chain",
+    "chainId": "Chain ID",
+    "saltIndex": "Salt index",
+    "createdAt": "Created",
+    "transactions": "Transactions",
+    "transactionsDescription": "Every transfer in and out of this Smart Account.",
+    "thisAccount": "This account"
+  },
+  "placeholder": {
+    "search": "Search by ID, tx hash or address",
+    "dateRange": "Date range"
+  },
+  "filters": {
+    "status": "Status",
+    "token": "Token",
+    "type": "Type"
+  },
+  "table": {
+    "headers": {
+      "txHash": "Transaction Hash",
+      "amount": "Amount",
+      "status": "Status",
+      "date": "Date",
+      "from": "From",
+      "to": "To",
+      "token": "Token",
+      "type": "Type"
+    }
+  },
+  "status": {
+    "confirmed": "Confirmed",
+    "pending": "Pending",
+    "failed": "Failed"
+  },
+  "direction": {
+    "incoming": "Incoming",
+    "outgoing": "Outgoing"
+  },
+  "buttons": {
+    "send": "Send",
+    "receive": "Receive"
+  },
+  "send": {
+    "title": "Send USD8",
+    "description": "Transfer USD8 from this Smart Account to another address.",
+    "fields": {
+      "to": {
+        "label": "Recipient address",
+        "placeholder": "0x…"
+      },
+      "amount": {
+        "label": "Amount"
+      }
+    },
+    "summary": {
+      "balance": "Available balance",
+      "fee": "Network fee (up to)",
+      "total": "Total deducted"
+    },
+    "feeNote": "The network fee is paid in USD8 from this Smart Account.",
+    "notEnoughUsd8": "Not enough USD8 to cover the transaction gas fee. Please topup USD8 into your smart account.",
+    "submit": "Send USD8",
+    "submitting": "Sending…",
+    "errors": {
+      "invalidAddress": "Enter a valid wallet address.",
+      "amountRequired": "Enter an amount greater than 0.",
+      "amountTooHigh": "Amount exceeds the maximum you can send ({{max}} USD8)."
+    },
+    "messages": {
+      "sent": "Sent. The transfer will appear in the table in about a minute.",
+      "failed": "Could not send USD8. Please try again.",
+      "walletNotConnected": "Connect your wallet first.",
+      "wrongNetwork": "Switch your wallet to the QDAY network.",
+      "notOwner": "Connect the wallet that owns this Smart Account.",
+      "insufficientBalance": "Not enough USD8 for the amount plus the network fee.",
+      "accountMismatch": "This Smart Account could not be verified on chain. Reload and try again.",
+      "userOpRejected": "The network rejected this transfer. Please refresh the page and try again.",
+      "userOpFailed": "The transfer was rejected on chain. No USD8 was sent.",
+      "bundlerUnavailable": "Could not reach the transaction service. Please try again later.",
+      "confirmTimeout": "The transfer was sent but is not confirmed yet. Check the table in a few minutes.",
+      "sessionExpired": "Your session has expired. Please sign in again and retry."
+    }
+  },
+  "receive": {
+    "title": "Receive USD8",
+    "description": "Scan the QR code or share the address below to receive USD8 into this Smart Account.",
+    "qrAlt": "QR code of the Smart Account address",
+    "addressLabel": "Smart Account address",
+    "networkNote": "Only send USD8 on the QDAY network to this address."
+  }
+}

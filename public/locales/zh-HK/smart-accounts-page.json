@@ -1,0 +1,165 @@
+{
+  "title": "智能帳戶",
+  "description": "管理你的智能帳戶及其設定。",
+  "buttons": {
+    "createSmartAccount": "建立智能帳戶",
+    "disconnect": "中斷連接",
+    "cancel": "取消",
+    "create": "建立",
+    "rename": "重新命名",
+    "save": "儲存",
+    "delete": "刪除",
+    "creating": "建立中⋯",
+    "retry": "重試"
+  },
+  "emptyState": {
+    "notConnectedTitle": "連接錢包以查看你的智能帳戶",
+    "notConnectedDescription": "智能帳戶由你的錢包建立並屬於你的錢包。連接錢包即可查看餘額及管理帳戶。",
+    "usdcNotSupported": "USDC 智能帳戶暫未推出（MVP）。"
+  },
+  "token": {
+    "usd8": {
+      "activeNote": "使用中 · QDay Chain"
+    },
+    "usdc": {
+      "disabledNote": "稍後部署 · Base"
+    }
+  },
+  "limit": {
+    "reachedMessage": "此商戶及環境的智能帳戶已達 {{limit}} 個上限。",
+    "usage": "{{used}} / {{limit}} 個智能帳戶"
+  },
+  "labels": {
+    "smart-accounts": "智能帳戶",
+    "track-smart-accounts-information-and-their-balances": "追蹤智能帳戶的資料及餘額。",
+    "selectToken": "選擇代幣",
+    "availableBalance": "可用餘額"
+  },
+  "table": {
+    "headers": {
+      "name": "帳戶名稱",
+      "slug": "代稱",
+      "address": "地址",
+      "balance": "餘額",
+      "status": "狀態",
+      "action": "操作",
+      "date": "创建于"
+    }
+  },
+  "status": {
+    "active": "使用中",
+    "unavailable": "暫未推出",
+    "creating": "建立中",
+    "failed": "失敗",
+    "failedRetryable": "部署失敗，你可以重試。",
+    "failedFinal": "部署失敗且無法重試。請刪除並建立新的智能帳戶。"
+  },
+  "createModal": {
+    "title": "建立智能帳戶",
+    "description": "在 QDay Chain 上部署新的 USD8 智能帳戶。",
+    "fields": {
+      "name": {
+        "label": "帳戶名稱",
+        "placeholder": "例如：主要商店錢包"
+      },
+      "owner": {
+        "label": "擁有者",
+        "placeholder": "連接錢包以自動填寫"
+      },
+      "slug": {
+        "label": "代稱：{{name}}"
+      }
+    },
+    "feeEstimateNote": "建立費用約 3 USD8（估算，由你的錢包支付）。",
+    "errors": {
+      "slugConflict": "此名稱已被使用，請選擇其他名稱。"
+    },
+    "steps": {
+      "intro": "按「建立」後，你將完成以下步驟：",
+      "running": "正在建立智能帳戶，請保持此視窗開啟。",
+      "walletPrompt": "請開啟錢包以繼續",
+      "reserving": {
+        "title": "預留帳戶名稱",
+        "description": "輸入 Google Authenticator 驗證碼後進行檢查。"
+      },
+      "signing": {
+        "title": "在錢包中簽署",
+        "description": "批准帳戶設定。簽署不需支付 Gas 費。"
+      },
+      "funding": {
+        "title": "加入 USD8 作 Gas 費",
+        "description": "由你現有的帳戶轉出少量 USD8 到新帳戶，用作支付 Gas 費。若新帳戶已有足夠餘額則會略過。"
+      },
+      "submitting": {
+        "title": "送出請求",
+        "description": "系統會記錄部署，並追蹤至帳戶啟用為止。"
+      }
+    },
+    "notSponsoredNote": "你的第一個智能帳戶免費。此帳戶不受資助：網絡費用以 USD8 支付，因此會先從 {{source}} 轉約 {{amount}} USD8 到新帳戶，未用完的部分會留在新帳戶。",
+    "notEnoughUsd8": "USD8 不足以支付新智能帳戶的網絡費用。你的其中一個智能帳戶需至少有 {{amount}} USD8，請先存入 USD8。"
+  },
+  "renameModal": {
+    "fields": {
+      "name": {
+        "label": "帳戶名稱"
+      }
+    },
+    "errors": {
+      "slugConflict": "此名稱已被使用，請選擇其他名稱。"
+    }
+  },
+  "deleteModal": {
+    "title": "刪除智能帳戶",
+    "description": "確定要刪除「{{name}}」嗎？鏈上地址會保持部署狀態，但將無法再於入口網站中管理。",
+    "errors": {
+      "catalogInUse": "無法刪除：此地址仍被你產品目錄的 payTo 使用。"
+    }
+  },
+  "detail": {
+    "balanceLabel": "USD8 餘額",
+    "tx": {
+      "title": "交易",
+      "filters": {
+        "all": "所有智能帳戶"
+      },
+      "headers": {
+        "timestamp": "時間",
+        "smartAccount": "智能帳戶",
+        "direction": "方向",
+        "amount": "金額",
+        "txHash": "交易雜湊",
+        "status": "狀態"
+      },
+      "direction": {
+        "incoming": "轉入",
+        "outgoing": "轉出"
+      },
+      "status": {
+        "confirmed": "已確認",
+        "pending": "處理中",
+        "failed": "失敗"
+      }
+    }
+  },
+  "messages": {
+    "deployFailed": "部署失敗或已取消，請再試一次。",
+    "renameSuccess": "已成功重新命名智能帳戶。",
+    "deleteSuccess": "已成功刪除智能帳戶。",
+    "walletNotConnected": "建立智能帳戶前，請先連接錢包。",
+    "wrongNetwork": "請先將您的錢包切換至 QDay 網絡，然後再繼續。",
+    "deployRequested": "請求已送出。你的智能帳戶正在建立，可在表格中查看進度。",
+    "retryRequested": "已要求重試，正在重新送出部署。",
+    "accountAlreadyDeployed": "此地址已存在於鏈上，請再試一次，系統將使用新地址。",
+    "noFundingSource": "請先在其中一個智能帳戶存入 USD8，它將用於支付新帳戶的網絡費用。"
+  },
+  "confirmModal": {
+    "retry": {
+      "title": "重試部署",
+      "description": "要重試建立「{{name}}」嗎？系統會重新送出部署。"
+    },
+    "delete": {
+      "title": "刪除智能帳戶",
+      "description": "要刪除「{{name}}」嗎？其部署失敗且無法重試，鏈上尚無任何內容。"
+    }
+  }
+}

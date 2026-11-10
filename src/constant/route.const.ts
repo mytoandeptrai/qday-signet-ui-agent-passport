@@ -1,0 +1,17 @@
+export const ROUTES = {
+  HOME: '/',
+  LOGIN: '/login',
+  OVERVIEW: '/overview',
+  ACTIVITY: '/activity',
+  EXPLORE: '/explore',
+  SESSIONS: '/sessions',
+  CREATE_SESSION: '/create-session',
+  DEPOSIT: '/deposit',
+  VOUCHERS: '/vouchers',
+  SETTINGS: '/settings',
+  ECOSYSTEM: '/ecosystem',
+  APPROVE: '/agent-session/approve',
+  DECIDE: '/agent-escalation/decide',
+  TERMS: '/terms',
+  PRIVACY: '/privacy',
+} as const;

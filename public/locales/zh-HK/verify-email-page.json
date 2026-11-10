@@ -1,0 +1,7 @@
+{
+  "title": "感謝你的註冊",
+  "description": "我們已發送電郵以啟用你的帳戶，請按電郵中的連結完成啟用。",
+  "buttons": {
+    "resend-verification": "重新發送驗證電郵"
+  }
+}

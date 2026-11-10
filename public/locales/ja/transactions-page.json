@@ -1,0 +1,79 @@
+{
+  "title": "取引",
+  "description": "支払いと払い出しのすべての取引を確認・管理します。",
+  "tabs": {
+    "payments": "支払い",
+    "payouts": "払い出し",
+    "allActivity": "すべてのアクティビティ"
+  },
+  "table": {
+    "headers": {
+      "id": "ID",
+      "type": "種類",
+      "relatedType": "関連種類",
+      "relatedId": "関連 ID",
+      "status": "ステータス",
+      "chain": "チェーン",
+      "chainId": "チェーン ID",
+      "txHash": "取引ハッシュ",
+      "smartContract": "スマートコントラクト",
+      "blockNumber": "ブロック番号",
+      "confirmations": "承認数",
+      "amount": "金額",
+      "crypto": "暗号資産",
+      "fromAddress": "送信元アドレス",
+      "toAddress": "送信先アドレス",
+      "blockTimestamp": "ブロックタイムスタンプ",
+      "firstSeenAt": "初回検出日時",
+      "date": "承認日時",
+      "updatedAt": "更新日時",
+      "network": "ネットワーク",
+      "createdAt": "作成日時"
+    }
+  },
+  "filters": {
+    "search": {
+      "placeholder": "取引ハッシュで取引を検索"
+    },
+    "status": {
+      "label": "ステータス",
+      "placeholder": "ステータスを選択"
+    },
+    "chain": {
+      "label": "チェーン",
+      "placeholder": "チェーンを選択"
+    },
+    "crypto": {
+      "label": "暗号資産",
+      "placeholder": "暗号資産を選択"
+    },
+    "dateRange": {
+      "label": "期間",
+      "placeholder": "作成日の範囲を選択"
+    },
+    "network": {
+      "label": "ネットワーク",
+      "placeholder": "ネットワークを選択"
+    }
+  },
+  "status": {
+    "all": "すべて",
+    "pending": "保留中",
+    "confirming": "承認中",
+    "confirmed": "承認済み",
+    "failed": "失敗"
+  },
+  "types": {
+    "all": "すべて",
+    "PAYMENT": "支払い",
+    "PAYOUT": "払い出し"
+  },
+  "labels": {
+    "status": "ステータス",
+    "type": "種類"
+  },
+  "placeholder": {
+    "search": "取引ハッシュで取引を検索",
+    "dateRange": "作成日の範囲を選択"
+  }
+}

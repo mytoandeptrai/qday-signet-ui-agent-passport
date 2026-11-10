@@ -1,0 +1,96 @@
+{
+  "title": "商戶設定",
+  "description": "管理你的商戶資料及產品目錄。",
+  "businessProfile": {
+    "title": "商戶資料",
+    "fields": {
+      "name": {
+        "label": "商戶名稱"
+      },
+      "email": {
+        "label": "商戶電郵"
+      }
+    }
+  },
+  "addBusiness": {
+    "buttonLabel": "新增商戶",
+    "dialog": {
+      "title": "建立新商戶",
+      "description": "為你的商店或 API 服務設立新的工作區。"
+    },
+    "fields": {
+      "name": {
+        "label": "商戶名稱",
+        "placeholder": "例如：Acme AI Services"
+      },
+      "email": {
+        "label": "商戶電郵",
+        "placeholder": "receipts@acme.com"
+      }
+    },
+    "buttons": {
+      "create": "建立商戶"
+    }
+  },
+  "bazaar": {
+    "title": "Bazaar Discovery Service",
+    "description": "匯入並同步你的產品目錄。",
+    "validationErrorsTitle": "無法上載 CSV 檔案：",
+    "rowLabel": "第 {{row}} 行：",
+    "downloadTemplate": "下載 CSV 範例"
+  },
+  "catalogTable": {
+    "headers": {
+      "productId": "產品 ID",
+      "name": "名稱",
+      "category": "分類",
+      "tags": "標籤",
+      "price": "價格",
+      "acceptedPayments": "接受付款方式",
+      "acceptedLocations": "接受地區",
+      "bannedLocations": "封鎖地區",
+      "availableFrom": "開始提供時間",
+      "availableUntil": "結束提供時間",
+      "fulfillmentType": "履行方式",
+      "httpMethod": "HTTP 方法",
+      "endpointUrl": "x402 端點 URL"
+    },
+    "values": {
+      "anyLocation": "不限地區"
+    },
+    "fulfillmentTypes": {
+      "shipping": "送貨",
+      "digital_download": "數碼下載",
+      "process_execution": "流程執行"
+    }
+  },
+  "publishHistoryTable": {
+    "title": "發佈記錄",
+    "description": "查看及管理產品目錄的發佈記錄。",
+    "retryButton": "重試",
+    "headers": {
+      "publishedAt": "發佈時間",
+      "productCount": "產品",
+      "status": "狀態",
+      "error": "錯誤",
+      "actions": "操作"
+    }
+  },
+  "status": {
+    "success": "成功",
+    "failed": "失敗",
+    "pending": "處理中"
+  },
+  "messages": {
+    "updateSuccess": "已成功更新商戶資料。",
+    "createBusinessSuccess": "已成功建立商戶。",
+    "uploadSuccess": "已上載產品目錄，正在發佈至 Bazaar。",
+    "uploadValidationFailed": "CSV 檔案有驗證錯誤。",
+    "retrySuccess": "已成功重試發佈。",
+    "retryFailed": "重試失敗，請再試一次。",
+    "templateDownloaded": "已下載 CSV 範例。",
+    "retryQueued": "已將發佈重試加入佇列。",
+    "noSmartAccount": "上載產品目錄前，請先建立至少一個智能帳戶。",
+    "fileTooLarge": "檔案超過 5MB 上限。"
+  }
+}

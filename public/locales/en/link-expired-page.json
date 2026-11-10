@@ -1,0 +1,10 @@
+{
+  "title": "Confirmation Link Expired",
+  "title-reset-password": "Reset Link Expired",
+  "description": "The verification link has expired. To verify your email address, please find the latest verification email in your mailbox.",
+  "description-reset-password": "This password reset link has expired or is no longer valid. Request a new link to reset your password.",
+  "buttons": {
+    "resend-verification": "Resend Verification",
+    "resend-reset-password": "Resend Reset Link"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "title": "SDK とドキュメント",
+  "description": "QDay で開発を始めるために必要なものがすべて揃っています。",
+  "buttons": {
+    "download": "ダウンロード"
+  },
+  "labels": {
+    "installation": "インストール",
+    "selectSdk": "SDK を選択",
+    "packageManager": "パッケージマネージャー"
+  },
+  "states": {
+    "listError": {
+      "title": "SDK を読み込めませんでした",
+      "description": "ページを再読み込みして、もう一度お試しください。"
+    },
+    "docError": {
+      "title": "この SDK のドキュメントはまだありません",
+      "description": "別の SDK を選択するか、次回のリリース後にもう一度ご確認ください。"
+    }
+  }
+}

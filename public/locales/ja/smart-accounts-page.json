@@ -1,0 +1,165 @@
+{
+  "title": "スマートアカウント",
+  "description": "スマートアカウントとその設定を管理します。",
+  "buttons": {
+    "createSmartAccount": "スマートアカウントを作成",
+    "disconnect": "接続を解除",
+    "cancel": "キャンセル",
+    "create": "作成",
+    "rename": "名前を変更",
+    "save": "保存",
+    "delete": "削除",
+    "creating": "作成中…",
+    "retry": "再試行"
+  },
+  "emptyState": {
+    "notConnectedTitle": "スマートアカウントを表示するにはウォレットを接続してください",
+    "notConnectedDescription": "スマートアカウントはウォレットによって作成され、ウォレットに紐づいています。ウォレットを接続すると、残高の確認やアカウントの管理ができます。",
+    "usdcNotSupported": "USDC のスマートアカウントはまだ利用できません（MVP）。"
+  },
+  "token": {
+    "usd8": {
+      "activeNote": "有効 · QDay Chain"
+    },
+    "usdc": {
+      "disabledNote": "後日デプロイ · Base"
+    }
+  },
+  "limit": {
+    "reachedMessage": "このビジネスと環境で作成できるスマートアカウントの上限（{{limit}} 件）に達しました。",
+    "usage": "{{used}} / {{limit}} スマートアカウント"
+  },
+  "labels": {
+    "smart-accounts": "スマートアカウント",
+    "track-smart-accounts-information-and-their-balances": "スマートアカウントの情報と残高を確認できます。",
+    "selectToken": "トークンを選択",
+    "availableBalance": "利用可能残高"
+  },
+  "table": {
+    "headers": {
+      "name": "アカウント名",
+      "slug": "スラッグ",
+      "address": "アドレス",
+      "balance": "残高",
+      "status": "ステータス",
+      "action": "操作",
+      "date": "作成日時"
+    }
+  },
+  "status": {
+    "active": "有効",
+    "unavailable": "未対応",
+    "creating": "作成中",
+    "failed": "失敗",
+    "failedRetryable": "デプロイに失敗しました。再試行できます。",
+    "failedFinal": "デプロイに失敗し、再試行できません。削除して新しいスマートアカウントを作成してください。"
+  },
+  "createModal": {
+    "title": "スマートアカウントを作成",
+    "description": "QDay Chain に新しい USD8 スマートアカウントをデプロイします。",
+    "fields": {
+      "name": {
+        "label": "アカウント名",
+        "placeholder": "例：メインストア用ウォレット"
+      },
+      "owner": {
+        "label": "所有者",
+        "placeholder": "ウォレットを接続すると自動入力されます"
+      },
+      "slug": {
+        "label": "スラッグ：{{name}}"
+      }
+    },
+    "feeEstimateNote": "作成手数料は約 3 USD8 です（概算、ウォレットから支払い）。",
+    "errors": {
+      "slugConflict": "この名前はすでに使用されています。別の名前を選択してください。"
+    },
+    "steps": {
+      "intro": "「作成」をクリックすると、次の手順が実行されます：",
+      "running": "スマートアカウントを作成しています。このウィンドウを開いたままにしてください。",
+      "walletPrompt": "続行するにはウォレットを開いてください",
+      "reserving": {
+        "title": "アカウント名を予約",
+        "description": "Google Authenticator のコードを入力した後に確認されます。"
+      },
+      "signing": {
+        "title": "ウォレットで署名",
+        "description": "アカウントの設定を承認します。署名にガス代はかかりません。"
+      },
+      "funding": {
+        "title": "ガス代用の USD8 を追加",
+        "description": "ガス代の支払いに使うため、既存のアカウントから新しいアカウントへ少額の USD8 を送ります。新しいアカウントに十分な残高がある場合はスキップされます。"
+      },
+      "submitting": {
+        "title": "リクエストを送信",
+        "description": "システムがデプロイを記録し、アカウントが有効になるまで追跡します。"
+      }
+    },
+    "notSponsoredNote": "最初のスマートアカウントは無料です。このアカウントはスポンサー対象外で、ネットワーク手数料は USD8 で支払います。先に {{source}} から約 {{amount}} USD8 を新しいアカウントへ移します。手数料で使われなかった分は新しいアカウントに残ります。",
+    "notEnoughUsd8": "新しいスマートアカウントのネットワーク手数料を支払う USD8 が不足しています。いずれかのスマートアカウントに {{amount}} USD8 以上が必要です。先に USD8 を入金してください。"
+  },
+  "renameModal": {
+    "fields": {
+      "name": {
+        "label": "アカウント名"
+      }
+    },
+    "errors": {
+      "slugConflict": "この名前はすでに使用されています。別の名前を選択してください。"
+    }
+  },
+  "deleteModal": {
+    "title": "スマートアカウントを削除",
+    "description": "「{{name}}」を削除してもよろしいですか？オンチェーンのアドレスはデプロイされたまま残りますが、ポータルでは管理できなくなります。",
+    "errors": {
+      "catalogInUse": "削除できません。このアドレスは商品カタログの payTo で引き続き参照されています。"
+    }
+  },
+  "detail": {
+    "balanceLabel": "USD8 残高",
+    "tx": {
+      "title": "取引",
+      "filters": {
+        "all": "すべてのスマートアカウント"
+      },
+      "headers": {
+        "timestamp": "日時",
+        "smartAccount": "スマートアカウント",
+        "direction": "入出金",
+        "amount": "金額",
+        "txHash": "取引ハッシュ",
+        "status": "ステータス"
+      },
+      "direction": {
+        "incoming": "入金",
+        "outgoing": "出金"
+      },
+      "status": {
+        "confirmed": "承認済み",
+        "pending": "保留中",
+        "failed": "失敗"
+      }
+    }
+  },
+  "messages": {
+    "deployFailed": "デプロイに失敗したか、キャンセルされました。もう一度お試しください。",
+    "renameSuccess": "スマートアカウントの名前を変更しました。",
+    "deleteSuccess": "スマートアカウントを削除しました。",
+    "walletNotConnected": "スマートアカウントを作成する前に、ウォレットを接続してください。",
+    "wrongNetwork": "続行する前に、ウォレットをQDayネットワークに切り替えてください。",
+    "deployRequested": "リクエストを送信しました。スマートアカウントを作成中です。一覧で進捗を確認できます。",
+    "retryRequested": "再試行を受け付けました。デプロイを再送信しています。",
+    "accountAlreadyDeployed": "このアドレスは既にチェーン上に存在します。もう一度お試しください。新しいアドレスが使用されます。",
+    "noFundingSource": "先にいずれかのスマートアカウントへ USD8 を入金してください。新しいアカウントのネットワーク手数料に使われます。"
+  },
+  "confirmModal": {
+    "retry": {
+      "title": "デプロイを再試行",
+      "description": "「{{name}}」の作成を再試行しますか？システムがデプロイを再送信します。"
+    },
+    "delete": {
+      "title": "スマートアカウントを削除",
+      "description": "「{{name}}」を削除しますか？デプロイに失敗し再試行できないため、チェーン上には何も存在しません。"
+    }
+  }
+}

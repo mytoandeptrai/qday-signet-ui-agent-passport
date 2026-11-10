@@ -1,0 +1,96 @@
+{
+  "title": "Tetapan perniagaan",
+  "description": "Urus profil perniagaan dan katalog produk anda.",
+  "businessProfile": {
+    "title": "Profil perniagaan",
+    "fields": {
+      "name": {
+        "label": "Nama perniagaan"
+      },
+      "email": {
+        "label": "E-mel perniagaan"
+      }
+    }
+  },
+  "addBusiness": {
+    "buttonLabel": "Tambah perniagaan baharu",
+    "dialog": {
+      "title": "Cipta perniagaan baharu",
+      "description": "Sediakan ruang kerja baharu untuk kedai atau perkhidmatan API anda."
+    },
+    "fields": {
+      "name": {
+        "label": "Nama perniagaan",
+        "placeholder": "cth., Acme AI Services"
+      },
+      "email": {
+        "label": "E-mel perniagaan",
+        "placeholder": "receipts@acme.com"
+      }
+    },
+    "buttons": {
+      "create": "Cipta perniagaan"
+    }
+  },
+  "bazaar": {
+    "title": "Bazaar Discovery Service",
+    "description": "Import dan segerakkan katalog produk anda.",
+    "validationErrorsTitle": "Fail CSV tidak dapat dimuat naik:",
+    "rowLabel": "Baris {{row}}:",
+    "downloadTemplate": "Muat turun contoh CSV"
+  },
+  "catalogTable": {
+    "headers": {
+      "productId": "ID produk",
+      "name": "Nama",
+      "category": "Kategori",
+      "tags": "Tag",
+      "price": "Harga",
+      "acceptedPayments": "Pembayaran diterima",
+      "acceptedLocations": "Lokasi dibenarkan",
+      "bannedLocations": "Lokasi disekat",
+      "availableFrom": "Tersedia dari",
+      "availableUntil": "Tersedia sehingga",
+      "fulfillmentType": "Jenis penyempurnaan",
+      "httpMethod": "Kaedah HTTP",
+      "endpointUrl": "URL endpoint x402"
+    },
+    "values": {
+      "anyLocation": "Semua lokasi"
+    },
+    "fulfillmentTypes": {
+      "shipping": "Penghantaran",
+      "digital_download": "Muat turun digital",
+      "process_execution": "Pelaksanaan proses"
+    }
+  },
+  "publishHistoryTable": {
+    "title": "Sejarah penerbitan",
+    "description": "Lihat dan urus sejarah penerbitan katalog produk anda.",
+    "retryButton": "Cuba semula",
+    "headers": {
+      "publishedAt": "Diterbitkan pada",
+      "productCount": "Produk",
+      "status": "Status",
+      "error": "Ralat",
+      "actions": "Tindakan"
+    }
+  },
+  "status": {
+    "success": "Berjaya",
+    "failed": "Gagal",
+    "pending": "Belum selesai"
+  },
+  "messages": {
+    "updateSuccess": "Profil perniagaan berjaya dikemas kini.",
+    "createBusinessSuccess": "Perniagaan berjaya dicipta.",
+    "uploadSuccess": "Katalog produk dimuat naik. Penerbitan ke Bazaar sedang dijalankan.",
+    "uploadValidationFailed": "Fail CSV mengandungi ralat pengesahan.",
+    "retrySuccess": "Penerbitan berjaya dicuba semula.",
+    "retryFailed": "Cubaan semula gagal. Sila cuba lagi.",
+    "templateDownloaded": "Contoh CSV dimuat turun.",
+    "retryQueued": "Cubaan semula penerbitan dalam giliran.",
+    "noSmartAccount": "Cipta sekurang-kurangnya satu Akaun Pintar sebelum memuat naik katalog produk.",
+    "fileTooLarge": "Saiz fail melebihi had 5MB."
+  }
+}

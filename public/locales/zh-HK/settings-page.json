@@ -1,0 +1,152 @@
+{
+  "setting": {
+    "title": "設定",
+    "description": "設定及管理你的帳戶偏好。",
+    "profile": {
+      "title": "個人資料設定",
+      "description": "更新你的個人資料、電郵、密碼及頭像。"
+    },
+    "system": {
+      "title": "系統設定",
+      "description": "管理系統偏好，包括語言及安全選項。"
+    }
+  },
+  "profile": {
+    "title": "個人資料設定",
+    "description": "更新你的個人資料、電郵、密碼及頭像。",
+    "password": {
+      "title": "密碼設定",
+      "description": "更新你的密碼",
+      "fields": {
+        "new-password": {
+          "label": "新密碼",
+          "placeholder": "輸入你的新密碼"
+        },
+        "confirmNewPassword": {
+          "label": "確認新密碼",
+          "placeholder": "再次輸入你的新密碼"
+        }
+      }
+    },
+    "personal": {
+      "title": "個人資料",
+      "description": "更新你的個人資料",
+      "fields": {
+        "fullName": {
+          "label": "全名",
+          "placeholder": "輸入你的全名"
+        },
+        "email": {
+          "label": "電郵",
+          "placeholder": "輸入你的電郵"
+        }
+      }
+    },
+    "avatar": {
+      "title": "個人頭像",
+      "description": "更新你的個人頭像"
+    },
+    "errors": {
+      "MSG-1.3": "全名不得超過 100 個字元。",
+      "MSG-1.4": "全名不可包含數字。",
+      "MSG-1.5": "全名不可包含特殊字元。",
+      "MSG-1.10": "電郵格式無效。",
+      "MSG-1.14": "新密碼長度須介乎 8 至 50 個字元。",
+      "MSG-1.15": "須包含至少 1 個大寫字母、小寫字母、數字及符號。",
+      "MSG-1.19": "新密碼不可包含空格。",
+      "MSG-1.20": "密碼不相符。",
+      "MSG-1.21": "新密碼不可與舊密碼相同。"
+    },
+    "validation": {
+      "required": "此欄位為必填",
+      "minLength": "最少須輸入 {{min}} 個字元",
+      "maxLength": "最多可輸入 {{max}} 個字元",
+      "passwordMatch": "密碼不相符",
+      "invalidFormat": "格式無效"
+    },
+    "buttons": {
+      "update-password": "更新密碼",
+      "update-personal-information": "更新個人資料",
+      "update-avatar": "儲存頭像"
+    },
+    "messages": {
+      "update-profile-success": "已成功更新個人資料"
+    }
+  },
+  "system": {
+    "title": "系統設定",
+    "description": "管理系統偏好，包括語言及安全選項。",
+    "labels": {
+      "theme": {
+        "title": "主題",
+        "description": "選擇介面在此裝置上的外觀。"
+      },
+      "languages": {
+        "title": "語言",
+        "description": "選擇你在系統中使用的語言。"
+      },
+      "currencies": {
+        "title": "貨幣",
+        "description": "選擇你在系統中使用的貨幣。",
+        "placeholder": "選擇貨幣"
+      },
+      "security": {
+        "title": "安全",
+        "description": "管理你的安全設定，包括密碼及雙重認證。"
+      },
+      "two-fa": {
+        "title": "雙重認證",
+        "description": "為你的帳戶啟用或停用雙重認證。",
+        "steps": {
+          "1": "下載應用程式",
+          "2": "掃描 QR 碼",
+          "3": "儲存備用金鑰",
+          "4": "完成"
+        },
+        "labels": {
+          "2fa": "2FA",
+          "authenticator-disabled": "你尚未啟用 Google Authenticator",
+          "authenticator-enabled": "你已啟用 Google Authenticator",
+          "requesting-disable-2fa": "你移除 Google Authenticator 的請求正在等待批核",
+          "enable-google-authentication": "啟用 Google 驗證",
+          "instruction1": "下載並安裝 Google Authenticator 應用程式",
+          "instruction2": "使用 Google Authenticator 掃描此 QR 碼",
+          "instruction3": "請儲存此金鑰作備用",
+          "step2-message": "如無法掃描 QR 碼，<br/>請在應用程式中手動輸入此代碼。",
+          "step3-message": "此金鑰可作為備用方式，<br/>讓你恢復 Google Authenticator。",
+          "step4-message": "你已啟用 Google Authenticator。",
+          "qr-code": "QR 碼"
+        },
+        "remove-modal": {
+          "title": "移除雙重認證",
+          "description": "確定要移除雙重認證嗎？此操作無法復原。",
+          "fields": {
+            "password": {
+              "label": "密碼",
+              "placeholder": "輸入你的密碼"
+            }
+          },
+          "errors": {
+            "MSG-1.14": "密碼長度須介乎 8 至 50 個字元。",
+            "MSG-1.15": "須包含至少 1 個大寫字母、小寫字母、數字及符號。",
+            "MSG-1.19": "密碼不可包含空格。",
+            "MSG-1.20": "密碼不相符。"
+          },
+          "validation": {
+            "required": "此欄位為必填",
+            "minLength": "最少須輸入 {{min}} 個字元",
+            "maxLength": "最多可輸入 {{max}} 個字元",
+            "passwordMatch": "密碼不相符",
+            "invalidFormat": "格式無效"
+          }
+        }
+      }
+    },
+    "buttons": {
+      "update-language": "更新語言",
+      "update-security": "更新安全設定",
+      "enable-two-fa": "啟用 2FA",
+      "remove-two-fa": "移除 2FA"
+    }
+  }
+}

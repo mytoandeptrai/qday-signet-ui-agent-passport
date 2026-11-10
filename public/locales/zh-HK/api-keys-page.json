@@ -1,0 +1,88 @@
+{
+  "title": "API 金鑰",
+  "description": "管理用於驗證 QDay API 請求的憑證。",
+  "banner": {
+    "message": "請妥善保管 API 金鑰。將其存放於環境變數中，切勿提交至原始碼管理系統。"
+  },
+  "table": {
+    "headers": {
+      "name": "金鑰名稱",
+      "keyPrefix": "金鑰前綴",
+      "environment": "環境",
+      "createdAt": "建立日期",
+      "expiresAt": "到期日",
+      "status": "狀態",
+      "actions": "操作"
+    }
+  },
+  "filters": {
+    "environment": {
+      "label": "環境",
+      "placeholder": "選擇環境"
+    },
+    "status": {
+      "label": "狀態",
+      "placeholder": "選擇狀態"
+    },
+    "dateRange": {
+      "label": "建立日期",
+      "placeholder": "選擇建立日期範圍"
+    }
+  },
+  "placeholder": {
+    "search": "按金鑰名稱搜尋"
+  },
+  "environment": {
+    "sandbox": "沙盒環境",
+    "production": "正式環境"
+  },
+  "status": {
+    "active": "使用中",
+    "revoked": "已撤銷"
+  },
+  "buttons": {
+    "createKey": "建立金鑰",
+    "copy": "複製",
+    "done": "完成",
+    "revoke": "撤銷",
+    "cancel": "取消",
+    "create": "建立"
+  },
+  "createModal": {
+    "title": "建立 API 金鑰",
+    "description": "為你的整合建立新的 API 金鑰。",
+    "fields": {
+      "name": {
+        "label": "金鑰名稱",
+        "placeholder": "例如：API Key for Payments"
+      },
+      "environment": {
+        "label": "環境",
+        "placeholder": "選擇環境"
+      }
+    }
+  },
+  "revokeModal": {
+    "title": "撤銷 API 金鑰",
+    "description": "確定要撤銷「{{name}}」嗎？此操作無法復原，所有使用此金鑰的請求將會失敗。"
+  },
+  "secretModal": {
+    "title": "已建立 API 金鑰",
+    "description": "請立即複製密鑰。基於安全理由，密鑰不會再次顯示。",
+    "warning": "關閉前請確保已複製此密鑰。之後將無法再次查看。",
+    "fields": {
+      "keyId": {
+        "label": "金鑰 ID"
+      },
+      "secret": {
+        "label": "密鑰"
+      }
+    }
+  },
+  "messages": {
+    "createSuccess": "已成功建立 API 金鑰",
+    "revokeSuccess": "已成功撤銷 API 金鑰",
+    "copySuccess": "已複製金鑰前綴至剪貼簿",
+    "secretCopySuccess": "已複製密鑰至剪貼簿"
+  }
+}

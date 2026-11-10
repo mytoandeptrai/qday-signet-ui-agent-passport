@@ -1,0 +1,96 @@
+{
+  "title": "ビジネス設定",
+  "description": "ビジネスプロフィールと商品カタログを管理します。",
+  "businessProfile": {
+    "title": "ビジネスプロフィール",
+    "fields": {
+      "name": {
+        "label": "ビジネス名"
+      },
+      "email": {
+        "label": "ビジネス用メールアドレス"
+      }
+    }
+  },
+  "addBusiness": {
+    "buttonLabel": "ビジネスを追加",
+    "dialog": {
+      "title": "ビジネスを新規作成",
+      "description": "ストアまたは API サービス用の新しいワークスペースを設定します。"
+    },
+    "fields": {
+      "name": {
+        "label": "ビジネス名",
+        "placeholder": "例：Acme AI Services"
+      },
+      "email": {
+        "label": "ビジネス用メールアドレス",
+        "placeholder": "receipts@acme.com"
+      }
+    },
+    "buttons": {
+      "create": "ビジネスを作成"
+    }
+  },
+  "bazaar": {
+    "title": "Bazaar Discovery Service",
+    "description": "商品カタログをインポートして同期します。",
+    "validationErrorsTitle": "CSV ファイルをアップロードできませんでした：",
+    "rowLabel": "{{row}} 行目：",
+    "downloadTemplate": "CSV のサンプルをダウンロード"
+  },
+  "catalogTable": {
+    "headers": {
+      "productId": "商品 ID",
+      "name": "名前",
+      "category": "カテゴリ",
+      "tags": "タグ",
+      "price": "価格",
+      "acceptedPayments": "対応する支払い方法",
+      "acceptedLocations": "対応地域",
+      "bannedLocations": "対象外地域",
+      "availableFrom": "公開開始日時",
+      "availableUntil": "公開終了日時",
+      "fulfillmentType": "配送/提供方法",
+      "httpMethod": "HTTP メソッド",
+      "endpointUrl": "x402 エンドポイント URL"
+    },
+    "values": {
+      "anyLocation": "すべての地域"
+    },
+    "fulfillmentTypes": {
+      "shipping": "配送",
+      "digital_download": "デジタルダウンロード",
+      "process_execution": "処理実行"
+    }
+  },
+  "publishHistoryTable": {
+    "title": "公開履歴",
+    "description": "商品カタログの公開履歴を確認・管理します。",
+    "retryButton": "再試行",
+    "headers": {
+      "publishedAt": "公開日時",
+      "productCount": "商品数",
+      "status": "ステータス",
+      "error": "エラー",
+      "actions": "操作"
+    }
+  },
+  "status": {
+    "success": "成功",
+    "failed": "失敗",
+    "pending": "保留中"
+  },
+  "messages": {
+    "updateSuccess": "ビジネスプロフィールを更新しました。",
+    "createBusinessSuccess": "ビジネスを作成しました。",
+    "uploadSuccess": "商品カタログをアップロードしました。Bazaar への公開を処理中です。",
+    "uploadValidationFailed": "CSV ファイルに検証エラーがあります。",
+    "retrySuccess": "公開を再試行しました。",
+    "retryFailed": "再試行に失敗しました。もう一度お試しください。",
+    "templateDownloaded": "CSV のサンプルをダウンロードしました。",
+    "retryQueued": "公開の再試行をキューに追加しました。",
+    "noSmartAccount": "商品カタログをアップロードする前に、スマートアカウントを 1 つ以上作成してください。",
+    "fileTooLarge": "ファイルが上限の 5MB を超えています。"
+  }
+}

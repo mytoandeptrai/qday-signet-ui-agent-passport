@@ -1,0 +1,88 @@
+{
+  "title": "API Keys",
+  "description": "Manage credentials used to authenticate requests to the QDay API.",
+  "banner": {
+    "message": "Keep API keys secure. Store them in environment variables and never commit them to source control."
+  },
+  "table": {
+    "headers": {
+      "name": "Key name",
+      "keyPrefix": "Key prefix",
+      "environment": "Environment",
+      "createdAt": "Created",
+      "expiresAt": "Expiration",
+      "status": "Status",
+      "actions": "Actions"
+    }
+  },
+  "filters": {
+    "environment": {
+      "label": "Environment",
+      "placeholder": "Select environment"
+    },
+    "status": {
+      "label": "Status",
+      "placeholder": "Select status"
+    },
+    "dateRange": {
+      "label": "Date Created",
+      "placeholder": "Select created date range"
+    }
+  },
+  "placeholder": {
+    "search": "Search by key name"
+  },
+  "environment": {
+    "sandbox": "Sandbox",
+    "production": "Production"
+  },
+  "status": {
+    "active": "Active",
+    "revoked": "Revoked"
+  },
+  "buttons": {
+    "createKey": "Create key",
+    "copy": "Copy",
+    "done": "Done",
+    "revoke": "Revoke",
+    "cancel": "Cancel",
+    "create": "Create"
+  },
+  "createModal": {
+    "title": "Create API key",
+    "description": "Create a new API key for your integration.",
+    "fields": {
+      "name": {
+        "label": "Key name",
+        "placeholder": "e.g. API Key for Payments"
+      },
+      "environment": {
+        "label": "Environment",
+        "placeholder": "Select environment"
+      }
+    }
+  },
+  "revokeModal": {
+    "title": "Revoke API key",
+    "description": "Are you sure you want to revoke \"{{name}}\"? This action cannot be undone and any requests using this key will fail."
+  },
+  "secretModal": {
+    "title": "API key created",
+    "description": "Copy your secret now — for security reasons, it will not be shown again.",
+    "warning": "Make sure to copy this secret before closing. You won't be able to view it again.",
+    "fields": {
+      "keyId": {
+        "label": "Key ID"
+      },
+      "secret": {
+        "label": "Secret"
+      }
+    }
+  },
+  "messages": {
+    "createSuccess": "API key created successfully",
+    "revokeSuccess": "API key revoked successfully",
+    "copySuccess": "Key prefix copied to clipboard",
+    "secretCopySuccess": "Secret copied to clipboard"
+  }
+}

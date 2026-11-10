@@ -1,0 +1,102 @@
+{
+  "title": "スマートアカウントの詳細",
+  "description": "スマートアカウントの現在の残高や最近の取引履歴など、詳細を確認できます。",
+  "labels": {
+    "smartAccountId": "スマートアカウント ID",
+    "availableBalance": "利用可能残高",
+    "balanceSynced": "残高同期：{{time}}",
+    "balanceNotSynced": "残高はまだ同期されていません",
+    "address": "アドレス",
+    "owner": "所有者",
+    "slug": "スラッグ",
+    "chain": "チェーン",
+    "chainId": "チェーン ID",
+    "saltIndex": "ソルトインデックス",
+    "createdAt": "作成日",
+    "transactions": "取引",
+    "transactionsDescription": "このスマートアカウントのすべての入出金です。",
+    "thisAccount": "このアカウント"
+  },
+  "placeholder": {
+    "search": "ID、取引ハッシュ、アドレスで検索",
+    "dateRange": "期間"
+  },
+  "filters": {
+    "status": "ステータス",
+    "token": "トークン",
+    "type": "種類"
+  },
+  "table": {
+    "headers": {
+      "txHash": "取引ハッシュ",
+      "amount": "金額",
+      "status": "ステータス",
+      "date": "日付",
+      "from": "送信元",
+      "to": "送信先",
+      "token": "トークン",
+      "type": "種類"
+    }
+  },
+  "status": {
+    "confirmed": "承認済み",
+    "pending": "保留中",
+    "failed": "失敗"
+  },
+  "direction": {
+    "incoming": "入金",
+    "outgoing": "出金"
+  },
+  "buttons": {
+    "send": "送金",
+    "receive": "受取"
+  },
+  "send": {
+    "title": "USD8を送金",
+    "description": "このスマートアカウントから別のアドレスへUSD8を送金します。",
+    "fields": {
+      "to": {
+        "label": "受取アドレス",
+        "placeholder": "0x…"
+      },
+      "amount": {
+        "label": "金額"
+      }
+    },
+    "summary": {
+      "balance": "利用可能残高",
+      "fee": "ネットワーク手数料（上限）",
+      "total": "差し引かれる合計"
+    },
+    "feeNote": "ネットワーク手数料は、このスマートアカウントのUSD8から支払われます。",
+    "notEnoughUsd8": "取引のガス代を支払うためのUSD8が不足しています。スマートアカウントにUSD8をチャージしてください。",
+    "submit": "USD8を送金",
+    "submitting": "送金中…",
+    "errors": {
+      "invalidAddress": "有効なウォレットアドレスを入力してください。",
+      "amountRequired": "0より大きい金額を入力してください。",
+      "amountTooHigh": "送金可能な上限（{{max}} USD8）を超えています。"
+    },
+    "messages": {
+      "sent": "送信しました。取引は約1分後に表の一覧に表示されます。",
+      "failed": "USD8を送金できませんでした。もう一度お試しください。",
+      "walletNotConnected": "先にウォレットを接続してください。",
+      "wrongNetwork": "ウォレットをQDAYネットワークに切り替えてください。",
+      "notOwner": "このスマートアカウントの所有者のウォレットを接続してください。",
+      "insufficientBalance": "金額とネットワーク手数料に必要なUSD8が不足しています。",
+      "accountMismatch": "このスマートアカウントをチェーン上で確認できませんでした。再読み込みしてもう一度お試しください。",
+      "userOpRejected": "ネットワークがこの送金を拒否しました。ページを更新してもう一度お試しください。",
+      "userOpFailed": "チェーン上で送金が拒否されました。USD8は送金されていません。",
+      "bundlerUnavailable": "取引サービスに接続できませんでした。しばらくしてからもう一度お試しください。",
+      "confirmTimeout": "送金は送信されましたが、まだ確認されていません。数分後に表を確認してください。",
+      "sessionExpired": "セッションの有効期限が切れました。もう一度ログインして再試行してください。"
+    }
+  },
+  "receive": {
+    "title": "USD8を受け取る",
+    "description": "QRコードをスキャンするか、下のアドレスを共有して、このスマートアカウントでUSD8を受け取ります。",
+    "qrAlt": "スマートアカウントアドレスのQRコード",
+    "addressLabel": "スマートアカウントのアドレス",
+    "networkNote": "このアドレスには、QDAYネットワークのUSD8のみを送ってください。"
+  }
+}

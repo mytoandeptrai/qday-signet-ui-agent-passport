@@ -1,0 +1,102 @@
+{
+  "title": "Butiran Akaun Pintar",
+  "description": "Lihat butiran Akaun Pintar anda, termasuk baki semasa dan sejarah transaksi terkini.",
+  "labels": {
+    "smartAccountId": "ID Akaun Pintar",
+    "availableBalance": "Baki tersedia",
+    "balanceSynced": "Baki disegerakkan {{time}}",
+    "balanceNotSynced": "Baki belum disegerakkan",
+    "address": "Alamat",
+    "owner": "Pemilik",
+    "slug": "Slug",
+    "chain": "Rantaian",
+    "chainId": "ID Rantaian",
+    "saltIndex": "Indeks salt",
+    "createdAt": "Dicipta",
+    "transactions": "Transaksi",
+    "transactionsDescription": "Setiap pemindahan masuk dan keluar Akaun Pintar ini.",
+    "thisAccount": "Akaun ini"
+  },
+  "placeholder": {
+    "search": "Cari mengikut ID, hash tx atau alamat",
+    "dateRange": "Julat tarikh"
+  },
+  "filters": {
+    "status": "Status",
+    "token": "Token",
+    "type": "Jenis"
+  },
+  "table": {
+    "headers": {
+      "txHash": "Hash transaksi",
+      "amount": "Jumlah",
+      "status": "Status",
+      "date": "Tarikh",
+      "from": "Daripada",
+      "to": "Kepada",
+      "token": "Token",
+      "type": "Jenis"
+    }
+  },
+  "status": {
+    "confirmed": "Disahkan",
+    "pending": "Belum selesai",
+    "failed": "Gagal"
+  },
+  "direction": {
+    "incoming": "Masuk",
+    "outgoing": "Keluar"
+  },
+  "buttons": {
+    "send": "Hantar",
+    "receive": "Terima"
+  },
+  "send": {
+    "title": "Hantar USD8",
+    "description": "Pindahkan USD8 daripada Smart Account ini ke alamat lain.",
+    "fields": {
+      "to": {
+        "label": "Alamat penerima",
+        "placeholder": "0x…"
+      },
+      "amount": {
+        "label": "Jumlah"
+      }
+    },
+    "summary": {
+      "balance": "Baki tersedia",
+      "fee": "Yuran rangkaian (maksimum)",
+      "total": "Jumlah ditolak"
+    },
+    "feeNote": "Yuran rangkaian dibayar dalam USD8 daripada Smart Account ini.",
+    "notEnoughUsd8": "USD8 tidak mencukupi untuk menampung yuran gas transaksi. Sila tambah nilai USD8 ke dalam Smart Account anda.",
+    "submit": "Hantar USD8",
+    "submitting": "Menghantar…",
+    "errors": {
+      "invalidAddress": "Masukkan alamat dompet yang sah.",
+      "amountRequired": "Masukkan jumlah lebih daripada 0.",
+      "amountTooHigh": "Jumlah melebihi had maksimum yang boleh dihantar ({{max}} USD8)."
+    },
+    "messages": {
+      "sent": "Dihantar. Pindahan akan muncul dalam jadual dalam masa kira-kira seminit.",
+      "failed": "USD8 tidak dapat dihantar. Sila cuba lagi.",
+      "walletNotConnected": "Sambungkan dompet anda dahulu.",
+      "wrongNetwork": "Tukar dompet anda ke rangkaian QDAY.",
+      "notOwner": "Sambungkan dompet yang memiliki Smart Account ini.",
+      "insufficientBalance": "USD8 tidak mencukupi untuk jumlah ditambah yuran rangkaian.",
+      "accountMismatch": "Smart Account ini tidak dapat disahkan pada rantaian. Muat semula dan cuba lagi.",
+      "userOpRejected": "Rangkaian menolak pindahan ini. Sila muat semula halaman dan cuba lagi.",
+      "userOpFailed": "Pindahan ditolak pada rantaian. Tiada USD8 dihantar.",
+      "bundlerUnavailable": "Tidak dapat menghubungi perkhidmatan transaksi. Sila cuba lagi kemudian.",
+      "confirmTimeout": "Pindahan telah dihantar tetapi belum disahkan. Semak jadual dalam beberapa minit.",
+      "sessionExpired": "Sesi anda telah tamat. Sila log masuk semula dan cuba lagi."
+    }
+  },
+  "receive": {
+    "title": "Terima USD8",
+    "description": "Imbas kod QR atau kongsi alamat di bawah untuk menerima USD8 ke dalam Smart Account ini.",
+    "qrAlt": "Kod QR alamat Smart Account",
+    "addressLabel": "Alamat Smart Account",
+    "networkNote": "Hantar hanya USD8 pada rangkaian QDAY ke alamat ini."
+  }
+}

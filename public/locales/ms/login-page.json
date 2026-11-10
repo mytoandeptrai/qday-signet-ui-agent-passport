@@ -1,0 +1,36 @@
+{
+  "title": "Log masuk",
+  "description": "Log masuk ke akaun anda untuk mula menggunakan platform kami",
+  "labels": {
+    "email": "Alamat e-mel",
+    "password": "Kata laluan",
+    "login": "Log masuk",
+    "forgotPassword": "Lupa kata laluan?",
+    "dontHaveAccount": "Belum mempunyai akaun? Daftar di sini"
+  },
+  "fields": {
+    "email": {
+      "label": "Alamat e-mel",
+      "placeholder": "Masukkan e-mel anda"
+    },
+    "password": {
+      "label": "Kata laluan",
+      "placeholder": "Masukkan kata laluan anda"
+    }
+  },
+  "errors": {
+    "MSG-1.10": "Format e-mel tidak sah.",
+    "MSG-1.14": "Kata laluan mestilah antara 8 hingga 50 aksara.",
+    "MSG-1.15": "Gunakan sekurang-kurangnya 1 huruf besar, huruf kecil, nombor & simbol.",
+    "MSG-1.19": "Kata laluan tidak boleh mengandungi ruang.",
+    "MSG-1.20": "Kata laluan tidak sepadan."
+  },
+  "validation": {
+    "required": "Medan ini wajib diisi",
+    "email": "Sila masukkan alamat e-mel yang sah",
+    "minLength": "Minimum {{min}} aksara diperlukan",
+    "maxLength": "Maksimum {{max}} aksara dibenarkan",
+    "passwordMatch": "Kata laluan tidak sepadan",
+    "invalidFormat": "Format tidak sah"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "title": "Transaksi - {{transactionId}}",
+  "description": "Lihat butiran transaksi",
+  "labels": {
+    "type": "Jenis",
+    "status": "Status",
+    "chain": "Rantaian",
+    "chainId": "ID rangkaian",
+    "txHash": "Hash transaksi",
+    "smartContract": "Kontrak pintar",
+    "blockNumber": "Nombor blok",
+    "confirmations": "Pengesahan",
+    "amount": "Jumlah",
+    "crypto": "Kripto",
+    "fromAddress": "Alamat pengirim",
+    "toAddress": "Alamat penerima",
+    "blockTimestamp": "Cap masa blok",
+    "firstSeenAt": "Pertama dilihat pada",
+    "date": "Disahkan pada",
+    "transaction-overview": "Gambaran keseluruhan transaksi",
+    "blockchain-information": "Maklumat blockchain",
+    "raw-data": "Data mentah",
+    "timeline": "Garis masa",
+    "related": "Berkaitan",
+    "first-seen": "Pertama dilihat pada",
+    "confirmed": "Disahkan pada",
+    "failed": "Gagal pada",
+    "network": "Rangkaian",
+    "created-at": "Dicipta pada",
+    "updated-at": "Dikemas kini pada"
+  },
+  "types": {
+    "all": "Semua",
+    "PAYMENT": "Pembayaran",
+    "PAYOUT": "Pembayaran keluar"
+  },
+  "status": {
+    "all": "Semua",
+    "pending": "Belum selesai",
+    "confirming": "Sedang disahkan",
+    "confirmed": "Disahkan",
+    "failed": "Gagal"
+  }
+}

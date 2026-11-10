@@ -1,0 +1,52 @@
+{
+    "title": "Overview",
+    "description": "Welcome to your dashboard",
+    "get-started": {
+        "eyebrow": "Get started",
+        "title": "Launch your first QDay flow",
+        "progress": "{{completed}}/{{total}} complete",
+        "completed": "Completed",
+        "steps": {
+            "two-fa": "Turn on two-factor authentication",
+            "business": "Fill in business details for '{{name}}'",
+            "smart-account": "Create a Smart Account"
+        },
+        "completed-title": "You're all set",
+        "completed-description": "Your business is ready to accept payments with QDay.",
+        "done-steps": {
+            "two-fa": "Two-factor authentication on",
+            "business": "Business details filled in",
+            "smart-account": "Smart Account created"
+        }
+    },
+    "revenue": {
+        "title": "Revenue Analytics",
+        "description": "Sales performance across your smart accounts.",
+        "all-accounts": "All smart accounts",
+        "account-label": "Smart account",
+        "range-label": "Time range",
+        "ranges": {
+            "7d": "7D",
+            "30d": "30D",
+            "90d": "90D"
+        },
+        "metrics": {
+            "volume": "Sales Volume",
+            "sales": "Number of Sales",
+            "buyers": "Unique Buyers"
+        },
+        "vs-previous": "vs previous {{days}} days",
+        "empty": {
+            "title": "No sales yet",
+            "description": "Sales from your smart accounts will show up here."
+        },
+        "error": {
+            "title": "Revenue couldn't load",
+            "description": "Check your connection, then refresh the page."
+        },
+        "connect": {
+            "title": "Connect your wallet to see revenue",
+            "description": "Revenue is tracked per smart account, and your smart accounts belong to your wallet."
+        }
+    }
+}

@@ -1,0 +1,8 @@
+{
+  "required": "Medan ini wajib diisi",
+  "email": "Sila masukkan alamat e-mel yang sah",
+  "minLength": "Minimum {{min}} aksara diperlukan",
+  "maxLength": "Maksimum {{max}} aksara dibenarkan",
+  "passwordMatch": "Kata laluan tidak sepadan",
+  "invalidFormat": "Format tidak sah"
+}

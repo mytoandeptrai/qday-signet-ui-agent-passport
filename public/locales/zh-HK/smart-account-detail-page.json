@@ -1,0 +1,102 @@
+{
+  "title": "智能帳戶詳情",
+  "description": "查看智能帳戶的詳情，包括目前餘額及近期交易記錄。",
+  "labels": {
+    "smartAccountId": "智能帳戶 ID",
+    "availableBalance": "可用餘額",
+    "balanceSynced": "餘額已於 {{time}} 同步",
+    "balanceNotSynced": "餘額尚未同步",
+    "address": "地址",
+    "owner": "擁有者",
+    "slug": "代稱",
+    "chain": "鏈",
+    "chainId": "鏈 ID",
+    "saltIndex": "Salt 索引",
+    "createdAt": "建立日期",
+    "transactions": "交易",
+    "transactionsDescription": "此智能帳戶的所有轉入及轉出記錄。",
+    "thisAccount": "此帳戶"
+  },
+  "placeholder": {
+    "search": "按 ID、交易雜湊或地址搜尋",
+    "dateRange": "日期範圍"
+  },
+  "filters": {
+    "status": "狀態",
+    "token": "代幣",
+    "type": "類型"
+  },
+  "table": {
+    "headers": {
+      "txHash": "交易雜湊",
+      "amount": "金額",
+      "status": "狀態",
+      "date": "日期",
+      "from": "來源",
+      "to": "目標",
+      "token": "代幣",
+      "type": "類型"
+    }
+  },
+  "status": {
+    "confirmed": "已確認",
+    "pending": "處理中",
+    "failed": "失敗"
+  },
+  "direction": {
+    "incoming": "轉入",
+    "outgoing": "轉出"
+  },
+  "buttons": {
+    "send": "發送",
+    "receive": "接收"
+  },
+  "send": {
+    "title": "發送 USD8",
+    "description": "將 USD8 從此智能帳戶轉到其他地址。",
+    "fields": {
+      "to": {
+        "label": "收款地址",
+        "placeholder": "0x…"
+      },
+      "amount": {
+        "label": "金額"
+      }
+    },
+    "summary": {
+      "balance": "可用餘額",
+      "fee": "網絡費用（上限）",
+      "total": "合共扣除"
+    },
+    "feeNote": "網絡費用以此智能帳戶的 USD8 支付。",
+    "notEnoughUsd8": "USD8 不足以支付交易的 Gas 費用，請先向你的智能帳戶充值 USD8。",
+    "submit": "發送 USD8",
+    "submitting": "發送中…",
+    "errors": {
+      "invalidAddress": "請輸入有效的錢包地址。",
+      "amountRequired": "請輸入大於 0 的金額。",
+      "amountTooHigh": "金額超過可發送上限（{{max}} USD8）。"
+    },
+    "messages": {
+      "sent": "已發送。轉賬約一分鐘後會顯示在表格中。",
+      "failed": "無法發送 USD8，請再試一次。",
+      "walletNotConnected": "請先連接錢包。",
+      "wrongNetwork": "請將錢包切換到 QDAY 網絡。",
+      "notOwner": "請連接擁有此智能帳戶的錢包。",
+      "insufficientBalance": "USD8 不足以支付金額及網絡費用。",
+      "accountMismatch": "無法在鏈上驗證此智能帳戶，請重新載入後再試。",
+      "userOpRejected": "網絡拒絕了此轉賬，請重新整理頁面後再試。",
+      "userOpFailed": "轉賬在鏈上被拒絕，沒有發送任何 USD8。",
+      "bundlerUnavailable": "無法連接交易服務，請稍後再試。",
+      "confirmTimeout": "轉賬已發送但尚未確認，請在幾分鐘後查看表格。",
+      "sessionExpired": "登入已逾時，請重新登入後再試。"
+    }
+  },
+  "receive": {
+    "title": "接收 USD8",
+    "description": "掃描二維碼或分享下方地址，即可將 USD8 接收到此智能帳戶。",
+    "qrAlt": "智能帳戶地址二維碼",
+    "addressLabel": "智能帳戶地址",
+    "networkNote": "請只向此地址發送 QDAY 網絡上的 USD8。"
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "title": "Kunci API",
+  "description": "Urus kelayakan yang digunakan untuk mengesahkan permintaan kepada API QDay.",
+  "banner": {
+    "message": "Pastikan kunci API selamat. Simpan dalam pemboleh ubah persekitaran dan jangan sesekali commit ke kawalan sumber."
+  },
+  "table": {
+    "headers": {
+      "name": "Nama kunci",
+      "keyPrefix": "Awalan kunci",
+      "environment": "Persekitaran",
+      "createdAt": "Dicipta",
+      "expiresAt": "Tamat tempoh",
+      "status": "Status",
+      "actions": "Tindakan"
+    }
+  },
+  "filters": {
+    "environment": {
+      "label": "Persekitaran",
+      "placeholder": "Pilih persekitaran"
+    },
+    "status": {
+      "label": "Status",
+      "placeholder": "Pilih status"
+    },
+    "dateRange": {
+      "label": "Tarikh dicipta",
+      "placeholder": "Pilih julat tarikh dicipta"
+    }
+  },
+  "placeholder": {
+    "search": "Cari mengikut nama kunci"
+  },
+  "environment": {
+    "sandbox": "Sandbox",
+    "production": "Production"
+  },
+  "status": {
+    "active": "Aktif",
+    "revoked": "Dibatalkan"
+  },
+  "buttons": {
+    "createKey": "Cipta kunci",
+    "copy": "Salin",
+    "done": "Selesai",
+    "revoke": "Batalkan",
+    "cancel": "Batal",
+    "create": "Cipta"
+  },
+  "createModal": {
+    "title": "Cipta kunci API",
+    "description": "Cipta kunci API baharu untuk integrasi anda.",
+    "fields": {
+      "name": {
+        "label": "Nama kunci",
+        "placeholder": "contoh. API Key for Payments"
+      },
+      "environment": {
+        "label": "Persekitaran",
+        "placeholder": "Pilih persekitaran"
+      }
+    }
+  },
+  "revokeModal": {
+    "title": "Batalkan kunci API",
+    "description": "Adakah anda pasti mahu membatalkan \"{{name}}\"? Tindakan ini tidak boleh dibuat asal dan semua permintaan yang menggunakan kunci ini akan gagal."
+  },
+  "secretModal": {
+    "title": "Kunci API dicipta",
+    "description": "Salin rahsia anda sekarang — atas sebab keselamatan, ia tidak akan dipaparkan lagi.",
+    "warning": "Pastikan anda menyalin rahsia ini sebelum menutup. Anda tidak akan dapat melihatnya lagi.",
+    "fields": {
+      "keyId": {
+        "label": "ID kunci"
+      },
+      "secret": {
+        "label": "Rahsia"
+      }
+    }
+  },
+  "messages": {
+    "createSuccess": "Kunci API berjaya dicipta",
+    "revokeSuccess": "Kunci API berjaya dibatalkan",
+    "copySuccess": "Awalan kunci disalin ke papan klip",
+    "secretCopySuccess": "Rahsia disalin ke papan klip"
+  }
+}

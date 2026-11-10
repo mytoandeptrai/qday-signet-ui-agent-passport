@@ -1,0 +1,10 @@
+{
+  "title": "確認連結已過期",
+  "title-reset-password": "重設連結已過期",
+  "description": "驗證連結已過期。如要驗證電郵地址，請在郵箱中找出最新的驗證電郵。",
+  "description-reset-password": "此密碼重設連結已過期或已失效。請重新申請連結以重設密碼。",
+  "buttons": {
+    "resend-verification": "重新發送驗證電郵",
+    "resend-reset-password": "重新發送重設連結"
+  }
+}
