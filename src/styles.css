@@ -391,3 +391,8 @@ img {
     animation: none;
   }
 }
+
+/* Comment pick mode: crosshair everywhere except the comment UI itself. */
+html.comment-picking *:not([data-comment-ui], [data-comment-ui] *) {
+  cursor: crosshair !important;
+}
