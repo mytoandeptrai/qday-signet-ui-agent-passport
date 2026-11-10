@@ -1,12 +1,12 @@
 import { useMediaQuery } from '@/hooks/use-media-query';
 import { useScrollProgress } from '@/hooks/use-scroll-progress';
 import { cn } from '@/lib/utils';
-import { DAY_MOMENTS, HOW_STEPS, INSTALL_COMMAND, INSTALL_PROMPT, LANDING_LIGHT, PARTNERS, PLATE_IMAGES, SESSION_CARD } from '@/mock/landing';
+import { DAY_MOMENTS, HOW_STEPS, INSTALL_COMMAND, INSTALL_PROMPT, PARTNERS, PLATE_IMAGES, SESSION_CARD } from '@/mock/landing';
 import { Link } from '@tanstack/react-router';
 import { ArrowRight, Check, Copy } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { toast } from 'sonner';
-import { RisoPlate } from './riso-plate';
+import { SignetPlate } from './signet-plate';
 
 const money = (n: number) => `$${n.toFixed(2)}`;
 
@@ -36,7 +36,7 @@ export function LogoMarquee() {
   const row = (hidden?: boolean) => (
     <ul aria-hidden={hidden} className='flex items-center gap-11 px-8 md:gap-16'>
       {PARTNERS.map((p) => (
-        <li key={p} className={cn('text-[15px] font-medium tracking-tight whitespace-nowrap text-[#aaa59c] md:text-[17px]', p === 'x402' && 'font-mono font-normal')}>
+        <li key={p} className={cn('text-[15px] font-medium tracking-tight whitespace-nowrap text-[#9ea3ad] md:text-[17px]', p === 'x402' && 'font-mono font-normal')}>
           {p}
         </li>
       ))}
@@ -84,14 +84,14 @@ export function SessionSection() {
   const spent = rows.slice(0, shown).reduce((s, r) => s + (r.stopped ? 0 : r.amount), 0);
 
   return (
-    <section id='session' className='relative z-[4] bg-white py-[72px] md:py-[140px]'>
+    <section id='session' className='relative z-[4] bg-white py-12 md:py-20'>
       <Wrap>
-        <h2 className='text-center font-serif text-[clamp(34px,3.1vw,46px)] leading-[1.15] font-light tracking-[-0.016em]'>Set enforceable limits.</h2>
-        <div ref={ref} className='relative mt-14 aspect-[.7] md:aspect-[1.75]'>
-          <div className='absolute inset-0 overflow-hidden'>
-            <RisoPlate sun={0.3} src={PLATE_IMAGES.session || undefined} label='A riso print of a calm sea at dusk' />
+        <h2 className='text-center font-display text-[clamp(34px,3.1vw,46px)] leading-[1.15] font-semibold tracking-[-0.016em]'>Set enforceable limits.</h2>
+        <div ref={ref} className='relative mt-10 aspect-[.7] md:aspect-[1.75]'>
+          <div className='absolute inset-0'>
+            <SignetPlate scene='ledger' aspect={1.75} progress={0.75} src={PLATE_IMAGES.session || undefined} label='Daily spending bars rising toward a dashed limit line' />
           </div>
-          <div className='absolute top-1/2 left-1/2 w-[calc(100%-32px)] -translate-x-1/2 -translate-y-1/2 rounded-md border bg-white text-sm shadow-[0_1px_2px_rgba(18,17,16,.04),0_12px_40px_rgba(18,17,16,.10)] md:w-[440px]'>
+          <div className='absolute top-1/2 left-1/2 w-[calc(100%-32px)] -translate-x-1/2 -translate-y-1/2 rounded-md border bg-white text-sm shadow-[0_1px_2px_rgba(27,30,36,.04),0_12px_40px_rgba(27,30,36,.10)] md:w-[440px]'>
             <div className='flex items-baseline justify-between gap-4 px-6 pt-[22px]'>
               <span className='text-base leading-[1.3] font-medium'>{SESSION_CARD.title}</span>
               <button
@@ -157,9 +157,9 @@ export function SessionSection() {
 
 export function LineSection({ id, text, align = 'left', link }: { id: string; text: string; align?: 'left' | 'right'; link: { label: string; to?: string; href?: string } }) {
   return (
-    <section id={id} className='relative z-[4] bg-white py-16 md:pt-16 md:pb-[72px]'>
+    <section id={id} className='relative z-[4] bg-white py-10 md:py-12'>
       <Wrap className={cn('flex flex-col', align === 'right' ? 'max-md:items-start md:items-end md:text-right' : 'items-start')}>
-        <p className='max-w-[720px] font-serif text-2xl leading-[1.35] font-light text-balance text-muted-foreground'>{text}</p>
+        <p className='max-w-[720px] font-display text-2xl leading-[1.35] font-semibold text-balance text-muted-foreground'>{text}</p>
         <TextLink to={link.to} href={link.href}>
           {link.label}
         </TextLink>
@@ -208,20 +208,20 @@ export function HowSection() {
     </button>,
   ];
   return (
-    <section id='how' className='relative z-[4] bg-white py-[72px] md:py-[140px]'>
+    <section id='how' className='relative z-[4] bg-white py-12 md:py-20'>
       <Wrap>
         <p className='mb-[18px] text-[13px] text-text-3'>How it works</p>
-        <h2 className='font-serif text-[clamp(34px,3.1vw,46px)] leading-[1.15] font-light tracking-[-0.016em]'>Three steps to a first payment.</h2>
+        <h2 className='font-display text-[clamp(34px,3.1vw,46px)] leading-[1.15] font-semibold tracking-[-0.016em]'>Three steps to a first payment.</h2>
         <div className='mt-10 grid gap-14 md:mt-16 md:grid-cols-3 md:gap-10'>
           {HOW_STEPS.map((s, i) => (
             <div key={s.n}>
               <div className='relative aspect-[4/5]'>
-                <div className='absolute inset-0 overflow-hidden'><RisoPlate sun={s.sun} src={PLATE_IMAGES.how[i] || undefined} /></div>
-                <div className='absolute inset-x-3 top-1/2 flex h-[104px] -translate-y-1/2 flex-col justify-center rounded-md border bg-white px-3.5 shadow-[0_1px_2px_rgba(18,17,16,.04),0_12px_40px_rgba(18,17,16,.10)]'>
+                <div className='absolute inset-0'><SignetPlate scene={s.scene} aspect={0.8} progress={s.level} src={PLATE_IMAGES.how[i] || undefined} /></div>
+                <div className='absolute inset-x-3 top-1/2 flex h-[104px] -translate-y-1/2 flex-col justify-center rounded-md border bg-white px-3.5 shadow-[0_1px_2px_rgba(27,30,36,.04),0_12px_40px_rgba(27,30,36,.10)]'>
                   {overlays[i]}
                 </div>
               </div>
-              <h3 className='mt-[22px] flex items-baseline gap-3.5 font-serif text-[26px] leading-[1.2] font-light'>
+              <h3 className='mt-[22px] flex items-baseline gap-3.5 font-display text-[26px] leading-[1.2] font-semibold'>
                 <span className='font-sans text-[13px] text-text-3'>{s.n}</span>
                 {s.title}
               </h3>
@@ -233,7 +233,10 @@ export function HowSection() {
   );
 }
 
-/** A day on Signet: the section pins and the scroll walks through six moments under a rising moon. */
+const DAY_BUDGET = 50;
+const LATTICE = `url("data:image/svg+xml,${encodeURIComponent("<svg xmlns='http://www.w3.org/2000/svg' width='48' height='48'><path d='M0 48L48 0M-12 12L12-12M36 60L60 36' stroke='white' stroke-opacity='.07' stroke-width='1'/></svg>")}")`;
+
+/** A day on Signet: the section pins and the scroll draws a line through six moments while the day's budget fills. */
 export function DaySection() {
   const track = useRef<HTMLDivElement>(null);
   const wide = useMediaQuery('(min-width: 901px)');
@@ -241,27 +244,54 @@ export function DaySection() {
   const length = typeof window === 'undefined' ? 1000 : window.innerHeight * 0.7 * total;
   const p = useScrollProgress(track, length, true);
   const now = Math.min(total - 1, Math.floor(p * total));
-  const settled = DAY_MOMENTS.slice(0, now + 1).filter((m) => !m.stopped).length;
-  const moon = Math.sin(Math.PI * Math.min(1, ((p * total) % 1) * 0.9 + 0.05)) * 0.9;
+  const line = Math.min(1, (p * total) / (total - 1));
+  const visible = DAY_MOMENTS.slice(0, now + 1);
+  const spent = visible.reduce((n, m) => n + (m.stopped ? 0 : (m.amount ?? 0)), 0);
+  const stopped = visible.filter((m) => m.stopped).length;
 
   return (
     <section id='day' ref={track} className='relative z-[4] bg-white' style={{ height: `calc(100vh + ${total} * 70vh)` }}>
       <div className='sticky top-0 flex h-screen items-center'>
         <Wrap>
-          <h2 className='font-serif text-[clamp(34px,3.1vw,46px)] leading-[1.15] font-light tracking-[-0.016em]'>A day on Signet.</h2>
-          <div className='relative mt-12 aspect-[.9] md:aspect-[2.5]'>
-            <div className='absolute inset-0 overflow-hidden'><RisoPlate variant='night' sun={moon} src={PLATE_IMAGES.day || undefined} label='A riso print of the sea at night, a moon rising behind each moment' /></div>
-            <div className='absolute inset-0 overflow-hidden text-[#f4f1ea] [text-shadow:0_0_10px_rgba(24,38,70,.9)]'>
-              <div className='absolute top-6 left-7 flex gap-2.5 text-[13px] text-[#f4f1ea]/80 max-md:left-4'>
-                <span>{settled} payments</span><span aria-hidden>·</span><span>{DAY_MOMENTS.filter((m) => m.stopped && DAY_MOMENTS.indexOf(m) <= now).length} stopped</span>
+          <h2 className='font-display text-[clamp(34px,3.1vw,46px)] leading-[1.15] font-semibold tracking-[-0.016em]'>A day on Signet.</h2>
+          <div
+            role='img'
+            aria-label='A timeline of six payments across one day, with the daily budget filling as each one lands'
+            className='relative mt-12 aspect-[.9] overflow-hidden rounded-3xl bg-[#0a1a4a] text-[#f5f7f9] md:aspect-[2.5]'
+            style={{ backgroundImage: `radial-gradient(70% 90% at 12% 0%, rgba(31,102,255,.55), transparent 70%), radial-gradient(60% 70% at 100% 100%, rgba(2,121,169,.35), transparent 70%), ${LATTICE}` }}
+          >
+            <div className='absolute inset-x-7 top-7 max-md:inset-x-5 max-md:top-5'>
+              <div className='flex items-end justify-between gap-4'>
+                <div>
+                  <div className='text-[13px] text-[#f5f7f9]/70'>Spent today</div>
+                  <div className='mt-1 font-display text-[clamp(30px,3.4vw,48px)] leading-none font-semibold tabular-nums'>${spent.toFixed(2)}<span className='ml-2 text-[15px] font-normal text-[#f5f7f9]/60'>of ${DAY_BUDGET} budget</span></div>
+                </div>
+                <div className={cn('rounded-full border px-3 py-1 text-[13px] transition-colors duration-500', stopped ? 'border-[#f0ada7]/60 bg-[#f0ada7]/15 text-[#f0ada7]' : 'border-white/20 text-[#f5f7f9]/70')}>
+                  {stopped ? `${stopped} stopped at your limit` : 'All within limits'}
+                </div>
               </div>
-              <ol className='absolute inset-x-7 bottom-[34%] grid grid-cols-6 gap-6 pb-[18px] max-[900px]:inset-x-4 max-[900px]:grid-cols-1'>
+              <div className='mt-5 h-1.5 overflow-hidden rounded-full bg-white/15'>
+                <div className='h-full origin-left rounded-full bg-gradient-to-r from-[#6ea1ff] to-[#8ecaed] transition-transform duration-500 ease-out' style={{ transform: `scaleX(${spent / DAY_BUDGET})` }} />
+              </div>
+            </div>
+
+            <div className='absolute inset-x-7 bottom-7 max-md:inset-x-5 max-md:bottom-5'>
+              {wide && (
+                <div className='pointer-events-none absolute top-[5px] left-0 h-px w-[calc(83.333%+20px)] bg-white/20'>
+                  <div className='h-full origin-left bg-[#8ecaed] will-change-transform' style={{ transform: `scaleX(${line})` }} />
+                </div>
+              )}
+              <ol className='grid grid-cols-6 gap-6 max-[900px]:grid-cols-1'>
                 {DAY_MOMENTS.map((m, i) => (
-                  <li key={m.time} className={cn('relative transition-opacity duration-500', i === now ? 'opacity-100' : i < now ? 'opacity-80' : 'opacity-50', !wide && i !== now && 'hidden')}>
-                    <div className='text-[13px] tabular-nums text-[#f4f1ea]/85'>{m.time}</div>
-                    <div className='mt-1.5 font-serif text-xl leading-[1.3]'>{m.text}</div>
-                    <div className={cn('mt-2 text-[13px] text-[#f4f1ea]/85', m.stopped && 'text-[#f5a07a]')}>{m.stopped ? 'Stopped at your limit' : m.service}</div>
-                    {wide && <span className='absolute -bottom-[22px] left-0 h-2 w-px bg-[#f4f1ea]/55' />}
+                  <li key={m.time} className={cn('relative pt-6 transition-opacity duration-500', i === now ? 'opacity-100' : i < now ? 'opacity-75' : 'opacity-40', !wide && i !== now && 'hidden')}>
+                    {wide && (
+                      <span className={cn('absolute top-0 left-0 size-[11px] rounded-full transition-all duration-500', i > now ? 'bg-white/30' : m.stopped ? 'bg-[#f0ada7]' : 'bg-[#8ecaed]', i === now && 'scale-125 shadow-[0_0_0_6px_rgba(142,202,237,.2)]', i === now && m.stopped && 'shadow-[0_0_0_6px_rgba(240,173,167,.25)]')} />
+                    )}
+                    <div className='text-[13px] tabular-nums text-[#f5f7f9]/70'>{m.time}</div>
+                    <div className='mt-1.5 font-display text-lg leading-[1.3] md:text-[19px]'>{m.text}</div>
+                    <div className={cn('mt-2 text-[13px]', m.stopped ? 'text-[#f0ada7]' : 'text-[#8ecaed]')}>
+                      {m.stopped ? `Stopped: $${m.amount?.toFixed(2)} is over your limit` : `${m.service} · $${m.amount?.toFixed(2)}`}
+                    </div>
                   </li>
                 ))}
               </ol>
@@ -275,18 +305,18 @@ export function DaySection() {
 
 export function ClosingSection() {
   return (
-    <section className='relative z-[4] bg-white pt-24 text-center md:pt-[180px]' style={{ backgroundImage: `radial-gradient(60% 45% at 0% 100%, rgba(${LANDING_LIGHT.closing}, .45), transparent 70%)` }}>
+    <section className='relative z-[4] bg-white pt-16 pb-12 text-center md:pt-24 md:pb-20'>
       <Wrap>
-        <h2 className='mb-9 font-serif text-[clamp(34px,3.1vw,46px)] leading-[1.15] font-light tracking-[-0.016em]'>Give your agent a Signet.</h2>
+        <h2 className='mb-9 font-display text-[clamp(34px,3.1vw,46px)] leading-[1.15] font-semibold tracking-[-0.016em]'>Give your agent a Signet.</h2>
         <Link
           to='/login'
           search={{ redirect: '/overview' }}
-          className='inline-flex h-11 w-[140px] items-center justify-center text-[15px] font-medium text-ink-blue shadow-[inset_0_0_0_1.5px_var(--ink-blue)] transition-colors hover:bg-ink-blue/[.07]'
+          className='inline-flex h-11 w-[140px] items-center justify-center text-[15px] font-medium rounded-full bg-primary sheen text-primary-foreground shadow-primary transition-all hover:brightness-110'
         >
           Get started
         </Link>
-        <div className='relative mt-24 aspect-[1.6] overflow-hidden md:aspect-[3.4]'>
-          <RisoPlate variant='night' sun={0.55} src={PLATE_IMAGES.close || undefined} label='A riso print of night hills under a full moon' />
+        <div className='relative mt-14 aspect-[1.6] md:aspect-[3.4]'>
+          <SignetPlate scene='orbit' aspect={3.4} src={PLATE_IMAGES.close || undefined} label='Rings of services orbiting the Signet mark' />
         </div>
       </Wrap>
     </section>

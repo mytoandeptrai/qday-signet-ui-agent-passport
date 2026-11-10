@@ -55,7 +55,7 @@ function Deposit() {
           <div className='text-small text-muted-foreground'>Your deposit address</div>
           <div className='mt-2 flex items-center gap-3'>
             <code className='min-w-0 flex-1 font-mono text-small break-all'>{user?.walletAddress}</code>
-            <Button type='button' size='sm' variant='outline' className='rounded-none' onClick={() => { navigator.clipboard?.writeText(user?.walletAddress ?? '').catch(() => undefined); toast.success('Address copied'); }}><Copy /> Copy</Button>
+            <Button type='button' size='sm' variant='outline' onClick={() => { navigator.clipboard?.writeText(user?.walletAddress ?? '').catch(() => undefined); toast.success('Address copied'); }}><Copy /> Copy</Button>
           </div>
           <p className='mt-3 text-caption text-text-3'>Deposits appear after 12 confirmations. Only send USDC.</p>
         </div>
@@ -67,7 +67,7 @@ function Deposit() {
           </div>
           <Input id='amount' inputMode='decimal' value={amount} onChange={(e) => setAmount(e.target.value)} aria-invalid={Boolean(error)} />
           {error && <p role='alert' className='mt-2 text-body text-danger'>{error}</p>}
-          <Button type='submit' disabled={busy} className='mt-5 rounded-none'>{busy ? 'Processing…' : `Deposit ${money(Number(amount) || 0)}`}</Button>
+          <Button type='submit' disabled={busy} className='mt-5'>{busy ? 'Processing…' : `Deposit ${money(Number(amount) || 0)}`}</Button>
         </form>
       )}
 

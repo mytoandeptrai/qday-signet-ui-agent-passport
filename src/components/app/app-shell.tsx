@@ -58,7 +58,7 @@ export function AppShell() {
   return (
     <SidebarProvider>
       <AppSidebar />
-      <SidebarInset className='bg-[radial-gradient(120%_90%_at_100%_100%,var(--glow)_0%,var(--background)_60%)]'>
+      <SidebarInset className='bg-mesh bg-fixed bg-no-repeat'>
         <header className='flex h-16 shrink-0 items-center gap-3 border-b bg-background/60 px-4 md:px-8'>
           <SidebarTrigger className='-ml-1 md:hidden' />
           <Banner />

@@ -53,14 +53,14 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
     <>
       <header className={cn('z-20 h-14 w-full md:h-16', overlay ? 'absolute inset-x-0 top-0' : 'relative border-b border-border')}>
         <div className='mx-auto grid h-full max-w-[1280px] grid-cols-[1fr_auto] items-center px-4 md:grid-cols-[1fr_auto_1fr] md:px-10'>
-          <SignetLockup />
+          <SignetLockup forceLight />
           <nav aria-label='Main' className='hidden gap-9 text-sm md:flex'>
             {NAV.map((n) => (
-              <NavLink key={n.label} {...n} className='text-[#3b3834] transition-colors hover:text-foreground' />
+              <NavLink key={n.label} {...n} className='text-[#2e3239] transition-colors hover:text-foreground' />
             ))}
           </nav>
           <div className='flex items-center justify-end gap-4 text-sm'>
-            <Link to={signedIn ? '/overview' : '/login'} className='hidden text-[#3b3834] hover:text-foreground md:inline'>
+            <Link to={signedIn ? '/overview' : '/login'} className='hidden text-[#2e3239] hover:text-foreground md:inline'>
               {signedIn ? 'Dashboard' : 'Sign in'}
             </Link>
             <button type='button' aria-label='Menu' aria-expanded={open} className='md:hidden' onClick={() => setOpen(true)}>
@@ -75,7 +75,7 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
           <button type='button' aria-label='Close menu' className='absolute inset-0 bg-foreground/15' onClick={() => setOpen(false)} />
           <div role='dialog' aria-modal='true' aria-label='Menu' className='absolute inset-x-0 top-0 border-b bg-white px-4 pb-6 shadow-[0_8px_32px_rgba(27,26,23,.08)]'>
             <div className='flex h-14 items-center justify-between'>
-              <SignetLockup />
+              <SignetLockup forceLight />
               <button type='button' aria-label='Close menu' onClick={() => setOpen(false)}>
                 <X className='size-5' strokeWidth={1.5} />
               </button>
@@ -86,10 +86,10 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
               ))}
             </nav>
             <div className='mt-6 flex gap-2'>
-              <Link to='/login' onClick={() => setOpen(false)} className='flex h-11 flex-1 items-center justify-center border border-input text-[15px] font-medium'>
+              <Link to='/login' onClick={() => setOpen(false)} className='flex h-11 flex-1 items-center justify-center rounded-full border border-input text-[15px] font-medium'>
                 Sign in
               </Link>
-              <Link to='/login' search={{ redirect: '/overview' }} onClick={() => setOpen(false)} className='flex h-11 flex-1 items-center justify-center text-[15px] font-medium text-brand shadow-[inset_0_0_0_1.5px_var(--brand)]'>
+              <Link to='/login' search={{ redirect: '/overview' }} onClick={() => setOpen(false)} className='flex h-11 flex-1 items-center justify-center text-[15px] font-medium rounded-full bg-primary sheen text-primary-foreground shadow-primary transition-all hover:brightness-110'>
                 Get started
               </Link>
             </div>

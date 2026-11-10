@@ -1,5 +1,5 @@
 import { SignetLockup } from '@/components/brand/signet-mark';
-import { RisoPlate } from '@/components/landing/riso-plate';
+import { SignetPlate } from '@/components/landing/signet-plate';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -102,16 +102,16 @@ function LoginPage() {
         <div className='m-auto w-full max-w-[380px] py-12'>
           {step === 'email' && (
             <form onSubmit={emailForm.handleSubmit(({ email }) => sendCode(email))} noValidate>
-              <h1 className='font-serif text-[34px] leading-[1.15] font-light'>{signup ? 'Create your Signet' : 'Sign in to Signet'}</h1>
+              <h1 className='font-display text-[34px] leading-[1.15] font-semibold'>{signup ? 'Create your Signet' : 'Sign in to Signet'}</h1>
               <p className='mt-3 text-sm text-muted-foreground'>We will email you a one-time code. No password.</p>
               <Label htmlFor='email' className='mt-8 mb-2'>Email</Label>
               <Input id='email' type='email' autoComplete='email' autoFocus placeholder='you@company.com' aria-invalid={Boolean(emailForm.formState.errors.email)} {...emailForm.register('email')} />
               {emailForm.formState.errors.email && <p role='alert' className='mt-2 text-sm text-danger'>{emailForm.formState.errors.email.message}</p>}
-              <Button type='submit' disabled={busy} className='mt-5 w-full rounded-none'>
+              <Button type='submit' disabled={busy} className='mt-5 w-full'>
                 {busy && <Loader2 className='animate-spin' />} Continue
               </Button>
               <div className='my-5 flex items-center gap-3 text-xs text-text-3'><span className='h-px flex-1 bg-border' />or<span className='h-px flex-1 bg-border' /></div>
-              <Button type='button' variant='outline' disabled={busy} onClick={passkeySignIn} className='w-full rounded-none'>
+              <Button type='button' variant='outline' disabled={busy} onClick={passkeySignIn} className='w-full'>
                 <Fingerprint /> Continue with a passkey
               </Button>
               <p className='mt-8 text-center text-sm text-muted-foreground'>
@@ -125,12 +125,12 @@ function LoginPage() {
 
           {step === 'code' && (
             <form onSubmit={codeForm.handleSubmit(verify)} noValidate>
-              <h1 className='font-serif text-[34px] leading-[1.15] font-light'>Check your email</h1>
+              <h1 className='font-display text-[34px] leading-[1.15] font-semibold'>Check your email</h1>
               <p className='mt-3 text-sm text-muted-foreground'>Enter the 6-digit code we sent to <b className='font-medium text-foreground'>{email}</b>.</p>
               <Label htmlFor='code' className='mt-8 mb-2'>Code</Label>
               <Input id='code' inputMode='numeric' autoComplete='one-time-code' maxLength={6} autoFocus placeholder='123456' className='font-mono tracking-[0.4em]' aria-invalid={Boolean(codeForm.formState.errors.code)} {...codeForm.register('code')} />
               {codeForm.formState.errors.code && <p role='alert' className='mt-2 text-sm text-danger'>{codeForm.formState.errors.code.message}</p>}
-              <Button type='submit' disabled={busy} className='mt-5 w-full rounded-none'>
+              <Button type='submit' disabled={busy} className='mt-5 w-full'>
                 {busy && <Loader2 className='animate-spin' />} Verify
               </Button>
               <div className='mt-5 flex justify-between text-sm'>
@@ -144,18 +144,18 @@ function LoginPage() {
 
           {step === 'passkey' && (
             <div>
-              <h1 className='font-serif text-[34px] leading-[1.15] font-light'>Add a passkey</h1>
+              <h1 className='font-display text-[34px] leading-[1.15] font-semibold'>Add a passkey</h1>
               <p className='mt-3 text-sm text-muted-foreground'>Sign in and approve spending with your fingerprint or face instead of email codes.</p>
-              <Button type='button' disabled={busy} onClick={createPasskey} className='mt-8 w-full rounded-none'>
+              <Button type='button' disabled={busy} onClick={createPasskey} className='mt-8 w-full'>
                 {busy ? <Loader2 className='animate-spin' /> : <Fingerprint />} Create passkey
               </Button>
-              <Button type='button' variant='ghost' disabled={busy} onClick={goNext} className='mt-2 w-full rounded-none'>Skip for now</Button>
+              <Button type='button' variant='ghost' disabled={busy} onClick={goNext} className='mt-2 w-full'>Skip for now</Button>
             </div>
           )}
         </div>
       </div>
       <div className='relative hidden lg:block'>
-        <RisoPlate sun={0.6} label='A riso print of the sun over the sea' />
+        <SignetPlate scene='orbit' label='Rings of services orbiting the Signet mark' />
       </div>
     </div>
   );

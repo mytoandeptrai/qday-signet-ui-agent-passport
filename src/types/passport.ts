@@ -123,6 +123,8 @@ export interface LandingMoment {
   time: string;
   text: string;
   service?: string;
+  /** Dollars paid, or the amount that was refused when `stopped`. */
+  amount?: number;
   stopped?: boolean;
 }
 

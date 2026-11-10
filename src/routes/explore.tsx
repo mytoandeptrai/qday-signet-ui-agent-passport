@@ -36,10 +36,10 @@ function Explore() {
   });
 
   return (
-    <div className='min-h-screen bg-background'>
+    <div className='flex min-h-screen flex-col bg-background'>
       <SiteHeader />
-      <main className='mx-auto max-w-[1100px] px-4 py-14 md:px-6'>
-        <h1 className='font-serif text-[clamp(34px,3.1vw,46px)] leading-[1.15] font-light tracking-[-0.016em]'>Explore services</h1>
+      <main className='mx-auto w-full flex-1 max-w-[1100px] px-4 py-14 md:px-6'>
+        <h1 className='font-display text-[clamp(34px,3.1vw,46px)] leading-[1.15] font-semibold tracking-[-0.016em]'>Explore services</h1>
         <p className='mt-3 text-muted-foreground'>2,000+ services your agent can pay for. Showing {SERVICES.length} featured.</p>
 
         <div className='mt-8 flex flex-wrap gap-3'>
@@ -66,7 +66,7 @@ function Explore() {
           {data.map((s) => (
             <button key={s.id} type='button' onClick={() => setPicked(s)} className='bg-background p-5 text-left transition-colors hover:bg-subtle'>
               <div className='flex items-baseline justify-between gap-3'>
-                <b className='font-serif text-[22px] leading-[1.2] font-light'>{s.name}</b>
+                <b className='font-display text-[22px] leading-[1.2] font-semibold'>{s.name}</b>
                 <span className='text-[13px] tabular-nums text-text-3'>{s.priceLabel}</span>
               </div>
               <p className='mt-2 text-sm text-muted-foreground'>{s.description}</p>
@@ -93,11 +93,11 @@ function Explore() {
           )}
           <DialogFooter>
             {signedIn ? (
-              <Button asChild className='rounded-none' onClick={() => toast.success(`${picked?.name} added to your next session`)}>
+              <Button asChild onClick={() => toast.success(`${picked?.name} added to your next session`)}>
                 <Link to='/create-session'>Use in a session</Link>
               </Button>
             ) : (
-              <Button asChild className='rounded-none'><Link to='/login' search={{ redirect: '/explore' }}>Sign in to use</Link></Button>
+              <Button asChild><Link to='/login' search={{ redirect: '/explore' }}>Sign in to use</Link></Button>
             )}
           </DialogFooter>
         </DialogContent>

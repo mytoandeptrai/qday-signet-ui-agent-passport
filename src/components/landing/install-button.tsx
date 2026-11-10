@@ -23,7 +23,7 @@ export function InstallButton() {
         onClick={copy}
         aria-label='Install: copy the install prompt'
         className={cn(
-          'inline-flex h-11 items-center justify-center overflow-hidden border border-input bg-white px-4 text-[15px] font-medium whitespace-nowrap transition-[width,background-color] duration-300 hover:bg-subtle',
+          'inline-flex h-11 items-center justify-center overflow-hidden rounded-full border border-input bg-card px-4 text-[15px] font-medium whitespace-nowrap transition-[width,background-color] duration-300 hover:bg-subtle',
           copied ? 'w-[250px] max-md:w-full text-[13px]' : 'w-[140px] max-md:w-full'
         )}
       >

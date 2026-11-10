@@ -97,7 +97,7 @@ function Replay({ scenario }: { scenario: PlaygroundScenario }) {
       <aside className='space-y-6'>
         <div>
           <p className='text-body text-muted-foreground'>Session limit</p>
-          <p className='mt-1 font-serif text-figure leading-none font-light'>{money(spent)}<span className='text-lead text-muted-foreground'> / {money(scenario.limit)}</span></p>
+          <p className='mt-1 font-display text-figure leading-none font-semibold'>{money(spent)}<span className='text-lead text-muted-foreground'> / {money(scenario.limit)}</span></p>
           <div className='mt-3 h-1 overflow-hidden rounded-full bg-border'>
             <div className='h-full bg-brand transition-[width] duration-500' style={{ width: `${Math.min(100, (spent / scenario.limit) * 100)}%` }} />
           </div>

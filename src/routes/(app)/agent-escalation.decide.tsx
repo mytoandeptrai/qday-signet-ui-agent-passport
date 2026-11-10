@@ -21,13 +21,13 @@ function Decide() {
   const done = esc.status !== 'pending';
 
   return (
-    <div className='mx-auto max-w-[440px] rounded-md border p-6 shadow-[0_12px_40px_rgba(18,17,16,.10)]'>
+    <div className='mx-auto max-w-[440px] rounded-md border p-6 shadow-[0_12px_40px_rgba(27,30,36,.10)]'>
       <div className='flex items-center justify-between'><span className='text-small text-muted-foreground'>Over your limit · {timeAgo(esc.requestedAt)}</span><StatusBadge status={esc.status} /></div>
       <h1 className='mt-3 text-lead font-medium'>{esc.agent} wants {money(esc.amount)}</h1>
       <p className='mt-2 text-body text-muted-foreground'>{esc.service}: {esc.description}. This is past the limit you set, so it was stopped until you decide.</p>
       <div className='mt-6 flex gap-2'>
-        <Button className='flex-1 rounded-none' disabled={done} onClick={() => { decide(esc.id, true); toast.success('Approved once'); navigate({ to: '/overview' }); }}>Approve once</Button>
-        <Button variant='outline' className='flex-1 rounded-none' disabled={done} onClick={() => { decide(esc.id, false); toast('Declined'); navigate({ to: '/overview' }); }}>Decline</Button>
+        <Button className='flex-1' disabled={done} onClick={() => { decide(esc.id, true); toast.success('Approved once'); navigate({ to: '/overview' }); }}>Approve once</Button>
+        <Button variant='outline' className='flex-1' disabled={done} onClick={() => { decide(esc.id, false); toast('Declined'); navigate({ to: '/overview' }); }}>Decline</Button>
       </div>
     </div>
   );

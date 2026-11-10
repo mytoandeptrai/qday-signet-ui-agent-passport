@@ -26,7 +26,7 @@ function Landing() {
         link={{ label: 'Browse all services', to: '/explore' }}
       />
       <ClosingSection />
-      <SiteFooter />
+      <SiteFooter forceLight />
     </main>
   );
 }

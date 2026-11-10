@@ -70,7 +70,7 @@ function CreateSession() {
         </div>
         <div><Label htmlFor='hours' className='mb-2'>Expires after (hours)</Label><Input id='hours' inputMode='numeric' {...register('durationHours')} />{err('durationHours')}</div>
         <p className='text-body text-muted-foreground'>Available balance: <b className='font-medium text-foreground'>{money(available)}</b></p>
-        <Button type='submit' disabled={isSubmitting} className='rounded-none'>{isSubmitting ? 'Creating…' : 'Create session'}</Button>
+        <Button type='submit' disabled={isSubmitting}>{isSubmitting ? 'Creating…' : 'Create session'}</Button>
       </form>
     </div>
   );

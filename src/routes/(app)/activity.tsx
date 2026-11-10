@@ -161,7 +161,7 @@ function Activity() {
           <SelectTrigger aria-label='Metric' className='h-auto w-auto gap-1 border-0 bg-transparent p-0 text-body text-muted-foreground shadow-none'><SelectValue /></SelectTrigger>
           <SelectContent>{metrics.map((m) => <SelectItem key={m.id} value={m.id}>{m.label}</SelectItem>)}</SelectContent>
         </Select>
-        <p className='mt-1 font-serif text-figure leading-none font-light tabular-nums'>{fmt(total)}</p>
+        <p className='mt-1 font-display text-figure leading-none font-semibold tabular-nums'>{fmt(total)}</p>
         <p className='mt-2 text-small text-muted-foreground'>{rangeLabel}</p>
 
         <div className='mt-6 flex h-40 items-end gap-[3px]' role='img' aria-label={`${metric.label} per day`}>

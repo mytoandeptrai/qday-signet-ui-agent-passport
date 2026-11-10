@@ -23,7 +23,7 @@ function Approve() {
   const short = p.limit > balance.available;
 
   return (
-    <div className='mx-auto max-w-[440px] rounded-md border p-6 shadow-[0_12px_40px_rgba(18,17,16,.10)]'>
+    <div className='mx-auto max-w-[440px] rounded-md border p-6 shadow-[0_12px_40px_rgba(27,30,36,.10)]'>
       <div className='text-small text-muted-foreground'>{p.agent} is asking to spend</div>
       <h1 className='mt-1 text-lead font-medium'>{p.task}</h1>
       <div className='my-5'><SpendBar spent={0} limit={p.limit} perCall={p.perCall} /></div>
@@ -31,7 +31,7 @@ function Approve() {
       {short && <p role='alert' className='mt-3 text-body text-danger'>You have {money(balance.available)} available. Deposit funds first.</p>}
       <div className='mt-6 flex gap-2'>
         <Button
-          className='flex-1 rounded-none'
+          className='flex-1'
           disabled={short}
           onClick={() => {
             const s = createSession({ task: p.task, agent: p.agent, limit: p.limit, perCallLimit: Math.min(p.perCall, p.limit), durationHours: p.hours });
@@ -41,7 +41,7 @@ function Approve() {
         >
           Approve
         </Button>
-        <Button variant='outline' className='flex-1 rounded-none' onClick={() => { toast('Request declined'); navigate({ to: '/overview' }); }}>Decline</Button>
+        <Button variant='outline' className='flex-1' onClick={() => { toast('Request declined'); navigate({ to: '/overview' }); }}>Decline</Button>
       </div>
     </div>
   );

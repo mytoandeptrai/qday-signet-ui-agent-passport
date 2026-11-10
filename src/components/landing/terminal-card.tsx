@@ -11,7 +11,7 @@ const LINES: { text: string; tone?: 'dim' | 'ok' | 'stop' }[] = [
 export function TerminalCard({ reveal }: { reveal: number }) {
   const shown = Math.ceil(reveal * LINES.length);
   return (
-    <div className='h-full overflow-hidden rounded-md border bg-white shadow-[0_1px_2px_rgba(18,17,16,.04),0_24px_64px_rgba(18,17,16,.12)]'>
+    <div className='h-full overflow-hidden rounded-md border bg-white shadow-[0_1px_2px_rgba(27,30,36,.04),0_24px_64px_rgba(27,30,36,.12)]'>
       <div className='flex items-center gap-1.5 border-b px-4 py-3'>
         <span className='size-2.5 rounded-full bg-border' />
         <span className='size-2.5 rounded-full bg-border' />

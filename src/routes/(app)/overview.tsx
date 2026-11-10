@@ -15,13 +15,13 @@ import { toast } from 'sonner';
 
 export const Route = createFileRoute('/(app)/overview')({ component: Overview });
 
-const IDEAS: { id: string; title: string; tone: string }[] = [
-  { id: 'learn', title: 'Learn about your Signet', tone: 'from-[#e8d3b8] to-[#b99a73]' },
-  { id: 'purchases', title: 'Turn recommendations into purchases', tone: 'from-[#d9b690] to-[#9a7a55]' },
-  { id: 'cloud', title: 'Cloud queries and paid data', tone: 'from-[#c9cdd6] to-[#8d8f95]' },
-  { id: 'apartments', title: 'Automate apartment hunting', tone: 'from-[#efe2cf] to-[#b8a58c]' },
-  { id: 'candidates', title: 'Find candidates for a role', tone: 'from-[#c7a37d] to-[#6f553c]' },
-  { id: 'onboarding', title: 'Automate new hire onboarding', tone: 'from-[#e9ddcc] to-[#a98f72]' },
+const IDEAS: { id: string; title: string }[] = [
+  { id: 'learn', title: 'Learn about your Signet' },
+  { id: 'purchases', title: 'Turn recommendations into purchases' },
+  { id: 'cloud', title: 'Cloud queries and paid data' },
+  { id: 'apartments', title: 'Automate apartment hunting' },
+  { id: 'candidates', title: 'Find candidates for a role' },
+  { id: 'onboarding', title: 'Automate new hire onboarding' },
 ];
 
 const WINDOWS_PROMPT = INSTALL_PROMPT.replace('curl -fsSL https://signet.example/install.sh | bash', 'irm https://signet.example/install.ps1 | iex');
@@ -76,7 +76,7 @@ function Overview() {
                 <b className='font-medium'>{e.agent}</b> wants to spend <b className='font-medium'>{money(e.amount)}</b> on {e.service}: {e.description}.
                 <span className='ml-2 text-muted-foreground'>{timeAgo(e.requestedAt)}</span>
               </div>
-              <Button asChild size='sm' variant='outline' className='rounded-none'><Link to='/agent-escalation/decide' search={{ id: e.id }}>Review</Link></Button>
+              <Button asChild size='sm' variant='outline'><Link to='/agent-escalation/decide' search={{ id: e.id }}>Review</Link></Button>
             </div>
           ))}
 
@@ -87,7 +87,7 @@ function Overview() {
           <div className='mt-4 grid gap-x-8 gap-y-1 sm:grid-cols-2'>
             {IDEAS.map((i) => (
               <Link key={i.id} to='/playground' search={{ idea: i.id }} className='group flex items-center gap-4 py-2'>
-                <span className={cn('size-12 shrink-0 rounded-[3px] bg-gradient-to-br', i.tone)} />
+                <img src={`/images/ideas/${i.id}.svg`} alt='' className='size-12 shrink-0 rounded-[14px]' />
                 <span className='text-lead leading-[1.35] group-hover:underline'>{i.title}</span>
               </Link>
             ))}
@@ -126,7 +126,7 @@ function Overview() {
                   {step === 1 && (
                     <div className='max-w-md text-body text-muted-foreground'>
                       <p>{(user?.passkeys.length ?? 0) > 0 ? `You have ${user?.passkeys.length} passkey${user?.passkeys.length === 1 ? '' : 's'} on this account.` : 'Add a passkey to approve spending with your fingerprint or face.'}</p>
-                      <Button className='mt-4 rounded-none' variant='outline' onClick={() => { addPasskey(`Device ${(user?.passkeys.length ?? 0) + 1}`); toast.success('Passkey added'); }}>Add a passkey</Button>
+                      <Button className='mt-4' variant='outline' onClick={() => { addPasskey(`Device ${(user?.passkeys.length ?? 0) + 1}`); toast.success('Passkey added'); }}>Add a passkey</Button>
                     </div>
                   )}
                   {step === 2 && (
@@ -134,13 +134,13 @@ function Overview() {
                       <div><label htmlFor='allow' className='mb-2 block text-body'>Allowance per session (USD)</label><Input id='allow' inputMode='decimal' value={limit} onChange={(e) => setLimit(e.target.value)} /></div>
                       <div><label htmlFor='percall' className='mb-2 block text-body'>Per-call limit (USD)</label><Input id='percall' inputMode='decimal' value={perCall} onChange={(e) => setPerCall(e.target.value)} /></div>
                       {limitError && <p role='alert' className='text-body text-danger'>{limitError}</p>}
-                      <Button className='rounded-none' onClick={saveAllowance}>Save allowance</Button>
+                      <Button onClick={saveAllowance}>Save allowance</Button>
                     </div>
                   )}
                   {step === 3 && (
                     <div className='max-w-md text-body text-muted-foreground'>
                       <p>Your balance is {money(balance.available)}. Add more any time, by card, bank or crypto.</p>
-                      <Button asChild className='mt-4 rounded-none' variant='outline'><Link to='/deposit'>Add funds</Link></Button>
+                      <Button asChild className='mt-4' variant='outline'><Link to='/deposit'>Add funds</Link></Button>
                     </div>
                   )}
                   {step === 4 && (
@@ -158,12 +158,12 @@ function Overview() {
 
         <aside>
           <div className='text-body text-muted-foreground'>Balance</div>
-          <div className='mt-1.5 font-serif text-figure leading-none font-light tabular-nums'>{money(balance.available)}</div>
+          <div className='mt-1.5 font-display text-figure leading-none font-semibold tabular-nums'>{money(balance.available)}</div>
           <div className='mt-5 flex gap-2'>
-            <Button asChild variant='outline' className='flex-1 rounded-none border-foreground/40 bg-background/70 text-body font-normal'><Link to='/deposit'>Add funds</Link></Button>
+            <Button asChild variant='outline' className='flex-1'><Link to='/deposit'>Add funds</Link></Button>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant='outline' className='rounded-none bg-background/70 px-4 text-body font-normal'><Wallet className='size-4' strokeWidth={1.4} /> Wallet</Button>
+                <Button variant='outline' className='px-4'><Wallet className='size-4' strokeWidth={1.4} /> Wallet</Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align='end' className='w-64'>
                 <DropdownMenuLabel>Your wallet</DropdownMenuLabel>

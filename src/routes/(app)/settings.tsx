@@ -53,7 +53,7 @@ function Settings() {
           <div><Label className='mb-2'>Default session limit (USD)</Label>{num('defaultLimit')}</div>
           <div><Label className='mb-2'>Default per-call limit (USD)</Label>{num('defaultPerCallLimit')}</div>
           <div><Label className='mb-2'>Ask me before any single payment above (USD)</Label>{num('requireApprovalAbove')}</div>
-          <Button className='rounded-none' onClick={save}>Save changes</Button>
+          <Button onClick={save}>Save changes</Button>
         </TabsContent>
 
         <TabsContent value='notifications' className='mt-6 space-y-5'>
@@ -63,13 +63,13 @@ function Settings() {
               <Switch checked={draft[k]} onCheckedChange={(v) => set(k, v)} aria-label={t} />
             </div>
           ))}
-          <Button className='rounded-none' onClick={save}>Save changes</Button>
+          <Button onClick={save}>Save changes</Button>
         </TabsContent>
 
         <TabsContent value='security' className='mt-6'>
           <div className='mb-3 flex items-center justify-between'>
             <h2 className='text-body font-medium'>Passkeys</h2>
-            <Button size='sm' variant='outline' className='rounded-none' onClick={() => { addPasskey(`Device ${(user?.passkeys.length ?? 0) + 1}`); toast.success('Passkey added'); }}>Add passkey</Button>
+            <Button size='sm' variant='outline' onClick={() => { addPasskey(`Device ${(user?.passkeys.length ?? 0) + 1}`); toast.success('Passkey added'); }}>Add passkey</Button>
           </div>
           <ul className='divide-y rounded-md border'>
             {user?.passkeys.map((p) => (
@@ -90,7 +90,7 @@ function Settings() {
           <AppearanceField value={draft.appearance} onChange={(v) => { set('appearance', v); updateSettings({ appearance: v }); }} />
           <div className='border-t pt-6'>
             <p className='mb-3 text-body text-muted-foreground'>Reset sessions, activity, vouchers and balance to the demo data.</p>
-            <Button variant='outline' className='rounded-none' onClick={() => { reset(); setDraft(usePassportStore.getState().settings); toast.success('Demo data restored'); }}>Reset demo data</Button>
+            <Button variant='outline' onClick={() => { reset(); setDraft(usePassportStore.getState().settings); toast.success('Demo data restored'); }}>Reset demo data</Button>
           </div>
         </TabsContent>
       </Tabs>
@@ -105,7 +105,7 @@ function AppearanceField({ value, onChange }: { value: AppSettings['appearance']
       <Label className='mb-2'>Appearance</Label>
       <div className='flex gap-2'>
         {(['light', 'dark', 'system'] as const).map((a) => (
-          <Button key={a} type='button' size='sm' variant={value === a ? 'default' : 'outline'} className='rounded-none capitalize' onClick={() => { onChange(a); setTheme(a); }}>{a}</Button>
+          <Button key={a} type='button' size='sm' variant={value === a ? 'default' : 'outline'} className='capitalize' onClick={() => { onChange(a); setTheme(a); }}>{a}</Button>
         ))}
       </div>
     </div>

@@ -32,7 +32,7 @@ function Vouchers() {
         <Label htmlFor='code' className='mb-2'>Voucher code</Label>
         <div className='flex gap-2'>
           <Input id='code' containerClassName='flex-1' placeholder='SIGNET-XXXX-00' value={code} onChange={(e) => setCode(e.target.value)} aria-invalid={Boolean(error)} className='font-mono uppercase' />
-          <Button type='submit' className='rounded-none'>Redeem</Button>
+          <Button type='submit'>Redeem</Button>
         </div>
         {error && <p role='alert' className='mt-2 text-body text-danger'>{error}</p>}
       </form>
@@ -43,7 +43,7 @@ function Vouchers() {
             <div className='flex items-center gap-3'>
               <StatusBadge status={v.status} />
               <span className='tabular-nums'>{money(v.amount)}</span>
-              {v.status === 'unused' && <Button size='sm' variant='outline' className='rounded-none' onClick={() => redeem(v.code)}>Redeem</Button>}
+              {v.status === 'unused' && <Button size='sm' variant='outline' onClick={() => redeem(v.code)}>Redeem</Button>}
             </div>
           </li>
         ))}

@@ -33,7 +33,7 @@ function SessionDetail() {
         action={
           session.status === 'active' && (
             <AlertDialog>
-              <AlertDialogTrigger asChild><Button variant='outline' className='rounded-none'>Revoke</Button></AlertDialogTrigger>
+              <AlertDialogTrigger asChild><Button variant='outline'>Revoke</Button></AlertDialogTrigger>
               <AlertDialogContent>
                 <AlertDialogHeader>
                   <AlertDialogTitle>Revoke this session?</AlertDialogTitle>
