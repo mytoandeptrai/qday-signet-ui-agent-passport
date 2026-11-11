@@ -20,7 +20,7 @@ const HowStepUi: FCC<HowStepUiProps> = ({ n, title, scene, level, plateSrc, chil
         </div>
         <div
           className={cn(
-            'absolute inset-x-3 top-1/2 flex h-[104px] -translate-y-1/2 flex-col justify-center rounded-md border bg-white px-3.5',
+            'absolute inset-x-3 top-1/2 flex h-[104px] -translate-y-1/2 flex-col justify-center rounded-md border bg-card px-3.5',
             CARD_SHADOW
           )}
         >

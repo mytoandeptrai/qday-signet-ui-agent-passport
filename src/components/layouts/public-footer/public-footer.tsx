@@ -3,11 +3,7 @@ import { SignetLockup } from '@/components/brand/signet-mark';
 import { useTranslation } from '@/integrations/i18n';
 import { footerColumns } from './public-footer.config';
 
-type PublicFooterProps = {
-  forceLight?: boolean;
-};
-
-const PublicFooter = ({ forceLight = false }: PublicFooterProps) => {
+const PublicFooter = () => {
   const { t } = useTranslation('public-layout');
 
   return (
@@ -15,7 +11,7 @@ const PublicFooter = ({ forceLight = false }: PublicFooterProps) => {
       <div className='mx-auto max-w-[1280px] px-4 md:px-10'>
         <div className='grid grid-cols-2 gap-10 md:grid-cols-[2fr_repeat(3,1fr)]'>
           <div>
-            <SignetLockup forceLight={forceLight} className='h-7' />
+            <SignetLockup className='h-7' />
           </div>
           {footerColumns(t).map((col) => (
             <div key={col.title}>

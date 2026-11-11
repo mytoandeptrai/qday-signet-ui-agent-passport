@@ -17,7 +17,7 @@ type ReplayTerminalUiProps = {
 const ReplayTerminalUi = ({ lines, playing, endRef, onTogglePlay, onSkip, onReplay }: ReplayTerminalUiProps) => {
   const { t } = useTranslation('playground-page');
   return (
-    <div className='overflow-hidden rounded-md border bg-[#16140f] text-[#ece7dc]'>
+    <div className='overflow-hidden rounded-md border bg-[#021417] text-[#e7eced]'>
       <div className='flex items-center justify-between border-b border-white/10 px-4 py-2.5'>
         <div className='flex items-center gap-1.5'>
           <span className='size-2.5 rounded-full bg-white/20' />

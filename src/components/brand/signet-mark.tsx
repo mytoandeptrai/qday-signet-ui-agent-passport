@@ -10,7 +10,7 @@ export function SignetMark({ className }: { className?: string }) {
 
 /**
  * Horizontal lockup. Both colour variants render and CSS picks one from the `.dark` class,
- * so a theme change needs no JS. `forceLight` is for surfaces that ignore the theme (the landing page).
+ * so a theme change needs no JS. `forceLight` is for surfaces that ignore the theme.
  */
 export function SignetLockup({ className, forceLight = false, linked = true }: { className?: string; forceLight?: boolean; linked?: boolean }) {
   const logo = (

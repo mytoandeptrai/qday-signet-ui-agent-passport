@@ -10,7 +10,7 @@ const LandingContainer = () => {
   const { agentsLine, recordLine, servicesLine } = useLandingContainer();
 
   return (
-    <main className='force-light bg-white text-foreground'>
+    <main className='text-foreground'>
       <HeroContainer />
       <LogoMarqueeUi />
       <SessionContainer />
@@ -20,7 +20,7 @@ const LandingContainer = () => {
       <DayContainer />
       <LineSectionUi {...servicesLine} />
       <ClosingSectionUi />
-      <PublicFooter forceLight />
+      <PublicFooter />
     </main>
   );
 };

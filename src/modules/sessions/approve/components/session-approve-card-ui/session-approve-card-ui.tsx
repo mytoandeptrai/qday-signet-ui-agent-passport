@@ -18,7 +18,7 @@ type SessionApproveCardUiProps = {
 const SessionApproveCardUi = ({ task, agent, limit, perCall, hours, available, isShort, onApprove, onDecline }: SessionApproveCardUiProps) => {
   const { t } = useTranslation('session-approve-page');
   return (
-    <div className='mx-auto max-w-[440px] rounded-md border p-6 shadow-[0_12px_40px_rgba(27,30,36,.10)]'>
+    <div className='mx-auto max-w-[440px] rounded-md border p-6 shadow-card'>
       <div className='text-small text-muted-foreground'>{t('asking', { agent })}</div>
       <h1 className='mt-1 text-lead font-medium'>{task}</h1>
       <div className='my-5'>

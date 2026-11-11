@@ -10,7 +10,7 @@ const ClosingSectionUi = () => {
   const { t } = useTranslation('landing-page');
 
   return (
-    <section className='relative z-[4] bg-white pt-16 pb-12 text-center md:pt-24 md:pb-20'>
+    <section className='relative z-[4] pt-16 pb-12 text-center md:pt-24 md:pb-20'>
       <SectionWrapUi>
         <AnimationContainer>
           <h2 className='mb-9 font-display text-[clamp(34px,3.1vw,46px)] leading-[1.15] font-semibold tracking-[-0.016em]'>

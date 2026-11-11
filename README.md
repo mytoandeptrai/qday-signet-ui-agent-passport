@@ -29,3 +29,7 @@ pnpm build      # vite build + tsc
 - `src/components/layouts/` — app and public layouts; `src/components/{ui,form-fields,containers,utilities}` — shared kit
 - `public/locales/en/<namespace>.json` — one namespace per page
 - `docs/agentpassport-spec.md` — analysis of the original site
+
+## Theme
+
+Brand kit v5 (synced from `qday-trellis-ui-kit`): deep teal `#06343a` and cyan `#60f2ff`, tokens in `src/styles.css`. Light is the default; the choice is stored under `trellis-theme-v5` and applied before paint from `index.html`. The cyan glow is the fixed mesh on `body`, so page wrappers stay transparent. Logos and icons keep the Signet blue.

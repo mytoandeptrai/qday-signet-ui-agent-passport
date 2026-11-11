@@ -21,16 +21,16 @@ const PublicHeader = ({ overlay = false }: PublicHeaderProps) => {
     <>
       <header className={cn('z-20 h-14 w-full md:h-16', overlay ? 'absolute inset-x-0 top-0' : 'relative border-b border-border')}>
         <div className='mx-auto grid h-full max-w-[1280px] grid-cols-[1fr_auto] items-center px-4 md:grid-cols-[1fr_auto_1fr] md:px-10'>
-          <SignetLockup forceLight />
+          <SignetLockup />
           <nav aria-label={t('header.main')} className='hidden gap-9 text-sm md:flex'>
             {navItems.map((n) => (
-              <PublicHeaderNavLink key={n.label} {...n} className='text-[#2e3239] transition-colors hover:text-foreground' />
+              <PublicHeaderNavLink key={n.label} {...n} className='text-foreground/80 transition-colors hover:text-foreground' />
             ))}
           </nav>
           <div className='flex items-center justify-end gap-4 text-sm'>
             <Link
               to={isSignedIn ? ROUTES.OVERVIEW : ROUTES.LOGIN}
-              className='hidden text-[#2e3239] hover:text-foreground md:inline'
+              className='hidden text-foreground/80 hover:text-foreground md:inline'
             >
               {isSignedIn ? t('header.dashboard') : t('header.sign-in')}
             </Link>

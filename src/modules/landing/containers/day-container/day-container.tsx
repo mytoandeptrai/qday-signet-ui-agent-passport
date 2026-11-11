@@ -6,7 +6,7 @@ const DayContainer = () => {
   const { t, track, isWide, total, now, line, spent, stoppedCount, moments } = useDayContainer();
 
   return (
-    <section id='day' ref={track} className='relative z-[4] bg-white' style={{ height: `calc(100vh + ${total} * 70vh)` }}>
+    <section id='day' ref={track} className='relative z-[4]' style={{ height: `calc(100vh + ${total} * 70vh)` }}>
       <div className='sticky top-0 flex h-screen items-center'>
         <SectionWrapUi>
           <h2 className='font-display text-[clamp(34px,3.1vw,46px)] leading-[1.15] font-semibold tracking-[-0.016em]'>{t('day.heading')}</h2>

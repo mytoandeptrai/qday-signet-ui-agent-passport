@@ -71,5 +71,5 @@ export const PLATE_IMAGES: { hero: string; session: string; how: [string, string
 
 /** Page lighting. `spill` is the glow the hero plate casts on the white page as it lights up. */
 export const LANDING_LIGHT = {
-  spill: '2, 87, 255',
+  spill: '96, 242, 255',
 };

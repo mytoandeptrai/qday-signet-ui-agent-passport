@@ -13,7 +13,7 @@ const TerminalCardUi = ({ reveal }: TerminalCardUiProps) => {
   const shown = Math.ceil(reveal * lines.length);
 
   return (
-    <div className='h-full overflow-hidden rounded-md border bg-white shadow-[0_1px_2px_rgba(27,30,36,.04),0_24px_64px_rgba(27,30,36,.12)]'>
+    <div className='h-full overflow-hidden rounded-md border bg-card shadow-elevated'>
       <div className='flex items-center gap-1.5 border-b px-4 py-3'>
         <span className='size-2.5 rounded-full bg-border' />
         <span className='size-2.5 rounded-full bg-border' />

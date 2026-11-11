@@ -1,14 +1,14 @@
 import { SVG_BOX } from '../signet-plate.constants';
 
 const CODE = [
-  [['#8ecaed', 8], ['#fff', 22]],
-  [['#fff', 14], ['#6ea1ff', 18], ['#fff', 10]],
-  [['#fff', 6], ['#8ecaed', 26]],
-  [['#6ea1ff', 12], ['#fff', 30]],
-  [['#fff', 20], ['#8ecaed', 12]],
-  [['#8ecaed', 16], ['#fff', 8], ['#6ea1ff', 14]],
+  [['#60f2ff', 8], ['#fff', 22]],
+  [['#fff', 14], ['#8ecaed', 18], ['#fff', 10]],
+  [['#fff', 6], ['#60f2ff', 26]],
+  [['#8ecaed', 12], ['#fff', 30]],
+  [['#fff', 20], ['#60f2ff', 12]],
+  [['#60f2ff', 16], ['#fff', 8], ['#8ecaed', 14]],
   [['#fff', 28]],
-  [['#6ea1ff', 10], ['#fff', 20], ['#8ecaed', 8]],
+  [['#8ecaed', 10], ['#fff', 20], ['#60f2ff', 8]],
 ] as const;
 
 function Install() {

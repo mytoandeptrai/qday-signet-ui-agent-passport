@@ -7,7 +7,7 @@ const SessionContainer = () => {
   const { t, cardRef, rows, limit, perCall, shown, spent, isRevoked, plateSrc, points, onRevoke } = useSessionContainer();
 
   return (
-    <section id='session' className='relative z-[4] bg-white py-12 md:py-20'>
+    <section id='session' className='relative z-[4] py-12 md:py-20'>
       <SectionWrapUi>
         <AnimationContainer>
           <h2 className='text-center font-display text-[clamp(34px,3.1vw,46px)] leading-[1.15] font-semibold tracking-[-0.016em]'>

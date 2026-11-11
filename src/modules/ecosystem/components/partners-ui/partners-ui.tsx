@@ -4,7 +4,7 @@ type PartnersUiProps = {
 
 const PartnersUi = ({ partners }: PartnersUiProps) => {
   return (
-    <ul className='flex flex-wrap gap-x-10 gap-y-4 text-[17px] text-[#9ea3ad]'>
+    <ul className='flex flex-wrap gap-x-10 gap-y-4 text-[17px] text-text-3'>
       {partners.map((p) => (
         <li key={p}>{p}</li>
       ))}

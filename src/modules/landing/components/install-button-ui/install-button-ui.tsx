@@ -23,7 +23,7 @@ const InstallButtonUi = () => {
       <div
         role='note'
         className={cn(
-          'pointer-events-none invisible absolute top-[calc(100%+10px)] left-1/2 z-10 w-[440px] max-w-[calc(100vw-32px)] -translate-x-1/2 -translate-y-1 cursor-pointer rounded-md border bg-white px-4 pt-3.5 pb-3 text-left opacity-0 shadow-[0_8px_32px_rgba(27,26,23,.08)] transition-all duration-200 group-focus-within/inst:visible group-focus-within/inst:translate-y-0 group-focus-within/inst:opacity-100 group-hover/inst:pointer-events-auto group-hover/inst:visible group-hover/inst:translate-y-0 group-hover/inst:opacity-100 max-md:left-0 max-md:w-auto max-md:translate-x-0',
+          'pointer-events-none invisible absolute top-[calc(100%+10px)] left-1/2 z-10 w-[440px] max-w-[calc(100vw-32px)] -translate-x-1/2 -translate-y-1 cursor-pointer rounded-md border bg-popover px-4 pt-3.5 pb-3 text-left opacity-0 shadow-dialog transition-all duration-200 group-focus-within/inst:visible group-focus-within/inst:translate-y-0 group-focus-within/inst:opacity-100 group-hover/inst:pointer-events-auto group-hover/inst:visible group-hover/inst:translate-y-0 group-hover/inst:opacity-100 max-md:left-0 max-md:w-auto max-md:translate-x-0',
           isCopied && '!invisible !opacity-0'
         )}
         onClick={onCopy}

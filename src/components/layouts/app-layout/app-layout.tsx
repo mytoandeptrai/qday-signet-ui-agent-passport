@@ -10,7 +10,7 @@ const AppLayout: FCC<AppLayoutProps> = () => {
   return (
     <SidebarProvider>
       <AppSidebar />
-      <SidebarInset className='bg-mesh bg-fixed bg-no-repeat'>
+      <SidebarInset className='bg-transparent'>
         <AppHeader />
         <main className='w-full px-4 py-10 md:px-8'>
           <Outlet />

@@ -20,10 +20,10 @@ const PublicHeaderMobileMenu = ({ navItems, onClose }: PublicHeaderMobileMenuPro
         role='dialog'
         aria-modal='true'
         aria-label={t('header.menu')}
-        className='absolute inset-x-0 top-0 border-b bg-white px-4 pb-6 shadow-[0_8px_32px_rgba(27,26,23,.08)]'
+        className='absolute inset-x-0 top-0 border-b bg-card px-4 pb-6 shadow-dialog'
       >
         <div className='flex h-14 items-center justify-between'>
-          <SignetLockup forceLight />
+          <SignetLockup />
           <button type='button' aria-label={t('header.close-menu')} onClick={onClose}>
             <XIcon className='size-5' strokeWidth={1.5} />
           </button>

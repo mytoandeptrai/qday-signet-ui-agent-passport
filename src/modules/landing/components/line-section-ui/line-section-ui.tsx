@@ -12,7 +12,7 @@ type LineSectionUiProps = {
 
 const LineSectionUi = ({ id, text, align = 'left', link }: LineSectionUiProps) => {
   return (
-    <section id={id} className='relative z-[4] bg-white py-10 md:py-12'>
+    <section id={id} className='relative z-[4] py-10 md:py-12'>
       <SectionWrapUi>
         <AnimationContainer
           className={cn('flex flex-col', align === 'right' ? 'max-md:items-start md:items-end md:text-right' : 'items-start')}

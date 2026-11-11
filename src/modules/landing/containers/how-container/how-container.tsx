@@ -7,7 +7,7 @@ const HowContainer = () => {
   const overlays = [<CopyCommandUi key='install' />, <LimitMeterUi key='limits' />, <JobPromptUi key='job' isAsked={isAsked} onAsk={onAsk} />];
 
   return (
-    <section id='how' className='relative z-[4] bg-white py-12 md:py-20'>
+    <section id='how' className='relative z-[4] py-12 md:py-20'>
       <SectionWrapUi>
         <AnimationContainer>
           <p className='mb-[18px] text-[13px] text-text-3'>{t('how.eyebrow')}</p>

@@ -6,6 +6,12 @@
 
 body {
   @apply m-0;
+  /* Brand kit v5 cyan glow behind every page; wrappers stay transparent so it shows through. */
+  background-color: var(--background);
+  background-image: var(--gradient-mesh);
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

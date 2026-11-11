@@ -7,7 +7,7 @@ type PublicLayoutProps = {};
 
 const PublicLayout: FCC<PublicLayoutProps> = () => {
   return (
-    <div className='flex min-h-screen flex-col bg-background'>
+    <div className='flex min-h-screen flex-col'>
       <PublicHeader />
       <main className='mx-auto w-full flex-1 px-4 py-14 md:px-6'>
         <Outlet />

@@ -14,7 +14,7 @@ type SessionDecideCardUiProps = {
 const SessionDecideCardUi = ({ escalation: e, isDone, onApprove, onDecline }: SessionDecideCardUiProps) => {
   const { t } = useTranslation('session-decide-page');
   return (
-    <div className='mx-auto max-w-[440px] rounded-md border p-6 shadow-[0_12px_40px_rgba(27,30,36,.10)]'>
+    <div className='mx-auto max-w-[440px] rounded-md border p-6 shadow-card'>
       <div className='flex items-center justify-between'>
         <span className='text-small text-muted-foreground'>{t('over-limit', { when: timeAgo(e.requestedAt) })}</span>
         <StatusBadge status={e.status} />

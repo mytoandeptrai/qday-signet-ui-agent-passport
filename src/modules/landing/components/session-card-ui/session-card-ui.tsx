@@ -22,7 +22,7 @@ const SessionCardUi = ({ cardRef, rows, limit, perCall, shown, spent, isRevoked,
     <div
       ref={cardRef}
       className={cn(
-        'absolute top-1/2 left-1/2 w-[calc(100%-32px)] -translate-x-1/2 -translate-y-1/2 rounded-md border bg-white text-sm md:w-[440px]',
+        'absolute top-1/2 left-1/2 w-[calc(100%-32px)] -translate-x-1/2 -translate-y-1/2 rounded-md border bg-card text-sm md:w-[440px]',
         CARD_SHADOW
       )}
     >
