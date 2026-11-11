@@ -1,0 +1,45 @@
+{
+  "create": {
+    "title": "Cipta SignetPass anda",
+    "description": "Dompet perbelanjaan pintar yang dimiliki oleh alamat MetaMask anda. Ejen berbelanja daripadanya dalam had yang anda tetapkan.",
+    "owner": "Pemilik",
+    "network": "Rangkaian",
+    "address": "Alamat SignetPass",
+    "gas": "Yuran gas untuk SignetPass tidak ditanggung. Dompet Utama ditanggung.",
+    "submit": "Cipta SignetPass",
+    "creating": "Mencipta…",
+    "toasts": {
+      "created": "SignetPass dicipta"
+    }
+  },
+  "add-funds": {
+    "balance": "Baki SignetPass",
+    "tabs": {
+      "crypto": "Kripto",
+      "wallet": "Dompet Utama",
+      "card": "Kad"
+    },
+    "needs-signetpass": "Cipta SignetPass anda sebelum menambah dana.",
+    "create-first": "Cipta SignetPass",
+    "crypto": {
+      "address": "Alamat deposit SignetPass",
+      "note": "Deposit daripada mana-mana dompet atau bursa. Hantar hanya {{token}} di {{network}}; token atau rangkaian lain mungkin hilang."
+    },
+    "transfer": {
+      "available": "Baki Dompet Utama: {{amount}}",
+      "amount": "Jumlah (USD8)",
+      "submit": "Pindahkan {{amount}}",
+      "transferring": "Memindahkan…",
+      "errors": {
+        "amount-positive": "Masukkan jumlah melebihi 0",
+        "amount-max": "Dompet Utama anda hanya mempunyai {{available}}"
+      },
+      "toasts": {
+        "done": "{{amount}} dipindahkan ke SignetPass anda"
+      }
+    },
+    "card": {
+      "coming-soon": "Pembayaran kad akan datang."
+    }
+  }
+}

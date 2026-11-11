@@ -1,0 +1,59 @@
+{
+  "card": "コメント",
+  "composer": {
+    "placeholder": "コメントを追加…",
+    "shortcut": "⌘/Ctrl + Enter",
+    "cancel": "キャンセル",
+    "submit": "コメント",
+    "saving": "保存中…"
+  },
+  "thread": {
+    "loading": "返信を読み込み中…",
+    "placeholder": "返信…",
+    "aria": "返信",
+    "submit": "返信",
+    "sending": "送信中…"
+  },
+  "detail": {
+    "missing": "対象の要素はこのページに存在しません。",
+    "close": "閉じる",
+    "resolved": "解決済み",
+    "github": "GitHub",
+    "delete": "削除",
+    "reopen": "再開",
+    "resolve": "解決にする"
+  },
+  "list": {
+    "title": "このページ · 未解決 {{count}} 件",
+    "copy-open": "未解決をコピー",
+    "synced": "GitHub Issues と同期済み",
+    "local": "このブラウザにのみ保存（GitHub トークン未設定）",
+    "loading": "読み込み中…",
+    "empty": "コメントはまだありません。「コメント」から追加できます。",
+    "unplaced": "要素がこのページにありません",
+    "on-page": "このページ上",
+    "reply_other": "返信 {{count}} 件",
+    "not-found": "このページで要素が見つかりません"
+  },
+  "toolbar": {
+    "list-aria": "このページのコメント",
+    "cancel": "キャンセル",
+    "comment": "コメント",
+    "unplaced": "要素なし {{count}} 件"
+  },
+  "pin": {
+    "aria": "コメント {{number}}",
+    "aria-resolved": "コメント {{number}}（解決済み）"
+  },
+  "pick-hint": "コメントする要素をクリック · Esc でキャンセル",
+  "toasts": {
+    "load-failed": "GitHub からコメントを読み込めませんでした",
+    "save-failed": "コメントを GitHub に保存できませんでした",
+    "update-failed": "GitHub のコメントを更新できませんでした",
+    "delete-failed": "GitHub のコメントを削除できませんでした",
+    "replies-failed": "GitHub から返信を読み込めませんでした",
+    "reply-failed": "返信を GitHub に投稿できませんでした",
+    "copied_other": "未解決コメント {{count}} 件をコピーしました",
+    "copy-failed": "クリップボードにコピーできませんでした"
+  }
+}

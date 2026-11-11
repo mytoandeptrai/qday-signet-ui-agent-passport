@@ -1,0 +1,22 @@
+{
+  "title": "Taman Permainan",
+  "description": "Saksikan ejen bekerja di bawah sesi Signet, satu baris terminal pada satu masa.",
+  "terminal": {
+    "title": "claude · ~/work"
+  },
+  "controls": {
+    "pause": "Jeda",
+    "play": "Main",
+    "skip": "Langkau ke akhir",
+    "replay": "Main semula"
+  },
+  "meter": {
+    "title": "Had sesi"
+  },
+  "notes": {
+    "title": "Apa yang berlaku"
+  },
+  "labels": {
+    "start-session": "Mulakan ini sebagai sesi"
+  }
+}

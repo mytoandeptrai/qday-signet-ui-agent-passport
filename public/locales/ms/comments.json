@@ -1,0 +1,59 @@
+{
+  "card": "Komen",
+  "composer": {
+    "placeholder": "Tambah komen…",
+    "shortcut": "⌘/Ctrl + Enter",
+    "cancel": "Batal",
+    "submit": "Komen",
+    "saving": "Menyimpan…"
+  },
+  "thread": {
+    "loading": "Memuatkan balasan…",
+    "placeholder": "Balas…",
+    "aria": "Balas",
+    "submit": "Balas",
+    "sending": "Menghantar…"
+  },
+  "detail": {
+    "missing": "Elemennya tidak lagi berada pada halaman ini.",
+    "close": "Tutup",
+    "resolved": "Diselesaikan",
+    "github": "GitHub",
+    "delete": "Padam",
+    "reopen": "Buka semula",
+    "resolve": "Selesaikan"
+  },
+  "list": {
+    "title": "Halaman ini · {{count}} terbuka",
+    "copy-open": "Salin yang terbuka",
+    "synced": "Disegerakkan dengan GitHub Issues",
+    "local": "Disimpan dalam pelayar ini sahaja (tiada token GitHub dikonfigurasi)",
+    "loading": "Memuatkan…",
+    "empty": "Belum ada komen. Gunakan Komen untuk menambah.",
+    "unplaced": "Elemen tidak lagi berada pada halaman ini",
+    "on-page": "Pada halaman ini",
+    "reply_other": "{{count}} balasan",
+    "not-found": "Elemen tidak ditemui pada halaman ini"
+  },
+  "toolbar": {
+    "list-aria": "Komen pada halaman ini",
+    "cancel": "Batal",
+    "comment": "Komen",
+    "unplaced": "{{count}} tanpa elemen"
+  },
+  "pin": {
+    "aria": "Komen {{number}}",
+    "aria-resolved": "Komen {{number}} (diselesaikan)"
+  },
+  "pick-hint": "Klik mana-mana elemen untuk memberi komen · Esc untuk batal",
+  "toasts": {
+    "load-failed": "Tidak dapat memuatkan komen dari GitHub",
+    "save-failed": "Tidak dapat menyimpan komen ke GitHub",
+    "update-failed": "Tidak dapat mengemas kini komen di GitHub",
+    "delete-failed": "Tidak dapat memadam komen di GitHub",
+    "replies-failed": "Tidak dapat memuatkan balasan dari GitHub",
+    "reply-failed": "Tidak dapat menghantar balasan ke GitHub",
+    "copied_other": "{{count}} komen terbuka disalin",
+    "copy-failed": "Tidak dapat menyalin ke papan keratan"
+  }
+}

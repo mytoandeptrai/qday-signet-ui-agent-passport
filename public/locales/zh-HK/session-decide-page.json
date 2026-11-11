@@ -1,0 +1,15 @@
+{
+  "missing": "該請求已不存在。",
+  "back": "返回總覽",
+  "over-limit": "超出上限 · {{when}}",
+  "wants": "{{agent}} 想動用 {{amount}}",
+  "explain": "{{service}}：{{description}}。此金額超出你設定的上限，已被攔截，等待你決定。",
+  "labels": {
+    "approve-once": "僅批准一次",
+    "decline": "拒絕"
+  },
+  "toasts": {
+    "approved": "已批准一次",
+    "declined": "已拒絕"
+  }
+}

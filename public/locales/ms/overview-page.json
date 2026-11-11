@@ -1,0 +1,98 @@
+{
+  "labels": {
+    "new-session": "Sesi baharu →",
+    "add-funds": "Tambah dana",
+    "edit": "Edit",
+    "set-up": "Sediakan",
+    "collapse": "Runtuhkan",
+    "expand": "Kembangkan"
+  },
+  "pending": {
+    "wants-to-spend": "mahu berbelanja",
+    "on": "untuk",
+    "review": "Semak"
+  },
+  "ideas": {
+    "title": "Signet beraksi",
+    "items": {
+      "learn": "Ketahui tentang Signet anda",
+      "purchases": "Ubah cadangan menjadi pembelian",
+      "cloud": "Pertanyaan awan dan data berbayar",
+      "apartments": "Automasikan pencarian pangsapuri",
+      "candidates": "Cari calon untuk sesuatu jawatan",
+      "onboarding": "Automasikan orientasi pekerja baharu"
+    }
+  },
+  "get-started": {
+    "title": "Mulakan",
+    "hints": {
+      "connect": "Tampal ini ke dalam ejen pengekodan anda.",
+      "signetpass": "Cipta dompet tempat ejen anda berbelanja.",
+      "allowance": "Pilih berapa banyak ejen anda boleh berbelanja.",
+      "funds": "Danai baki anda.",
+      "learn": "Apa yang boleh dicuba seterusnya."
+    },
+    "steps": {
+      "connect": "Sambungkan ejen anda",
+      "signetpass": "Cipta SignetPass anda",
+      "allowance": "Tetapkan elaun anda",
+      "funds": "Tambah dana",
+      "learn": "Kenali Signet"
+    }
+  },
+  "install": {
+    "copy-aria": "Salin prom pemasangan",
+    "on-windows": "Guna Windows?",
+    "on-unix": "Guna macOS atau Linux?"
+  },
+  "allowance": {
+    "title": "Elaun",
+    "limit": "Elaun setiap sesi (USD)",
+    "per-call": "Had setiap panggilan (USD)",
+    "save": "Simpan elaun",
+    "spent": "{{amount}} dibelanjakan",
+    "held": "{{amount}} ditahan · lalai ${{limit}}"
+  },
+  "funds": {
+    "balance": "Baki anda ialah {{amount}}. Tambah lagi pada bila-bila masa, melalui kad, bank atau kripto."
+  },
+  "tips": {
+    "session": "Sesi ialah satu tugasan dengan had yang tegas.",
+    "stopped": "Pembayaran melebihi had anda dihentikan, kemudian menunggu keputusan anda.",
+    "revoke": "Batalkan sesi pada bila-bila masa dan bakinya dikembalikan ke baki anda."
+  },
+  "balance": {
+    "title": "Baki",
+    "wallet": "Dompet",
+    "your-wallet": "Dompet anda"
+  },
+  "sessions": {
+    "title": "Sesi",
+    "revoke": "Batalkan"
+  },
+  "revoke": {
+    "title": "Batalkan “{{task}}”?",
+    "description": "Ejen tidak lagi boleh berbelanja dalam sesi ini. {{amount}} dikembalikan ke baki anda.",
+    "keep": "Kekalkan sesi",
+    "confirm": "Batalkan"
+  },
+  "activity": {
+    "title": "Aktiviti terkini",
+    "see-all": "Lihat semua →"
+  },
+  "errors": {
+    "amount-required": "Masukkan jumlah melebihi $0",
+    "per-call-exceeds": "Had setiap panggilan tidak boleh melebihi elaun"
+  },
+  "toasts": {
+    "prompt-copied": "Disalin. Tampalkan ke dalam ejen anda.",
+    "allowance-saved": "Elaun disimpan",
+    "address-copied": "Alamat disalin",
+    "session-revoked": "Sesi dibatalkan"
+  },
+  "signetpass": {
+    "none": "SignetPass anda ialah dompet pintar tempat ejen berbelanja. Anda mencipta sekali sahaja dan mengesahkan dalam MetaMask.",
+    "created": "SignetPass anda sudah sedia.",
+    "create": "Cipta SignetPass"
+  }
+}

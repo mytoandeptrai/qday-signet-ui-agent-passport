@@ -1,0 +1,25 @@
+{
+  "connect": {
+    "button": "Sambung dompet",
+    "connecting": "Menyambung…",
+    "rejected": "Sambungan ditolak dalam MetaMask. Cuba lagi.",
+    "error": "Tidak dapat menyambung. Cuba lagi."
+  },
+  "gate": {
+    "title": "Sambungkan dompet anda",
+    "description": "Sambungkan MetaMask untuk melihat baki dan meluluskan pembayaran. Kunci anda kekal dalam MetaMask."
+  },
+  "menu": {
+    "label": "Dompet disambungkan",
+    "copy": "Salin alamat",
+    "copied": "Disalin",
+    "network": "Rangkaian",
+    "disconnect": "Putuskan sambungan"
+  },
+  "sign": {
+    "waiting": "Menunggu tandatangan MetaMask…",
+    "success": "Ditandatangani",
+    "rejected": "Tandatangan ditolak dalam MetaMask.",
+    "error": "Penandatanganan gagal. Cuba lagi."
+  }
+}

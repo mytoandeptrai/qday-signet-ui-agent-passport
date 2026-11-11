@@ -1,0 +1,45 @@
+{
+  "create": {
+    "title": "SignetPass を作成",
+    "description": "MetaMask アドレスが所有するスマート支出ウォレットです。エージェントは設定した上限内でここから支出します。",
+    "owner": "所有者",
+    "network": "ネットワーク",
+    "address": "SignetPass アドレス",
+    "gas": "SignetPass のガス代は負担されません。メインウォレットは負担されます。",
+    "submit": "SignetPass を作成",
+    "creating": "作成中…",
+    "toasts": {
+      "created": "SignetPass を作成しました"
+    }
+  },
+  "add-funds": {
+    "balance": "SignetPass 残高",
+    "tabs": {
+      "crypto": "暗号資産",
+      "wallet": "メインウォレット",
+      "card": "カード"
+    },
+    "needs-signetpass": "入金する前に SignetPass を作成してください。",
+    "create-first": "SignetPass を作成",
+    "crypto": {
+      "address": "SignetPass 入金アドレス",
+      "note": "任意のウォレットや取引所から入金できます。{{network}} 上の {{token}} のみ送ってください。他のトークンやネットワークでは失われる可能性があります。"
+    },
+    "transfer": {
+      "available": "メインウォレット残高：{{amount}}",
+      "amount": "金額（USD8）",
+      "submit": "{{amount}} を移動",
+      "transferring": "移動中…",
+      "errors": {
+        "amount-positive": "0 より大きい金額を入力してください",
+        "amount-max": "メインウォレットの残高は {{available}} のみです"
+      },
+      "toasts": {
+        "done": "{{amount}} を SignetPass に移動しました"
+      }
+    },
+    "card": {
+      "coming-soon": "カード決済は近日公開予定です。"
+    }
+  }
+}

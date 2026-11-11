@@ -1,0 +1,66 @@
+{
+  "title": "Tetapan",
+  "tabs": {
+    "limits": "Had",
+    "notifications": "Pemberitahuan",
+    "security": "Keselamatan",
+    "account": "Akaun"
+  },
+  "labels": {
+    "save": "Simpan perubahan"
+  },
+  "limits": {
+    "default-limit": "Had sesi lalai (USD)",
+    "default-per-call": "Had setiap panggilan lalai (USD)",
+    "approval-above": "Tanya saya sebelum sebarang pembayaran tunggal melebihi (USD)"
+  },
+  "notifications": {
+    "emailAlerts": {
+      "title": "E-mel saya tentang setiap sesi",
+      "description": "Ringkasan apabila sesi tamat."
+    },
+    "alertOnBlocked": {
+      "title": "Beritahu saya apabila pembayaran disekat",
+      "description": "Dihantar serta-merta, bersama sebabnya."
+    }
+  },
+  "security": {
+    "title": "Sejarah keselamatan",
+    "empty": "Belum ada. Sambungan dompet, tandatangan dan pembatalan akan muncul di sini.",
+    "events": {
+      "wallet-connected": "Dompet disambungkan",
+      "wallet-disconnected": "Dompet diputuskan",
+      "signetpass-created": "SignetPass dicipta",
+      "transfer": "Pemindahan ditandatangani",
+      "agent-approved": "Ejen diluluskan",
+      "agent-revoked": "Ejen dibatalkan",
+      "session-created": "Sesi dicipta",
+      "session-revoked": "Sesi dibatalkan"
+    }
+  },
+  "account": {
+    "name": "Nama",
+    "email": "E-mel",
+    "wallet": "Alamat SignetPass",
+    "appearance": "Penampilan",
+    "appearances": {
+      "light": "Cerah",
+      "dark": "Gelap",
+      "system": "Sistem"
+    },
+    "reset-description": "Tetapkan semula sesi, aktiviti, dompet dan baki kepada data demo.",
+    "reset": "Tetapkan semula data demo",
+    "account-id": "ID Akaun",
+    "connected-wallet": "Dompet disambungkan",
+    "not-connected": "Tidak disambungkan"
+  },
+  "errors": {
+    "amount-positive": "Mesti lebih daripada $0",
+    "amount-invalid": "Masukkan jumlah yang sah",
+    "per-call-exceeds": "Tidak boleh melebihi had sesi"
+  },
+  "toasts": {
+    "saved": "Tetapan disimpan",
+    "reset": "Data demo dipulihkan"
+  }
+}

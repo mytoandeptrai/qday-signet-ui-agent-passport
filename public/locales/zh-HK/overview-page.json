@@ -1,0 +1,98 @@
+{
+  "labels": {
+    "new-session": "新增會話 →",
+    "add-funds": "增值",
+    "edit": "編輯",
+    "set-up": "設定",
+    "collapse": "收合",
+    "expand": "展開"
+  },
+  "pending": {
+    "wants-to-spend": "想動用",
+    "on": "於",
+    "review": "審閱"
+  },
+  "ideas": {
+    "title": "Signet 實際應用",
+    "items": {
+      "learn": "認識你的 Signet",
+      "purchases": "把推薦變成購買",
+      "cloud": "雲端查詢與付費數據",
+      "apartments": "自動尋找租盤",
+      "candidates": "為職位尋找人選",
+      "onboarding": "自動處理新員工入職"
+    }
+  },
+  "get-started": {
+    "title": "開始使用",
+    "hints": {
+      "connect": "將此內容貼到你的編程代理。",
+      "signetpass": "建立供代理支出的錢包。",
+      "allowance": "選擇代理可支出的金額。",
+      "funds": "為你的餘額注資。",
+      "learn": "接下來可以試試什麼。"
+    },
+    "steps": {
+      "connect": "連接你的代理",
+      "signetpass": "建立你的 SignetPass",
+      "allowance": "設定額度",
+      "funds": "增值",
+      "learn": "認識 Signet"
+    }
+  },
+  "install": {
+    "copy-aria": "複製安裝指令",
+    "on-windows": "使用 Windows？",
+    "on-unix": "使用 macOS 或 Linux？"
+  },
+  "allowance": {
+    "title": "額度",
+    "limit": "每個會話的額度（USD）",
+    "per-call": "單次上限（USD）",
+    "save": "儲存額度",
+    "spent": "已用 {{amount}}",
+    "held": "已預留 {{amount}} · 預設 ${{limit}}"
+  },
+  "funds": {
+    "balance": "你的餘額為 {{amount}}。可隨時以信用卡、銀行或加密貨幣增值。"
+  },
+  "tips": {
+    "session": "會話是設有嚴格上限的單一工作。",
+    "stopped": "超出上限的付款會被攔截，並等待你決定。",
+    "revoke": "隨時可撤銷會話，餘額會退回你的帳戶。"
+  },
+  "balance": {
+    "title": "餘額",
+    "wallet": "錢包",
+    "your-wallet": "你的錢包"
+  },
+  "sessions": {
+    "title": "會話",
+    "revoke": "撤銷"
+  },
+  "revoke": {
+    "title": "撤銷「{{task}}」？",
+    "description": "代理將無法再於此會話中支出。{{amount}} 會退回你的餘額。",
+    "keep": "保留會話",
+    "confirm": "撤銷"
+  },
+  "activity": {
+    "title": "近期活動",
+    "see-all": "查看全部 →"
+  },
+  "errors": {
+    "amount-required": "請輸入大於 $0 的金額",
+    "per-call-exceeds": "單次上限不可超過額度"
+  },
+  "toasts": {
+    "prompt-copied": "已複製，請貼到你的代理。",
+    "allowance-saved": "已儲存額度",
+    "address-copied": "已複製地址",
+    "session-revoked": "已撤銷會話"
+  },
+  "signetpass": {
+    "none": "SignetPass 是代理支出所用的智能錢包。只需建立一次，並在 MetaMask 中確認。",
+    "created": "你的 SignetPass 已就緒。",
+    "create": "建立 SignetPass"
+  }
+}

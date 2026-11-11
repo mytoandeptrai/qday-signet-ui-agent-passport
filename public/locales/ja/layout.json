@@ -1,0 +1,77 @@
+{
+  "nav": {
+    "home": "ホーム",
+    "activity": "アクティビティ",
+    "explore": "探索",
+    "products": "製品",
+    "signet-router": "Signet Router",
+    "new-session": "新規セッション",
+    "help": "ヘルプ",
+    "wallet": "ウォレット",
+    "agents": "エージェント",
+    "sessions": "セッション"
+  },
+  "help": {
+    "documentation": "ドキュメント",
+    "contact-support": "サポートに連絡",
+    "terms": "利用規約",
+    "privacy": "プライバシー"
+  },
+  "banner": {
+    "text": "Signet Router で AI コストを半減",
+    "learn-more": "詳しく見る",
+    "dismiss": "閉じる"
+  },
+  "notifications": {
+    "title": "通知",
+    "empty": "すべて確認済みです。",
+    "escalation": "{{agent}} が {{service}} で {{amount}} を求めています",
+    "blocked": "ブロック：{{service}} {{amount}}（{{reason}}）"
+  },
+  "account": {
+    "menu": "アカウントメニュー",
+    "settings": "設定",
+    "deposit": "入金",
+    "sign-out": "サインアウト"
+  },
+  "toasts": {
+    "router-soon": "Signet Router は近日公開です",
+    "docs": "ドキュメントは本番製品で開きます",
+    "support": "サポートにメッセージを送信しました（モック）",
+    "signed-out": "サインアウトしました"
+  },
+  "dialogs": {
+    "send": {
+      "title": "USD8 を送金",
+      "description": "メインウォレットから USD8 を送金します。MetaMask で確認します。"
+    },
+    "receive": {
+      "title": "USD8 を受け取る",
+      "description": "このアドレスを共有すると、QDay 上で USD8 を受け取れます。"
+    },
+    "create-signetpass": {
+      "title": "SignetPass を作成",
+      "description": "内容を確認し、MetaMask で承認してください。"
+    },
+    "add-funds": {
+      "title": "入金",
+      "description": "SignetPass に入金すると、エージェントが上限内で支出できます。"
+    },
+    "create-session": {
+      "title": "新規セッション",
+      "description": "エージェントにタスクと支出上限を与えます。MetaMask で確認します。"
+    },
+    "approve-session": {
+      "title": "セッションを承認",
+      "description": "エージェントがこのセッションの開始を求めています。"
+    },
+    "decide-request": {
+      "title": "支出リクエスト",
+      "description": "エージェントがこの購入にあなたの承認を求めています。"
+    },
+    "approve-agent": {
+      "title": "エージェントを承認",
+      "description": "エージェントの登録は MetaMask で署名します。"
+    }
+  }
+}

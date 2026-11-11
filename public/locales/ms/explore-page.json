@@ -1,0 +1,24 @@
+{
+  "title": "Terokai perkhidmatan",
+  "description": "2,000+ perkhidmatan yang boleh dibayar oleh ejen anda. Memaparkan {{count}} pilihan.",
+  "search-placeholder": "Cari perkhidmatan",
+  "sort": {
+    "label": "Isih",
+    "popular": "Paling popular",
+    "name": "Nama",
+    "price-asc": "Harga: rendah ke tinggi",
+    "price-desc": "Harga: tinggi ke rendah"
+  },
+  "categories": "Kategori",
+  "empty": "Tiada perkhidmatan sepadan dengan “{{query}}”.",
+  "dialog": {
+    "price": "Harga",
+    "category": "Kategori",
+    "provider": "Penyedia",
+    "use": "Gunakan dalam sesi",
+    "sign-in": "Log masuk untuk menggunakan"
+  },
+  "toasts": {
+    "added": "{{name}} ditambah ke sesi anda yang seterusnya"
+  }
+}

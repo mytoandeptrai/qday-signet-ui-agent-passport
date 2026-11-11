@@ -1,0 +1,43 @@
+{
+  "title": "エージェント",
+  "description": "SignetPass から支出する AI エージェントを登録します。各エージェントは MetaMask で承認します。",
+  "connect": {
+    "title": "エージェントを接続",
+    "hint": "これをコーディングエージェントに貼り付けてください。登録リクエストが届き、下に表示されます。"
+  },
+  "pending": {
+    "title": "承認待ち",
+    "empty": "登録リクエストはありません。"
+  },
+  "registered": {
+    "title": "登録済みエージェント",
+    "empty": "エージェントはまだありません。"
+  },
+  "row": {
+    "requested": "リクエスト {{when}}",
+    "approved": "承認 {{when}}"
+  },
+  "labels": {
+    "approve": "確認",
+    "revoke": "取り消す"
+  },
+  "approve": {
+    "summary": "{{agent}} があなたの SignetPass への登録を求めています。承認すると、上限を設定したセッションを開始できます。",
+    "submit": "エージェントを承認",
+    "approving": "承認中…",
+    "cancel": "今はしない",
+    "missing": "この登録リクエストはすでに保留中ではありません。",
+    "toasts": {
+      "approved": "{{agent}} を承認しました"
+    }
+  },
+  "revoke": {
+    "title": "{{agent}} を取り消しますか？",
+    "description": "セッションの開始や支出ができなくなります。既存のセッションは、取り消すまでそれぞれの上限が適用されます。",
+    "keep": "エージェントを残す",
+    "confirm": "取り消す",
+    "toasts": {
+      "revoked": "{{agent}} を取り消しました"
+    }
+  }
+}

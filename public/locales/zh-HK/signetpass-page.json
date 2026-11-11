@@ -1,0 +1,45 @@
+{
+  "create": {
+    "title": "建立你的 SignetPass",
+    "description": "由你的 MetaMask 地址擁有的智能支出錢包。代理在你設定的上限內從中支出。",
+    "owner": "擁有者",
+    "network": "網絡",
+    "address": "SignetPass 地址",
+    "gas": "SignetPass 的 Gas 費不獲資助，主錢包則有。",
+    "submit": "建立 SignetPass",
+    "creating": "建立中…",
+    "toasts": {
+      "created": "已建立 SignetPass"
+    }
+  },
+  "add-funds": {
+    "balance": "SignetPass 餘額",
+    "tabs": {
+      "crypto": "加密貨幣",
+      "wallet": "主錢包",
+      "card": "信用卡"
+    },
+    "needs-signetpass": "請先建立 SignetPass 再增值。",
+    "create-first": "建立 SignetPass",
+    "crypto": {
+      "address": "SignetPass 存款地址",
+      "note": "可從任何錢包或交易所存入。請只在 {{network}} 上發送 {{token}}，其他代幣或網絡可能會遺失。"
+    },
+    "transfer": {
+      "available": "主錢包餘額：{{amount}}",
+      "amount": "金額（USD8）",
+      "submit": "轉移 {{amount}}",
+      "transferring": "轉移中…",
+      "errors": {
+        "amount-positive": "請輸入大於 0 的金額",
+        "amount-max": "你的主錢包只有 {{available}}"
+      },
+      "toasts": {
+        "done": "已將 {{amount}} 轉入你的 SignetPass"
+      }
+    },
+    "card": {
+      "coming-soon": "信用卡付款即將推出。"
+    }
+  }
+}

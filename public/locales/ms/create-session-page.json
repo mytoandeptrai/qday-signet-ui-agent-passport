@@ -1,0 +1,40 @@
+{
+  "title": "Sesi baharu",
+  "description": "Sesi ialah satu tugasan dengan had perbelanjaan yang tegas. Ejen anda tidak boleh berbelanja melebihinya.",
+  "fields": {
+    "task": {
+      "label": "Tugasan",
+      "placeholder": "Makan malam pasukan untuk 12 orang"
+    },
+    "agent": {
+      "label": "Ejen"
+    },
+    "limit": {
+      "label": "Had sesi (USD)"
+    },
+    "per-call": {
+      "label": "Had setiap panggilan (USD)"
+    },
+    "hours": {
+      "label": "Tamat tempoh selepas (jam)"
+    }
+  },
+  "available": "Baki tersedia:",
+  "labels": {
+    "create": "Cipta sesi",
+    "creating": "Mencipta…"
+  },
+  "errors": {
+    "task-min": "Huraikan tugasan dalam beberapa perkataan",
+    "task-max": "Hadkan kepada 80 aksara",
+    "amount-required": "Masukkan jumlah",
+    "amount-positive": "Mesti lebih daripada $0",
+    "amount-max": "Anda hanya mempunyai {{available}} yang tersedia",
+    "per-call-exceeds": "Had setiap panggilan tidak boleh melebihi had sesi",
+    "hours-invalid": "Masukkan bilangan jam bulat, 1 hingga 168"
+  },
+  "toasts": {
+    "created": "Sesi dicipta",
+    "held": "{{amount}} ditahan untuk {{agent}}."
+  }
+}

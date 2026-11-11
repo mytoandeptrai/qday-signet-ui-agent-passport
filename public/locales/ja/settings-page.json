@@ -1,0 +1,66 @@
+{
+  "title": "設定",
+  "tabs": {
+    "limits": "上限",
+    "notifications": "通知",
+    "security": "セキュリティ",
+    "account": "アカウント"
+  },
+  "labels": {
+    "save": "変更を保存"
+  },
+  "limits": {
+    "default-limit": "既定のセッション上限（USD）",
+    "default-per-call": "既定の1回あたり上限（USD）",
+    "approval-above": "この金額を超える1件の支払いは事前に確認する（USD）"
+  },
+  "notifications": {
+    "emailAlerts": {
+      "title": "すべてのセッションをメールで通知",
+      "description": "セッション終了時にサマリーを送信します。"
+    },
+    "alertOnBlocked": {
+      "title": "支払いがブロックされたら通知",
+      "description": "理由を添えてすぐに送信します。"
+    }
+  },
+  "security": {
+    "title": "セキュリティ履歴",
+    "empty": "まだありません。ウォレット接続、署名、取り消しがここに表示されます。",
+    "events": {
+      "wallet-connected": "ウォレットを接続",
+      "wallet-disconnected": "ウォレットを切断",
+      "signetpass-created": "SignetPass を作成",
+      "transfer": "送金に署名",
+      "agent-approved": "エージェントを承認",
+      "agent-revoked": "エージェントを取り消し",
+      "session-created": "セッションを作成",
+      "session-revoked": "セッションを取り消し"
+    }
+  },
+  "account": {
+    "name": "名前",
+    "email": "メールアドレス",
+    "wallet": "SignetPass アドレス",
+    "appearance": "外観",
+    "appearances": {
+      "light": "ライト",
+      "dark": "ダーク",
+      "system": "システム"
+    },
+    "reset-description": "セッション、アクティビティ、ウォレット、残高をデモデータに戻します。",
+    "reset": "デモデータをリセット",
+    "account-id": "アカウント ID",
+    "connected-wallet": "接続中のウォレット",
+    "not-connected": "未接続"
+  },
+  "errors": {
+    "amount-positive": "$0 より大きい金額にしてください",
+    "amount-invalid": "有効な金額を入力してください",
+    "per-call-exceeds": "セッション上限を超えられません"
+  },
+  "toasts": {
+    "saved": "設定を保存しました",
+    "reset": "デモデータを復元しました"
+  }
+}

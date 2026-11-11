@@ -1,4 +1,5 @@
 import { SettingsIcon } from 'lucide-react';
+import LanguageSwitcher from '@/components/app/language-switcher';
 import { SidebarTrigger } from '@/components/ui/sidebar';
 import { CustomLink } from '@/components/ui/custom-link';
 import { useTranslation } from '@/integrations/i18n';
@@ -15,6 +16,7 @@ const AppHeader = () => {
       <SidebarTrigger className='-ml-1 md:hidden' />
       <AppHeaderBanner />
       <div className='ml-auto flex items-center gap-1'>
+        <LanguageSwitcher className='h-9 px-2 text-muted-foreground hover:text-foreground' />
         <AppHeaderNotifications />
         <CustomLink
           to={ROUTES.SETTINGS}

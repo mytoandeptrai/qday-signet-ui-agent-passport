@@ -1,0 +1,40 @@
+{
+  "title": "新規セッション",
+  "description": "セッションは、支出上限が厳格に設定された1つの仕事です。エージェントは上限を超えて支出できません。",
+  "fields": {
+    "task": {
+      "label": "タスク",
+      "placeholder": "12名のチームディナー"
+    },
+    "agent": {
+      "label": "エージェント"
+    },
+    "limit": {
+      "label": "セッション上限（USD）"
+    },
+    "per-call": {
+      "label": "1回あたりの上限（USD）"
+    },
+    "hours": {
+      "label": "有効期限（時間）"
+    }
+  },
+  "available": "利用可能残高：",
+  "labels": {
+    "create": "セッションを作成",
+    "creating": "作成中…"
+  },
+  "errors": {
+    "task-min": "仕事の内容を簡単に記入してください",
+    "task-max": "80 文字以内で入力してください",
+    "amount-required": "金額を入力してください",
+    "amount-positive": "$0 より大きい金額にしてください",
+    "amount-max": "利用可能額は {{available}} のみです",
+    "per-call-exceeds": "1回あたりの上限はセッション上限を超えられません",
+    "hours-invalid": "1〜168 の整数の時間を入力してください"
+  },
+  "toasts": {
+    "created": "セッションを作成しました",
+    "held": "{{agent}} のために {{amount}} を確保しました。"
+  }
+}

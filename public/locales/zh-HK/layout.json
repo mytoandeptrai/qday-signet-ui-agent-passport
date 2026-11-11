@@ -1,0 +1,77 @@
+{
+  "nav": {
+    "home": "主頁",
+    "activity": "活動",
+    "explore": "探索",
+    "products": "產品",
+    "signet-router": "Signet Router",
+    "new-session": "新增會話",
+    "help": "說明",
+    "wallet": "錢包",
+    "agents": "代理",
+    "sessions": "會話"
+  },
+  "help": {
+    "documentation": "文件",
+    "contact-support": "聯絡支援",
+    "terms": "條款",
+    "privacy": "私隱"
+  },
+  "banner": {
+    "text": "使用 Signet Router，AI 成本減半",
+    "learn-more": "了解更多",
+    "dismiss": "關閉"
+  },
+  "notifications": {
+    "title": "通知",
+    "empty": "你已查看所有通知。",
+    "escalation": "{{agent}} 想於 {{service}} 動用 {{amount}}",
+    "blocked": "已攔截：{{service}} {{amount}}（{{reason}}）"
+  },
+  "account": {
+    "menu": "帳戶選單",
+    "settings": "設定",
+    "deposit": "增值",
+    "sign-out": "登出"
+  },
+  "toasts": {
+    "router-soon": "Signet Router 即將推出",
+    "docs": "文件將於正式產品中開啟",
+    "support": "訊息已發送至支援（模擬）",
+    "signed-out": "已登出"
+  },
+  "dialogs": {
+    "send": {
+      "title": "發送 USD8",
+      "description": "從你的主錢包發送 USD8，並在 MetaMask 中確認。"
+    },
+    "receive": {
+      "title": "接收 USD8",
+      "description": "分享此地址即可在 QDay 上接收 USD8。"
+    },
+    "create-signetpass": {
+      "title": "建立你的 SignetPass",
+      "description": "請檢查詳情，然後在 MetaMask 中確認。"
+    },
+    "add-funds": {
+      "title": "增值",
+      "description": "為你的 SignetPass 注資，讓代理在你的上限內支出。"
+    },
+    "create-session": {
+      "title": "新增會話",
+      "description": "為代理指派任務及支出上限，並在 MetaMask 中確認。"
+    },
+    "approve-session": {
+      "title": "批准會話",
+      "description": "有代理請求開始此會話。"
+    },
+    "decide-request": {
+      "title": "支出請求",
+      "description": "有代理需要你批准這項購買。"
+    },
+    "approve-agent": {
+      "title": "批准代理",
+      "description": "登記代理須在 MetaMask 中簽署。"
+    }
+  }
+}

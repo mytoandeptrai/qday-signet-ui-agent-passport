@@ -404,5 +404,25 @@
     "uploading_other": "正在上載 {{count}} 個檔案⋯",
     "uploaded_other": "已上載 {{count}} 個檔案",
     "failed_other": "{{count}} 個檔案上載失敗"
+  },
+  "spend-bar": {
+    "spent": "已用",
+    "left": "剩餘",
+    "limit": "上限 ${{amount}}",
+    "per-call": "每次 ${{amount}}"
+  },
+  "status": {
+    "active": "生效中",
+    "settled": "已結算",
+    "completed": "已完成",
+    "approved": "已批准",
+    "redeemed": "已兌換",
+    "unused": "未使用",
+    "pending": "待處理",
+    "blocked": "已攔截",
+    "revoked": "已撤銷",
+    "declined": "已拒絕",
+    "failed": "失敗",
+    "expired": "已過期"
   }
 }

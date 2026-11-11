@@ -1,0 +1,77 @@
+{
+  "nav": {
+    "home": "Utama",
+    "activity": "Aktiviti",
+    "explore": "Terokai",
+    "products": "Produk",
+    "signet-router": "Signet Router",
+    "new-session": "Sesi baharu",
+    "help": "Bantuan",
+    "wallet": "Dompet",
+    "agents": "Ejen",
+    "sessions": "Sesi"
+  },
+  "help": {
+    "documentation": "Dokumentasi",
+    "contact-support": "Hubungi sokongan",
+    "terms": "Terma",
+    "privacy": "Privasi"
+  },
+  "banner": {
+    "text": "Kurangkan kos AI anda separuh dengan Signet Router",
+    "learn-more": "Ketahui lebih lanjut",
+    "dismiss": "Tutup"
+  },
+  "notifications": {
+    "title": "Pemberitahuan",
+    "empty": "Anda sudah mengikuti semuanya.",
+    "escalation": "{{agent}} mahu {{amount}} untuk {{service}}",
+    "blocked": "Disekat: {{service}} {{amount}} ({{reason}})"
+  },
+  "account": {
+    "menu": "Menu akaun",
+    "settings": "Tetapan",
+    "deposit": "Tambah dana",
+    "sign-out": "Log keluar"
+  },
+  "toasts": {
+    "router-soon": "Signet Router akan datang",
+    "docs": "Dokumen dibuka dalam produk sebenar",
+    "support": "Mesej dihantar kepada sokongan (olok-olok)",
+    "signed-out": "Telah log keluar"
+  },
+  "dialogs": {
+    "send": {
+      "title": "Hantar USD8",
+      "description": "Hantar USD8 dari Dompet Utama anda. Anda mengesahkan dalam MetaMask."
+    },
+    "receive": {
+      "title": "Terima USD8",
+      "description": "Kongsi alamat ini untuk menerima USD8 di QDay."
+    },
+    "create-signetpass": {
+      "title": "Cipta SignetPass anda",
+      "description": "Semak butiran, kemudian sahkan dalam MetaMask."
+    },
+    "add-funds": {
+      "title": "Tambah dana",
+      "description": "Danai SignetPass anda supaya ejen boleh berbelanja dalam had anda."
+    },
+    "create-session": {
+      "title": "Sesi baharu",
+      "description": "Beri ejen satu tugasan dan had perbelanjaan. Anda mengesahkan dalam MetaMask."
+    },
+    "approve-session": {
+      "title": "Luluskan sesi",
+      "description": "Seorang ejen meminta untuk memulakan sesi ini."
+    },
+    "decide-request": {
+      "title": "Permintaan perbelanjaan",
+      "description": "Seorang ejen memerlukan kelulusan anda untuk pembelian ini."
+    },
+    "approve-agent": {
+      "title": "Luluskan ejen",
+      "description": "Pendaftaran ejen ditandatangani dalam MetaMask."
+    }
+  }
+}

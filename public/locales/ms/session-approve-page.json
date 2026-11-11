@@ -1,0 +1,13 @@
+{
+  "asking": "{{agent}} meminta untuk berbelanja",
+  "expires": "Tamat tempoh selepas {{hours}} jam. Anda boleh membatalkannya pada bila-bila masa.",
+  "short": "Anda mempunyai {{available}} yang tersedia. Sila deposit dana dahulu.",
+  "labels": {
+    "approve": "Lulus",
+    "decline": "Tolak"
+  },
+  "toasts": {
+    "approved": "Sesi diluluskan",
+    "declined": "Permintaan ditolak"
+  }
+}

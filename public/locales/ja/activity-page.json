@@ -1,0 +1,69 @@
+{
+  "title": "アクティビティ",
+  "labels": {
+    "export-csv": "CSV をエクスポート"
+  },
+  "tabs": {
+    "all": "すべて",
+    "sessions": "セッション",
+    "services": "サービス",
+    "transfers": "送金"
+  },
+  "range": {
+    "aria": "期間",
+    "days": "{{count}} 日間"
+  },
+  "metric": {
+    "aria": "指標"
+  },
+  "metrics": {
+    "spend": "支出",
+    "calls": "有料呼び出し",
+    "held": "承認済み予算",
+    "count": "セッション",
+    "added": "入金額"
+  },
+  "chart": {
+    "aria": "1日あたりの{{metric}}"
+  },
+  "empty": "まだありません。",
+  "categories": {
+    "service": "サービス",
+    "session": "セッション",
+    "deposit": "入金",
+    "wallet": "メインウォレット"
+  },
+  "table": {
+    "headers": {
+      "detail": "詳細",
+      "category": "カテゴリ",
+      "amount": "金額",
+      "time": "日時"
+    }
+  },
+  "rows": {
+    "session-sub": "{{agent}} · {{limit}} 中 {{spent}} 使用",
+    "added-funds": "入金しました",
+    "by-method": "{{method}}経由",
+    "wallet-send": "メインウォレットから送金",
+    "wallet-receive": "メインウォレットで受取"
+  },
+  "detail": {
+    "category": "カテゴリ",
+    "amount": "金額",
+    "status": "ステータス",
+    "reason": "理由",
+    "task": "タスク",
+    "time": "日時",
+    "reference": "参照番号"
+  },
+  "toasts": {
+    "exported": "{{count}} 行をエクスポートしました"
+  },
+  "methods": {
+    "card": "カード",
+    "bank": "銀行振込",
+    "crypto": "暗号資産",
+    "wallet": "メインウォレット"
+  }
+}

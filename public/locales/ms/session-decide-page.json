@@ -1,0 +1,15 @@
+{
+  "missing": "Permintaan itu sudah tidak wujud.",
+  "back": "Kembali ke ringkasan",
+  "over-limit": "Melebihi had anda · {{when}}",
+  "wants": "{{agent}} mahu {{amount}}",
+  "explain": "{{service}}: {{description}}. Ini melebihi had yang anda tetapkan, jadi ia dihentikan sehingga anda membuat keputusan.",
+  "labels": {
+    "approve-once": "Lulus sekali",
+    "decline": "Tolak"
+  },
+  "toasts": {
+    "approved": "Diluluskan sekali",
+    "declined": "Ditolak"
+  }
+}

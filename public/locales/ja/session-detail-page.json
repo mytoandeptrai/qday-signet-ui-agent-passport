@@ -1,0 +1,28 @@
+{
+  "back": "← 概要",
+  "header": {
+    "description": "{{agent}} · 開始 {{started}} · {{state}}",
+    "expires": "期限 {{when}}"
+  },
+  "revoke": {
+    "button": "取り消す",
+    "title": "このセッションを取り消しますか？",
+    "description": "{{amount}} は残高に戻ります。この操作は元に戻せません。",
+    "cancel": "キャンセル",
+    "confirm": "取り消す"
+  },
+  "activity": {
+    "title": "アクティビティ",
+    "empty": "支払いはまだありません。"
+  },
+  "spend": {
+    "title": "支出"
+  },
+  "services": {
+    "title": "許可されたサービス",
+    "any": "上限の範囲内であれば、どのサービスでも可。"
+  },
+  "toasts": {
+    "revoked": "セッションを取り消しました"
+  }
+}

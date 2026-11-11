@@ -1,28 +1,28 @@
 import { CheckIcon, GlobeIcon } from 'lucide-react';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+import { useLanguage } from '@/hooks/use-language';
 import { useTranslation } from '@/integrations/i18n';
-import type { LANGUAGES } from '@/integrations/i18n';
+import { cn } from '@/lib/utils';
 
-interface PublicHeaderLanguageProps {
-  languages: typeof LANGUAGES;
-  current: (typeof LANGUAGES)[number];
-  onChange: (code: string) => void;
+interface LanguageSwitcherProps {
+  className?: string;
 }
 
-const PublicHeaderLanguage = ({ languages, current, onChange }: PublicHeaderLanguageProps) => {
-  const { t } = useTranslation('public-layout');
+const LanguageSwitcher = ({ className }: LanguageSwitcherProps) => {
+  const { t } = useTranslation('common');
+  const { languages, current, onChangeLanguage } = useLanguage();
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
-        aria-label={t('header.language')}
-        className='flex items-center gap-1.5 text-foreground/80 outline-none transition-colors hover:text-foreground'
+        aria-label={t('switchLanguage')}
+        className={cn('flex items-center gap-1.5 outline-none transition-colors', className)}
       >
         <GlobeIcon className='size-4' strokeWidth={1.5} />
         <span className='hidden md:inline'>{current.nativeName}</span>
       </DropdownMenuTrigger>
       <DropdownMenuContent align='end' className='min-w-40'>
         {languages.map((language) => (
-          <DropdownMenuItem key={language.code} lang={language.code} onSelect={() => onChange(language.code)}>
+          <DropdownMenuItem key={language.code} lang={language.code} onSelect={() => onChangeLanguage(language.code)}>
             {language.nativeName}
             {language.code === current.code && <CheckIcon className='ml-auto' />}
           </DropdownMenuItem>
@@ -32,4 +32,4 @@ const PublicHeaderLanguage = ({ languages, current, onChange }: PublicHeaderLang
   );
 };
 
-export default PublicHeaderLanguage;
+export default LanguageSwitcher;

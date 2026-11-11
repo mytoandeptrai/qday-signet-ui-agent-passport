@@ -1,0 +1,28 @@
+{
+  "back": "← 總覽",
+  "header": {
+    "description": "{{agent}} · 開始於 {{started}} · {{state}}",
+    "expires": "到期於 {{when}}"
+  },
+  "revoke": {
+    "button": "撤銷",
+    "title": "撤銷此會話？",
+    "description": "{{amount}} 會退回你的餘額，此操作無法還原。",
+    "cancel": "取消",
+    "confirm": "撤銷"
+  },
+  "activity": {
+    "title": "活動",
+    "empty": "暫無付款。"
+  },
+  "spend": {
+    "title": "支出"
+  },
+  "services": {
+    "title": "允許的服務",
+    "any": "任何服務，須在上限內。"
+  },
+  "toasts": {
+    "revoked": "已撤銷會話"
+  }
+}

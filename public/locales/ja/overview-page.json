@@ -1,0 +1,98 @@
+{
+  "labels": {
+    "new-session": "新規セッション →",
+    "add-funds": "入金",
+    "edit": "編集",
+    "set-up": "設定",
+    "collapse": "折りたたむ",
+    "expand": "展開"
+  },
+  "pending": {
+    "wants-to-spend": "が支出を求めています：",
+    "on": "／",
+    "review": "確認"
+  },
+  "ideas": {
+    "title": "Signet の活用例",
+    "items": {
+      "learn": "Signet について知る",
+      "purchases": "おすすめを購入につなげる",
+      "cloud": "クラウドクエリと有料データ",
+      "apartments": "賃貸探しを自動化",
+      "candidates": "採用候補者を探す",
+      "onboarding": "新入社員のオンボーディングを自動化"
+    }
+  },
+  "get-started": {
+    "title": "はじめに",
+    "hints": {
+      "connect": "これをコーディングエージェントに貼り付けてください。",
+      "signetpass": "エージェントが支出するウォレットを作成します。",
+      "allowance": "エージェントが使える金額を決めます。",
+      "funds": "残高に入金します。",
+      "learn": "次に試すこと。"
+    },
+    "steps": {
+      "connect": "エージェントを接続",
+      "signetpass": "SignetPass を作成",
+      "allowance": "利用枠を設定",
+      "funds": "入金",
+      "learn": "Signet を知る"
+    }
+  },
+  "install": {
+    "copy-aria": "インストール用プロンプトをコピー",
+    "on-windows": "Windows をお使いですか？",
+    "on-unix": "macOS または Linux をお使いですか？"
+  },
+  "allowance": {
+    "title": "利用枠",
+    "limit": "セッションごとの利用枠（USD）",
+    "per-call": "1回あたりの上限（USD）",
+    "save": "利用枠を保存",
+    "spent": "{{amount}} 使用済み",
+    "held": "{{amount}} 確保 · 既定 ${{limit}}"
+  },
+  "funds": {
+    "balance": "残高は {{amount}} です。カード、銀行、暗号資産でいつでも追加できます。"
+  },
+  "tips": {
+    "session": "セッションは、上限が厳格に設定された1つの仕事です。",
+    "stopped": "上限を超える支払いは停止され、あなたの判断を待ちます。",
+    "revoke": "セッションはいつでも取り消せます。残りは残高に戻ります。"
+  },
+  "balance": {
+    "title": "残高",
+    "wallet": "ウォレット",
+    "your-wallet": "あなたのウォレット"
+  },
+  "sessions": {
+    "title": "セッション",
+    "revoke": "取り消す"
+  },
+  "revoke": {
+    "title": "「{{task}}」を取り消しますか？",
+    "description": "エージェントはこのセッションで支出できなくなります。{{amount}} は残高に戻ります。",
+    "keep": "セッションを残す",
+    "confirm": "取り消す"
+  },
+  "activity": {
+    "title": "最近のアクティビティ",
+    "see-all": "すべて見る →"
+  },
+  "errors": {
+    "amount-required": "$0 より大きい金額を入力してください",
+    "per-call-exceeds": "1回あたりの上限は利用枠を超えられません"
+  },
+  "toasts": {
+    "prompt-copied": "コピーしました。エージェントに貼り付けてください。",
+    "allowance-saved": "利用枠を保存しました",
+    "address-copied": "アドレスをコピーしました",
+    "session-revoked": "セッションを取り消しました"
+  },
+  "signetpass": {
+    "none": "SignetPass は、エージェントが支出するスマートウォレットです。作成は一度だけで、MetaMask で確認します。",
+    "created": "SignetPass の準備ができました。",
+    "create": "SignetPass を作成"
+  }
+}

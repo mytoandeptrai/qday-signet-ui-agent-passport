@@ -1,0 +1,51 @@
+{
+  "title": "主錢包",
+  "description": "你在 QDay 上的自主託管錢包。Gas 費由平台資助，你的密鑰保存在 MetaMask。",
+  "balance": {
+    "label": "餘額",
+    "send": "發送",
+    "receive": "接收"
+  },
+  "networks": {
+    "title": "網絡",
+    "active": "使用中",
+    "coming-soon": "即將推出"
+  },
+  "transactions": {
+    "title": "交易",
+    "empty": "暫無交易。",
+    "kinds": {
+      "send": "發送至",
+      "receive": "接收自",
+      "fund": "已注資"
+    }
+  },
+  "send": {
+    "fields": {
+      "to": {
+        "label": "收款地址",
+        "placeholder": "0x…"
+      },
+      "amount": {
+        "label": "金額（USD8）"
+      }
+    },
+    "available": "可用：{{amount}}",
+    "submit": "發送 {{amount}}",
+    "sending": "發送中…",
+    "errors": {
+      "address": "請輸入有效的 0x 地址",
+      "amount-positive": "請輸入大於 0 的金額",
+      "amount-max": "你只有 {{available}} 可用"
+    },
+    "toasts": {
+      "sent": "已發送 {{amount}} USD8",
+      "failed": "無法發送，請再試一次。"
+    }
+  },
+  "receive": {
+    "note": "請只向此地址發送 QDay 上的 USD8。其他代幣或網絡可能會遺失。",
+    "address": "你的主錢包地址",
+    "copied": "已複製地址"
+  }
+}

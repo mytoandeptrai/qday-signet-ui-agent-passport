@@ -1,0 +1,24 @@
+{
+  "title": "探索服務",
+  "description": "超過 2,000 項服務供你的代理付費使用。現顯示 {{count}} 項精選。",
+  "search-placeholder": "搜尋服務",
+  "sort": {
+    "label": "排序",
+    "popular": "最受歡迎",
+    "name": "名稱",
+    "price-asc": "價格：由低至高",
+    "price-desc": "價格：由高至低"
+  },
+  "categories": "類別",
+  "empty": "沒有符合「{{query}}」的服務。",
+  "dialog": {
+    "price": "價格",
+    "category": "類別",
+    "provider": "供應商",
+    "use": "在會話中使用",
+    "sign-in": "登入後使用"
+  },
+  "toasts": {
+    "added": "已將 {{name}} 加入你的下一個會話"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "title": "メインウォレット",
+  "description": "QDay 上のセルフカストディウォレットです。ガス代は負担され、秘密鍵は MetaMask に保管されます。",
+  "balance": {
+    "label": "残高",
+    "send": "送金",
+    "receive": "受取"
+  },
+  "networks": {
+    "title": "ネットワーク",
+    "active": "有効",
+    "coming-soon": "近日公開"
+  },
+  "transactions": {
+    "title": "取引",
+    "empty": "取引はまだありません。",
+    "kinds": {
+      "send": "送金先",
+      "receive": "受取元",
+      "fund": "入金"
+    }
+  },
+  "send": {
+    "fields": {
+      "to": {
+        "label": "受取人アドレス",
+        "placeholder": "0x…"
+      },
+      "amount": {
+        "label": "金額（USD8）"
+      }
+    },
+    "available": "利用可能：{{amount}}",
+    "submit": "{{amount}} を送金",
+    "sending": "送金中…",
+    "errors": {
+      "address": "有効な 0x アドレスを入力してください",
+      "amount-positive": "0 より大きい金額を入力してください",
+      "amount-max": "利用可能額は {{available}} のみです"
+    },
+    "toasts": {
+      "sent": "{{amount}} USD8 を送金しました",
+      "failed": "送金できませんでした。もう一度お試しください。"
+    }
+  },
+  "receive": {
+    "note": "このアドレスには QDay 上の USD8 のみを送ってください。他のトークンやネットワークでは失われる可能性があります。",
+    "address": "あなたのメインウォレットアドレス",
+    "copied": "アドレスをコピーしました"
+  }
+}

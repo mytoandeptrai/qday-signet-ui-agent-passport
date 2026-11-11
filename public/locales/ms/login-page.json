@@ -1,0 +1,46 @@
+{
+  "email": {
+    "title": "Log masuk ke Signet",
+    "title-signup": "Cipta Signet anda",
+    "description": "Kami akan e-mel kod sekali guna kepada anda. Tanpa kata laluan.",
+    "new-here": "Baharu di Signet?",
+    "have-account": "Sudah ada Signet?"
+  },
+  "code": {
+    "title": "Semak e-mel anda",
+    "description": "Masukkan kod 6 digit yang kami hantar kepada"
+  },
+  "fields": {
+    "email": {
+      "label": "E-mel",
+      "placeholder": "you@company.com"
+    },
+    "code": {
+      "label": "Kod",
+      "placeholder": "123456"
+    }
+  },
+  "labels": {
+    "continue": "Teruskan",
+    "sign-in": "Log masuk",
+    "create-one": "Cipta satu",
+    "verify": "Sahkan",
+    "use-another-email": "Guna e-mel lain",
+    "resend-code": "Hantar semula kod",
+    "resend-in": "Hantar semula dalam {{seconds}}s"
+  },
+  "errors": {
+    "email-required": "Masukkan e-mel anda",
+    "email-invalid": "Masukkan alamat e-mel yang sah",
+    "code-invalid": "Masukkan kod 6 digit",
+    "generic": "Sesuatu telah berlaku."
+  },
+  "toasts": {
+    "code-sent": "Kod dihantar ke {{email}}",
+    "mock-code": "Kod olok-olok: {{code}}",
+    "code-failed": "Tidak dapat menghantar kod. Cuba lagi."
+  },
+  "aside": {
+    "label": "Cincin perkhidmatan mengorbit logo Signet"
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "title": "設定",
+  "tabs": {
+    "limits": "上限",
+    "notifications": "通知",
+    "security": "安全",
+    "account": "帳戶"
+  },
+  "labels": {
+    "save": "儲存變更"
+  },
+  "limits": {
+    "default-limit": "預設會話上限（USD）",
+    "default-per-call": "預設單次上限（USD）",
+    "approval-above": "單筆付款超過以下金額時先詢問我（USD）"
+  },
+  "notifications": {
+    "emailAlerts": {
+      "title": "每個會話都以電郵通知我",
+      "description": "會話結束時發送摘要。"
+    },
+    "alertOnBlocked": {
+      "title": "付款被攔截時通知我",
+      "description": "即時發送，並附上原因。"
+    }
+  },
+  "security": {
+    "title": "安全記錄",
+    "empty": "暫無記錄。錢包連接、簽署及撤銷會顯示於此。",
+    "events": {
+      "wallet-connected": "已連接錢包",
+      "wallet-disconnected": "已斷開錢包",
+      "signetpass-created": "已建立 SignetPass",
+      "transfer": "已簽署轉帳",
+      "agent-approved": "已批准代理",
+      "agent-revoked": "已撤銷代理",
+      "session-created": "已建立會話",
+      "session-revoked": "已撤銷會話"
+    }
+  },
+  "account": {
+    "name": "姓名",
+    "email": "電郵",
+    "wallet": "SignetPass 地址",
+    "appearance": "外觀",
+    "appearances": {
+      "light": "淺色",
+      "dark": "深色",
+      "system": "跟隨系統"
+    },
+    "reset-description": "將會話、活動、錢包及餘額重設為示範資料。",
+    "reset": "重設示範資料",
+    "account-id": "帳戶 ID",
+    "connected-wallet": "已連接的錢包",
+    "not-connected": "未連接"
+  },
+  "errors": {
+    "amount-positive": "必須大於 $0",
+    "amount-invalid": "請輸入有效金額",
+    "per-call-exceeds": "不可超過會話上限"
+  },
+  "toasts": {
+    "saved": "已儲存設定",
+    "reset": "已還原示範資料"
+  }
+}

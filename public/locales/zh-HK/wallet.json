@@ -1,0 +1,25 @@
+{
+  "connect": {
+    "button": "連接錢包",
+    "connecting": "連接中…",
+    "rejected": "MetaMask 已拒絕連接，請再試一次。",
+    "error": "無法連接，請再試一次。"
+  },
+  "gate": {
+    "title": "連接你的錢包",
+    "description": "連接 MetaMask 以查看餘額並批准付款。你的密鑰一直保存在 MetaMask 中。"
+  },
+  "menu": {
+    "label": "已連接的錢包",
+    "copy": "複製地址",
+    "copied": "已複製",
+    "network": "網絡",
+    "disconnect": "斷開連接"
+  },
+  "sign": {
+    "waiting": "正在等待 MetaMask 簽署…",
+    "success": "已簽署",
+    "rejected": "MetaMask 已拒絕簽署。",
+    "error": "簽署失敗，請再試一次。"
+  }
+}

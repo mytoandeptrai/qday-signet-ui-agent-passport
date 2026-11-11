@@ -1,0 +1,13 @@
+{
+  "asking": "{{agent}} 請求動用",
+  "expires": "{{hours}} 小時後到期。你可隨時撤銷。",
+  "short": "你的可用餘額為 {{available}}，請先存入資金。",
+  "labels": {
+    "approve": "批准",
+    "decline": "拒絕"
+  },
+  "toasts": {
+    "approved": "已批准會話",
+    "declined": "已拒絕請求"
+  }
+}

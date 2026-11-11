@@ -1,0 +1,17 @@
+{
+  "title": "會話",
+  "description": "每個會話為代理指派一項任務及支出上限。",
+  "new": "新增會話",
+  "empty": "暫無會話。建立一個，讓代理開始支付。",
+  "labels": {
+    "revoke": "撤銷",
+    "details": "詳情"
+  },
+  "revoke": {
+    "title": "撤銷「{{task}}」？",
+    "description": "代理將無法再於此會話中支出。{{amount}} 會退回你的餘額。",
+    "keep": "保留會話",
+    "confirm": "撤銷",
+    "toast": "已撤銷會話"
+  }
+}

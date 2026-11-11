@@ -1,0 +1,24 @@
+{
+  "title": "サービスを探す",
+  "description": "エージェントが支払える 2,000 以上のサービス。注目の {{count}} 件を表示中。",
+  "search-placeholder": "サービスを検索",
+  "sort": {
+    "label": "並び替え",
+    "popular": "人気順",
+    "name": "名前",
+    "price-asc": "価格：安い順",
+    "price-desc": "価格：高い順"
+  },
+  "categories": "カテゴリ",
+  "empty": "「{{query}}」に一致するサービスはありません。",
+  "dialog": {
+    "price": "価格",
+    "category": "カテゴリ",
+    "provider": "提供元",
+    "use": "セッションで使う",
+    "sign-in": "サインインして使う"
+  },
+  "toasts": {
+    "added": "{{name}} を次のセッションに追加しました"
+  }
+}

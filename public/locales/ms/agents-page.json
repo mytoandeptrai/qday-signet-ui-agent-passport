@@ -1,0 +1,43 @@
+{
+  "title": "Ejen",
+  "description": "Daftarkan ejen AI yang berbelanja daripada SignetPass anda. Anda meluluskan setiap satu dalam MetaMask.",
+  "connect": {
+    "title": "Sambungkan ejen",
+    "hint": "Tampal ini ke dalam ejen pengekodan anda. Ia akan meminta pendaftaran, dan permintaan muncul di bawah."
+  },
+  "pending": {
+    "title": "Menunggu kelulusan",
+    "empty": "Tiada permintaan pendaftaran."
+  },
+  "registered": {
+    "title": "Ejen berdaftar",
+    "empty": "Belum ada ejen."
+  },
+  "row": {
+    "requested": "Diminta {{when}}",
+    "approved": "Diluluskan {{when}}"
+  },
+  "labels": {
+    "approve": "Semak",
+    "revoke": "Batalkan"
+  },
+  "approve": {
+    "summary": "{{agent}} mahu mendaftar dengan SignetPass anda. Setelah diluluskan, ia boleh memulakan sesi yang anda tetapkan hadnya.",
+    "submit": "Luluskan ejen",
+    "approving": "Meluluskan…",
+    "cancel": "Bukan sekarang",
+    "missing": "Permintaan pendaftaran ini tidak lagi menunggu.",
+    "toasts": {
+      "approved": "{{agent}} diluluskan"
+    }
+  },
+  "revoke": {
+    "title": "Batalkan {{agent}}?",
+    "description": "Ia tidak lagi boleh memulakan sesi atau berbelanja. Sesi sedia ada mengekalkan had masing-masing sehingga anda membatalkannya.",
+    "keep": "Kekalkan ejen",
+    "confirm": "Batalkan",
+    "toasts": {
+      "revoked": "{{agent}} dibatalkan"
+    }
+  }
+}

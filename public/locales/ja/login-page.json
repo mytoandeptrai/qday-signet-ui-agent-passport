@@ -1,0 +1,46 @@
+{
+  "email": {
+    "title": "Signet にサインイン",
+    "title-signup": "Signet を作成",
+    "description": "ワンタイムコードをメールでお送りします。パスワードは不要です。",
+    "new-here": "Signet は初めてですか？",
+    "have-account": "すでに Signet をお持ちですか？"
+  },
+  "code": {
+    "title": "メールをご確認ください",
+    "description": "送信した 6 桁のコードを入力してください："
+  },
+  "fields": {
+    "email": {
+      "label": "メールアドレス",
+      "placeholder": "you@company.com"
+    },
+    "code": {
+      "label": "コード",
+      "placeholder": "123456"
+    }
+  },
+  "labels": {
+    "continue": "続ける",
+    "sign-in": "サインイン",
+    "create-one": "作成する",
+    "verify": "確認",
+    "use-another-email": "別のメールを使う",
+    "resend-code": "コードを再送",
+    "resend-in": "{{seconds}} 秒後に再送"
+  },
+  "errors": {
+    "email-required": "メールアドレスを入力してください",
+    "email-invalid": "有効なメールアドレスを入力してください",
+    "code-invalid": "6 桁のコードを入力してください",
+    "generic": "問題が発生しました。"
+  },
+  "toasts": {
+    "code-sent": "{{email}} にコードを送信しました",
+    "mock-code": "モックコード：{{code}}",
+    "code-failed": "コードを送信できませんでした。もう一度お試しください。"
+  },
+  "aside": {
+    "label": "Signet マークの周りを回るサービスのリング"
+  }
+}

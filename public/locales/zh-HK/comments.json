@@ -1,0 +1,59 @@
+{
+  "card": "留言",
+  "composer": {
+    "placeholder": "新增留言…",
+    "shortcut": "⌘/Ctrl + Enter",
+    "cancel": "取消",
+    "submit": "留言",
+    "saving": "儲存中…"
+  },
+  "thread": {
+    "loading": "正在載入回覆…",
+    "placeholder": "回覆…",
+    "aria": "回覆",
+    "submit": "回覆",
+    "sending": "發送中…"
+  },
+  "detail": {
+    "missing": "其元素已不在此頁面。",
+    "close": "關閉",
+    "resolved": "已解決",
+    "github": "GitHub",
+    "delete": "刪除",
+    "reopen": "重新開啟",
+    "resolve": "標記為已解決"
+  },
+  "list": {
+    "title": "此頁面 · {{count}} 則未解決",
+    "copy-open": "複製未解決項目",
+    "synced": "已與 GitHub Issues 同步",
+    "local": "僅儲存於此瀏覽器（未設定 GitHub token）",
+    "loading": "載入中…",
+    "empty": "暫無留言。使用「留言」新增。",
+    "unplaced": "元素已不在此頁面",
+    "on-page": "位於此頁面",
+    "reply_other": "{{count}} 則回覆",
+    "not-found": "在此頁面找不到該元素"
+  },
+  "toolbar": {
+    "list-aria": "此頁面的留言",
+    "cancel": "取消",
+    "comment": "留言",
+    "unplaced": "{{count}} 則沒有對應元素"
+  },
+  "pin": {
+    "aria": "留言 {{number}}",
+    "aria-resolved": "留言 {{number}}（已解決）"
+  },
+  "pick-hint": "點擊任何元素即可留言 · 按 Esc 取消",
+  "toasts": {
+    "load-failed": "無法從 GitHub 載入留言",
+    "save-failed": "無法將留言儲存至 GitHub",
+    "update-failed": "無法在 GitHub 更新留言",
+    "delete-failed": "無法在 GitHub 刪除留言",
+    "replies-failed": "無法從 GitHub 載入回覆",
+    "reply-failed": "無法將回覆發佈至 GitHub",
+    "copied_other": "已複製 {{count}} 則未解決留言",
+    "copy-failed": "無法複製到剪貼簿"
+  }
+}

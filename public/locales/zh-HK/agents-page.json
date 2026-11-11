@@ -1,0 +1,43 @@
+{
+  "title": "代理",
+  "description": "登記從你的 SignetPass 支出的 AI 代理。每個代理都需在 MetaMask 中批准。",
+  "connect": {
+    "title": "連接代理",
+    "hint": "將此內容貼到你的編程代理。它會請求登記，請求將顯示於下方。"
+  },
+  "pending": {
+    "title": "等待批准",
+    "empty": "沒有登記請求。"
+  },
+  "registered": {
+    "title": "已登記的代理",
+    "empty": "暫無代理。"
+  },
+  "row": {
+    "requested": "請求於 {{when}}",
+    "approved": "批准於 {{when}}"
+  },
+  "labels": {
+    "approve": "審閱",
+    "revoke": "撤銷"
+  },
+  "approve": {
+    "summary": "{{agent}} 想向你的 SignetPass 登記。批准後，它可開始你設有上限的會話。",
+    "submit": "批准代理",
+    "approving": "批准中…",
+    "cancel": "暫不處理",
+    "missing": "此登記請求已不在待處理狀態。",
+    "toasts": {
+      "approved": "已批准 {{agent}}"
+    }
+  },
+  "revoke": {
+    "title": "撤銷 {{agent}}？",
+    "description": "它將無法再開始會話或支出。現有會話在你撤銷前仍受其各自上限約束。",
+    "keep": "保留代理",
+    "confirm": "撤銷",
+    "toasts": {
+      "revoked": "已撤銷 {{agent}}"
+    }
+  }
+}

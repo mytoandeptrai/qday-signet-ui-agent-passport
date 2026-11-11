@@ -1,0 +1,13 @@
+{
+  "asking": "{{agent}} が支出を求めています",
+  "expires": "{{hours}} 時間後に期限切れになります。いつでも取り消せます。",
+  "short": "利用可能額は {{available}} です。先に入金してください。",
+  "labels": {
+    "approve": "承認",
+    "decline": "拒否"
+  },
+  "toasts": {
+    "approved": "セッションを承認しました",
+    "declined": "リクエストを拒否しました"
+  }
+}

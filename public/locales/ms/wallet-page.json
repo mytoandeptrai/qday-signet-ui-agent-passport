@@ -1,0 +1,51 @@
+{
+  "title": "Dompet Utama",
+  "description": "Dompet jagaan sendiri anda di QDay. Yuran gas ditanggung, dan kunci anda kekal dalam MetaMask.",
+  "balance": {
+    "label": "Baki",
+    "send": "Hantar",
+    "receive": "Terima"
+  },
+  "networks": {
+    "title": "Rangkaian",
+    "active": "Aktif",
+    "coming-soon": "Akan datang"
+  },
+  "transactions": {
+    "title": "Transaksi",
+    "empty": "Belum ada transaksi.",
+    "kinds": {
+      "send": "Dihantar kepada",
+      "receive": "Diterima daripada",
+      "fund": "Didanai"
+    }
+  },
+  "send": {
+    "fields": {
+      "to": {
+        "label": "Alamat penerima",
+        "placeholder": "0x…"
+      },
+      "amount": {
+        "label": "Jumlah (USD8)"
+      }
+    },
+    "available": "Tersedia: {{amount}}",
+    "submit": "Hantar {{amount}}",
+    "sending": "Menghantar…",
+    "errors": {
+      "address": "Masukkan alamat 0x yang sah",
+      "amount-positive": "Masukkan jumlah melebihi 0",
+      "amount-max": "Anda hanya mempunyai {{available}} yang tersedia"
+    },
+    "toasts": {
+      "sent": "{{amount}} USD8 dihantar",
+      "failed": "Tidak dapat menghantar. Cuba lagi."
+    }
+  },
+  "receive": {
+    "note": "Hantar hanya USD8 di QDay ke alamat ini. Token atau rangkaian lain mungkin hilang.",
+    "address": "Alamat Dompet Utama anda",
+    "copied": "Alamat disalin"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "title": "プレイグラウンド",
+  "description": "Signet セッション下でエージェントが動く様子を1行ずつ確認できます。",
+  "terminal": {
+    "title": "claude · ~/work"
+  },
+  "controls": {
+    "pause": "一時停止",
+    "play": "再生",
+    "skip": "最後までスキップ",
+    "replay": "リプレイ"
+  },
+  "meter": {
+    "title": "セッション上限"
+  },
+  "notes": {
+    "title": "何が起きているか"
+  },
+  "labels": {
+    "start-session": "これをセッションとして開始"
+  }
+}

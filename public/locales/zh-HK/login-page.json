@@ -1,0 +1,46 @@
+{
+  "email": {
+    "title": "登入 Signet",
+    "title-signup": "建立你的 Signet",
+    "description": "我們會以電郵發送一次性驗證碼，無需密碼。",
+    "new-here": "初次使用 Signet？",
+    "have-account": "已有 Signet？"
+  },
+  "code": {
+    "title": "請查看你的電郵",
+    "description": "請輸入我們發送至以下地址的 6 位數驗證碼"
+  },
+  "fields": {
+    "email": {
+      "label": "電郵",
+      "placeholder": "you@company.com"
+    },
+    "code": {
+      "label": "驗證碼",
+      "placeholder": "123456"
+    }
+  },
+  "labels": {
+    "continue": "繼續",
+    "sign-in": "登入",
+    "create-one": "立即建立",
+    "verify": "驗證",
+    "use-another-email": "使用其他電郵",
+    "resend-code": "重新發送驗證碼",
+    "resend-in": "{{seconds}} 秒後可重新發送"
+  },
+  "errors": {
+    "email-required": "請輸入電郵",
+    "email-invalid": "請輸入有效的電郵地址",
+    "code-invalid": "請輸入 6 位數驗證碼",
+    "generic": "發生錯誤。"
+  },
+  "toasts": {
+    "code-sent": "驗證碼已發送至 {{email}}",
+    "mock-code": "模擬驗證碼：{{code}}",
+    "code-failed": "無法發送驗證碼，請再試一次。"
+  },
+  "aside": {
+    "label": "環繞 Signet 標誌運行的服務圓環"
+  }
+}

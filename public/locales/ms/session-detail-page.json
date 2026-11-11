@@ -1,0 +1,28 @@
+{
+  "back": "← Ringkasan",
+  "header": {
+    "description": "{{agent}} · bermula {{started}} · {{state}}",
+    "expires": "tamat {{when}}"
+  },
+  "revoke": {
+    "button": "Batalkan",
+    "title": "Batalkan sesi ini?",
+    "description": "{{amount}} dikembalikan ke baki anda. Tindakan ini tidak boleh dibuat asal.",
+    "cancel": "Batal",
+    "confirm": "Batalkan"
+  },
+  "activity": {
+    "title": "Aktiviti",
+    "empty": "Belum ada pembayaran."
+  },
+  "spend": {
+    "title": "Perbelanjaan"
+  },
+  "services": {
+    "title": "Perkhidmatan dibenarkan",
+    "any": "Mana-mana perkhidmatan, dalam had yang ditetapkan."
+  },
+  "toasts": {
+    "revoked": "Sesi dibatalkan"
+  }
+}

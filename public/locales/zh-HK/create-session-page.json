@@ -1,0 +1,40 @@
+{
+  "title": "新增會話",
+  "description": "會話是設有嚴格支出上限的單一工作，你的代理無法超出該上限。",
+  "fields": {
+    "task": {
+      "label": "任務",
+      "placeholder": "12 人團體晚餐"
+    },
+    "agent": {
+      "label": "代理"
+    },
+    "limit": {
+      "label": "會話上限（USD）"
+    },
+    "per-call": {
+      "label": "單次上限（USD）"
+    },
+    "hours": {
+      "label": "到期時間（小時）"
+    }
+  },
+  "available": "可用餘額：",
+  "labels": {
+    "create": "建立會話",
+    "creating": "建立中…"
+  },
+  "errors": {
+    "task-min": "請用幾個字描述工作",
+    "task-max": "請保持在 80 個字元以內",
+    "amount-required": "請輸入金額",
+    "amount-positive": "必須大於 $0",
+    "amount-max": "你只有 {{available}} 可用",
+    "per-call-exceeds": "單次上限不可超過會話上限",
+    "hours-invalid": "請輸入 1 至 168 的整數小時"
+  },
+  "toasts": {
+    "created": "已建立會話",
+    "held": "已為 {{agent}} 預留 {{amount}}。"
+  }
+}

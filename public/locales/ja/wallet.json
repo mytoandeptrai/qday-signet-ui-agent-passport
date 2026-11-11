@@ -1,0 +1,25 @@
+{
+  "connect": {
+    "button": "ウォレットを接続",
+    "connecting": "接続中…",
+    "rejected": "MetaMask で接続が拒否されました。もう一度お試しください。",
+    "error": "接続できませんでした。もう一度お試しください。"
+  },
+  "gate": {
+    "title": "ウォレットを接続",
+    "description": "MetaMask を接続して残高を確認し、支払いを承認します。秘密鍵は MetaMask 内に保管されます。"
+  },
+  "menu": {
+    "label": "接続中のウォレット",
+    "copy": "アドレスをコピー",
+    "copied": "コピーしました",
+    "network": "ネットワーク",
+    "disconnect": "切断"
+  },
+  "sign": {
+    "waiting": "MetaMask の署名を待っています…",
+    "success": "署名しました",
+    "rejected": "MetaMask で署名が拒否されました。",
+    "error": "署名に失敗しました。もう一度お試しください。"
+  }
+}

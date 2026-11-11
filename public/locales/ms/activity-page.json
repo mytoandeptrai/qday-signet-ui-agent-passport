@@ -1,0 +1,69 @@
+{
+  "title": "Aktiviti",
+  "labels": {
+    "export-csv": "Eksport CSV"
+  },
+  "tabs": {
+    "all": "Semua",
+    "sessions": "Sesi",
+    "services": "Perkhidmatan",
+    "transfers": "Pemindahan"
+  },
+  "range": {
+    "aria": "Julat tarikh",
+    "days": "{{count}} hari"
+  },
+  "metric": {
+    "aria": "Metrik"
+  },
+  "metrics": {
+    "spend": "Perbelanjaan",
+    "calls": "Panggilan berbayar",
+    "held": "Bajet diluluskan",
+    "count": "Sesi",
+    "added": "Dana ditambah"
+  },
+  "chart": {
+    "aria": "{{metric}} sehari"
+  },
+  "empty": "Belum ada.",
+  "categories": {
+    "service": "Perkhidmatan",
+    "session": "Sesi",
+    "deposit": "Deposit",
+    "wallet": "Dompet Utama"
+  },
+  "table": {
+    "headers": {
+      "detail": "Butiran",
+      "category": "Kategori",
+      "amount": "Jumlah",
+      "time": "Masa"
+    }
+  },
+  "rows": {
+    "session-sub": "{{agent}} · {{spent}} daripada {{limit}} digunakan",
+    "added-funds": "Dana ditambah",
+    "by-method": "Melalui {{method}}",
+    "wallet-send": "Dihantar dari Dompet Utama",
+    "wallet-receive": "Diterima di Dompet Utama"
+  },
+  "detail": {
+    "category": "Kategori",
+    "amount": "Jumlah",
+    "status": "Status",
+    "reason": "Sebab",
+    "task": "Tugasan",
+    "time": "Masa",
+    "reference": "Rujukan"
+  },
+  "toasts": {
+    "exported": "{{count}} baris dieksport"
+  },
+  "methods": {
+    "card": "kad",
+    "bank": "pindahan bank",
+    "crypto": "kripto",
+    "wallet": "Dompet Utama"
+  }
+}

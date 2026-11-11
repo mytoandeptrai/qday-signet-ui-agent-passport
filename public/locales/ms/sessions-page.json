@@ -1,0 +1,17 @@
+{
+  "title": "Sesi",
+  "description": "Setiap sesi memberi ejen satu tugasan dan had perbelanjaan.",
+  "new": "Sesi baharu",
+  "empty": "Belum ada sesi. Mulakan satu untuk membenarkan ejen berbelanja.",
+  "labels": {
+    "revoke": "Batalkan",
+    "details": "Butiran"
+  },
+  "revoke": {
+    "title": "Batalkan “{{task}}”?",
+    "description": "Ejen tidak lagi boleh berbelanja dalam sesi ini. {{amount}} dikembalikan ke baki anda.",
+    "keep": "Kekalkan sesi",
+    "confirm": "Batalkan",
+    "toast": "Sesi dibatalkan"
+  }
+}

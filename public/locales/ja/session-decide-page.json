@@ -1,0 +1,15 @@
+{
+  "missing": "このリクエストは存在しません。",
+  "back": "概要に戻る",
+  "over-limit": "上限超過 · {{when}}",
+  "wants": "{{agent}} が {{amount}} を求めています",
+  "explain": "{{service}}：{{description}}。設定した上限を超えているため、判断するまで停止されています。",
+  "labels": {
+    "approve-once": "今回のみ承認",
+    "decline": "拒否"
+  },
+  "toasts": {
+    "approved": "今回のみ承認しました",
+    "declined": "拒否しました"
+  }
+}

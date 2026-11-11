@@ -404,5 +404,25 @@
     "uploading_other": "{{count}} 件のファイルをアップロード中...",
     "uploaded_other": "{{count}} 件のファイルをアップロードしました",
     "failed_other": "{{count}} 件のファイルのアップロードに失敗しました"
+  },
+  "spend-bar": {
+    "spent": "使用済み",
+    "left": "残り",
+    "limit": "上限 ${{amount}}",
+    "per-call": "1回あたり ${{amount}}"
+  },
+  "status": {
+    "active": "有効",
+    "settled": "精算済み",
+    "completed": "完了",
+    "approved": "承認済み",
+    "redeemed": "引き換え済み",
+    "unused": "未使用",
+    "pending": "保留中",
+    "blocked": "ブロック済み",
+    "revoked": "取り消し済み",
+    "declined": "拒否済み",
+    "failed": "失敗",
+    "expired": "期限切れ"
   }
 }

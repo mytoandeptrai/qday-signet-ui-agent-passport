@@ -404,5 +404,25 @@
     "uploading_other": "Memuat naik {{count}} fail...",
     "uploaded_other": "{{count}} fail dimuat naik",
     "failed_other": "Gagal memuat naik {{count}} fail"
+  },
+  "spend-bar": {
+    "spent": "dibelanjakan",
+    "left": "berbaki",
+    "limit": "had ${{amount}}",
+    "per-call": "${{amount}} setiap panggilan"
+  },
+  "status": {
+    "active": "Aktif",
+    "settled": "Diselesaikan",
+    "completed": "Selesai",
+    "approved": "Diluluskan",
+    "redeemed": "Ditebus",
+    "unused": "Belum digunakan",
+    "pending": "Menunggu",
+    "blocked": "Disekat",
+    "revoked": "Dibatalkan",
+    "declined": "Ditolak",
+    "failed": "Gagal",
+    "expired": "Tamat tempoh"
   }
 }
