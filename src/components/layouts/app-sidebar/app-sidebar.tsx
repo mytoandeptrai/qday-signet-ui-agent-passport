@@ -76,7 +76,7 @@ const AppSidebar = () => {
           </SidebarMenu>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter className='px-2 pb-3 group-data-[collapsible=icon]:px-0'>
+      <SidebarFooter className='px-2 pb-3'>
         <SidebarMenu>
           <AppSidebarWallet />
           <SidebarMenuItem>
