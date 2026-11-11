@@ -62,9 +62,9 @@
     "revoke": "Batalkan sesi pada bila-bila masa dan bakinya dikembalikan ke baki anda."
   },
   "balance": {
-    "title": "Baki",
-    "wallet": "Dompet",
-    "your-wallet": "Dompet anda"
+    "title": "Baki SignetPass",
+    "wallet": "SignetPass",
+    "your-wallet": "SignetPass anda"
   },
   "sessions": {
     "title": "Sesi",

@@ -62,9 +62,9 @@
     "revoke": "Revoke a session at any time and the rest returns to your balance."
   },
   "balance": {
-    "title": "Balance",
-    "wallet": "Wallet",
-    "your-wallet": "Your wallet"
+    "title": "SignetPass balance",
+    "wallet": "SignetPass",
+    "your-wallet": "Your SignetPass"
   },
   "sessions": {
     "title": "Sessions",

@@ -62,9 +62,9 @@
     "revoke": "隨時可撤銷會話，餘額會退回你的帳戶。"
   },
   "balance": {
-    "title": "餘額",
-    "wallet": "錢包",
-    "your-wallet": "你的錢包"
+    "title": "SignetPass 餘額",
+    "wallet": "SignetPass",
+    "your-wallet": "你的 SignetPass"
   },
   "sessions": {
     "title": "會話",

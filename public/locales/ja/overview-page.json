@@ -62,9 +62,9 @@
     "revoke": "セッションはいつでも取り消せます。残りは残高に戻ります。"
   },
   "balance": {
-    "title": "残高",
-    "wallet": "ウォレット",
-    "your-wallet": "あなたのウォレット"
+    "title": "SignetPass 残高",
+    "wallet": "SignetPass",
+    "your-wallet": "あなたの SignetPass"
   },
   "sessions": {
     "title": "セッション",
