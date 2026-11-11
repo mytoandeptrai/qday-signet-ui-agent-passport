@@ -29,6 +29,7 @@ const LoginCodeFormUi = ({ email, cooldown, isLoading = false, onResend, onUseAn
         control={control}
         name='code'
         disabled={isLoading}
+        inputClassName='font-mono tracking-[0.4em]'
         label={t('fields.code.label')}
         placeholder={t('fields.code.placeholder')}
       />
