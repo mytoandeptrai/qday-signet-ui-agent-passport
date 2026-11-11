@@ -23,6 +23,9 @@ pnpm build      # vite build + tsc
 - `src/types/passport.ts` — interfaces
 - `src/mock/` — seed data, services catalogue, landing copy, simulated API
 - `src/stores/passport-store.ts` — persisted Zustand store
-- `src/routes/` — file routes (`(app)/` is behind the auth guard)
-- `src/components/landing/` — landing page; `src/components/app/` — dashboard shell
+- `src/routes/` — thin file routes (`(app)/` is behind the auth guard)
+- `src/modules/<feature>/{containers,hooks,components}` — pages, following `.claude/skills/react-guide` (container → one hook → `-ui` components)
+- `src/apis/<domain>/` — keys, types, requests and TanStack Query hooks over the mock transport
+- `src/components/layouts/` — app and public layouts; `src/components/{ui,form-fields,containers,utilities}` — shared kit
+- `public/locales/en/<namespace>.json` — one namespace per page
 - `docs/agentpassport-spec.md` — analysis of the original site
