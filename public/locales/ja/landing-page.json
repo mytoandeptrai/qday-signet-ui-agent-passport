@@ -1,0 +1,115 @@
+{
+  "hero": {
+    "heading-sr": "エージェントに買い物・API・リードの支払いを任せよう",
+    "heading": "エージェントに支払いを任せる",
+    "description": "Signet は、設定した上限の範囲内で、2,000 以上のサービスに使える残高をエージェントに渡します。",
+    "get-started": "はじめる",
+    "words": [
+      "買い物",
+      "API",
+      "リード"
+    ],
+    "plate-label": "Signet のマークの周りで光る、つながったノードの格子"
+  },
+  "install": {
+    "button": "インストール",
+    "copied": "コピーしました。エージェントに貼り付けてください。",
+    "aria": "インストール：インストール用プロンプトをコピー",
+    "tip-before": "Signet をインストール：実行",
+    "tip-after": "。signet コマンドと Signet のスキルが追加されます。先にスクリプトを読むこともできます。完了したら、出力された内容を平易な言葉で教えてください。",
+    "tip-hint": "Claude Code または Codex に貼り付け",
+    "tip-action": "クリックしてコピー",
+    "toast": "インストール用プロンプトをコピーしました。エージェントに貼り付けてください。",
+    "copy-aria": "インストール用プロンプトをコピー",
+    "copy-toast": "インストール用プロンプトをコピーしました"
+  },
+  "terminal": {
+    "name": "signet",
+    "lines": [
+      "$ signet session create --task \"Team dinner\" --limit 20 --per-call 5",
+      "Session ses_team_dinner is live. $20.00 held.",
+      "→ StablePhone · 6 calls · $3.24",
+      "→ AgentRes · booking for 12 · $0.01",
+      "→ Amazon · table flowers · $48.00",
+      "Stopped: over the $20 session limit."
+    ]
+  },
+  "marquee": {
+    "label": "投資家とパートナー",
+    "title": "投資家とパートナー"
+  },
+  "session": {
+    "heading": "確実な上限を設定。",
+    "title": "12 人のチーム夕食会",
+    "plate-label": "点線の上限に向かって伸びる日々の支出バー",
+    "revoke": "取り消す",
+    "revoked": "取り消し済み",
+    "revoked-toast": "セッションを取り消しました。残りの残高は返金されました。",
+    "spent": "使用済み",
+    "left": "残り",
+    "limit": "上限 ${{amount}}",
+    "per-call": "1 回 ${{amount}}",
+    "activity": "アクティビティ",
+    "points": [
+      "支出ルールを設定",
+      "ルールの範囲内でエージェントが自由に支払い",
+      "いつでも取り消し可能"
+    ]
+  },
+  "lines": {
+    "agents": {
+      "text": "どの仕事も支出セッションの中で行われます。",
+      "link": "セッションのしくみ"
+    },
+    "record": {
+      "text": "すべての支払いが 1 つの記録に残ります。何を、誰から、どのタスクのために買ったか。",
+      "link": "アクティビティを見る"
+    },
+    "services": {
+      "text": "エージェントは StablePhone、StableEnrich、Resy、Amazon、PostalForm、AgentFax など 2,000 以上のサービスに支払えます。",
+      "link": "すべてのサービスを見る"
+    }
+  },
+  "how": {
+    "eyebrow": "しくみ",
+    "heading": "3 ステップで最初の支払いへ。",
+    "steps": [
+      "1 行でインストール",
+      "上限を設定",
+      "仕事を依頼"
+    ],
+    "job-prompt": "レストラン 6 軒に電話して、12 人の個室を探してください。",
+    "job-line": "StablePhone、6 回の通話",
+    "job-toast": "仕事をエージェントに送信しました",
+    "per-call": "1 回 ${{amount}}"
+  },
+  "day": {
+    "heading": "Signet のある一日。",
+    "label": "1 日 6 件の支払いのタイムライン。支払いのたびに 1 日の予算が埋まっていきます",
+    "spent-today": "今日の支出",
+    "budget": "予算 ${{amount}}",
+    "within-limits": "すべて上限内",
+    "stopped-count": "上限で {{count}} 件を停止",
+    "stopped-line": "停止：${{amount}} は上限を超えています",
+    "paid-line": "{{service}} · ${{amount}}",
+    "moments": [
+      "部品の在庫がある店を探して、金物店 12 軒に電話",
+      "カフェ 20 店のオーナーを、確認済みメールアドレス付きで特定",
+      "金曜の 8 名のテーブルを予約",
+      "新入社員の自宅へ歓迎キットを注文",
+      "オフィスチェアの購入を試行",
+      "お客様へ印刷したお礼状を郵送"
+    ]
+  },
+  "closing": {
+    "heading": "エージェントに Signet を。",
+    "plate-label": "Signet のマークの周りを回るサービスのリング"
+  },
+  "plate": {
+    "per-call": "1 回あたり",
+    "total-budget": "総予算",
+    "per-day": "1 日あたり",
+    "expires": "有効期限",
+    "session-limit": "セッション上限"
+  }
+}

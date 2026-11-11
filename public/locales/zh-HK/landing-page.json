@@ -1,0 +1,115 @@
+{
+  "hero": {
+    "heading-sr": "讓你的代理為購物、API 和潛在客戶付款",
+    "heading": "讓你的代理為以下項目付款",
+    "description": "Signet 為你的代理提供可在 2,000 多項服務中使用的餘額，並嚴格遵守你設定的限額。",
+    "get-started": "立即開始",
+    "words": [
+      "購物",
+      "API",
+      "潛在客戶"
+    ],
+    "plate-label": "連接節點組成的格網在 Signet 標誌周圍亮起"
+  },
+  "install": {
+    "button": "安裝",
+    "copied": "已複製。請貼到你的代理。",
+    "aria": "安裝：複製安裝提示",
+    "tip-before": "安裝 Signet：執行",
+    "tip-after": "。它會加入 signet 指令和 Signet 技能，你可以先閱讀該腳本。完成後，請用簡單的話告訴我它輸出了什麼。",
+    "tip-hint": "貼到 Claude Code 或 Codex",
+    "tip-action": "點擊複製",
+    "toast": "已複製安裝提示。請貼到你的代理。",
+    "copy-aria": "複製安裝提示",
+    "copy-toast": "已複製安裝提示"
+  },
+  "terminal": {
+    "name": "signet",
+    "lines": [
+      "$ signet session create --task \"Team dinner\" --limit 20 --per-call 5",
+      "Session ses_team_dinner is live. $20.00 held.",
+      "→ StablePhone · 6 calls · $3.24",
+      "→ AgentRes · booking for 12 · $0.01",
+      "→ Amazon · table flowers · $48.00",
+      "Stopped: over the $20 session limit."
+    ]
+  },
+  "marquee": {
+    "label": "投資者與合作夥伴",
+    "title": "投資者與合作夥伴"
+  },
+  "session": {
+    "heading": "設定有效的限額。",
+    "title": "12 人團隊晚餐",
+    "plate-label": "每日支出長條向虛線限額上升",
+    "revoke": "撤銷",
+    "revoked": "已撤銷",
+    "revoked-toast": "工作階段已撤銷，剩餘餘額已退回。",
+    "spent": "已用",
+    "left": "剩餘",
+    "limit": "限額 ${{amount}}",
+    "per-call": "每次 ${{amount}}",
+    "activity": "活動",
+    "points": [
+      "設定你的支出規則",
+      "代理在規則內自由付款",
+      "隨時撤銷"
+    ]
+  },
+  "lines": {
+    "agents": {
+      "text": "每項工作都在一個支出工作階段內進行。",
+      "link": "工作階段如何運作"
+    },
+    "record": {
+      "text": "每筆付款都記在同一份紀錄：買了什麼、向誰買、由哪項任務提出。",
+      "link": "查看你的活動"
+    },
+    "services": {
+      "text": "你的代理可為 StablePhone、StableEnrich、Resy、Amazon、PostalForm、AgentFax 等 2,000 多項服務付款。",
+      "link": "瀏覽所有服務"
+    }
+  },
+  "how": {
+    "eyebrow": "運作方式",
+    "heading": "三步完成首次付款。",
+    "steps": [
+      "一行指令安裝",
+      "設定你的限額",
+      "提出工作要求"
+    ],
+    "job-prompt": "致電六間餐廳，幫我們找一個 12 人的私人包廂。",
+    "job-line": "StablePhone，6 次通話",
+    "job-toast": "工作已傳送給你的代理",
+    "per-call": "每次 ${{amount}}"
+  },
+  "day": {
+    "heading": "Signet 的一天。",
+    "label": "一天內六筆付款的時間線，每有一筆付款，每日預算便隨之填滿",
+    "spent-today": "今日已用",
+    "budget": "預算 ${{amount}}",
+    "within-limits": "全部在限額內",
+    "stopped-count": "{{count}} 筆因達限額而停止",
+    "stopped-line": "已停止：${{amount}} 超出你的限額",
+    "paid-line": "{{service}} · ${{amount}}",
+    "moments": [
+      "致電 12 間五金店，詢問誰有該零件",
+      "找到 20 間咖啡店的店主，並附經驗證的電郵",
+      "預訂星期五八人餐桌",
+      "訂購迎新禮包送到新同事家門口",
+      "嘗試購買辦公椅",
+      "向客戶郵寄一封列印的感謝信"
+    ]
+  },
+  "closing": {
+    "heading": "為你的代理配上 Signet。",
+    "plate-label": "一圈圈服務環繞 Signet 標誌運行"
+  },
+  "plate": {
+    "per-call": "每次",
+    "total-budget": "總預算",
+    "per-day": "每日",
+    "expires": "到期",
+    "session-limit": "工作階段限額"
+  }
+}

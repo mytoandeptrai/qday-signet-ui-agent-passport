@@ -1,5 +1,6 @@
 import { Outlet } from '@tanstack/react-router';
 import PublicFooter from '@/components/layouts/public-footer';
+import ScrollToTop from '@/components/ui/scroll-to-top';
 import PublicHeader from '@/components/layouts/public-header';
 import type { FCC } from '@/types';
 
@@ -13,6 +14,7 @@ const PublicLayout: FCC<PublicLayoutProps> = () => {
         <Outlet />
       </main>
       <PublicFooter />
+      <ScrollToTop />
     </div>
   );
 };

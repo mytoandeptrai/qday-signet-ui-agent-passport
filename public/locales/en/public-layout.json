@@ -11,7 +11,8 @@
     "close-menu": "Close menu",
     "sign-in": "Sign in",
     "dashboard": "Dashboard",
-    "get-started": "Get started"
+    "get-started": "Get started",
+    "language": "Language"
   },
   "footer": {
     "product": "Product",
@@ -25,5 +26,6 @@
     "privacy": "Privacy",
     "copyright": "© QDAY 2026",
     "feedback": "Feedback"
-  }
+  },
+  "scroll-to-top": "Back to top"
 }

@@ -1,4 +1,5 @@
 import { PublicFooter } from '@/components/layouts';
+import ScrollToTop from '@/components/ui/scroll-to-top';
 import { ClosingSectionUi, LineSectionUi, LogoMarqueeUi } from '../../components';
 import { useLandingContainer } from '../../hooks';
 import DayContainer from '../day-container';
@@ -21,6 +22,7 @@ const LandingContainer = () => {
       <LineSectionUi {...servicesLine} />
       <ClosingSectionUi />
       <PublicFooter />
+      <ScrollToTop />
     </main>
   );
 };

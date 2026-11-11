@@ -5,6 +5,7 @@ import { Show } from '@/components/utilities';
 import { ROUTES } from '@/constant';
 import { useTranslation } from '@/integrations/i18n';
 import { cn } from '@/lib/utils';
+import PublicHeaderLanguage from './public-header-language';
 import PublicHeaderMobileMenu from './public-header-mobile-menu';
 import PublicHeaderNavLink from './public-header-nav-link';
 import { usePublicHeader } from './use-public-header';
@@ -15,7 +16,7 @@ type PublicHeaderProps = {
 
 const PublicHeader = ({ overlay = false }: PublicHeaderProps) => {
   const { t } = useTranslation('public-layout');
-  const { navItems, isSignedIn, isMenuOpen, onOpenMenu, onCloseMenu } = usePublicHeader();
+  const { navItems, isSignedIn, languages, language, onChangeLanguage, isMenuOpen, onOpenMenu, onCloseMenu } = usePublicHeader();
 
   return (
     <>
@@ -28,6 +29,7 @@ const PublicHeader = ({ overlay = false }: PublicHeaderProps) => {
             ))}
           </nav>
           <div className='flex items-center justify-end gap-4 text-sm'>
+            <PublicHeaderLanguage languages={languages} current={language} onChange={onChangeLanguage} />
             <Link
               to={isSignedIn ? ROUTES.OVERVIEW : ROUTES.LOGIN}
               className='hidden text-foreground/80 hover:text-foreground md:inline'

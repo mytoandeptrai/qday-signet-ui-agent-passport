@@ -1,0 +1,115 @@
+{
+  "hero": {
+    "heading-sr": "Biarkan ejen anda membayar untuk beli-belah, API dan prospek",
+    "heading": "Biarkan ejen anda membayar untuk",
+    "description": "Signet memberi ejen anda baki yang boleh dibelanjakan merentas 2,000+ perkhidmatan, tepat dalam had yang anda tetapkan.",
+    "get-started": "Mulakan",
+    "words": [
+      "beli-belah",
+      "API",
+      "prospek"
+    ],
+    "plate-label": "Kekisi nod bersambung bercahaya di sekeliling logo Signet"
+  },
+  "install": {
+    "button": "Pasang",
+    "copied": "Disalin. Tampal ke dalam ejen anda.",
+    "aria": "Pasang: salin gesaan pemasangan",
+    "tip-before": "Pasang Signet: jalankan",
+    "tip-after": ". Ia menambah arahan signet dan kemahiran Signet, dan anda boleh membaca skrip itu dahulu. Apabila selesai, beritahu saya dengan perkataan mudah apa yang dipaparkan.",
+    "tip-hint": "Tampal ke dalam Claude Code atau Codex",
+    "tip-action": "Klik untuk salin",
+    "toast": "Gesaan pemasangan disalin. Tampal ke dalam ejen anda.",
+    "copy-aria": "Salin gesaan pemasangan",
+    "copy-toast": "Gesaan pemasangan disalin"
+  },
+  "terminal": {
+    "name": "signet",
+    "lines": [
+      "$ signet session create --task \"Team dinner\" --limit 20 --per-call 5",
+      "Session ses_team_dinner is live. $20.00 held.",
+      "→ StablePhone · 6 calls · $3.24",
+      "→ AgentRes · booking for 12 · $0.01",
+      "→ Amazon · table flowers · $48.00",
+      "Stopped: over the $20 session limit."
+    ]
+  },
+  "marquee": {
+    "label": "Pelabur dan rakan kongsi",
+    "title": "Pelabur & rakan kongsi"
+  },
+  "session": {
+    "heading": "Tetapkan had yang dikuatkuasakan.",
+    "title": "Makan malam pasukan untuk 12 orang",
+    "plate-label": "Bar perbelanjaan harian naik ke arah garis had putus-putus",
+    "revoke": "Batalkan",
+    "revoked": "Dibatalkan",
+    "revoked-toast": "Sesi dibatalkan. Baki yang tinggal dikembalikan.",
+    "spent": "dibelanjakan",
+    "left": "berbaki",
+    "limit": "had ${{amount}}",
+    "per-call": "${{amount}} setiap panggilan",
+    "activity": "Aktiviti",
+    "points": [
+      "Tetapkan peraturan perbelanjaan anda",
+      "Ejen membayar bebas dalam peraturan itu",
+      "Batalkan pada bila-bila masa"
+    ]
+  },
+  "lines": {
+    "agents": {
+      "text": "Setiap tugas berjalan dalam sesi perbelanjaan.",
+      "link": "Cara sesi berfungsi"
+    },
+    "record": {
+      "text": "Setiap pembayaran tercatat dalam satu rekod: apa yang dibeli, daripada siapa, dan tugas mana yang memintanya.",
+      "link": "Lihat aktiviti anda"
+    },
+    "services": {
+      "text": "Ejen anda boleh membayar untuk StablePhone, StableEnrich, Resy, Amazon, PostalForm, AgentFax dan banyak lagi: 2,000+ perkhidmatan.",
+      "link": "Layari semua perkhidmatan"
+    }
+  },
+  "how": {
+    "eyebrow": "Cara ia berfungsi",
+    "heading": "Tiga langkah ke pembayaran pertama.",
+    "steps": [
+      "Pasang dengan satu baris",
+      "Tetapkan had anda",
+      "Minta satu tugas"
+    ],
+    "job-prompt": "Telefon enam restoran dan carikan kami bilik persendirian untuk 12 orang.",
+    "job-line": "StablePhone, 6 panggilan",
+    "job-toast": "Tugas dihantar kepada ejen anda",
+    "per-call": "${{amount}} sepanggilan"
+  },
+  "day": {
+    "heading": "Sehari bersama Signet.",
+    "label": "Garis masa enam pembayaran sepanjang sehari, dengan bajet harian terisi apabila setiap satu masuk",
+    "spent-today": "Dibelanjakan hari ini",
+    "budget": "daripada bajet ${{amount}}",
+    "within-limits": "Semua dalam had",
+    "stopped-count": "{{count}} dihentikan pada had anda",
+    "stopped-line": "Dihentikan: ${{amount}} melebihi had anda",
+    "paid-line": "{{service}} · ${{amount}}",
+    "moments": [
+      "Menelefon 12 kedai perkakasan untuk bertanya siapa ada alat ganti itu",
+      "Menemui pemilik 20 kafe, lengkap dengan e-mel yang disahkan",
+      "Menempah meja untuk lapan orang pada hari Jumaat",
+      "Memesan kit alu-aluan ke pintu pekerja baharu",
+      "Cuba membeli kerusi pejabat",
+      "Menghantar surat terima kasih bercetak kepada pelanggan"
+    ]
+  },
+  "closing": {
+    "heading": "Berikan ejen anda sebuah Signet.",
+    "plate-label": "Cincin perkhidmatan mengorbit logo Signet"
+  },
+  "plate": {
+    "per-call": "Setiap panggilan",
+    "total-budget": "Jumlah bajet",
+    "per-day": "Setiap hari",
+    "expires": "Tamat tempoh",
+    "session-limit": "Had sesi"
+  }
+}

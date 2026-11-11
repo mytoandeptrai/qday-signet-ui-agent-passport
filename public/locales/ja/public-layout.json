@@ -1,0 +1,31 @@
+{
+  "nav": {
+    "how-it-works": "しくみ",
+    "explore": "探す",
+    "ecosystem": "エコシステム",
+    "developers": "開発者"
+  },
+  "header": {
+    "main": "メイン",
+    "menu": "メニュー",
+    "close-menu": "メニューを閉じる",
+    "sign-in": "ログイン",
+    "dashboard": "ダッシュボード",
+    "get-started": "はじめる",
+    "language": "言語"
+  },
+  "footer": {
+    "product": "プロダクト",
+    "signet": "Signet",
+    "legal": "法的情報",
+    "documentation": "ドキュメント",
+    "discord": "Discord",
+    "x": "X",
+    "linkedin": "LinkedIn",
+    "terms": "利用規約",
+    "privacy": "プライバシー",
+    "copyright": "© QDAY 2026",
+    "feedback": "フィードバック"
+  },
+  "scroll-to-top": "トップへ戻る"
+}

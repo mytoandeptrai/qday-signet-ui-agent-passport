@@ -1,0 +1,31 @@
+{
+  "nav": {
+    "how-it-works": "Cara ia berfungsi",
+    "explore": "Teroka",
+    "ecosystem": "Ekosistem",
+    "developers": "Pembangun"
+  },
+  "header": {
+    "main": "Utama",
+    "menu": "Menu",
+    "close-menu": "Tutup menu",
+    "sign-in": "Log masuk",
+    "dashboard": "Papan pemuka",
+    "get-started": "Mulakan",
+    "language": "Bahasa"
+  },
+  "footer": {
+    "product": "Produk",
+    "signet": "Signet",
+    "legal": "Undang-undang",
+    "documentation": "Dokumentasi",
+    "discord": "Discord",
+    "x": "X",
+    "linkedin": "LinkedIn",
+    "terms": "Terma",
+    "privacy": "Privasi",
+    "copyright": "© QDAY 2026",
+    "feedback": "Maklum balas"
+  },
+  "scroll-to-top": "Kembali ke atas"
+}
