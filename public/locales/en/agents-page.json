@@ -1,0 +1,27 @@
+{
+  "title": "Agents",
+  "description": "Register the AI agents that spend from your SignetPass. You approve each one in MetaMask.",
+  "connect": {
+    "title": "Connect an agent",
+    "hint": "Paste this into your coding agent. It will ask to register, and the request appears below."
+  },
+  "pending": { "title": "Waiting for approval", "empty": "No registration requests." },
+  "registered": { "title": "Registered agents", "empty": "No agents yet." },
+  "row": { "requested": "Requested {{when}}", "approved": "Approved {{when}}" },
+  "labels": { "approve": "Review", "revoke": "Revoke" },
+  "approve": {
+    "summary": "{{agent}} wants to register with your SignetPass. Once approved it can start sessions you set limits for.",
+    "submit": "Approve agent",
+    "approving": "Approving…",
+    "cancel": "Not now",
+    "missing": "This registration request is no longer pending.",
+    "toasts": { "approved": "{{agent}} approved" }
+  },
+  "revoke": {
+    "title": "Revoke {{agent}}?",
+    "description": "It can no longer start sessions or spend. Existing sessions keep their own limits until you revoke them.",
+    "keep": "Keep agent",
+    "confirm": "Revoke",
+    "toasts": { "revoked": "{{agent}} revoked" }
+  }
+}

@@ -49,12 +49,3 @@ export async function listServices({ search = '', category = 'All', sort = 'popu
   };
   return out.sort(by[sort]);
 }
-
-export async function signInWithPasskey(): Promise<User> {
-  await delay(700);
-  return { ...SEED_USER, email: 'alex@example.com' };
-}
-
-export async function createPasskey(): Promise<void> {
-  await delay(800);
-}

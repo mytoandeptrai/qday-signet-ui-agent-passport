@@ -2,8 +2,6 @@ import type { TFunction } from 'i18next';
 import z from 'zod';
 import { money } from '@/lib/format';
 
-export const createSessionSearchSchema = z.object({ task: z.string().optional().catch(undefined) });
-
 export const AGENTS = ['Claude Code', 'Codex', 'Custom agent'];
 
 export const createSessionFormSchema = (t: TFunction, available: number) =>

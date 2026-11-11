@@ -18,7 +18,7 @@ const OverviewPendingBannerUi = ({ escalation: e }: OverviewPendingBannerUiProps
         <span className='ml-2 text-muted-foreground'>{timeAgo(e.requestedAt)}</span>
       </div>
       <Button asChild size='sm' variant='outline'>
-        <Link to='/agent-escalation/decide' search={{ id: e.id }}>
+        <Link to='/overview' search={{ dialog: 'decide-request', id: e.id }}>
           {t('pending.review')}
         </Link>
       </Button>

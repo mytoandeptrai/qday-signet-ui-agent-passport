@@ -1,9 +1,4 @@
-import {
-  usePasskeyCreateMutation,
-  usePasskeySignInMutation,
-  useRequestLoginCodeMutation,
-  useVerifyLoginCodeMutation,
-} from '@/apis/auth';
+import { useRequestLoginCodeMutation, useVerifyLoginCodeMutation } from '@/apis/auth';
 import { useTranslation } from '@/integrations/i18n';
 import { safeRedirect } from '@/lib/format';
 import { MOCK_OTP, MockApiError } from '@/mock/api';
@@ -31,7 +26,6 @@ export const useLoginContainer = () => {
   const { redirect, mode = 'login' } = route.useSearch();
   const navigate = useNavigate();
   const signIn = usePassportStore((s) => s.signIn);
-  const addPasskey = usePassportStore((s) => s.addPasskey);
 
   const [step, setStep] = useState<LoginStep>('email');
   const [email, setEmail] = useState('');
@@ -50,9 +44,7 @@ export const useLoginContainer = () => {
 
   const requestCode = useRequestLoginCodeMutation();
   const verifyCode = useVerifyLoginCodeMutation();
-  const passkeySignIn = usePasskeySignInMutation();
-  const passkeyCreate = usePasskeyCreateMutation();
-  const isLoading = requestCode.isPending || verifyCode.isPending || passkeySignIn.isPending || passkeyCreate.isPending;
+  const isLoading = requestCode.isPending || verifyCode.isPending;
   const isSignup = mode === 'signup';
 
   useEffect(() => {
@@ -81,8 +73,7 @@ export const useLoginContainer = () => {
   const onSubmitCode = async ({ code }: CodeFormData) => {
     try {
       signIn(await verifyCode.mutateAsync({ email, code }));
-      if (isSignup) setStep('passkey');
-      else goNext();
+      goNext();
     } catch (e) {
       codeForm.setError('code', { message: e instanceof MockApiError ? e.message : t('errors.generic') });
     }
@@ -93,19 +84,6 @@ export const useLoginContainer = () => {
   const onUseAnotherEmail = () => {
     codeForm.reset();
     setStep('email');
-  };
-
-  const onPasskeySignIn = async () => {
-    signIn(await passkeySignIn.mutateAsync());
-    toast.success(t('toasts.passkey-signed-in'));
-    goNext();
-  };
-
-  const onCreatePasskey = async () => {
-    await passkeyCreate.mutateAsync();
-    addPasskey(t('passkey.this-device'));
-    toast.success(t('toasts.passkey-created'));
-    goNext();
   };
 
   return {
@@ -122,8 +100,5 @@ export const useLoginContainer = () => {
     onSubmitCode,
     onResend,
     onUseAnotherEmail,
-    onPasskeySignIn,
-    onCreatePasskey,
-    onSkipPasskey: goNext,
   };
 };

@@ -15,7 +15,6 @@ pnpm build      # vite build + tsc
 
 - Sign in with any email. The one-time code is `123456`.
 - Sign-up mode (`/login?mode=signup`) adds the passkey step.
-- Voucher code to redeem: `SIGNET-LAUNCH-50`.
 - Settings → Account → "Reset demo data" restores the seed.
 
 ## Layout

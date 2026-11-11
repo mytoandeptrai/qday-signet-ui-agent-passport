@@ -1,17 +1,9 @@
 export type SessionStatus = 'active' | 'revoked' | 'expired' | 'completed';
 export type ActivityStatus = 'settled' | 'blocked' | 'pending';
 export type EscalationStatus = 'pending' | 'approved' | 'declined';
-export type VoucherStatus = 'unused' | 'redeemed' | 'expired';
 export type DepositMethod = 'card' | 'bank' | 'crypto' | 'wallet';
 export type DepositStatus = 'completed' | 'pending' | 'failed';
 export type Appearance = 'light' | 'dark' | 'system';
-
-export interface Passkey {
-  id: string;
-  label: string;
-  createdAt: string;
-  lastUsedAt: string | null;
-}
 
 export interface User {
   id: string;
@@ -19,7 +11,6 @@ export interface User {
   name: string;
   walletAddress: string;
   createdAt: string;
-  passkeys: Passkey[];
 }
 
 export interface Balance {
@@ -74,15 +65,6 @@ export interface Escalation {
   amount: number;
   status: EscalationStatus;
   requestedAt: string;
-}
-
-export interface Voucher {
-  id: string;
-  code: string;
-  amount: number;
-  status: VoucherStatus;
-  createdAt: string;
-  redeemedAt?: string;
 }
 
 export interface Deposit {

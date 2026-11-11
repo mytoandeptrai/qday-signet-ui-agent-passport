@@ -7,7 +7,9 @@
     "signet-router": "Signet Router",
     "new-session": "New session",
     "help": "Help",
-    "wallet": "Wallet"
+    "wallet": "Wallet",
+    "agents": "Agents",
+    "sessions": "Sessions"
   },
   "help": {
     "documentation": "Documentation",
@@ -30,7 +32,6 @@
     "menu": "Account menu",
     "settings": "Settings",
     "deposit": "Add funds",
-    "vouchers": "Vouchers",
     "sign-out": "Sign out"
   },
   "toasts": {
@@ -55,6 +56,22 @@
     "add-funds": {
       "title": "Add funds",
       "description": "Fund your SignetPass so agents can spend within your limits."
+    },
+    "create-session": {
+      "title": "New session",
+      "description": "Give an agent a task and a spending limit. You confirm in MetaMask."
+    },
+    "approve-session": {
+      "title": "Approve session",
+      "description": "An agent asked to start this session."
+    },
+    "decide-request": {
+      "title": "Spending request",
+      "description": "An agent needs your approval for this purchase."
+    },
+    "approve-agent": {
+      "title": "Approve agent",
+      "description": "Registering an agent is signed in MetaMask."
     }
   }
 }

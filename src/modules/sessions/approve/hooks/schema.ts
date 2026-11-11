@@ -1,9 +1,2 @@
-import z from 'zod';
-
-export const approveSearchSchema = z.object({
-  task: z.string().catch('Team dinner for 12'),
-  agent: z.string().catch('Claude Code'),
-  limit: z.coerce.number().positive().catch(20),
-  perCall: z.coerce.number().positive().catch(5),
-  hours: z.coerce.number().positive().catch(8),
-});
+/** Used when an agent opens the approval link without a full request. */
+export const APPROVE_DEFAULTS = { task: 'Team dinner for 12', agent: 'Claude Code', limit: 20, perCall: 5, hours: 8 };

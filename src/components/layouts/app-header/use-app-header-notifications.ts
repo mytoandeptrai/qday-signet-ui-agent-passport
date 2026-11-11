@@ -17,7 +17,7 @@ export const useAppHeaderNotifications = () => {
       id: e.id,
       text: t('notifications.escalation', { agent: e.agent, amount: money(e.amount), service: e.service }),
       at: e.requestedAt,
-      to: `${ROUTES.DECIDE}?id=${e.id}`,
+      to: `${ROUTES.OVERVIEW}?dialog=decide-request&id=${e.id}`,
     })),
     ...activity
       .filter((a) => a.status === 'blocked')

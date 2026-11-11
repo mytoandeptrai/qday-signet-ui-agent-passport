@@ -10,27 +10,24 @@
     "title": "Check your email",
     "description": "Enter the 6-digit code we sent to"
   },
-  "passkey": {
-    "title": "Add a passkey",
-    "description": "Sign in and approve spending with your fingerprint or face instead of email codes.",
-    "this-device": "This device"
-  },
   "fields": {
-    "email": { "label": "Email", "placeholder": "you@company.com" },
-    "code": { "label": "Code", "placeholder": "123456" }
+    "email": {
+      "label": "Email",
+      "placeholder": "you@company.com"
+    },
+    "code": {
+      "label": "Code",
+      "placeholder": "123456"
+    }
   },
   "labels": {
     "continue": "Continue",
-    "or": "or",
-    "continue-with-passkey": "Continue with a passkey",
     "sign-in": "Sign in",
     "create-one": "Create one",
     "verify": "Verify",
     "use-another-email": "Use another email",
     "resend-code": "Resend code",
-    "resend-in": "Resend in {{seconds}}s",
-    "create-passkey": "Create passkey",
-    "skip": "Skip for now"
+    "resend-in": "Resend in {{seconds}}s"
   },
   "errors": {
     "email-required": "Enter your email",
@@ -41,9 +38,9 @@
   "toasts": {
     "code-sent": "Code sent to {{email}}",
     "mock-code": "Mock code: {{code}}",
-    "code-failed": "Could not send the code. Try again.",
-    "passkey-signed-in": "Signed in with your passkey",
-    "passkey-created": "Passkey created"
+    "code-failed": "Could not send the code. Try again."
   },
-  "aside": { "label": "Rings of services orbiting the Signet mark" }
+  "aside": {
+    "label": "Rings of services orbiting the Signet mark"
+  }
 }

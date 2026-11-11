@@ -8,11 +8,3 @@ export interface Onboarding {
 }
 
 export type OnboardingStep = keyof Onboarding;
-
-export interface AddPasskeyParams {
-  label: string;
-}
-
-export interface RemovePasskeyParams {
-  id: string;
-}

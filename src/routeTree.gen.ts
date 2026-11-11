@@ -15,18 +15,16 @@ import { Route as appLayoutRouteImport } from './routes/(app)/layout'
 import { Route as publicLayoutRouteImport } from './routes/(public)/layout'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as appActivityRouteImport } from './routes/(app)/activity'
-import { Route as appCreateSessionRouteImport } from './routes/(app)/create-session'
+import { Route as appAgentsRouteImport } from './routes/(app)/agents'
 import { Route as appOverviewRouteImport } from './routes/(app)/overview'
 import { Route as appPlaygroundRouteImport } from './routes/(app)/playground'
 import { Route as appSettingsRouteImport } from './routes/(app)/settings'
-import { Route as appVouchersRouteImport } from './routes/(app)/vouchers'
 import { Route as appWalletRouteImport } from './routes/(app)/wallet'
 import { Route as publicEcosystemRouteImport } from './routes/(public)/ecosystem'
 import { Route as publicExploreRouteImport } from './routes/(public)/explore'
 import { Route as publicPrivacyRouteImport } from './routes/(public)/privacy'
 import { Route as publicTermsRouteImport } from './routes/(public)/terms'
-import { Route as appAgentEscalationDecideRouteImport } from './routes/(app)/agent-escalation.decide'
-import { Route as appAgentSessionApproveRouteImport } from './routes/(app)/agent-session.approve'
+import { Route as appSessionsIndexRouteImport } from './routes/(app)/sessions.index'
 import { Route as appSessionsSessionIdRouteImport } from './routes/(app)/sessions.$sessionId'
 
 const IndexRoute = IndexRouteImport.update({
@@ -57,9 +55,9 @@ const appActivityRoute = appActivityRouteImport.update({
   path: '/activity',
   getParentRoute: () => appLayoutRoute,
 } as any)
-const appCreateSessionRoute = appCreateSessionRouteImport.update({
-  id: '/create-session',
-  path: '/create-session',
+const appAgentsRoute = appAgentsRouteImport.update({
+  id: '/agents',
+  path: '/agents',
   getParentRoute: () => appLayoutRoute,
 } as any)
 const appOverviewRoute = appOverviewRouteImport.update({
@@ -75,11 +73,6 @@ const appPlaygroundRoute = appPlaygroundRouteImport.update({
 const appSettingsRoute = appSettingsRouteImport.update({
   id: '/settings',
   path: '/settings',
-  getParentRoute: () => appLayoutRoute,
-} as any)
-const appVouchersRoute = appVouchersRouteImport.update({
-  id: '/vouchers',
-  path: '/vouchers',
   getParentRoute: () => appLayoutRoute,
 } as any)
 const appWalletRoute = appWalletRouteImport.update({
@@ -107,15 +100,9 @@ const publicTermsRoute = publicTermsRouteImport.update({
   path: '/terms',
   getParentRoute: () => publicLayoutRoute,
 } as any)
-const appAgentEscalationDecideRoute =
-  appAgentEscalationDecideRouteImport.update({
-    id: '/agent-escalation/decide',
-    path: '/agent-escalation/decide',
-    getParentRoute: () => appLayoutRoute,
-  } as any)
-const appAgentSessionApproveRoute = appAgentSessionApproveRouteImport.update({
-  id: '/agent-session/approve',
-  path: '/agent-session/approve',
+const appSessionsIndexRoute = appSessionsIndexRouteImport.update({
+  id: '/sessions/',
+  path: '/sessions/',
   getParentRoute: () => appLayoutRoute,
 } as any)
 const appSessionsSessionIdRoute = appSessionsSessionIdRouteImport.update({
@@ -129,38 +116,34 @@ export interface FileRoutesByFullPath {
   '/$': typeof SplatRoute
   '/login': typeof LoginRoute
   '/activity': typeof appActivityRoute
-  '/create-session': typeof appCreateSessionRoute
+  '/agents': typeof appAgentsRoute
   '/overview': typeof appOverviewRoute
   '/playground': typeof appPlaygroundRoute
   '/settings': typeof appSettingsRoute
-  '/vouchers': typeof appVouchersRoute
   '/wallet': typeof appWalletRoute
   '/ecosystem': typeof publicEcosystemRoute
   '/explore': typeof publicExploreRoute
   '/privacy': typeof publicPrivacyRoute
   '/terms': typeof publicTermsRoute
-  '/agent-escalation/decide': typeof appAgentEscalationDecideRoute
-  '/agent-session/approve': typeof appAgentSessionApproveRoute
   '/sessions/$sessionId': typeof appSessionsSessionIdRoute
+  '/sessions/': typeof appSessionsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
   '/login': typeof LoginRoute
   '/activity': typeof appActivityRoute
-  '/create-session': typeof appCreateSessionRoute
+  '/agents': typeof appAgentsRoute
   '/overview': typeof appOverviewRoute
   '/playground': typeof appPlaygroundRoute
   '/settings': typeof appSettingsRoute
-  '/vouchers': typeof appVouchersRoute
   '/wallet': typeof appWalletRoute
   '/ecosystem': typeof publicEcosystemRoute
   '/explore': typeof publicExploreRoute
   '/privacy': typeof publicPrivacyRoute
   '/terms': typeof publicTermsRoute
-  '/agent-escalation/decide': typeof appAgentEscalationDecideRoute
-  '/agent-session/approve': typeof appAgentSessionApproveRoute
   '/sessions/$sessionId': typeof appSessionsSessionIdRoute
+  '/sessions': typeof appSessionsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -170,19 +153,17 @@ export interface FileRoutesById {
   '/$': typeof SplatRoute
   '/login': typeof LoginRoute
   '/(app)/activity': typeof appActivityRoute
-  '/(app)/create-session': typeof appCreateSessionRoute
+  '/(app)/agents': typeof appAgentsRoute
   '/(app)/overview': typeof appOverviewRoute
   '/(app)/playground': typeof appPlaygroundRoute
   '/(app)/settings': typeof appSettingsRoute
-  '/(app)/vouchers': typeof appVouchersRoute
   '/(app)/wallet': typeof appWalletRoute
   '/(public)/ecosystem': typeof publicEcosystemRoute
   '/(public)/explore': typeof publicExploreRoute
   '/(public)/privacy': typeof publicPrivacyRoute
   '/(public)/terms': typeof publicTermsRoute
-  '/(app)/agent-escalation/decide': typeof appAgentEscalationDecideRoute
-  '/(app)/agent-session/approve': typeof appAgentSessionApproveRoute
   '/(app)/sessions/$sessionId': typeof appSessionsSessionIdRoute
+  '/(app)/sessions/': typeof appSessionsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -191,38 +172,34 @@ export interface FileRouteTypes {
     | '/$'
     | '/login'
     | '/activity'
-    | '/create-session'
+    | '/agents'
     | '/overview'
     | '/playground'
     | '/settings'
-    | '/vouchers'
     | '/wallet'
     | '/ecosystem'
     | '/explore'
     | '/privacy'
     | '/terms'
-    | '/agent-escalation/decide'
-    | '/agent-session/approve'
     | '/sessions/$sessionId'
+    | '/sessions/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/$'
     | '/login'
     | '/activity'
-    | '/create-session'
+    | '/agents'
     | '/overview'
     | '/playground'
     | '/settings'
-    | '/vouchers'
     | '/wallet'
     | '/ecosystem'
     | '/explore'
     | '/privacy'
     | '/terms'
-    | '/agent-escalation/decide'
-    | '/agent-session/approve'
     | '/sessions/$sessionId'
+    | '/sessions'
   id:
     | '__root__'
     | '/'
@@ -231,19 +208,17 @@ export interface FileRouteTypes {
     | '/$'
     | '/login'
     | '/(app)/activity'
-    | '/(app)/create-session'
+    | '/(app)/agents'
     | '/(app)/overview'
     | '/(app)/playground'
     | '/(app)/settings'
-    | '/(app)/vouchers'
     | '/(app)/wallet'
     | '/(public)/ecosystem'
     | '/(public)/explore'
     | '/(public)/privacy'
     | '/(public)/terms'
-    | '/(app)/agent-escalation/decide'
-    | '/(app)/agent-session/approve'
     | '/(app)/sessions/$sessionId'
+    | '/(app)/sessions/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -298,11 +273,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof appActivityRouteImport
       parentRoute: typeof appLayoutRoute
     }
-    '/(app)/create-session': {
-      id: '/(app)/create-session'
-      path: '/create-session'
-      fullPath: '/create-session'
-      preLoaderRoute: typeof appCreateSessionRouteImport
+    '/(app)/agents': {
+      id: '/(app)/agents'
+      path: '/agents'
+      fullPath: '/agents'
+      preLoaderRoute: typeof appAgentsRouteImport
       parentRoute: typeof appLayoutRoute
     }
     '/(app)/overview': {
@@ -324,13 +299,6 @@ declare module '@tanstack/react-router' {
       path: '/settings'
       fullPath: '/settings'
       preLoaderRoute: typeof appSettingsRouteImport
-      parentRoute: typeof appLayoutRoute
-    }
-    '/(app)/vouchers': {
-      id: '/(app)/vouchers'
-      path: '/vouchers'
-      fullPath: '/vouchers'
-      preLoaderRoute: typeof appVouchersRouteImport
       parentRoute: typeof appLayoutRoute
     }
     '/(app)/wallet': {
@@ -368,18 +336,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof publicTermsRouteImport
       parentRoute: typeof publicLayoutRoute
     }
-    '/(app)/agent-escalation/decide': {
-      id: '/(app)/agent-escalation/decide'
-      path: '/agent-escalation/decide'
-      fullPath: '/agent-escalation/decide'
-      preLoaderRoute: typeof appAgentEscalationDecideRouteImport
-      parentRoute: typeof appLayoutRoute
-    }
-    '/(app)/agent-session/approve': {
-      id: '/(app)/agent-session/approve'
-      path: '/agent-session/approve'
-      fullPath: '/agent-session/approve'
-      preLoaderRoute: typeof appAgentSessionApproveRouteImport
+    '/(app)/sessions/': {
+      id: '/(app)/sessions/'
+      path: '/sessions'
+      fullPath: '/sessions/'
+      preLoaderRoute: typeof appSessionsIndexRouteImport
       parentRoute: typeof appLayoutRoute
     }
     '/(app)/sessions/$sessionId': {
@@ -394,28 +355,24 @@ declare module '@tanstack/react-router' {
 
 interface appLayoutRouteChildren {
   appActivityRoute: typeof appActivityRoute
-  appCreateSessionRoute: typeof appCreateSessionRoute
+  appAgentsRoute: typeof appAgentsRoute
   appOverviewRoute: typeof appOverviewRoute
   appPlaygroundRoute: typeof appPlaygroundRoute
   appSettingsRoute: typeof appSettingsRoute
-  appVouchersRoute: typeof appVouchersRoute
   appWalletRoute: typeof appWalletRoute
-  appAgentEscalationDecideRoute: typeof appAgentEscalationDecideRoute
-  appAgentSessionApproveRoute: typeof appAgentSessionApproveRoute
   appSessionsSessionIdRoute: typeof appSessionsSessionIdRoute
+  appSessionsIndexRoute: typeof appSessionsIndexRoute
 }
 
 const appLayoutRouteChildren: appLayoutRouteChildren = {
   appActivityRoute: appActivityRoute,
-  appCreateSessionRoute: appCreateSessionRoute,
+  appAgentsRoute: appAgentsRoute,
   appOverviewRoute: appOverviewRoute,
   appPlaygroundRoute: appPlaygroundRoute,
   appSettingsRoute: appSettingsRoute,
-  appVouchersRoute: appVouchersRoute,
   appWalletRoute: appWalletRoute,
-  appAgentEscalationDecideRoute: appAgentEscalationDecideRoute,
-  appAgentSessionApproveRoute: appAgentSessionApproveRoute,
   appSessionsSessionIdRoute: appSessionsSessionIdRoute,
+  appSessionsIndexRoute: appSessionsIndexRoute,
 }
 
 const appLayoutRouteWithChildren = appLayoutRoute._addFileChildren(

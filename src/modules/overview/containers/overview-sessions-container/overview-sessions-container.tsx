@@ -10,7 +10,7 @@ const OverviewSessionsContainer = () => {
     <section className='mt-16 max-w-[1000px]'>
       <div className='mb-4 flex items-baseline justify-between'>
         <h2 className='text-body font-medium'>{t('sessions.title')}</h2>
-        <Link to='/create-session' className='text-small text-muted-foreground hover:text-foreground'>
+        <Link to='/overview' search={{ dialog: 'create-session' }} className='text-small text-muted-foreground hover:text-foreground'>
           {t('labels.new-session')}
         </Link>
       </div>

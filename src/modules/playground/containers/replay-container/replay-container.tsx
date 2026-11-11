@@ -19,7 +19,7 @@ const ReplayContainer = ({ scenario }: ReplayContainerProps) => {
         <ReplayMeterUi spent={spent} limit={scenario.limit} />
         <ReplayNotesUi notes={notes} summary={scenario.summary} />
         <Button asChild className='w-full'>
-          <Link to='/create-session' search={{ task: scenario.task }}>
+          <Link to='/playground' search={(prev) => ({ ...prev, dialog: 'create-session', task: scenario.task })}>
             {t('labels.start-session')}
           </Link>
         </Button>

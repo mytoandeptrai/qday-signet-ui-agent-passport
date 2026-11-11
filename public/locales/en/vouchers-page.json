@@ -1,9 +1,0 @@
-{
-  "title": "Vouchers",
-  "description": "Redeem a code to add credit to your balance. Try SIGNET-LAUNCH-50.",
-  "fields": { "code": { "label": "Voucher code", "placeholder": "SIGNET-XXXX-00" } },
-  "labels": { "redeem": "Redeem" },
-  "list": { "redeemed": "Redeemed {{when}}", "issued": "Issued {{when}}" },
-  "errors": { "code-required": "Enter a voucher code" },
-  "toasts": { "added": "{{amount}} added to your balance" }
-}

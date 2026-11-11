@@ -81,7 +81,7 @@ const AppSidebar = () => {
           <AppSidebarWallet />
           <SidebarMenuItem>
             <SidebarMenuButton asChild tooltip={t('nav.new-session')} className={`${menuButtonClass} text-muted-foreground`}>
-              <Link to={ROUTES.CREATE_SESSION}>
+              <Link to={ROUTES.OVERVIEW} search={{ dialog: 'create-session' }}>
                 <PlusIcon strokeWidth={1.4} />
                 <span>{t('nav.new-session')}</span>
               </Link>

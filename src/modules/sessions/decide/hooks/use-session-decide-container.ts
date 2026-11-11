@@ -1,24 +1,34 @@
 import { useDecideEscalationMutation, useGetEscalationList } from '@/apis/escalations';
+import { useAppDialog } from '@/hooks/use-app-dialog';
 import { useTranslation } from '@/integrations/i18n';
-import { getRouteApi, useNavigate } from '@tanstack/react-router';
+import { useSignAction } from '@/integrations/wallet';
 import { toast } from 'sonner';
-
-const route = getRouteApi('/(app)/agent-escalation/decide');
 
 export const useSessionDecideContainer = () => {
   const { t } = useTranslation('session-decide-page');
-  const { id } = route.useSearch();
-  const navigate = useNavigate();
+  const { params, close } = useAppDialog();
   const { data: escalations = [] } = useGetEscalationList();
   const decide = useDecideEscalationMutation();
-  const escalation = escalations.find((e) => e.id === id);
+  const { status, run } = useSignAction();
+  const escalation = escalations.find((e) => e.id === params.id);
 
   const onDecide = async (approve: boolean) => {
-    await decide.mutateAsync({ id, approve });
+    if (!escalation) return;
+    const action = () => decide.mutateAsync({ id: escalation.id, approve });
+    // Approving moves money, so it needs a MetaMask signature; declining does not.
+    const ok = approve ? await run({ kind: 'approve-agent', summary: `Approve ${escalation.amount} for ${escalation.agent}` }, action) : (await action(), true);
+    if (!ok) return;
     if (approve) toast.success(t('toasts.approved'));
     else toast(t('toasts.declined'));
-    navigate({ to: '/overview' });
+    close();
   };
 
-  return { escalation, isDone: escalation ? escalation.status !== 'pending' : true, onApprove: () => onDecide(true), onDecline: () => onDecide(false) };
+  return {
+    escalation,
+    isDone: escalation ? escalation.status !== 'pending' : true,
+    status,
+    isLoading: status === 'waiting' || decide.isPending,
+    onApprove: () => onDecide(true),
+    onDecline: () => onDecide(false),
+  };
 };

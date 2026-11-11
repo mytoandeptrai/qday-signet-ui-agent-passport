@@ -1,9 +1,21 @@
 {
   "title": "Activity",
-  "labels": { "export-csv": "Export CSV" },
-  "tabs": { "all": "All", "sessions": "Sessions", "services": "Services", "transfers": "Transfers" },
-  "range": { "aria": "Date range", "days": "{{count}} days" },
-  "metric": { "aria": "Metric" },
+  "labels": {
+    "export-csv": "Export CSV"
+  },
+  "tabs": {
+    "all": "All",
+    "sessions": "Sessions",
+    "services": "Services",
+    "transfers": "Transfers"
+  },
+  "range": {
+    "aria": "Date range",
+    "days": "{{count}} days"
+  },
+  "metric": {
+    "aria": "Metric"
+  },
   "metrics": {
     "spend": "Spend",
     "calls": "Paid calls",
@@ -11,17 +23,30 @@
     "count": "Sessions",
     "added": "Funds added"
   },
-  "chart": { "aria": "{{metric}} per day" },
+  "chart": {
+    "aria": "{{metric}} per day"
+  },
   "empty": "None yet.",
-  "categories": { "service": "Service", "session": "Session", "deposit": "Deposit", "voucher": "Voucher" },
+  "categories": {
+    "service": "Service",
+    "session": "Session",
+    "deposit": "Deposit",
+    "wallet": "Main Wallet"
+  },
   "table": {
-    "headers": { "detail": "Detail", "category": "Category", "amount": "Amount", "time": "Time" }
+    "headers": {
+      "detail": "Detail",
+      "category": "Category",
+      "amount": "Amount",
+      "time": "Time"
+    }
   },
   "rows": {
     "session-sub": "{{agent}} · {{spent}} of {{limit}} used",
     "added-funds": "Added funds",
     "by-method": "By {{method}}",
-    "voucher-redeemed": "Voucher redeemed"
+    "wallet-send": "Sent from Main Wallet",
+    "wallet-receive": "Received in Main Wallet"
   },
   "detail": {
     "category": "Category",
@@ -32,5 +57,13 @@
     "time": "Time",
     "reference": "Reference"
   },
-  "toasts": { "exported": "Exported {{count}} rows" }
+  "toasts": {
+    "exported": "Exported {{count}} rows"
+  },
+  "methods": {
+    "card": "card",
+    "bank": "bank transfer",
+    "crypto": "crypto",
+    "wallet": "Main Wallet"
+  }
 }

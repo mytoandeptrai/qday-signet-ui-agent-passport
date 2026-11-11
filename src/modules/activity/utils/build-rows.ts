@@ -1,5 +1,5 @@
-import { money } from '@/lib/format';
-import type { ActivityItem, Deposit, SpendingSession, Voucher } from '@/types/passport';
+import { money, shortAddress } from '@/lib/format';
+import type { ActivityItem, Deposit, SpendingSession, WalletTx } from '@/types/passport';
 import type { TFunction } from 'i18next';
 import type { ActivityRow } from './types';
 
@@ -7,12 +7,12 @@ interface BuildRowsParams {
   activity: ActivityItem[];
   sessions: SpendingSession[];
   deposits: Deposit[];
-  vouchers: Voucher[];
+  walletTxs: WalletTx[];
   t: TFunction;
 }
 
 /** Merges service payments, sessions and money in into one newest-first list. */
-export const buildRows = ({ activity, sessions, deposits, vouchers, t }: BuildRowsParams): ActivityRow[] => {
+export const buildRows = ({ activity, sessions, deposits, walletTxs, t }: BuildRowsParams): ActivityRow[] => {
   const service: ActivityRow[] = activity.map((a) => ({
     id: a.id,
     kind: 'service',
@@ -40,24 +40,25 @@ export const buildRows = ({ activity, sessions, deposits, vouchers, t }: BuildRo
         id: d.id,
         kind: 'transfer',
         detail: t('rows.added-funds'),
-        sub: t('rows.by-method', { method: d.method }),
+        sub: t('rows.by-method', { method: t(`methods.${d.method}`) }),
         category: 'deposit',
         amount: d.amount,
         createdAt: d.createdAt,
         status: d.status,
       })
     ),
-    ...vouchers
-      .filter((v) => v.status === 'redeemed')
+    // Funding the SignetPass is already a deposit row, so only money entering or leaving the Main Wallet is added here.
+    ...walletTxs
+      .filter((tx) => tx.kind !== 'fund')
       .map(
-        (v): ActivityRow => ({
-          id: v.id,
+        (tx): ActivityRow => ({
+          id: tx.id,
           kind: 'transfer',
-          detail: t('rows.voucher-redeemed'),
-          sub: v.code,
-          category: 'voucher',
-          amount: v.amount,
-          createdAt: v.redeemedAt ?? v.createdAt,
+          detail: t(`rows.wallet-${tx.kind}`),
+          sub: shortAddress(tx.counterparty),
+          category: 'wallet',
+          amount: tx.kind === 'send' ? -tx.amount : tx.amount,
+          createdAt: tx.createdAt,
           status: 'completed',
         })
       ),

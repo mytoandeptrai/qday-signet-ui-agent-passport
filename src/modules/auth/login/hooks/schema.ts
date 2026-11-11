@@ -23,4 +23,4 @@ export const initialCodeFormData = { code: '' };
 
 export type EmailFormData = z.infer<ReturnType<typeof emailFormSchema>>;
 export type CodeFormData = z.infer<ReturnType<typeof codeFormSchema>>;
-export type LoginStep = 'email' | 'code' | 'passkey';
+export type LoginStep = 'email' | 'code';

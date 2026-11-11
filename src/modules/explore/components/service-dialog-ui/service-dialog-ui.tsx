@@ -35,7 +35,7 @@ const ServiceDialogUi = ({ service, isSignedIn, onClose, onUse }: ServiceDialogU
         <DialogFooter>
           {isSignedIn ? (
             <Button asChild onClick={onUse}>
-              <Link to={ROUTES.CREATE_SESSION}>{t('dialog.use')}</Link>
+              <Link to={ROUTES.OVERVIEW} search={{ dialog: 'create-session' }}>{t('dialog.use')}</Link>
             </Button>
           ) : (
             <Button asChild>

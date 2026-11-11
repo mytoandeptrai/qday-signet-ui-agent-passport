@@ -3,6 +3,5 @@ export const KEYS = {
   BALANCE: 'account/balance',
   SETTINGS: 'account/settings',
   ONBOARDING: 'account/onboarding',
-  PASSKEYS: 'account/passkeys',
   RESET: 'account/reset',
 };

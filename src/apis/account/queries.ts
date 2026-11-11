@@ -1,13 +1,11 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { KEYS } from './keys';
 import {
-  addPasskey,
   completeOnboarding,
   getBalance,
   getOnboarding,
   getProfile,
   getSettings,
-  removePasskey,
   resetDemoData,
   updateSettings,
 } from './requests';
@@ -31,16 +29,6 @@ export const useUpdateSettingsMutation = () => {
 export const useCompleteOnboardingMutation = () => {
   const refresh = useRefreshAll();
   return useMutation({ mutationKey: [KEYS.ONBOARDING], mutationFn: completeOnboarding, onSuccess: refresh });
-};
-
-export const useAddPasskeyMutation = () => {
-  const refresh = useRefreshAll();
-  return useMutation({ mutationKey: [KEYS.PASSKEYS, 'add'], mutationFn: addPasskey, onSuccess: refresh });
-};
-
-export const useRemovePasskeyMutation = () => {
-  const refresh = useRefreshAll();
-  return useMutation({ mutationKey: [KEYS.PASSKEYS, 'remove'], mutationFn: removePasskey, onSuccess: refresh });
 };
 
 export const useResetDemoDataMutation = () => {

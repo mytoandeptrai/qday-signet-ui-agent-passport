@@ -1,33 +1,58 @@
 {
   "title": "Settings",
-  "tabs": { "limits": "Limits", "notifications": "Notifications", "security": "Security", "account": "Account" },
-  "labels": { "save": "Save changes" },
+  "tabs": {
+    "limits": "Limits",
+    "notifications": "Notifications",
+    "security": "Security",
+    "account": "Account"
+  },
+  "labels": {
+    "save": "Save changes"
+  },
   "limits": {
     "default-limit": "Default session limit (USD)",
     "default-per-call": "Default per-call limit (USD)",
     "approval-above": "Ask me before any single payment above (USD)"
   },
   "notifications": {
-    "emailAlerts": { "title": "Email me about every session", "description": "A summary when a session ends." },
-    "alertOnBlocked": { "title": "Alert me when a payment is blocked", "description": "Sent right away, with the reason." }
+    "emailAlerts": {
+      "title": "Email me about every session",
+      "description": "A summary when a session ends."
+    },
+    "alertOnBlocked": {
+      "title": "Alert me when a payment is blocked",
+      "description": "Sent right away, with the reason."
+    }
   },
   "security": {
-    "title": "Passkeys",
-    "add": "Add passkey",
-    "remove": "Remove",
-    "used": "Used {{when}}",
-    "never-used": "Never used",
-    "keep-one": "Keep at least one passkey",
-    "device": "Device {{number}}"
+    "title": "Security history",
+    "empty": "Nothing yet. Wallet connections, signatures and revocations show up here.",
+    "events": {
+      "wallet-connected": "Wallet connected",
+      "wallet-disconnected": "Wallet disconnected",
+      "signetpass-created": "SignetPass created",
+      "transfer": "Transfer signed",
+      "agent-approved": "Agent approved",
+      "agent-revoked": "Agent revoked",
+      "session-created": "Session created",
+      "session-revoked": "Session revoked"
+    }
   },
   "account": {
     "name": "Name",
     "email": "Email",
-    "wallet": "Wallet",
+    "wallet": "SignetPass address",
     "appearance": "Appearance",
-    "appearances": { "light": "Light", "dark": "Dark", "system": "System" },
-    "reset-description": "Reset sessions, activity, vouchers and balance to the demo data.",
-    "reset": "Reset demo data"
+    "appearances": {
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System"
+    },
+    "reset-description": "Reset sessions, activity, wallets and balance to the demo data.",
+    "reset": "Reset demo data",
+    "account-id": "Account ID",
+    "connected-wallet": "Connected wallet",
+    "not-connected": "Not connected"
   },
   "errors": {
     "amount-positive": "Must be more than $0",
@@ -36,8 +61,6 @@
   },
   "toasts": {
     "saved": "Settings saved",
-    "passkey-added": "Passkey added",
-    "passkey-removed": "Passkey removed",
     "reset": "Demo data restored"
   }
 }

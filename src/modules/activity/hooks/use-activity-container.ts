@@ -1,7 +1,7 @@
 import { useGetActivityList } from '@/apis/activity';
 import { useGetDepositList } from '@/apis/deposits';
 import { useGetSessionList } from '@/apis/sessions';
-import { useGetVoucherList } from '@/apis/vouchers';
+import { useGetMainWallet } from '@/apis/wallet';
 import { PAGE_SIZE_OPTIONS } from '@/constant';
 import { useTranslation } from '@/integrations/i18n';
 import { money } from '@/lib/format';
@@ -35,10 +35,11 @@ export const useActivityContainer = () => {
   const { data: activity = [] } = useGetActivityList();
   const { data: sessions = [] } = useGetSessionList();
   const { data: deposits = [] } = useGetDepositList();
-  const { data: vouchers = [] } = useGetVoucherList();
+  const { data: mainWallet } = useGetMainWallet();
+  const walletTxs = mainWallet?.transactions ?? [];
   const [metricId, setMetricId] = useState<Record<Tab, string>>(DEFAULT_METRIC);
 
-  const all = useMemo(() => buildRows({ activity, sessions, deposits, vouchers, t }), [activity, sessions, deposits, vouchers, t]);
+  const all = useMemo(() => buildRows({ activity, sessions, deposits, walletTxs, t }), [activity, sessions, deposits, walletTxs, t]);
 
   const from = startOfDay(subDays(new Date(), days - 1));
   const rows = useMemo(() => {

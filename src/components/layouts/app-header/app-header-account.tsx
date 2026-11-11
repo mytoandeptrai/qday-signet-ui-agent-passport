@@ -31,7 +31,6 @@ const AppHeaderAccount = () => {
         <DropdownMenuSeparator />
         <DropdownMenuItem onSelect={() => onNavigate(ROUTES.SETTINGS)}>{t('account.settings')}</DropdownMenuItem>
         <DropdownMenuItem onSelect={onAddFunds}>{t('account.deposit')}</DropdownMenuItem>
-        <DropdownMenuItem onSelect={() => onNavigate(ROUTES.VOUCHERS)}>{t('account.vouchers')}</DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem onSelect={onSignOut}>{t('account.sign-out')}</DropdownMenuItem>
       </DropdownMenuContent>

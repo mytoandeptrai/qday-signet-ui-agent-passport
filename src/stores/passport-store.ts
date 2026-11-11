@@ -1,7 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import {
-  REDEEMABLE_CODES,
   SEED_ACTIVITY,
   SEED_AGENTS,
   SEED_BALANCE,
@@ -11,7 +10,6 @@ import {
   SEED_SESSIONS,
   SEED_SETTINGS,
   SEED_SIGNETPASS,
-  SEED_VOUCHERS,
 } from '@/mock/seed';
 import type { WalletSession } from '@/integrations/wallet/types';
 import type {
@@ -28,7 +26,6 @@ import type {
   SignetPassAccount,
   SpendingSession,
   User,
-  Voucher,
 } from '@/types/passport';
 
 interface PassportState {
@@ -37,7 +34,6 @@ interface PassportState {
   sessions: SpendingSession[];
   activity: ActivityItem[];
   escalations: Escalation[];
-  vouchers: Voucher[];
   deposits: Deposit[];
   settings: AppSettings;
   wallet: WalletSession | null;
@@ -58,11 +54,8 @@ interface PassportState {
   createSession: (input: CreateSessionInput) => SpendingSession;
   revokeSession: (id: string) => void;
   decideEscalation: (id: string, approve: boolean) => void;
-  redeemVoucher: (code: string) => { ok: true; amount: number } | { ok: false; error: string };
   updateSettings: (patch: Partial<AppSettings>) => void;
   completeOnboarding: (step: 'connected' | 'allowance') => void;
-  addPasskey: (label: string) => void;
-  removePasskey: (id: string) => void;
   reset: () => void;
 }
 
@@ -78,7 +71,6 @@ const initial = () => ({
   sessions: SEED_SESSIONS,
   activity: SEED_ACTIVITY,
   escalations: SEED_ESCALATIONS,
-  vouchers: SEED_VOUCHERS,
   deposits: SEED_DEPOSITS,
   settings: SEED_SETTINGS,
   wallet: null,
@@ -91,7 +83,7 @@ const initial = () => ({
 
 export const usePassportStore = create<PassportState>()(
   persist(
-    (set, get) => ({
+    (set) => ({
       user: null,
       ...initial(),
 
@@ -203,31 +195,11 @@ export const usePassportStore = create<PassportState>()(
           };
         }),
 
-      redeemVoucher: (rawCode) => {
-        const code = rawCode.trim().toUpperCase();
-        const { vouchers } = get();
-        const existing = vouchers.find((v) => v.code === code);
-        if (existing && existing.status !== 'unused') return { ok: false, error: `This voucher is ${existing.status}.` };
-        const amount = existing?.amount ?? REDEEMABLE_CODES[code];
-        if (!amount) return { ok: false, error: 'That voucher code was not found.' };
-        const redeemed: Voucher = { id: existing?.id ?? uid('vch'), code, amount, status: 'redeemed', createdAt: existing?.createdAt ?? now(), redeemedAt: now() };
-        set((s) => ({
-          vouchers: existing ? s.vouchers.map((v) => (v.id === existing.id ? redeemed : v)) : [redeemed, ...s.vouchers],
-          balance: { ...s.balance, available: s.balance.available + amount },
-        }));
-        return { ok: true, amount };
-      },
-
       updateSettings: (patch) => set((s) => ({ settings: { ...s.settings, ...patch } })),
       completeOnboarding: (step) => set((s) => ({ onboarding: { ...s.onboarding, [step]: true } })),
 
-      addPasskey: (label) =>
-        set((s) => (s.user ? { user: { ...s.user, passkeys: [...s.user.passkeys, { id: uid('pk'), label, createdAt: now(), lastUsedAt: null }] } } : s)),
-      removePasskey: (id) =>
-        set((s) => (s.user ? { user: { ...s.user, passkeys: s.user.passkeys.filter((p) => p.id !== id) } } : s)),
-
       reset: () => set({ ...initial() }),
     }),
-    { name: 'signet-passport-mock', version: 1 }
+    { name: 'signet-passport-mock', version: 2 }
   )
 );

@@ -1,0 +1,14 @@
+{
+  "title": "Sessions",
+  "description": "Each session gives an agent a task and a spending limit.",
+  "new": "New session",
+  "empty": "No sessions yet. Start one to let an agent spend.",
+  "labels": { "revoke": "Revoke", "details": "Details" },
+  "revoke": {
+    "title": "Revoke \u201c{{task}}\u201d?",
+    "description": "The agent can no longer spend in this session. {{amount}} returns to your balance.",
+    "keep": "Keep session",
+    "confirm": "Revoke",
+    "toast": "Session revoked"
+  }
+}

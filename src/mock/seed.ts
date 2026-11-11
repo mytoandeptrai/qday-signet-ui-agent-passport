@@ -9,7 +9,6 @@ import type {
   MainWallet,
   SignetPassAccount,
   User,
-  Voucher,
 } from '@/types/passport';
 
 const hoursAgo = (h: number) => new Date(Date.now() - h * 3_600_000).toISOString();
@@ -20,10 +19,6 @@ export const SEED_USER: Omit<User, 'email'> = {
   name: 'Alex Morgan',
   walletAddress: '0x7a3F9c2B41d0E5a6c8B19f0D3e24A7b5C6d81E90',
   createdAt: hoursAgo(24 * 40),
-  passkeys: [
-    { id: 'pk_1', label: 'MacBook Pro', createdAt: hoursAgo(24 * 40), lastUsedAt: hoursAgo(2) },
-    { id: 'pk_2', label: 'iPhone', createdAt: hoursAgo(24 * 12), lastUsedAt: hoursAgo(30) },
-  ],
 };
 
 export const SEED_BALANCE: Balance = { available: 142.5, held: 20, currency: 'USD' };
@@ -106,12 +101,6 @@ export const SEED_ESCALATIONS: Escalation[] = [
   },
 ];
 
-export const SEED_VOUCHERS: Voucher[] = [
-  { id: 'vch_1', code: 'SIGNET-WELCOME-10', amount: 10, status: 'unused', createdAt: hoursAgo(24 * 5) },
-  { id: 'vch_2', code: 'SIGNET-TEAM-25', amount: 25, status: 'redeemed', createdAt: hoursAgo(24 * 30), redeemedAt: hoursAgo(24 * 28) },
-  { id: 'vch_3', code: 'SIGNET-BETA-5', amount: 5, status: 'expired', createdAt: hoursAgo(24 * 90) },
-];
-
 export const SEED_DEPOSITS: Deposit[] = [
   { id: 'dep_1', method: 'card', amount: 100, status: 'completed', createdAt: hoursAgo(24 * 14) },
   { id: 'dep_2', method: 'bank', amount: 50, status: 'completed', createdAt: hoursAgo(24 * 6) },
@@ -125,13 +114,6 @@ export const SEED_SETTINGS: AppSettings = {
   alertOnBlocked: true,
   requireApprovalAbove: 25,
   appearance: 'light',
-};
-
-/** Vouchers a user may redeem (any code of this shape works in the mock). */
-export const REDEEMABLE_CODES: Record<string, number> = {
-  'SIGNET-WELCOME-10': 10,
-  'SIGNET-FRIENDS-15': 15,
-  'SIGNET-LAUNCH-50': 50,
 };
 
 export const SEED_MAIN_WALLET: MainWallet = {

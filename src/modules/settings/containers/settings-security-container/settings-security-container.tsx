@@ -1,9 +1,9 @@
-import { SettingsPasskeysUi } from '../../components';
+import { SettingsSecurityHistoryUi } from '../../components';
 import { useSettingsSecurityContainer } from '../../hooks';
 
 const SettingsSecurityContainer = () => {
-  const { passkeys, canRemove, onAddPasskey, onRemovePasskey } = useSettingsSecurityContainer();
-  return <SettingsPasskeysUi passkeys={passkeys} canRemove={canRemove} onAddPasskey={onAddPasskey} onRemovePasskey={onRemovePasskey} />;
+  const { events } = useSettingsSecurityContainer();
+  return <SettingsSecurityHistoryUi events={events} />;
 };
 
 export default SettingsSecurityContainer;

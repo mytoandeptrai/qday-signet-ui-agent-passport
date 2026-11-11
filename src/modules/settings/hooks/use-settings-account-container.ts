@@ -1,4 +1,5 @@
 import { useGetProfile, useGetSettings, useResetDemoDataMutation, useUpdateSettingsMutation } from '@/apis/account';
+import { useWallet } from '@/integrations/wallet';
 import { useTranslation } from '@/integrations/i18n';
 import { useTheme } from '@/integrations/theme/theme-context';
 import type { Appearance } from '@/types/passport';
@@ -11,6 +12,7 @@ export const useSettingsAccountContainer = () => {
   const updateSettings = useUpdateSettingsMutation();
   const resetDemoData = useResetDemoDataMutation();
   const { setTheme } = useTheme();
+  const { address: connectedWallet } = useWallet();
 
   const onChangeAppearance = (appearance: Appearance) => {
     updateSettings.mutate({ appearance });
@@ -22,5 +24,5 @@ export const useSettingsAccountContainer = () => {
     toast.success(t('toasts.reset'));
   };
 
-  return { user, appearance: settings?.appearance, onChangeAppearance, onReset };
+  return { user, connectedWallet, appearance: settings?.appearance, onChangeAppearance, onReset };
 };

@@ -7,12 +7,13 @@ import { APPEARANCES } from '../../hooks';
 
 type SettingsAccountUiProps = {
   user?: User | null;
+  connectedWallet?: string;
   appearance?: Appearance;
   onChangeAppearance: (appearance: Appearance) => void;
   onReset: () => void;
 };
 
-const SettingsAccountUi = ({ user, appearance, onChangeAppearance, onReset }: SettingsAccountUiProps) => {
+const SettingsAccountUi = ({ user, connectedWallet, appearance, onChangeAppearance, onReset }: SettingsAccountUiProps) => {
   const { t } = useTranslation('settings-page');
   return (
     <>
@@ -21,6 +22,10 @@ const SettingsAccountUi = ({ user, appearance, onChangeAppearance, onReset }: Se
         <dd>{user?.name}</dd>
         <dt className='text-muted-foreground'>{t('account.email')}</dt>
         <dd>{user?.email}</dd>
+        <dt className='text-muted-foreground'>{t('account.account-id')}</dt>
+        <dd className='font-mono text-small'>{user?.id}</dd>
+        <dt className='text-muted-foreground'>{t('account.connected-wallet')}</dt>
+        <dd className='font-mono text-small'>{connectedWallet ? shortAddress(connectedWallet) : t('account.not-connected')}</dd>
         <dt className='text-muted-foreground'>{t('account.wallet')}</dt>
         <dd className='font-mono text-small'>{user && shortAddress(user.walletAddress)}</dd>
       </dl>

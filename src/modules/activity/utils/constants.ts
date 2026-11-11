@@ -23,7 +23,7 @@ export const METRICS: Record<Tab, ActivityMetric[]> = {
     { id: 'calls', isMoney: false, value: calls },
   ],
   transfers: [
-    { id: 'added', isMoney: true, value: (r) => r.amount },
+    { id: 'added', isMoney: true, value: (r) => Math.max(0, r.amount) },
     { id: 'count', isMoney: false, value: () => 1 },
   ],
 };

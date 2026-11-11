@@ -1,35 +1,59 @@
 import { useGetBalance } from '@/apis/account';
 import { useCreateSessionMutation } from '@/apis/sessions';
+import { useAppDialog } from '@/hooks/use-app-dialog';
 import { useTranslation } from '@/integrations/i18n';
-import { getRouteApi, useNavigate } from '@tanstack/react-router';
+import { useSignAction } from '@/integrations/wallet';
+import { useNavigate } from '@tanstack/react-router';
 import { toast } from 'sonner';
-
-const route = getRouteApi('/(app)/agent-session/approve');
+import { APPROVE_DEFAULTS } from './schema';
 
 export const useSessionApproveContainer = () => {
   const { t } = useTranslation('session-approve-page');
-  const request = route.useSearch();
+  const { params, close } = useAppDialog();
   const navigate = useNavigate();
   const { data: balance } = useGetBalance();
   const createSession = useCreateSessionMutation();
+  const { status, run } = useSignAction();
   const available = balance?.available ?? 0;
 
+  const request = {
+    task: params.task ?? APPROVE_DEFAULTS.task,
+    agent: params.agent ?? APPROVE_DEFAULTS.agent,
+    limit: params.limit ?? APPROVE_DEFAULTS.limit,
+    perCall: params.perCall ?? APPROVE_DEFAULTS.perCall,
+    hours: params.hours ?? APPROVE_DEFAULTS.hours,
+  };
+
   const onApprove = async () => {
-    const session = await createSession.mutateAsync({
-      task: request.task,
-      agent: request.agent,
-      limit: request.limit,
-      perCallLimit: Math.min(request.perCall, request.limit),
-      durationHours: request.hours,
+    let sessionId = '';
+    const ok = await run({ kind: 'create-session', summary: `Approve session: ${request.task}` }, async () => {
+      sessionId = (
+        await createSession.mutateAsync({
+          task: request.task,
+          agent: request.agent,
+          limit: request.limit,
+          perCallLimit: Math.min(request.perCall, request.limit),
+          durationHours: request.hours,
+        })
+      ).id;
     });
+    if (!ok) return;
     toast.success(t('toasts.approved'));
-    navigate({ to: '/sessions/$sessionId', params: { sessionId: session.id } });
+    navigate({ to: '/sessions/$sessionId', params: { sessionId } });
   };
 
   const onDecline = () => {
     toast(t('toasts.declined'));
-    navigate({ to: '/overview' });
+    close();
   };
 
-  return { request, available, isShort: request.limit > available, onApprove, onDecline };
+  return {
+    request,
+    available,
+    isShort: request.limit > available,
+    status,
+    isLoading: status === 'waiting' || createSession.isPending,
+    onApprove,
+    onDecline,
+  };
 };

@@ -1,6 +1,6 @@
 import { SignetLockup } from '@/components/brand/signet-mark';
 import { FormWrapper } from '@/components/ui/form';
-import { LoginAsideUi, LoginCodeFormUi, LoginEmailFormUi, LoginPasskeyUi } from '../../components';
+import { LoginAsideUi, LoginCodeFormUi, LoginEmailFormUi } from '../../components';
 import { useLoginContainer } from '../../hooks';
 
 const LoginContainer = () => {
@@ -17,9 +17,6 @@ const LoginContainer = () => {
     onSubmitCode,
     onResend,
     onUseAnotherEmail,
-    onPasskeySignIn,
-    onCreatePasskey,
-    onSkipPasskey,
   } = useLoginContainer();
 
   return (
@@ -29,12 +26,7 @@ const LoginContainer = () => {
         <div className='m-auto w-full max-w-[380px] py-12'>
           {step === 'email' && (
             <FormWrapper form={emailForm} onSubmit={onSubmitEmail}>
-              <LoginEmailFormUi
-                isSignup={isSignup}
-                isLoading={isLoading}
-                redirect={redirect}
-                onPasskeySignIn={onPasskeySignIn}
-              />
+              <LoginEmailFormUi isSignup={isSignup} isLoading={isLoading} redirect={redirect} />
             </FormWrapper>
           )}
           {step === 'code' && (
@@ -47,9 +39,6 @@ const LoginContainer = () => {
                 onUseAnotherEmail={onUseAnotherEmail}
               />
             </FormWrapper>
-          )}
-          {step === 'passkey' && (
-            <LoginPasskeyUi isLoading={isLoading} onCreatePasskey={onCreatePasskey} onSkip={onSkipPasskey} />
           )}
         </div>
       </div>
