@@ -8,7 +8,7 @@ import { SERVICE_CATEGORIES, SERVICES } from '@/mock/services';
 import { usePassportStore } from '@/stores/passport-store';
 import { SORTS } from './schema';
 
-const route = getRouteApi('/explore');
+const route = getRouteApi('/(public)/explore');
 
 export const useExploreContainer = () => {
   const { t } = useTranslation('explore-page');

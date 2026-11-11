@@ -12,11 +12,8 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SplatRouteImport } from './routes/$'
 import { Route as appLayoutRouteImport } from './routes/(app)/layout'
-import { Route as EcosystemRouteImport } from './routes/ecosystem'
-import { Route as ExploreRouteImport } from './routes/explore'
+import { Route as publicLayoutRouteImport } from './routes/(public)/layout'
 import { Route as LoginRouteImport } from './routes/login'
-import { Route as PrivacyRouteImport } from './routes/privacy'
-import { Route as TermsRouteImport } from './routes/terms'
 import { Route as appActivityRouteImport } from './routes/(app)/activity'
 import { Route as appCreateSessionRouteImport } from './routes/(app)/create-session'
 import { Route as appDepositRouteImport } from './routes/(app)/deposit'
@@ -24,6 +21,10 @@ import { Route as appOverviewRouteImport } from './routes/(app)/overview'
 import { Route as appPlaygroundRouteImport } from './routes/(app)/playground'
 import { Route as appSettingsRouteImport } from './routes/(app)/settings'
 import { Route as appVouchersRouteImport } from './routes/(app)/vouchers'
+import { Route as publicEcosystemRouteImport } from './routes/(public)/ecosystem'
+import { Route as publicExploreRouteImport } from './routes/(public)/explore'
+import { Route as publicPrivacyRouteImport } from './routes/(public)/privacy'
+import { Route as publicTermsRouteImport } from './routes/(public)/terms'
 import { Route as appAgentEscalationDecideRouteImport } from './routes/(app)/agent-escalation.decide'
 import { Route as appAgentSessionApproveRouteImport } from './routes/(app)/agent-session.approve'
 import { Route as appSessionsSessionIdRouteImport } from './routes/(app)/sessions.$sessionId'
@@ -42,29 +43,13 @@ const appLayoutRoute = appLayoutRouteImport.update({
   id: '/(app)',
   getParentRoute: () => rootRouteImport,
 } as any)
-const EcosystemRoute = EcosystemRouteImport.update({
-  id: '/ecosystem',
-  path: '/ecosystem',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ExploreRoute = ExploreRouteImport.update({
-  id: '/explore',
-  path: '/explore',
+const publicLayoutRoute = publicLayoutRouteImport.update({
+  id: '/(public)',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PrivacyRoute = PrivacyRouteImport.update({
-  id: '/privacy',
-  path: '/privacy',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const TermsRoute = TermsRouteImport.update({
-  id: '/terms',
-  path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
 const appActivityRoute = appActivityRouteImport.update({
@@ -102,6 +87,26 @@ const appVouchersRoute = appVouchersRouteImport.update({
   path: '/vouchers',
   getParentRoute: () => appLayoutRoute,
 } as any)
+const publicEcosystemRoute = publicEcosystemRouteImport.update({
+  id: '/ecosystem',
+  path: '/ecosystem',
+  getParentRoute: () => publicLayoutRoute,
+} as any)
+const publicExploreRoute = publicExploreRouteImport.update({
+  id: '/explore',
+  path: '/explore',
+  getParentRoute: () => publicLayoutRoute,
+} as any)
+const publicPrivacyRoute = publicPrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => publicLayoutRoute,
+} as any)
+const publicTermsRoute = publicTermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => publicLayoutRoute,
+} as any)
 const appAgentEscalationDecideRoute =
   appAgentEscalationDecideRouteImport.update({
     id: '/agent-escalation/decide',
@@ -122,11 +127,7 @@ const appSessionsSessionIdRoute = appSessionsSessionIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
-  '/ecosystem': typeof EcosystemRoute
-  '/explore': typeof ExploreRoute
   '/login': typeof LoginRoute
-  '/privacy': typeof PrivacyRoute
-  '/terms': typeof TermsRoute
   '/activity': typeof appActivityRoute
   '/create-session': typeof appCreateSessionRoute
   '/deposit': typeof appDepositRoute
@@ -134,6 +135,10 @@ export interface FileRoutesByFullPath {
   '/playground': typeof appPlaygroundRoute
   '/settings': typeof appSettingsRoute
   '/vouchers': typeof appVouchersRoute
+  '/ecosystem': typeof publicEcosystemRoute
+  '/explore': typeof publicExploreRoute
+  '/privacy': typeof publicPrivacyRoute
+  '/terms': typeof publicTermsRoute
   '/agent-escalation/decide': typeof appAgentEscalationDecideRoute
   '/agent-session/approve': typeof appAgentSessionApproveRoute
   '/sessions/$sessionId': typeof appSessionsSessionIdRoute
@@ -141,11 +146,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
-  '/ecosystem': typeof EcosystemRoute
-  '/explore': typeof ExploreRoute
   '/login': typeof LoginRoute
-  '/privacy': typeof PrivacyRoute
-  '/terms': typeof TermsRoute
   '/activity': typeof appActivityRoute
   '/create-session': typeof appCreateSessionRoute
   '/deposit': typeof appDepositRoute
@@ -153,6 +154,10 @@ export interface FileRoutesByTo {
   '/playground': typeof appPlaygroundRoute
   '/settings': typeof appSettingsRoute
   '/vouchers': typeof appVouchersRoute
+  '/ecosystem': typeof publicEcosystemRoute
+  '/explore': typeof publicExploreRoute
+  '/privacy': typeof publicPrivacyRoute
+  '/terms': typeof publicTermsRoute
   '/agent-escalation/decide': typeof appAgentEscalationDecideRoute
   '/agent-session/approve': typeof appAgentSessionApproveRoute
   '/sessions/$sessionId': typeof appSessionsSessionIdRoute
@@ -161,12 +166,9 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/(app)': typeof appLayoutRouteWithChildren
+  '/(public)': typeof publicLayoutRouteWithChildren
   '/$': typeof SplatRoute
-  '/ecosystem': typeof EcosystemRoute
-  '/explore': typeof ExploreRoute
   '/login': typeof LoginRoute
-  '/privacy': typeof PrivacyRoute
-  '/terms': typeof TermsRoute
   '/(app)/activity': typeof appActivityRoute
   '/(app)/create-session': typeof appCreateSessionRoute
   '/(app)/deposit': typeof appDepositRoute
@@ -174,6 +176,10 @@ export interface FileRoutesById {
   '/(app)/playground': typeof appPlaygroundRoute
   '/(app)/settings': typeof appSettingsRoute
   '/(app)/vouchers': typeof appVouchersRoute
+  '/(public)/ecosystem': typeof publicEcosystemRoute
+  '/(public)/explore': typeof publicExploreRoute
+  '/(public)/privacy': typeof publicPrivacyRoute
+  '/(public)/terms': typeof publicTermsRoute
   '/(app)/agent-escalation/decide': typeof appAgentEscalationDecideRoute
   '/(app)/agent-session/approve': typeof appAgentSessionApproveRoute
   '/(app)/sessions/$sessionId': typeof appSessionsSessionIdRoute
@@ -183,11 +189,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/$'
-    | '/ecosystem'
-    | '/explore'
     | '/login'
-    | '/privacy'
-    | '/terms'
     | '/activity'
     | '/create-session'
     | '/deposit'
@@ -195,6 +197,10 @@ export interface FileRouteTypes {
     | '/playground'
     | '/settings'
     | '/vouchers'
+    | '/ecosystem'
+    | '/explore'
+    | '/privacy'
+    | '/terms'
     | '/agent-escalation/decide'
     | '/agent-session/approve'
     | '/sessions/$sessionId'
@@ -202,11 +208,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/$'
-    | '/ecosystem'
-    | '/explore'
     | '/login'
-    | '/privacy'
-    | '/terms'
     | '/activity'
     | '/create-session'
     | '/deposit'
@@ -214,6 +216,10 @@ export interface FileRouteTypes {
     | '/playground'
     | '/settings'
     | '/vouchers'
+    | '/ecosystem'
+    | '/explore'
+    | '/privacy'
+    | '/terms'
     | '/agent-escalation/decide'
     | '/agent-session/approve'
     | '/sessions/$sessionId'
@@ -221,12 +227,9 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/(app)'
+    | '/(public)'
     | '/$'
-    | '/ecosystem'
-    | '/explore'
     | '/login'
-    | '/privacy'
-    | '/terms'
     | '/(app)/activity'
     | '/(app)/create-session'
     | '/(app)/deposit'
@@ -234,6 +237,10 @@ export interface FileRouteTypes {
     | '/(app)/playground'
     | '/(app)/settings'
     | '/(app)/vouchers'
+    | '/(public)/ecosystem'
+    | '/(public)/explore'
+    | '/(public)/privacy'
+    | '/(public)/terms'
     | '/(app)/agent-escalation/decide'
     | '/(app)/agent-session/approve'
     | '/(app)/sessions/$sessionId'
@@ -242,12 +249,9 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   appLayoutRoute: typeof appLayoutRouteWithChildren
+  publicLayoutRoute: typeof publicLayoutRouteWithChildren
   SplatRoute: typeof SplatRoute
-  EcosystemRoute: typeof EcosystemRoute
-  ExploreRoute: typeof ExploreRoute
   LoginRoute: typeof LoginRoute
-  PrivacyRoute: typeof PrivacyRoute
-  TermsRoute: typeof TermsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -273,18 +277,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof appLayoutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/ecosystem': {
-      id: '/ecosystem'
-      path: '/ecosystem'
-      fullPath: '/ecosystem'
-      preLoaderRoute: typeof EcosystemRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/explore': {
-      id: '/explore'
-      path: '/explore'
-      fullPath: '/explore'
-      preLoaderRoute: typeof ExploreRouteImport
+    '/(public)': {
+      id: '/(public)'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof publicLayoutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/login': {
@@ -292,20 +289,6 @@ declare module '@tanstack/react-router' {
       path: '/login'
       fullPath: '/login'
       preLoaderRoute: typeof LoginRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/privacy': {
-      id: '/privacy'
-      path: '/privacy'
-      fullPath: '/privacy'
-      preLoaderRoute: typeof PrivacyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/terms': {
-      id: '/terms'
-      path: '/terms'
-      fullPath: '/terms'
-      preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/(app)/activity': {
@@ -356,6 +339,34 @@ declare module '@tanstack/react-router' {
       fullPath: '/vouchers'
       preLoaderRoute: typeof appVouchersRouteImport
       parentRoute: typeof appLayoutRoute
+    }
+    '/(public)/ecosystem': {
+      id: '/(public)/ecosystem'
+      path: '/ecosystem'
+      fullPath: '/ecosystem'
+      preLoaderRoute: typeof publicEcosystemRouteImport
+      parentRoute: typeof publicLayoutRoute
+    }
+    '/(public)/explore': {
+      id: '/(public)/explore'
+      path: '/explore'
+      fullPath: '/explore'
+      preLoaderRoute: typeof publicExploreRouteImport
+      parentRoute: typeof publicLayoutRoute
+    }
+    '/(public)/privacy': {
+      id: '/(public)/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof publicPrivacyRouteImport
+      parentRoute: typeof publicLayoutRoute
+    }
+    '/(public)/terms': {
+      id: '/(public)/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof publicTermsRouteImport
+      parentRoute: typeof publicLayoutRoute
     }
     '/(app)/agent-escalation/decide': {
       id: '/(app)/agent-escalation/decide'
@@ -411,15 +422,30 @@ const appLayoutRouteWithChildren = appLayoutRoute._addFileChildren(
   appLayoutRouteChildren,
 )
 
+interface publicLayoutRouteChildren {
+  publicEcosystemRoute: typeof publicEcosystemRoute
+  publicExploreRoute: typeof publicExploreRoute
+  publicPrivacyRoute: typeof publicPrivacyRoute
+  publicTermsRoute: typeof publicTermsRoute
+}
+
+const publicLayoutRouteChildren: publicLayoutRouteChildren = {
+  publicEcosystemRoute: publicEcosystemRoute,
+  publicExploreRoute: publicExploreRoute,
+  publicPrivacyRoute: publicPrivacyRoute,
+  publicTermsRoute: publicTermsRoute,
+}
+
+const publicLayoutRouteWithChildren = publicLayoutRoute._addFileChildren(
+  publicLayoutRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   appLayoutRoute: appLayoutRouteWithChildren,
+  publicLayoutRoute: publicLayoutRouteWithChildren,
   SplatRoute: SplatRoute,
-  EcosystemRoute: EcosystemRoute,
-  ExploreRoute: ExploreRoute,
   LoginRoute: LoginRoute,
-  PrivacyRoute: PrivacyRoute,
-  TermsRoute: TermsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
