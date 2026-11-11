@@ -407,5 +407,25 @@
     "uploaded_other": "{{count}} files uploaded",
     "failed_one": "Failed to upload {{count}} file",
     "failed_other": "Failed to upload {{count}} files"
+  },
+  "spend-bar": {
+    "spent": "spent",
+    "left": "left",
+    "limit": "${{amount}} limit",
+    "per-call": "${{amount}} per call"
+  },
+  "status": {
+    "active": "Active",
+    "settled": "Settled",
+    "completed": "Completed",
+    "approved": "Approved",
+    "redeemed": "Redeemed",
+    "unused": "Unused",
+    "pending": "Pending",
+    "blocked": "Blocked",
+    "revoked": "Revoked",
+    "declined": "Declined",
+    "failed": "Failed",
+    "expired": "Expired"
   }
 }

@@ -4,7 +4,11 @@
     "heading": "Let your agents pay for",
     "description": "Signet gives your agent a balance it can spend across 2,000+ services, strictly within the limits you set.",
     "get-started": "Get started",
-    "words": ["shopping", "APIs", "leads"],
+    "words": [
+      "shopping",
+      "APIs",
+      "leads"
+    ],
     "plate-label": "A lattice of connected nodes lighting up around the Signet mark"
   },
   "install": {
@@ -46,7 +50,11 @@
     "limit": "${{amount}} limit",
     "per-call": "${{amount}} per call",
     "activity": "Activity",
-    "points": ["Set your spending rules", "Agents pay freely within those rules", "Revoke at any time"]
+    "points": [
+      "Set your spending rules",
+      "Agents pay freely within those rules",
+      "Revoke at any time"
+    ]
   },
   "lines": {
     "agents": {
@@ -65,7 +73,11 @@
   "how": {
     "eyebrow": "How it works",
     "heading": "Three steps to a first payment.",
-    "steps": ["Install with one line", "Set your limits", "Ask for a job"],
+    "steps": [
+      "Install with one line",
+      "Set your limits",
+      "Ask for a job"
+    ],
     "job-prompt": "Call six restaurants and find us a private room for 12.",
     "job-line": "StablePhone, 6 calls",
     "job-toast": "Job sent to your agent",
@@ -92,5 +104,12 @@
   "closing": {
     "heading": "Give your agent a Signet.",
     "plate-label": "Rings of services orbiting the Signet mark"
+  },
+  "plate": {
+    "per-call": "Per call",
+    "total-budget": "Total budget",
+    "per-day": "Per day",
+    "expires": "Expires",
+    "session-limit": "Session limit"
   }
 }

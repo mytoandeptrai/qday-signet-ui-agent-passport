@@ -1,3 +1,4 @@
+import { useTranslation } from '@/integrations/i18n';
 import { cn } from '@/lib/utils';
 
 const TONE: Record<string, string> = {
@@ -15,6 +16,7 @@ const TONE: Record<string, string> = {
   expired: 'text-muted-foreground border-border bg-subtle',
 };
 
-export function StatusBadge({ status }: { status: string }) {
-  return <span className={cn('inline-flex items-center rounded-full border px-2 py-0.5 text-caption font-medium capitalize', TONE[status] ?? TONE.expired)}>{status}</span>;
-}
+export const StatusBadge = ({ status }: { status: string }) => {
+  const { t } = useTranslation();
+  return <span className={cn('inline-flex items-center rounded-full border px-2 py-0.5 text-caption font-medium', TONE[status] ?? TONE.expired)}>{t(`status.${status}`, { defaultValue: status })}</span>;
+};
