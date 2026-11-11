@@ -6,7 +6,7 @@ import { Link } from '@tanstack/react-router';
 import { ArrowRight, Check, Copy } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { toast } from 'sonner';
-import { AnimationContainer } from './animation-container';
+import { AnimationContainer } from '@/components/containers';
 import { SignetPlate } from './signet-plate';
 
 const money = (n: number) => `$${n.toFixed(2)}`;

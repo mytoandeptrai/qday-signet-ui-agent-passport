@@ -1,36 +1,49 @@
 {
-  "title": "Login",
-  "description": "Login to your account to start using our platform",
-  "labels": {
-    "email": "Email Address",
-    "password": "Password",
-    "login": "Login",
-    "forgotPassword": "Forgot Password?",
-    "dontHaveAccount": "Don't have an account? Register here"
+  "email": {
+    "title": "Sign in to Signet",
+    "title-signup": "Create your Signet",
+    "description": "We will email you a one-time code. No password.",
+    "new-here": "New to Signet?",
+    "have-account": "Already have a Signet?"
+  },
+  "code": {
+    "title": "Check your email",
+    "description": "Enter the 6-digit code we sent to"
+  },
+  "passkey": {
+    "title": "Add a passkey",
+    "description": "Sign in and approve spending with your fingerprint or face instead of email codes.",
+    "this-device": "This device"
   },
   "fields": {
-    "email": {
-      "label": "Email Address",
-      "placeholder": "Enter your email"
-    },
-    "password": {
-      "label": "Password",
-      "placeholder": "Enter your password"
-    }
+    "email": { "label": "Email", "placeholder": "you@company.com" },
+    "code": { "label": "Code", "placeholder": "123456" }
+  },
+  "labels": {
+    "continue": "Continue",
+    "or": "or",
+    "continue-with-passkey": "Continue with a passkey",
+    "sign-in": "Sign in",
+    "create-one": "Create one",
+    "verify": "Verify",
+    "use-another-email": "Use another email",
+    "resend-code": "Resend code",
+    "resend-in": "Resend in {{seconds}}s",
+    "create-passkey": "Create passkey",
+    "skip": "Skip for now"
   },
   "errors": {
-    "MSG-1.10": "Invalid email format.",
-    "MSG-1.14": "Password must be between 8 and 50 characters in length.",
-    "MSG-1.15": "Use at least 1 uppercase, lowercase, numbers & symbols.",
-    "MSG-1.19": "Password cannot contain space.",
-    "MSG-1.20": "Passwords do not match."
+    "email-required": "Enter your email",
+    "email-invalid": "Enter a valid email address",
+    "code-invalid": "Enter the 6-digit code",
+    "generic": "Something went wrong."
   },
-  "validation": {
-    "required": "This field is required",
-    "email": "Please enter a valid email address",
-    "minLength": "Minimum {{min}} characters required",
-    "maxLength": "Maximum {{max}} characters allowed",
-    "passwordMatch": "Passwords do not match",
-    "invalidFormat": "Invalid format"
-  }
+  "toasts": {
+    "code-sent": "Code sent to {{email}}",
+    "mock-code": "Mock code: {{code}}",
+    "code-failed": "Could not send the code. Try again.",
+    "passkey-signed-in": "Signed in with your passkey",
+    "passkey-created": "Passkey created"
+  },
+  "aside": { "label": "Rings of services orbiting the Signet mark" }
 }

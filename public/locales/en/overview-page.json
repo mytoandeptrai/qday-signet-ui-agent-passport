@@ -1,0 +1,101 @@
+{
+  "labels": {
+    "new-session": "New session →",
+    "add-funds": "Add funds",
+    "edit": "Edit",
+    "set-up": "Set up",
+    "collapse": "Collapse",
+    "expand": "Expand"
+  },
+  "pending": {
+    "wants-to-spend": "wants to spend",
+    "on": "on",
+    "review": "Review"
+  },
+  "ideas": {
+    "title": "Signet in action",
+    "items": {
+      "learn": "Learn about your Signet",
+      "purchases": "Turn recommendations into purchases",
+      "cloud": "Cloud queries and paid data",
+      "apartments": "Automate apartment hunting",
+      "candidates": "Find candidates for a role",
+      "onboarding": "Automate new hire onboarding"
+    }
+  },
+  "get-started": {
+    "title": "Get started",
+    "hints": {
+      "connect": "Paste this into your coding agent.",
+      "passkey": "Passkeys protect your approvals.",
+      "allowance": "Choose how much your agents can spend.",
+      "funds": "Fund your balance.",
+      "learn": "What to try next."
+    },
+    "steps": {
+      "connect": "Connect your agent",
+      "passkey": "Secure with passkey",
+      "allowance": "Set your allowance",
+      "funds": "Add funds",
+      "learn": "Learn Signet"
+    }
+  },
+  "install": {
+    "copy-aria": "Copy the install prompt",
+    "on-windows": "On Windows?",
+    "on-unix": "On macOS or Linux?"
+  },
+  "passkey": {
+    "have_one": "You have {{count}} passkey on this account.",
+    "have_other": "You have {{count}} passkeys on this account.",
+    "none": "Add a passkey to approve spending with your fingerprint or face.",
+    "add": "Add a passkey",
+    "device": "Device {{number}}"
+  },
+  "allowance": {
+    "title": "Allowance",
+    "limit": "Allowance per session (USD)",
+    "per-call": "Per-call limit (USD)",
+    "save": "Save allowance",
+    "spent": "{{amount}} spent",
+    "held": "{{amount}} held · ${{limit}} default"
+  },
+  "funds": {
+    "balance": "Your balance is {{amount}}. Add more any time, by card, bank or crypto."
+  },
+  "tips": {
+    "session": "A session is one job with a hard cap.",
+    "stopped": "Payments over your limit are stopped, then wait for you.",
+    "revoke": "Revoke a session at any time and the rest returns to your balance."
+  },
+  "balance": {
+    "title": "Balance",
+    "wallet": "Wallet",
+    "your-wallet": "Your wallet"
+  },
+  "sessions": {
+    "title": "Sessions",
+    "revoke": "Revoke"
+  },
+  "revoke": {
+    "title": "Revoke “{{task}}”?",
+    "description": "The agent can no longer spend in this session. {{amount}} returns to your balance.",
+    "keep": "Keep session",
+    "confirm": "Revoke"
+  },
+  "activity": {
+    "title": "Recent activity",
+    "see-all": "See all →"
+  },
+  "errors": {
+    "amount-required": "Enter amounts above $0",
+    "per-call-exceeds": "The per-call limit cannot exceed the allowance"
+  },
+  "toasts": {
+    "prompt-copied": "Copied. Paste it into your agent.",
+    "passkey-added": "Passkey added",
+    "allowance-saved": "Allowance saved",
+    "address-copied": "Address copied",
+    "session-revoked": "Session revoked"
+  }
+}
