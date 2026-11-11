@@ -1,6 +1,7 @@
+import ShortAddress from '@/components/app/short-address';
 import { ArrowDownLeftIcon, ArrowUpRightIcon } from 'lucide-react';
 import { useTranslation } from '@/integrations/i18n';
-import { money, shortAddress, timeAgo } from '@/lib/format';
+import { money, timeAgo } from '@/lib/format';
 import { cn } from '@/lib/utils';
 import type { WalletTx } from '@/types/passport';
 
@@ -27,7 +28,7 @@ const WalletTransactionsUi = ({ transactions }: WalletTransactionsUiProps) => {
                   <p className='text-body'>
                     {t(`transactions.kinds.${tx.kind}`)}{' '}
                     <span className='font-mono text-small'>
-                      {tx.counterparty.startsWith('0x') ? shortAddress(tx.counterparty) : tx.counterparty}
+                      <ShortAddress value={tx.counterparty} />
                     </span>
                   </p>
                   <p className='text-small text-muted-foreground'>{timeAgo(tx.createdAt)}</p>

@@ -48,7 +48,7 @@ const AppSidebarWallet = () => {
     <SidebarMenuItem>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <SidebarMenuButton tooltip={shortAddress(address)} className={buttonClass}>
+          <SidebarMenuButton tooltip={address} className={buttonClass}>
             <WalletIcon strokeWidth={1.4} />
             <span className='font-mono'>{shortAddress(address)}</span>
             <ChevronsUpDownIcon className='ml-auto' />

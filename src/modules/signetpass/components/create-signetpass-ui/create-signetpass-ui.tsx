@@ -1,9 +1,10 @@
+import type { ReactNode } from 'react';
+import ShortAddress from '@/components/app/short-address';
 import SignStatusUi from '@/components/app/sign-status';
 import { Button } from '@/components/ui/button';
 import type { NetworkConfig } from '@/constant';
 import { useTranslation } from '@/integrations/i18n';
 import type { SignStatus } from '@/integrations/wallet';
-import { shortAddress } from '@/lib/format';
 
 interface CreateSignetPassUiProps {
   owner?: string;
@@ -16,10 +17,10 @@ interface CreateSignetPassUiProps {
 
 const CreateSignetPassUi = ({ owner, signetPassAddress, network, status, isLoading, onCreate }: CreateSignetPassUiProps) => {
   const { t } = useTranslation('signetpass-page');
-  const rows = [
-    [t('create.owner'), owner ? shortAddress(owner) : ''],
+  const rows: [string, ReactNode][] = [
+    [t('create.owner'), owner ? <ShortAddress value={owner} /> : ''],
     [t('create.network'), `${network.name} · ${network.token.symbol}`],
-    [t('create.address'), signetPassAddress ? shortAddress(signetPassAddress) : ''],
+    [t('create.address'), signetPassAddress ? <ShortAddress value={signetPassAddress} /> : ''],
   ];
   return (
     <div className='flex flex-col gap-4'>

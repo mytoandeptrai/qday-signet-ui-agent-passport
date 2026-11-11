@@ -1,7 +1,8 @@
+import ShortAddress from '@/components/app/short-address';
 import { Button } from '@/components/ui/button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { useTranslation } from '@/integrations/i18n';
-import { money, shortAddress } from '@/lib/format';
+import { money } from '@/lib/format';
 import { Copy, Wallet } from 'lucide-react';
 
 type OverviewBalanceUiProps = {
@@ -30,7 +31,7 @@ const OverviewBalanceUi = ({ available, walletAddress, onCopyAddress, onAddFunds
           <DropdownMenuContent align='end' className='w-64'>
             <DropdownMenuLabel>{t('balance.your-wallet')}</DropdownMenuLabel>
             <DropdownMenuItem onSelect={onCopyAddress}>
-              <span className='font-mono text-caption'>{walletAddress && shortAddress(walletAddress)}</span>
+              <span className='font-mono text-caption'>{walletAddress && <ShortAddress value={walletAddress} />}</span>
               <Copy className='ml-auto size-4' />
             </DropdownMenuItem>
           </DropdownMenuContent>

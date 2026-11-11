@@ -1,7 +1,7 @@
+import ShortAddress from '@/components/app/short-address';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { useTranslation } from '@/integrations/i18n';
-import { shortAddress } from '@/lib/format';
 import type { Appearance, User } from '@/types/passport';
 import { APPEARANCES } from '../../hooks';
 
@@ -25,9 +25,9 @@ const SettingsAccountUi = ({ user, connectedWallet, appearance, onChangeAppearan
         <dt className='text-muted-foreground'>{t('account.account-id')}</dt>
         <dd className='font-mono text-small'>{user?.id}</dd>
         <dt className='text-muted-foreground'>{t('account.connected-wallet')}</dt>
-        <dd className='font-mono text-small'>{connectedWallet ? shortAddress(connectedWallet) : t('account.not-connected')}</dd>
+        <dd className='font-mono text-small'>{connectedWallet ? <ShortAddress value={connectedWallet} /> : t('account.not-connected')}</dd>
         <dt className='text-muted-foreground'>{t('account.wallet')}</dt>
-        <dd className='font-mono text-small'>{user && shortAddress(user.walletAddress)}</dd>
+        <dd className='font-mono text-small'>{user && <ShortAddress value={user.walletAddress} />}</dd>
       </dl>
       <div>
         <Label className='mb-2'>{t('account.appearance')}</Label>
