@@ -1,7 +1,7 @@
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { afterEach, expect, it } from 'vitest';
 import { FormProvider, useForm } from 'react-hook-form';
-import { FormInput } from '@/components/form-fields/form-input';
+import { FormNumberInput } from '@/components/form-fields/form-number-input';
 
 afterEach(cleanup);
 
@@ -9,7 +9,7 @@ const Harness = () => {
   const form = useForm<{ amount?: number }>({ defaultValues: { amount: 20 } });
   return (
     <FormProvider {...form}>
-      <FormInput control={form.control} name='amount' type='number' label='Amount' />
+      <FormNumberInput control={form.control} name='amount' label='Amount' />
     </FormProvider>
   );
 };

@@ -1,5 +1,6 @@
 import SignStatusUi from '@/components/app/sign-status';
 import { FormInput } from '@/components/form-fields/form-input';
+import { FormNumberInput } from '@/components/form-fields/form-number-input';
 import { FormSelect } from '@/components/form-fields/form-select';
 import { Button } from '@/components/ui/button';
 import { useTranslation } from '@/integrations/i18n';
@@ -24,10 +25,10 @@ const CreateSessionFormUi = ({ available, status, isLoading = false }: CreateSes
       <FormInput control={control} name='task' label={t('fields.task.label')} placeholder={t('fields.task.placeholder')} />
       <FormSelect control={control} name='agent' label={t('fields.agent.label')} options={agentOptions} />
       <div className='grid gap-6 sm:grid-cols-2'>
-        <FormInput control={control} name='limit' type='number' step='any' label={t('fields.limit.label')} />
-        <FormInput control={control} name='perCallLimit' type='number' step='any' label={t('fields.per-call.label')} />
+        <FormNumberInput control={control} name='limit' label={t('fields.limit.label')} />
+        <FormNumberInput control={control} name='perCallLimit' label={t('fields.per-call.label')} />
       </div>
-      <FormInput control={control} name='durationHours' type='number' label={t('fields.hours.label')} />
+      <FormNumberInput control={control} name='durationHours' decimalScale={0} label={t('fields.hours.label')} />
       <p className='text-body text-muted-foreground'>
         {t('available')} <b className='font-medium text-foreground'>{money(available)}</b>
       </p>

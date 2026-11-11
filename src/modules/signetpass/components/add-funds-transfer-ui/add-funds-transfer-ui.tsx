@@ -1,4 +1,4 @@
-import { FormInput } from '@/components/form-fields/form-input';
+import { FormNumberInput } from '@/components/form-fields/form-number-input';
 import SignStatusUi from '@/components/app/sign-status';
 import { Button } from '@/components/ui/button';
 import { useTranslation } from '@/integrations/i18n';
@@ -20,7 +20,7 @@ const AddFundsTransferUi = ({ mainBalance, amount, status, isLoading }: AddFunds
   return (
     <div className='flex flex-col gap-4'>
       <p className='text-small text-muted-foreground'>{t('add-funds.transfer.available', { amount: money(mainBalance) })}</p>
-      <FormInput control={control} name='amount' type='number' step='any' label={t('add-funds.transfer.amount')} disabled={isLoading} />
+      <FormNumberInput control={control} name='amount' label={t('add-funds.transfer.amount')} disabled={isLoading} />
       <SignStatusUi status={status} />
       <Button type='submit' disabled={isLoading || amount <= 0}>
         {isLoading ? t('add-funds.transfer.transferring') : t('add-funds.transfer.submit', { amount: money(amount) })}

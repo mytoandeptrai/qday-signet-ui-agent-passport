@@ -1,4 +1,5 @@
 import { FormInput } from '@/components/form-fields/form-input';
+import { FormNumberInput } from '@/components/form-fields/form-number-input';
 import SignStatusUi from '@/components/app/sign-status';
 import { Button } from '@/components/ui/button';
 import { useTranslation } from '@/integrations/i18n';
@@ -26,7 +27,7 @@ const SendFormUi = ({ amount, available, status, isLoading }: SendFormUiProps) =
         placeholder={t('send.fields.to.placeholder')}
         disabled={isLoading}
       />
-      <FormInput control={control} name='amount' type='number' step='any' label={t('send.fields.amount.label')} disabled={isLoading} />
+      <FormNumberInput control={control} name='amount' label={t('send.fields.amount.label')} disabled={isLoading} />
       <p className='text-small text-muted-foreground'>{t('send.available', { amount: money(available) })}</p>
       <SignStatusUi status={status} />
       <Button type='submit' disabled={isLoading || amount <= 0}>

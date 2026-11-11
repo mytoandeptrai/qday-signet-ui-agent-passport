@@ -69,7 +69,7 @@ function FormNumberInput<
                 customInput={Input}
                 allowNegative={false}
                 onValueChange={(values) => {
-                  field.onChange(values.floatValue ?? 0);
+                  field.onChange(values.floatValue ?? '');
                 }}
               />
             </FormControl>

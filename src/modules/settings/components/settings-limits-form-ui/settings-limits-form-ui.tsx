@@ -1,4 +1,4 @@
-import { FormInput } from '@/components/form-fields/form-input';
+import { FormNumberInput } from '@/components/form-fields/form-number-input';
 import { Button } from '@/components/ui/button';
 import { useTranslation } from '@/integrations/i18n';
 import { useFormContext } from 'react-hook-form';
@@ -13,9 +13,9 @@ const SettingsLimitsFormUi = ({ isLoading = false }: SettingsLimitsFormUiProps) 
   const { t } = useTranslation('settings-page');
   return (
     <div className='space-y-6'>
-      <FormInput control={control} name='defaultLimit' type='number' step='any' label={t('limits.default-limit')} />
-      <FormInput control={control} name='defaultPerCallLimit' type='number' step='any' label={t('limits.default-per-call')} />
-      <FormInput control={control} name='requireApprovalAbove' type='number' step='any' label={t('limits.approval-above')} />
+      <FormNumberInput control={control} name='defaultLimit' label={t('limits.default-limit')} />
+      <FormNumberInput control={control} name='defaultPerCallLimit' label={t('limits.default-per-call')} />
+      <FormNumberInput control={control} name='requireApprovalAbove' label={t('limits.approval-above')} />
       <Button type='submit' disabled={isLoading}>
         {t('labels.save')}
       </Button>
