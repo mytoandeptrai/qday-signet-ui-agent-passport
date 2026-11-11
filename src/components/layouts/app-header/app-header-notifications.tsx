@@ -22,7 +22,7 @@ const AppHeaderNotifications = () => {
         aria-label={t('notifications.title')}
         className='relative grid size-9 place-items-center text-muted-foreground outline-none hover:text-foreground'
       >
-        <BellIcon className='size-[18px]' strokeWidth={1.4} />
+        <BellIcon className='size-4.5' strokeWidth={1.4} />
         <Show when={hasPending}>
           <span className='absolute top-2 right-2 size-2 rounded-full bg-brand' />
         </Show>

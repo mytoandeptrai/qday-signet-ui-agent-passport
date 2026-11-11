@@ -28,7 +28,7 @@ export default function ThemeSwitcher({ className }: { className?: string }) {
             aria-checked={isActive}
             onClick={() => setTheme(value)}
             className={cn(
-              'flex items-center gap-1.5 rounded-md px-2.5 py-1.5 font-medium text-body transition-colors focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50',
+              'flex items-center gap-1.5 rounded-md px-2.5 py-1.5 font-medium text-body transition-colors focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50',
               isActive ? 'bg-background text-foreground shadow-xs dark:bg-accent' : 'text-muted-foreground hover:text-foreground'
             )}
           >

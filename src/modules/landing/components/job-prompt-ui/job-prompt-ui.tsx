@@ -12,10 +12,10 @@ const JobPromptUi = ({ isAsked, onAsk }: JobPromptUiProps) => {
 
   return (
     <button type='button' onClick={onAsk} className='cursor-pointer text-left'>
-      <div className='mb-2 text-sm leading-[1.4]'>{t('how.job-prompt')}</div>
+      <div className='mb-2 text-sm leading-snug'>{t('how.job-prompt')}</div>
       <div
         className={cn(
-          'flex justify-between gap-3 text-[13px] text-muted-foreground tabular-nums transition-opacity',
+          'flex justify-between gap-3 text-body text-muted-foreground tabular-nums transition-opacity',
           isAsked ? 'opacity-100' : 'opacity-70'
         )}
       >

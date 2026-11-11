@@ -14,7 +14,7 @@ const CopyCommandUi = () => {
       onClick={onCopy}
       className='flex w-full cursor-pointer items-center gap-2.5 text-left'
     >
-      <span className='min-w-0 flex-1 font-mono text-[12.5px] leading-[1.45] tracking-[-0.01em]'>{INSTALL_COMMAND}</span>
+      <span className='min-w-0 flex-1 font-mono text-small leading-normal tracking-tight'>{INSTALL_COMMAND}</span>
       {isCopied ? <CheckIcon className='size-4 text-success' /> : <CopyIcon className='size-4 text-muted-foreground' />}
     </button>
   );

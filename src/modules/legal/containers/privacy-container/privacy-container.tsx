@@ -4,7 +4,7 @@ import { usePrivacyContainer } from '../../hooks';
 const PrivacyContainer = () => {
   const legal = usePrivacyContainer();
   return (
-    <div className='mx-auto w-full max-w-[720px]'>
+    <div className='mx-auto w-full max-w-180'>
       <LegalDocumentUi {...legal} />
     </div>
   );

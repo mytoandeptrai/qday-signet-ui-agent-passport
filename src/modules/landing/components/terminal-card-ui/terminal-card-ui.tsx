@@ -20,7 +20,7 @@ const TerminalCardUi = ({ reveal }: TerminalCardUiProps) => {
         <span className='size-2.5 rounded-full bg-border' />
         <span className='ml-3 font-mono text-xs text-text-3'>{t('terminal.name')}</span>
       </div>
-      <div className='space-y-2 p-5 font-mono text-[12.5px] leading-[1.55]'>
+      <div className='space-y-2 p-5 font-mono text-small leading-normal'>
         {lines.slice(0, shown).map((line, i) => (
           <p
             key={line}

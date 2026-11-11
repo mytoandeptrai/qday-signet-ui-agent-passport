@@ -26,7 +26,7 @@ const CommentPinUi = ({ number, left, top, isResolved, isOpen, replies, onClick 
     >
       {isResolved ? <CheckIcon className='size-3.5' /> : number}
       {!!replies && (
-        <span className='absolute -right-2 -top-2 grid h-4 min-w-4 place-items-center rounded-full bg-foreground px-1 text-[9px] font-semibold text-background'>
+        <span className='absolute -right-2 -top-2 grid h-4 min-w-4 place-items-center rounded-full bg-foreground px-1 text-caption font-semibold text-background'>
           {replies}
         </span>
       )}

@@ -14,7 +14,7 @@ import { useTranslation } from '@/integrations/i18n';
 import { useWallet } from '@/integrations/wallet';
 import { shortAddress } from '@/lib/format';
 
-const buttonClass = 'h-10 gap-3 border border-border px-3 text-body [&_svg]:size-[18px]';
+const buttonClass = 'h-10 gap-3 border border-border px-3 text-body [&_svg]:size-4.5';
 
 const AppSidebarWallet = () => {
   const { t } = useTranslation('wallet');

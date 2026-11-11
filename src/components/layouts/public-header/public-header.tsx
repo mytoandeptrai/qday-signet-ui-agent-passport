@@ -21,7 +21,7 @@ const PublicHeader = ({ overlay = false }: PublicHeaderProps) => {
   return (
     <>
       <header className={cn('z-20 h-14 w-full md:h-16', overlay ? 'absolute inset-x-0 top-0' : 'relative border-b border-border')}>
-        <div className='mx-auto grid h-full max-w-[1280px] grid-cols-[1fr_auto] items-center px-4 md:grid-cols-[1fr_auto_1fr] md:px-10'>
+        <div className='mx-auto grid h-full max-w-7xl grid-cols-[1fr_auto] items-center px-4 md:grid-cols-[1fr_auto_1fr] md:px-10'>
           <SignetLockup />
           <nav aria-label={t('header.main')} className='hidden gap-9 text-sm md:flex'>
             {navItems.map((n) => (

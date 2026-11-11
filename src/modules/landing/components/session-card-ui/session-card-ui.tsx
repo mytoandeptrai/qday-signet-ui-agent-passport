@@ -22,30 +22,30 @@ const SessionCardUi = ({ cardRef, rows, limit, perCall, shown, spent, isRevoked,
     <div
       ref={cardRef}
       className={cn(
-        'absolute top-1/2 left-1/2 w-[calc(100%-32px)] -translate-x-1/2 -translate-y-1/2 rounded-md border bg-card text-sm md:w-[440px]',
+        'absolute top-1/2 left-1/2 w-[calc(100%-32px)] -translate-x-1/2 -translate-y-1/2 rounded-md border bg-card text-sm md:w-110',
         CARD_SHADOW
       )}
     >
-      <div className='flex items-baseline justify-between gap-4 px-6 pt-[22px]'>
-        <span className='text-base leading-[1.3] font-medium'>{t('session.title')}</span>
+      <div className='flex items-baseline justify-between gap-4 px-6 pt-5.5'>
+        <span className='text-base leading-snug font-medium'>{t('session.title')}</span>
         <button
           type='button'
           disabled={isRevoked}
           onClick={onRevoke}
-          className='text-[13px] font-medium text-muted-foreground hover:text-foreground disabled:text-danger'
+          className='text-body font-medium text-muted-foreground hover:text-foreground disabled:text-danger'
         >
           {isRevoked ? t('session.revoked') : t('session.revoke')}
         </button>
       </div>
-      <div className='px-6 pt-[18px] tabular-nums'>
+      <div className='px-6 pt-4.5 tabular-nums'>
         <div className='flex items-baseline justify-between'>
           <span>
             <b className='text-xl font-normal'>{formatUsd(spent)}</b>
-            <small className='ml-1 text-[13px] text-muted-foreground'>{t('session.spent')}</small>
+            <small className='ml-1 text-body text-muted-foreground'>{t('session.spent')}</small>
           </span>
           <span>
             <b className='text-xl font-normal'>{formatUsd(limit - spent)}</b>
-            <small className='ml-1 text-[13px] text-muted-foreground'>{t('session.left')}</small>
+            <small className='ml-1 text-body text-muted-foreground'>{t('session.left')}</small>
           </span>
         </div>
         <div className='mt-2 h-1.5 overflow-hidden rounded-full bg-border'>
@@ -57,7 +57,7 @@ const SessionCardUi = ({ cardRef, rows, limit, perCall, shown, spent, isRevoked,
         </div>
       </div>
       <div className='px-6 pt-5 pb-1 text-sm font-medium text-muted-foreground'>{t('session.activity')}</div>
-      <ul className='m-0 min-h-[162px] list-none px-6 pb-[18px]'>
+      <ul className='m-0 min-h-40.5 list-none px-6 pb-4.5'>
         {rows.map((r, i) => (
           <li
             key={r.service}
@@ -67,8 +67,8 @@ const SessionCardUi = ({ cardRef, rows, limit, perCall, shown, spent, isRevoked,
             )}
           >
             <span className={cn('truncate', r.stopped && 'text-muted-foreground')}>{r.service}</span>
-            <span className={cn('text-right text-[13px]', r.stopped && 'text-text-3 line-through')}>{formatUsd(r.amount)}</span>
-            <span className={cn('text-right text-[13px] text-muted-foreground', r.stopped && 'text-danger')}>{r.time}</span>
+            <span className={cn('text-right text-body', r.stopped && 'text-text-3 line-through')}>{formatUsd(r.amount)}</span>
+            <span className={cn('text-right text-body text-muted-foreground', r.stopped && 'text-danger')}>{r.time}</span>
           </li>
         ))}
       </ul>

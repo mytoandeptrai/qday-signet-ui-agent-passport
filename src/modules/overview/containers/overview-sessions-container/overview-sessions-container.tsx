@@ -7,7 +7,7 @@ const OverviewSessionsContainer = () => {
   const { t } = useTranslation('overview-page');
   const { sessions, target, onRevoke, onCloseRevoke, onConfirmRevoke } = useOverviewSessionsContainer();
   return (
-    <section className='mt-16 max-w-[1000px]'>
+    <section className='mt-16 max-w-250'>
       <div className='mb-4 flex items-baseline justify-between'>
         <h2 className='text-body font-medium'>{t('sessions.title')}</h2>
         <Link to='/overview' search={{ dialog: 'create-session' }} className='text-small text-muted-foreground hover:text-foreground'>

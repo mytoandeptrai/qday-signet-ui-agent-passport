@@ -23,7 +23,7 @@ const AppHeader = () => {
           aria-label={t('account.settings')}
           className='grid size-9 place-items-center p-0 text-muted-foreground hover:text-foreground'
         >
-          <SettingsIcon className='size-[18px]' strokeWidth={1.4} />
+          <SettingsIcon className='size-4.5' strokeWidth={1.4} />
         </CustomLink>
         <AppHeaderAccount />
       </div>

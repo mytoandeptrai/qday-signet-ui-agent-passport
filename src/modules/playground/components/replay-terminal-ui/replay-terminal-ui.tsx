@@ -37,7 +37,7 @@ const ReplayTerminalUi = ({ lines, playing, endRef, onTogglePlay, onSkip, onRepl
           </ReplayControlButtonUi>
         </div>
       </div>
-      <div className='h-[440px] space-y-2 overflow-y-auto p-5 font-mono text-[12.5px] leading-[1.6]'>
+      <div className='h-110 space-y-2 overflow-y-auto p-5 font-mono text-small leading-relaxed'>
         {lines.map((l, i) => (
           <ReplayLineUi key={`${i}-${l.step.kind}`} step={l.step} text={l.text} typing={l.typing} />
         ))}

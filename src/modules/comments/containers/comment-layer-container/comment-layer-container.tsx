@@ -92,7 +92,7 @@ const CommentLayerContainer = () => {
         </CommentCardUi>
       )}
 
-      <div className='pointer-events-auto fixed bottom-4 right-4 z-[100] flex flex-col items-end gap-2'>
+      <div className='pointer-events-auto fixed bottom-4 right-4 z-100 flex flex-col items-end gap-2'>
         {isListOpen && (
           <CommentListUi mode={mode} openCount={openCount} unplaced={unplaced} placed={placed} onFocus={onFocusComment} onCopyOpen={onCopyOpen} />
         )}

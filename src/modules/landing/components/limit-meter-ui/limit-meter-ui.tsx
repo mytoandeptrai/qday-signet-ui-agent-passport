@@ -9,11 +9,11 @@ const LimitMeterUi = () => {
       <div className='flex items-baseline justify-between'>
         <span>
           <b className='text-lg font-normal'>{formatUsd(0)}</b>
-          <small className='ml-1 text-[13px] text-muted-foreground'>{t('session.spent')}</small>
+          <small className='ml-1 text-body text-muted-foreground'>{t('session.spent')}</small>
         </span>
         <span>
           <b className='text-lg font-normal'>{formatUsd(20)}</b>
-          <small className='ml-1 text-[13px] text-muted-foreground'>{t('session.left')}</small>
+          <small className='ml-1 text-body text-muted-foreground'>{t('session.left')}</small>
         </span>
       </div>
       <div className='mt-2 h-1.5 overflow-hidden rounded-full bg-border'>

@@ -15,7 +15,7 @@ interface PageHeadingProps {
 }
 
 export function PageHeading({ children }: PageHeadingProps) {
-  return <Heading className='mx-auto max-w-[780px]'>{children}</Heading>;
+  return <Heading className='mx-auto max-w-195'>{children}</Heading>;
 }
 
 interface SectionHeadingProps {
@@ -24,7 +24,7 @@ interface SectionHeadingProps {
 }
 
 export function SectionHeading({ children, wrap }: SectionHeadingProps) {
-  return <Subheading className={cn('mx-auto', wrap ? 'max-w-[620px]' : '')}>{children}</Subheading>;
+  return <Subheading className={cn('mx-auto', wrap ? 'max-w-155' : '')}>{children}</Subheading>;
 }
 
 interface SectionSubtitleProps {
@@ -33,7 +33,7 @@ interface SectionSubtitleProps {
 
 export function SectionSubtitle({ children }: SectionSubtitleProps) {
   return (
-    <Paragraph className={cn('mx-auto mt-2.5 max-w-[650px]')} size='lg'>
+    <Paragraph className={cn('mx-auto mt-2.5 max-w-162.5')} size='lg'>
       {children}
     </Paragraph>
   );

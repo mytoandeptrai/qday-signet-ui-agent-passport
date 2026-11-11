@@ -21,7 +21,7 @@ const CommentComposerUi = ({ isSaving, onSave, onCancel }: CommentComposerUiProp
         value={text}
         disabled={isSaving}
         placeholder={t('composer.placeholder')}
-        className='min-h-[88px] px-3 py-2'
+        className='min-h-22 px-3 py-2'
         onChange={(e) => setText(e.target.value)}
         onKeyDown={(e) => {
           if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) submit();

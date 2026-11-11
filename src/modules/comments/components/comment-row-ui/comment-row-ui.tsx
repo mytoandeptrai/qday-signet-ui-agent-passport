@@ -21,7 +21,7 @@ const CommentRowUi = ({ comment, number, isMissing, onClick }: CommentRowUiProps
       >
         <span
           className={cn(
-            'grid size-5 shrink-0 place-items-center rounded-full bg-primary text-[10px] font-semibold text-primary-foreground',
+            'grid size-5 shrink-0 place-items-center rounded-full bg-primary text-caption font-semibold text-primary-foreground',
             comment.resolved && 'bg-muted text-muted-foreground'
           )}
         >

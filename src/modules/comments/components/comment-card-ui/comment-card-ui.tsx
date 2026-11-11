@@ -29,7 +29,7 @@ const CommentCardUi: FCC<CommentCardUiProps> = ({ left = 0, top = 0, corner = fa
               maxHeight: window.innerHeight - cardTop - 8,
             }
       }
-      className='pointer-events-auto fixed z-[100] overflow-y-auto rounded-2xl border border-border bg-card p-3 text-card-foreground shadow-lg'
+      className='pointer-events-auto fixed z-100 overflow-y-auto rounded-2xl border border-border bg-card p-3 text-card-foreground shadow-lg'
     >
       {children}
     </div>

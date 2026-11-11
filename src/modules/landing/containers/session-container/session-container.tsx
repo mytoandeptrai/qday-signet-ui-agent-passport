@@ -7,10 +7,10 @@ const SessionContainer = () => {
   const { t, cardRef, rows, limit, perCall, shown, spent, isRevoked, plateSrc, points, onRevoke } = useSessionContainer();
 
   return (
-    <section id='session' className='relative z-[4] py-12 md:py-20'>
+    <section id='session' className='relative z-4 py-12 md:py-20'>
       <SectionWrapUi>
         <AnimationContainer>
-          <h2 className='text-center font-display text-[clamp(34px,3.1vw,46px)] leading-[1.15] font-semibold tracking-[-0.016em]'>
+          <h2 className='text-center font-display text-[clamp(34px,3.1vw,46px)] leading-tight font-semibold tracking-tight'>
             {t('session.heading')}
           </h2>
         </AnimationContainer>
@@ -33,7 +33,7 @@ const SessionContainer = () => {
         </AnimationContainer>
         <div className='mt-10 grid gap-6 md:mt-14 md:grid-cols-3 md:gap-10'>
           {points.map((p, i) => (
-            <AnimationContainer key={p} delay={i * 0.1} className='border-t border-foreground pt-4 text-[15px] leading-[1.4]'>
+            <AnimationContainer key={p} delay={i * 0.1} className='border-t border-foreground pt-4 text-lead leading-snug'>
               {p}
             </AnimationContainer>
           ))}

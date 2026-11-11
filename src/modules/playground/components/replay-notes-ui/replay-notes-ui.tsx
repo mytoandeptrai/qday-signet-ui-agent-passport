@@ -17,7 +17,7 @@ const ReplayNotesUi = ({ notes, summary }: ReplayNotesUiProps) => {
       ) : (
         <ol className='mt-2 space-y-3'>
           {notes.map((s, i) => (
-            <li key={s.text} className={cn('text-body leading-[1.5]', i === notes.length - 1 ? 'text-foreground' : 'text-muted-foreground')}>
+            <li key={s.text} className={cn('text-body leading-normal', i === notes.length - 1 ? 'text-foreground' : 'text-muted-foreground')}>
               {s.note}
             </li>
           ))}

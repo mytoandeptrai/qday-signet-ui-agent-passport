@@ -32,7 +32,7 @@ const CommentThreadUi = ({ id, loadReplies, addReply }: CommentThreadUiProps) =>
           disabled={isSending}
           placeholder={t('thread.placeholder')}
           aria-label={t('thread.aria')}
-          className='min-h-[40px] px-3 py-2'
+          className='min-h-10 px-3 py-2'
           rows={2}
           onChange={(e) => onTextChange(e.target.value)}
           onKeyDown={(e) => {

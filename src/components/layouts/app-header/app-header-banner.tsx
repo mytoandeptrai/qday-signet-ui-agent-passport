@@ -10,8 +10,8 @@ const AppHeaderBanner = () => {
   if (!isOpen) return <div className='flex-1' />;
 
   return (
-    <div className='flex min-w-0 flex-1 items-center gap-3 rounded-md border bg-background/80 px-3.5 py-2 text-body md:max-w-[720px]'>
-      <WaypointsIcon className='size-[18px] shrink-0 text-muted-foreground' strokeWidth={1.4} />
+    <div className='flex min-w-0 flex-1 items-center gap-3 rounded-md border bg-background/80 px-3.5 py-2 text-body md:max-w-180'>
+      <WaypointsIcon className='size-4.5 shrink-0 text-muted-foreground' strokeWidth={1.4} />
       <span className='min-w-0 flex-1 truncate'>{t('banner.text')}</span>
       <button
         type='button'

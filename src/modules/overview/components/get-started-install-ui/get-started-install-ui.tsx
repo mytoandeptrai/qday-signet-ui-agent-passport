@@ -13,7 +13,7 @@ const GetStartedInstallUi = ({ prompt, windows, onCopy, onToggleWindows }: GetSt
   return (
     <>
       <div className='relative rounded-md border bg-background/70 p-5 pr-14'>
-        <p className='font-mono text-small leading-[1.65]'>{prompt}</p>
+        <p className='font-mono text-small leading-relaxed'>{prompt}</p>
         <button
           type='button'
           aria-label={t('install.copy-aria')}

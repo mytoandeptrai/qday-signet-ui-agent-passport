@@ -23,7 +23,7 @@ const NotFoundPage = () => {
         <EmptyHeader>
           <div className='relative mb-8'>
             <div className='absolute inset-0 flex items-center justify-center'>
-              <div className='select-none font-bold text-[120px] text-muted-foreground/20 leading-none'>404</div>
+              <div className='select-none font-bold text-9xl text-muted-foreground/20 leading-none'>404</div>
             </div>
             <EmptyMedia variant='icon' className='relative size-24 bg-transparent'>
               <FileQuestion className='size-12 text-muted-foreground' />
@@ -40,7 +40,7 @@ const NotFoundPage = () => {
           </EmptyDescription>
         </EmptyHeader>
         <div className='mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row'>
-          <Button size='lg' onClick={handleGoHome} className='min-w-[160px]'>
+          <Button size='lg' onClick={handleGoHome} className='min-w-40'>
             <Home className='size-4' />
             {t('not-found.goHome', { defaultValue: 'Go to your dashboard' })}
           </Button>
@@ -50,7 +50,7 @@ const NotFoundPage = () => {
             onClick={() => {
               window.history.back();
             }}
-            className='min-w-[160px]'
+            className='min-w-40'
           >
             <ArrowLeft className='size-4' />
             {t('not-found.goBack', { defaultValue: 'Go Back' })}

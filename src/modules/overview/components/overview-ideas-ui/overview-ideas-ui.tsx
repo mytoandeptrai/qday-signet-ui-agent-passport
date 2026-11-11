@@ -19,8 +19,8 @@ const OverviewIdeasUi = ({ ideas }: OverviewIdeasUiProps) => {
       <div className='mt-4 grid gap-x-8 gap-y-1 sm:grid-cols-2'>
         {ideas.map((id) => (
           <Link key={id} to='/playground' search={{ idea: id }} className='group flex items-center gap-4 py-2'>
-            <img src={`/images/ideas/${id}.svg`} alt='' className='size-12 shrink-0 rounded-[14px]' />
-            <span className='text-lead leading-[1.35] group-hover:underline'>{t(`ideas.items.${id}`)}</span>
+            <img src={`/images/ideas/${id}.svg`} alt='' className='size-12 shrink-0 rounded-md' />
+            <span className='text-lead leading-snug group-hover:underline'>{t(`ideas.items.${id}`)}</span>
           </Link>
         ))}
       </div>

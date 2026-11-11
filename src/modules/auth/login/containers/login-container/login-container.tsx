@@ -23,7 +23,7 @@ const LoginContainer = () => {
     <div className='grid min-h-screen lg:grid-cols-2'>
       <div className='flex flex-col px-6 py-6 md:px-12'>
         <SignetLockup />
-        <div className='m-auto w-full max-w-[380px] py-12'>
+        <div className='m-auto w-full max-w-95 py-12'>
           {step === 'email' && (
             <FormWrapper form={emailForm} onSubmit={onSubmitEmail}>
               <LoginEmailFormUi isSignup={isSignup} isLoading={isLoading} redirect={redirect} />

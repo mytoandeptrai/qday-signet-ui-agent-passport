@@ -24,8 +24,8 @@ const ServiceGridUi = ({ services, isFetching, query, onPick }: ServiceGridUiPro
             className='bg-background p-5 text-left transition-colors hover:bg-subtle'
           >
             <div className='flex items-baseline justify-between gap-3'>
-              <b className='font-display text-[22px] leading-[1.2] font-semibold'>{s.name}</b>
-              <span className='text-[13px] tabular-nums text-text-3'>{s.priceLabel}</span>
+              <b className='font-display text-title leading-tight font-semibold'>{s.name}</b>
+              <span className='text-body tabular-nums text-text-3'>{s.priceLabel}</span>
             </div>
             <p className='mt-2 text-sm text-muted-foreground'>{s.description}</p>
             <div className='mt-3 text-xs text-text-3'>

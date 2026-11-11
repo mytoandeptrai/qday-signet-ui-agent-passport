@@ -21,7 +21,7 @@ const AppHeaderAccount = () => {
         aria-label={t('account.menu')}
         className='grid size-9 place-items-center text-muted-foreground outline-none hover:text-foreground'
       >
-        <CircleUserIcon className='size-[18px]' strokeWidth={1.4} />
+        <CircleUserIcon className='size-4.5' strokeWidth={1.4} />
       </DropdownMenuTrigger>
       <DropdownMenuContent align='end' className='w-56'>
         <DropdownMenuLabel className='font-normal'>

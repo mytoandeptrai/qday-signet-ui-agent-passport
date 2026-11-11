@@ -7,11 +7,11 @@ const HowContainer = () => {
   const overlays = [<CopyCommandUi key='install' />, <LimitMeterUi key='limits' />, <JobPromptUi key='job' isAsked={isAsked} onAsk={onAsk} />];
 
   return (
-    <section id='how' className='relative z-[4] py-12 md:py-20'>
+    <section id='how' className='relative z-4 py-12 md:py-20'>
       <SectionWrapUi>
         <AnimationContainer>
-          <p className='mb-[18px] text-[13px] text-text-3'>{t('how.eyebrow')}</p>
-          <h2 className='font-display text-[clamp(34px,3.1vw,46px)] leading-[1.15] font-semibold tracking-[-0.016em]'>{t('how.heading')}</h2>
+          <p className='mb-4.5 text-body text-text-3'>{t('how.eyebrow')}</p>
+          <h2 className='font-display text-[clamp(34px,3.1vw,46px)] leading-tight font-semibold tracking-tight'>{t('how.heading')}</h2>
         </AnimationContainer>
         <div className='mt-10 grid gap-14 md:mt-16 md:grid-cols-3 md:gap-10'>
           {steps.map((s, i) => (

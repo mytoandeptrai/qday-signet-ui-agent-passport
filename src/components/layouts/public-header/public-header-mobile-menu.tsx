@@ -14,7 +14,7 @@ const PublicHeaderMobileMenu = ({ navItems, onClose }: PublicHeaderMobileMenuPro
   const { t } = useTranslation('public-layout');
 
   return (
-    <div className='fixed inset-0 z-[60] md:hidden'>
+    <div className='fixed inset-0 z-60 md:hidden'>
       <button type='button' aria-label={t('header.close-menu')} className='absolute inset-0 bg-foreground/15' onClick={onClose} />
       <div
         role='dialog'
@@ -34,7 +34,7 @@ const PublicHeaderMobileMenu = ({ navItems, onClose }: PublicHeaderMobileMenuPro
               key={n.label}
               {...n}
               onClick={onClose}
-              className='flex min-h-[52px] items-center border-t text-[17px] last:border-b'
+              className='flex min-h-13 items-center border-t text-lg last:border-b'
             />
           ))}
         </nav>
@@ -42,7 +42,7 @@ const PublicHeaderMobileMenu = ({ navItems, onClose }: PublicHeaderMobileMenuPro
           <Link
             to={ROUTES.LOGIN}
             onClick={onClose}
-            className='flex h-11 flex-1 items-center justify-center rounded-full border border-input text-[15px] font-medium'
+            className='flex h-11 flex-1 items-center justify-center rounded-full border border-input text-lead font-medium'
           >
             {t('header.sign-in')}
           </Link>
@@ -50,7 +50,7 @@ const PublicHeaderMobileMenu = ({ navItems, onClose }: PublicHeaderMobileMenuPro
             to={ROUTES.LOGIN}
             search={{ redirect: ROUTES.OVERVIEW }}
             onClick={onClose}
-            className='flex h-11 flex-1 items-center justify-center rounded-full bg-primary text-[15px] font-medium text-primary-foreground shadow-primary transition-all sheen hover:brightness-110'
+            className='flex h-11 flex-1 items-center justify-center rounded-full bg-primary text-lead font-medium text-primary-foreground shadow-primary transition-all sheen hover:brightness-110'
           >
             {t('header.get-started')}
           </Link>

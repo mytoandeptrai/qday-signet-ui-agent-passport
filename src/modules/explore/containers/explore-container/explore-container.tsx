@@ -23,8 +23,8 @@ const ExploreContainer = () => {
   } = useExploreContainer();
 
   return (
-    <div className='mx-auto w-full max-w-[1100px]'>
-      <h1 className='font-display text-[clamp(34px,3.1vw,46px)] leading-[1.15] font-semibold tracking-[-0.016em]'>{t('title')}</h1>
+    <div className='mx-auto w-full max-w-275'>
+      <h1 className='font-display text-[clamp(34px,3.1vw,46px)] leading-tight font-semibold tracking-tight'>{t('title')}</h1>
       <p className='mt-3 text-muted-foreground'>{t('description', { count: featuredCount })}</p>
       <ExploreFiltersUi
         search={search}

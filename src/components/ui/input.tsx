@@ -54,7 +54,7 @@ const Input = ({
         <button
           type='button'
           onClick={() => setIsShowPassword(!isShowPassword)}
-          className={cn('absolute top-1/2 right-[10px] z-10 -translate-y-1/2 cursor-pointer')}
+          className={cn('absolute top-1/2 right-2.5 z-10 -translate-y-1/2 cursor-pointer')}
         >
           {isShowPassword ? <EyeIcon className='size-4' /> : <EyeOffIcon className='size-4' />}
         </button>

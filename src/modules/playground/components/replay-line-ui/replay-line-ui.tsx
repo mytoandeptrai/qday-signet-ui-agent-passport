@@ -8,7 +8,7 @@ type ReplayLineUiProps = {
 };
 
 const ReplayLineUi = ({ step, text, typing }: ReplayLineUiProps) => {
-  const caret = typing ? <span className='ml-px inline-block h-[1em] w-[7px] translate-y-[2px] animate-pulse bg-current' /> : null;
+  const caret = typing ? <span className='ml-px inline-block h-[1em] w-1.75 translate-y-0.5 animate-pulse bg-current' /> : null;
   switch (step.kind) {
     case 'prompt':
       return (

@@ -57,7 +57,7 @@ const ExploreFiltersUi = ({
             aria-selected={c === category}
             onClick={() => onCategoryChange(c)}
             className={cn(
-              'border px-2.5 py-1.5 text-[13px] transition-colors',
+              'border px-2.5 py-1.5 text-body transition-colors',
               c === category ? 'border-brand text-foreground' : 'text-muted-foreground hover:text-foreground'
             )}
           >

@@ -25,7 +25,7 @@ import { useTranslation } from '@/integrations/i18n';
 import AppSidebarWallet from './app-sidebar-wallet';
 import { useAppSidebar } from './use-app-sidebar';
 
-const menuButtonClass = 'h-10 gap-3 px-3 text-body [&_svg]:size-[18px] [&_svg]:text-muted-foreground';
+const menuButtonClass = 'h-10 gap-3 px-3 text-body [&_svg]:size-4.5 [&_svg]:text-muted-foreground';
 
 const AppSidebar = () => {
   const { t } = useTranslation('layout');

@@ -27,15 +27,15 @@ const DayPanelUi = ({ moments, now, line, spent, stoppedCount, isWide }: DayPane
       <div className='absolute inset-x-7 top-7 max-md:inset-x-5 max-md:top-5'>
         <div className='flex items-end justify-between gap-4'>
           <div>
-            <div className='text-[13px] text-[#f4f7f8]/70'>{t('day.spent-today')}</div>
+            <div className='text-body text-[#f4f7f8]/70'>{t('day.spent-today')}</div>
             <div className='mt-1 font-display text-[clamp(30px,3.4vw,48px)] leading-none font-semibold tabular-nums'>
               {formatUsd(spent)}
-              <span className='ml-2 text-[15px] font-normal text-[#f4f7f8]/60'>{t('day.budget', { amount: DAY_BUDGET })}</span>
+              <span className='ml-2 text-lead font-normal text-[#f4f7f8]/60'>{t('day.budget', { amount: DAY_BUDGET })}</span>
             </div>
           </div>
           <div
             className={cn(
-              'rounded-full border px-3 py-1 text-[13px] transition-colors duration-500',
+              'rounded-full border px-3 py-1 text-body transition-colors duration-500',
               stoppedCount ? 'border-[#f0ada7]/60 bg-[#f0ada7]/15 text-[#f0ada7]' : 'border-white/20 text-[#f4f7f8]/70'
             )}
           >
@@ -52,7 +52,7 @@ const DayPanelUi = ({ moments, now, line, spent, stoppedCount, isWide }: DayPane
 
       <div className='absolute inset-x-7 bottom-7 max-md:inset-x-5 max-md:bottom-5'>
         {isWide && (
-          <div className='pointer-events-none absolute top-[5px] left-0 h-px w-[calc(83.333%+20px)] bg-white/20'>
+          <div className='pointer-events-none absolute top-1.25 left-0 h-px w-[calc(83.333%+20px)] bg-white/20'>
             <div className='h-full origin-left bg-[#60f2ff] will-change-transform' style={{ transform: `scaleX(${line})` }} />
           </div>
         )}
@@ -69,16 +69,16 @@ const DayPanelUi = ({ moments, now, line, spent, stoppedCount, isWide }: DayPane
               {isWide && (
                 <span
                   className={cn(
-                    'absolute top-0 left-0 size-[11px] rounded-full transition-all duration-500',
+                    'absolute top-0 left-0 size-2.75 rounded-full transition-all duration-500',
                     i > now ? 'bg-white/30' : m.stopped ? 'bg-[#f0ada7]' : 'bg-[#60f2ff]',
                     i === now && 'scale-125 shadow-[0_0_0_6px_rgba(96,242,255,.2)]',
                     i === now && m.stopped && 'shadow-[0_0_0_6px_rgba(240,173,167,.25)]'
                   )}
                 />
               )}
-              <div className='text-[13px] tabular-nums text-[#f4f7f8]/70'>{m.time}</div>
-              <div className='mt-1.5 font-display text-lg leading-[1.3] md:text-[19px]'>{m.text}</div>
-              <div className={cn('mt-2 text-[13px]', m.stopped ? 'text-[#f0ada7]' : 'text-[#60f2ff]')}>
+              <div className='text-body tabular-nums text-[#f4f7f8]/70'>{m.time}</div>
+              <div className='mt-1.5 font-display text-lg leading-snug md:text-xl'>{m.text}</div>
+              <div className={cn('mt-2 text-body', m.stopped ? 'text-[#f0ada7]' : 'text-[#60f2ff]')}>
                 {m.stopped
                   ? t('day.stopped-line', { amount: m.amount?.toFixed(2) })
                   : t('day.paid-line', { service: m.service, amount: m.amount?.toFixed(2) })}
