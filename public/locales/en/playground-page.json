@@ -1,0 +1,9 @@
+{
+  "title": "Playground",
+  "description": "Watch an agent work under a Signet session, one terminal line at a time.",
+  "terminal": { "title": "claude · ~/work" },
+  "controls": { "pause": "Pause", "play": "Play", "skip": "Skip to end", "replay": "Replay" },
+  "meter": { "title": "Session limit" },
+  "notes": { "title": "What is happening" },
+  "labels": { "start-session": "Start this as a session" }
+}
