@@ -7,7 +7,7 @@ interface HeadingProps {
 }
 
 export function Heading({ children, className }: HeadingProps) {
-  return <h1 className={cn('font-title text-2xl text-primary leading-tight', className)}>{children}</h1>;
+  return <h1 className={cn('font-display text-2xl text-primary leading-tight', className)}>{children}</h1>;
 }
 
 interface PageHeadingProps {
