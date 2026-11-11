@@ -12,7 +12,7 @@ const className = 'mt-6 inline-flex gap-1.75 text-lead transition-colors hover:t
 const TextLinkUi: FCC<TextLinkUiProps> = ({ to, href, children }) => {
   const body = (
     <>
-      {children} <ArrowRightIcon className='size-4 mt-0.5' aria-hidden='true' />
+      {children} <ArrowRightIcon className='size-4 mt-1' aria-hidden='true' />
     </>
   );
   return to ? (
