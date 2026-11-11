@@ -1,0 +1,41 @@
+{
+  "nav": {
+    "home": "Home",
+    "activity": "Activity",
+    "explore": "Explore",
+    "products": "Products",
+    "signet-router": "Signet Router",
+    "new-session": "New session",
+    "help": "Help"
+  },
+  "help": {
+    "documentation": "Documentation",
+    "contact-support": "Contact support",
+    "terms": "Terms",
+    "privacy": "Privacy"
+  },
+  "banner": {
+    "text": "Reduce your AI costs by half with Signet Router",
+    "learn-more": "Learn more",
+    "dismiss": "Dismiss"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "empty": "You are all caught up.",
+    "escalation": "{{agent}} wants {{amount}} on {{service}}",
+    "blocked": "Blocked: {{service}} {{amount}} ({{reason}})"
+  },
+  "account": {
+    "menu": "Account menu",
+    "settings": "Settings",
+    "deposit": "Deposit",
+    "vouchers": "Vouchers",
+    "sign-out": "Sign out"
+  },
+  "toasts": {
+    "router-soon": "Signet Router is coming soon",
+    "docs": "Docs open in the real product",
+    "support": "Message sent to support (mock)",
+    "signed-out": "Signed out"
+  }
+}
