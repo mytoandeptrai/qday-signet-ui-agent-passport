@@ -20,7 +20,7 @@ const LoginContainer = () => {
   } = useLoginContainer();
 
   return (
-    <div className='grid min-h-screen lg:grid-cols-2'>
+    <div className='grid min-h-screen lg:grid-cols-[3fr_2fr]'>
       <div className='flex flex-col px-6 py-6 md:px-12'>
         <SignetLockup />
         <div className='m-auto w-full max-w-95 py-12'>
