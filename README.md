@@ -34,7 +34,7 @@ pnpm build      # vite build + tsc
 
 - `src/integrations/wallet/` — the seam between the UI and MetaMask. `walletAdapter` (`wallet-adapter.ts`) points at the mock; swap it for a wagmi/viem adapter (setup lives in `qday-payment-merchant-portal/src/integrations/web3`) without touching the UI.
 - `useWallet` connects and disconnects, `useSignAction` runs a signature through `idle → waiting → success | rejected | error`, and `WalletGate` hides money UI until a wallet is connected. Only the address and chain id are stored, never keys.
-- `src/constant/networks.const.ts` — QDay/USD8 is the default; Base/USDC is configured but disabled. The QDay chain id (`VITE_QDAY_CHAIN_ID`) and USD8 decimals are placeholders until the testnet details are confirmed.
+- `src/constant/networks.const.ts` — QDay/USD8 is the default; Base/USDC is configured but disabled. The QDay network comes from `VITE_QDAY_*` env (Base is built into viem/wagmi, so it needs none); the QDay chain id and USD8 decimals are placeholders until the testnet details are confirmed.
 - Create, send, receive, add funds and approve flows are dialogs and sheets opened by the `dialog` search param (`src/constant/app-dialog.const.ts`, rendered by `components/layouts/app-dialogs`), so they are deep-linkable.
 
 ## Theme
