@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import type { CommentList, PinComment, Reply } from '../src/lib/comments-api';
+import type { CommentList, PinComment, Reply } from '../src/apis/comments/types';
 
 /**
  * Vercel function behind /api/comments. One GitHub issue per comment, labelled `ui-comment`:

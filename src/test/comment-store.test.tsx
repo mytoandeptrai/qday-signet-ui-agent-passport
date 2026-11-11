@@ -1,13 +1,16 @@
 import { act, renderHook, waitFor } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { useCommentStore } from "@/lib/comment-store";
+import { useCommentStore } from "@/modules/comments/hooks";
 
-vi.mock("@/lib/comments-api", () => ({
-  listComments: vi.fn().mockResolvedValue({ configured: false, comments: [] }),
+const t = (key: string) => key;
+vi.mock("@/integrations/i18n", () => ({ useTranslation: () => ({ t }) }));
+
+vi.mock("@/apis/comments", () => ({
+  getCommentList: vi.fn().mockResolvedValue({ configured: false, comments: [] }),
   createComment: vi.fn(),
   createReply: vi.fn(),
   deleteComment: vi.fn(),
-  listReplies: vi.fn(),
+  getReplyList: vi.fn(),
   setCommentResolved: vi.fn(),
 }));
 

@@ -1,4 +1,4 @@
-import { CommentLayer } from '@/components/comment-layer';
+import { CommentLayerContainer } from '@/modules/comments';
 import NavigationProgress from '@/components/ui/navigation-progress';
 import { siteConfig } from '@/constant';
 import type { QueryClient } from '@tanstack/react-query';
@@ -20,7 +20,7 @@ export const Route = createRootRouteWithContext<RouterContext>()({
       </Helmet>
       <NavigationProgress />
       <Outlet />
-      <CommentLayer />
+      <CommentLayerContainer />
     </>
   ),
 });

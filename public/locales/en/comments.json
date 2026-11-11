@@ -1,0 +1,61 @@
+{
+  "card": "Comment",
+  "composer": {
+    "placeholder": "Add a comment…",
+    "shortcut": "⌘/Ctrl + Enter",
+    "cancel": "Cancel",
+    "submit": "Comment",
+    "saving": "Saving…"
+  },
+  "thread": {
+    "loading": "Loading replies…",
+    "placeholder": "Reply…",
+    "aria": "Reply",
+    "submit": "Reply",
+    "sending": "Sending…"
+  },
+  "detail": {
+    "missing": "Its element is no longer on this page.",
+    "close": "Close",
+    "resolved": "Resolved",
+    "github": "GitHub",
+    "delete": "Delete",
+    "reopen": "Reopen",
+    "resolve": "Resolve"
+  },
+  "list": {
+    "title": "This page · {{count}} open",
+    "copy-open": "Copy open",
+    "synced": "Synced with GitHub Issues",
+    "local": "Saved in this browser only (no GitHub token configured)",
+    "loading": "Loading…",
+    "empty": "No comments yet. Use Comment to add one.",
+    "unplaced": "Element no longer on this page",
+    "on-page": "On this page",
+    "reply_one": "{{count}} reply",
+    "reply_other": "{{count}} replies",
+    "not-found": "Element not found on this page"
+  },
+  "toolbar": {
+    "list-aria": "Comments on this page",
+    "cancel": "Cancel",
+    "comment": "Comment",
+    "unplaced": "{{count}} without an element"
+  },
+  "pin": {
+    "aria": "Comment {{number}}",
+    "aria-resolved": "Comment {{number}} (resolved)"
+  },
+  "pick-hint": "Click any element to comment · Esc to cancel",
+  "toasts": {
+    "load-failed": "Could not load comments from GitHub",
+    "save-failed": "Could not save the comment to GitHub",
+    "update-failed": "Could not update the comment on GitHub",
+    "delete-failed": "Could not delete the comment on GitHub",
+    "replies-failed": "Could not load replies from GitHub",
+    "reply-failed": "Could not post the reply to GitHub",
+    "copied_one": "Copied {{count}} open comment",
+    "copied_other": "Copied {{count}} open comments",
+    "copy-failed": "Could not copy to the clipboard"
+  }
+}
