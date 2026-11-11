@@ -65,7 +65,7 @@ function FormInput<
               onChange={(e) => {
                 if (type === 'number') {
                   const value = e.target.value;
-                  field.onChange(value === '' ? undefined : Number.parseFloat(value));
+                  field.onChange(value === '' ? '' : Number.parseFloat(value));
                 } else {
                   field.onChange(e.target.value);
                 }
