@@ -1,4 +1,4 @@
-import { PageHeader } from '@/components/app/page-header';
+import { PageHeader } from '@/components/ui/page-header';
 import { Button } from '@/components/ui/button';
 import { useTranslation } from '@/integrations/i18n';
 import { Download } from 'lucide-react';

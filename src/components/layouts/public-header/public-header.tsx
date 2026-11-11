@@ -5,7 +5,7 @@ import { Show } from '@/components/utilities';
 import { ROUTES } from '@/constant';
 import { useTranslation } from '@/integrations/i18n';
 import { cn } from '@/lib/utils';
-import LanguageSwitcher from '@/components/app/language-switcher';
+import LanguageSwitcher from '@/components/ui/language-switcher';
 import PublicHeaderMobileMenu from './public-header-mobile-menu';
 import PublicHeaderNavLink from './public-header-nav-link';
 import { usePublicHeader } from './use-public-header';

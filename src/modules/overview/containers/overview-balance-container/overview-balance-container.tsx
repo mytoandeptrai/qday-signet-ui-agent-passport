@@ -1,4 +1,4 @@
-import WalletGate from '@/components/app/wallet-gate';
+import WalletGate from '@/components/ui/wallet-gate';
 import { OverviewAllowanceMeterUi, OverviewBalanceUi } from '../../components';
 import { useOverviewBalanceContainer } from '../../hooks';
 

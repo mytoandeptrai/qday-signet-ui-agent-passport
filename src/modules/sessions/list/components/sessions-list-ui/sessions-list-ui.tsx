@@ -1,5 +1,5 @@
-import { SpendBar } from '@/components/app/spend-bar';
-import { StatusBadge } from '@/components/app/status-badge';
+import { SpendBar } from '@/components/ui/spend-bar';
+import { StatusBadge } from '@/components/ui/status-badge';
 import { Button } from '@/components/ui/button';
 import { useTranslation } from '@/integrations/i18n';
 import { timeAgo } from '@/lib/format';

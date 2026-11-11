@@ -1,5 +1,5 @@
-import SignStatusUi from '@/components/app/sign-status';
-import { SpendBar } from '@/components/app/spend-bar';
+import SignStatusUi from '@/components/ui/sign-status';
+import { SpendBar } from '@/components/ui/spend-bar';
 import { Button } from '@/components/ui/button';
 import { useTranslation } from '@/integrations/i18n';
 import type { SignStatus } from '@/integrations/wallet';

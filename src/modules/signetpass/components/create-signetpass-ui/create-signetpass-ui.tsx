@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
-import ShortAddress from '@/components/app/short-address';
-import SignStatusUi from '@/components/app/sign-status';
+import ShortAddress from '@/components/ui/short-address';
+import SignStatusUi from '@/components/ui/sign-status';
 import { Button } from '@/components/ui/button';
 import type { NetworkConfig } from '@/constant';
 import { useTranslation } from '@/integrations/i18n';

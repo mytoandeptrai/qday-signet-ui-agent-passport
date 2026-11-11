@@ -1,5 +1,5 @@
-import { PageHeader } from '@/components/app/page-header';
-import WalletGate from '@/components/app/wallet-gate';
+import { PageHeader } from '@/components/ui/page-header';
+import WalletGate from '@/components/ui/wallet-gate';
 import { WalletBalanceUi, WalletNetworksUi, WalletTransactionsUi } from '../../components';
 import { useWalletContainer } from '../../hooks';
 

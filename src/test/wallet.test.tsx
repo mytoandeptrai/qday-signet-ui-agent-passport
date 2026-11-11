@@ -1,6 +1,6 @@
 import { act, cleanup, render, renderHook, screen } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import WalletGate from '@/components/app/wallet-gate';
+import WalletGate from '@/components/ui/wallet-gate';
 import { mockWalletControl, useSignAction, useWallet } from '@/integrations/wallet';
 import { WalletNotConnectedError, WalletRejectedError } from '@/integrations/wallet/types';
 import { usePassportStore } from '@/stores/passport-store';

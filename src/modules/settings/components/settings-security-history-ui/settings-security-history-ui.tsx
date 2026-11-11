@@ -1,4 +1,4 @@
-import ShortAddress from '@/components/app/short-address';
+import ShortAddress from '@/components/ui/short-address';
 import { useTranslation } from '@/integrations/i18n';
 import { timeAgo } from '@/lib/format';
 import type { SecurityEvent } from '@/types/passport';

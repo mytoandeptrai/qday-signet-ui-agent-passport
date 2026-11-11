@@ -1,4 +1,4 @@
-import { SearchInput } from '@/components/app/search-input';
+import { SearchInput } from '@/components/ui/search-input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useTranslation } from '@/integrations/i18n';
 import { cn } from '@/lib/utils';

@@ -1,4 +1,4 @@
-import { PageHeader } from '@/components/app/page-header';
+import { PageHeader } from '@/components/ui/page-header';
 import { useTranslation } from '@/integrations/i18n';
 import { PlaygroundChipsUi } from '../../components';
 import { usePlaygroundContainer } from '../../hooks';

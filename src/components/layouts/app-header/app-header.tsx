@@ -1,5 +1,5 @@
 import { SettingsIcon } from 'lucide-react';
-import LanguageSwitcher from '@/components/app/language-switcher';
+import LanguageSwitcher from '@/components/ui/language-switcher';
 import { SidebarTrigger } from '@/components/ui/sidebar';
 import { CustomLink } from '@/components/ui/custom-link';
 import { useTranslation } from '@/integrations/i18n';

@@ -1,4 +1,4 @@
-import { PageHeader } from '@/components/app/page-header';
+import { PageHeader } from '@/components/ui/page-header';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useTranslation } from '@/integrations/i18n';
 import SettingsAccountContainer from '../settings-account-container';

@@ -1,4 +1,4 @@
-import ShortAddress from '@/components/app/short-address';
+import ShortAddress from '@/components/ui/short-address';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { useTranslation } from '@/integrations/i18n';

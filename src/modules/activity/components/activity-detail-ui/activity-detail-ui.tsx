@@ -1,4 +1,4 @@
-import { StatusBadge } from '@/components/app/status-badge';
+import { StatusBadge } from '@/components/ui/status-badge';
 import { useTranslation } from '@/integrations/i18n';
 import { money } from '@/lib/format';
 import type { ActivityRow } from '../../utils';

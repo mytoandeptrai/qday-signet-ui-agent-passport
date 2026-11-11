@@ -1,4 +1,4 @@
-import SignStatusUi from '@/components/app/sign-status';
+import SignStatusUi from '@/components/ui/sign-status';
 import { Button } from '@/components/ui/button';
 import { useTranslation } from '@/integrations/i18n';
 import type { SignStatus } from '@/integrations/wallet';

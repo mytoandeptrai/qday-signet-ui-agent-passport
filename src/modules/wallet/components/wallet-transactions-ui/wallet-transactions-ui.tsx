@@ -1,4 +1,4 @@
-import ShortAddress from '@/components/app/short-address';
+import ShortAddress from '@/components/ui/short-address';
 import { ArrowDownLeftIcon, ArrowUpRightIcon } from 'lucide-react';
 import { useTranslation } from '@/integrations/i18n';
 import { money, timeAgo } from '@/lib/format';

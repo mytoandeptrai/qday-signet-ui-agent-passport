@@ -1,4 +1,4 @@
-import WalletGate from '@/components/app/wallet-gate';
+import WalletGate from '@/components/ui/wallet-gate';
 import { Modal } from '@/components/ui/modal';
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import { useAppDialog } from '@/hooks/use-app-dialog';

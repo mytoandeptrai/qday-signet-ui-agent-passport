@@ -1,4 +1,4 @@
-import ShortAddress from '@/components/app/short-address';
+import ShortAddress from '@/components/ui/short-address';
 import { Button } from '@/components/ui/button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { useTranslation } from '@/integrations/i18n';

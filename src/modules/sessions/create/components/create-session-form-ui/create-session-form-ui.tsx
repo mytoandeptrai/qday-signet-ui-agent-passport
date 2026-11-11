@@ -1,4 +1,4 @@
-import SignStatusUi from '@/components/app/sign-status';
+import SignStatusUi from '@/components/ui/sign-status';
 import { FormInput } from '@/components/form-fields/form-input';
 import { FormNumberInput } from '@/components/form-fields/form-number-input';
 import { FormSelect } from '@/components/form-fields/form-select';

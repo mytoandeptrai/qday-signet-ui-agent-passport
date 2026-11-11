@@ -1,4 +1,4 @@
-import { PageHeader } from '@/components/app/page-header';
+import { PageHeader } from '@/components/ui/page-header';
 import { AgentsConnectUi, AgentsListUi, AgentsRevokeDialogUi } from '../../components';
 import { useAgentsContainer } from '../../hooks';
 
