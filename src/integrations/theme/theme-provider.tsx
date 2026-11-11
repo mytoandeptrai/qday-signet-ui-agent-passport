@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { type Theme, ThemeProviderContext } from './theme-context';
 import { useSystemColorScheme } from './use-system-color-scheme';
 
+/** Browser chrome colour per theme: the v5 ground colours (trellis-teal.900, neutral.50). */
+const THEME_COLOR = { dark: '#06343a', light: '#f4f7f8' };
 const THEME_TRANSITION_CLASS = 'theme-transition';
 const THEME_TRANSITION_MS = 250;
 let transitionTimer: number | undefined;
@@ -15,7 +17,7 @@ type ThemeProviderProps = {
 export function ThemeProvider({
   children,
   defaultTheme = 'light',
-  storageKey = 'vite-ui-theme',
+  storageKey = 'trellis-theme-v5',
   ...props
 }: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>(() => (localStorage.getItem(storageKey) as Theme) || defaultTheme);
@@ -24,14 +26,11 @@ export function ThemeProvider({
   useEffect(() => {
     const root = window.document.documentElement;
 
+    const resolved = theme === 'system' ? systemColorScheme : theme;
+
     root.classList.remove('light', 'dark');
-
-    if (theme === 'system') {
-      root.classList.add(systemColorScheme);
-      return;
-    }
-
-    root.classList.add(theme);
+    root.classList.add(resolved);
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', THEME_COLOR[resolved]);
   }, [theme, systemColorScheme]);
 
   const value = {

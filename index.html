@@ -5,11 +5,27 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Signet gives your agent a balance it can spend across 2,000+ services, strictly within the limits you set." />
+  <meta name="theme-color" content="#f4f7f8" />
   <title>Signet · Let your agents pay</title>
   
   
   <link rel="stylesheet" href="/fonts/fonts.css" />
   <link rel="apple-touch-icon" href="/icon-blue.svg" />
+  <script>
+    /* Applies the stored theme before paint (no flash). Keep in sync with theme-provider.tsx: key "trellis-theme-v5", default light. */
+    (function () {
+      try {
+        var t = localStorage.getItem("trellis-theme-v5");
+        if (t !== "light" && t !== "dark" && t !== "system") t = "light";
+        if (t === "system") t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        var d = document.documentElement;
+        d.classList.add(t);
+        d.style.colorScheme = t;
+        var m = document.querySelector('meta[name="theme-color"]');
+        if (m) m.setAttribute("content", t === "dark" ? "#06343a" : "#f4f7f8");
+      } catch (e) {}
+    })();
+  </script>
   <script src="/env.js"></script>
 </head>
 <body>
