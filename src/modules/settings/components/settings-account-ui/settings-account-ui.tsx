@@ -29,8 +29,8 @@ const SettingsAccountUi = ({ user, connectedWallet, appearance, onChangeAppearan
         <dt className='text-muted-foreground'>{t('account.wallet')}</dt>
         <dd className='font-mono text-small'>{user && <ShortAddress value={user.walletAddress} />}</dd>
       </dl>
-      <div>
-        <Label className='mb-2'>{t('account.appearance')}</Label>
+      <div className='border-t pt-6'>
+        <Label className='mb-4'>{t('account.appearance')}</Label>
         <div className='flex gap-2'>
           {APPEARANCES.map((a) => (
             <Button key={a} type='button' size='sm' variant={appearance === a ? 'default' : 'outline'} onClick={() => onChangeAppearance(a)}>
