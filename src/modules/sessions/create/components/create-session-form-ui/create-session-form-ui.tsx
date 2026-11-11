@@ -24,7 +24,7 @@ const CreateSessionFormUi = ({ available, status, isLoading = false }: CreateSes
     <div className='space-y-5'>
       <FormInput control={control} name='task' label={t('fields.task.label')} placeholder={t('fields.task.placeholder')} />
       <FormSelect control={control} name='agent' label={t('fields.agent.label')} options={agentOptions} />
-      <div className='grid gap-6 sm:grid-cols-2'>
+      <div className='grid items-start gap-6 sm:grid-cols-2'>
         <FormNumberInput control={control} name='limit' label={t('fields.limit.label')} />
         <FormNumberInput control={control} name='perCallLimit' label={t('fields.per-call.label')} />
       </div>
