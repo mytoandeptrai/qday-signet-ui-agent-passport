@@ -1,10 +1,13 @@
 import type {
   ActivityItem,
   AppSettings,
+  Agent,
   Balance,
   Deposit,
   Escalation,
   SpendingSession,
+  MainWallet,
+  SignetPassAccount,
   User,
   Voucher,
 } from '@/types/passport';
@@ -130,3 +133,19 @@ export const REDEEMABLE_CODES: Record<string, number> = {
   'SIGNET-FRIENDS-15': 15,
   'SIGNET-LAUNCH-50': 50,
 };
+
+export const SEED_MAIN_WALLET: MainWallet = {
+  balance: 1250,
+  transactions: [
+    { id: 'wtx_1', kind: 'receive', counterparty: '0x5B38Da6a701c568545dCfcB03FcB875f56beddC4', amount: 500, createdAt: hoursAgo(24 * 9) },
+    { id: 'wtx_2', kind: 'send', counterparty: '0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2', amount: 75.5, createdAt: hoursAgo(24 * 5) },
+    { id: 'wtx_3', kind: 'receive', counterparty: '0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db', amount: 825.5, createdAt: hoursAgo(24 * 2) },
+  ],
+};
+
+export const SEED_SIGNETPASS: SignetPassAccount = { created: false };
+
+export const SEED_AGENTS: Agent[] = [
+  { id: 'agt_pending', name: 'Claude Code', status: 'pending', requestedAt: hoursAgo(0.4) },
+  { id: 'agt_codex', name: 'Codex', status: 'active', requestedAt: hoursAgo(24 * 3), approvedAt: hoursAgo(24 * 3) },
+];

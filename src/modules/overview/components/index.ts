@@ -3,7 +3,6 @@ export { default as OverviewIdeasUi } from './overview-ideas-ui';
 export { default as GetStartedHeaderUi } from './get-started-header-ui';
 export { default as GetStartedStepsUi } from './get-started-steps-ui';
 export { default as GetStartedInstallUi } from './get-started-install-ui';
-export { default as GetStartedPasskeyUi } from './get-started-passkey-ui';
 export { default as GetStartedAllowanceUi } from './get-started-allowance-ui';
 export { default as GetStartedFundsUi } from './get-started-funds-ui';
 export { default as GetStartedTipsUi } from './get-started-tips-ui';
@@ -12,3 +11,4 @@ export { default as OverviewAllowanceMeterUi } from './overview-allowance-meter-
 export { default as OverviewSessionCardUi } from './overview-session-card-ui';
 export { default as OverviewRevokeDialogUi } from './overview-revoke-dialog-ui';
 export { default as OverviewActivityUi } from './overview-activity-ui';
+export { default as GetStartedSignetpassUi } from './get-started-signetpass-ui';

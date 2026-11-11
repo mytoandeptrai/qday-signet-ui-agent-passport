@@ -1,0 +1,35 @@
+{
+  "create": {
+    "title": "Create your SignetPass",
+    "description": "A smart spending wallet owned by your MetaMask address. Agents spend from it within the limits you set.",
+    "owner": "Owner",
+    "network": "Network",
+    "address": "SignetPass address",
+    "gas": "Gas for the SignetPass is not sponsored. The Main Wallet is.",
+    "submit": "Create SignetPass",
+    "creating": "Creating…",
+    "toasts": { "created": "SignetPass created" }
+  },
+  "add-funds": {
+    "balance": "SignetPass balance",
+    "tabs": { "crypto": "Crypto", "wallet": "Main Wallet", "card": "Card" },
+    "needs-signetpass": "Create your SignetPass before adding funds.",
+    "create-first": "Create SignetPass",
+    "crypto": {
+      "address": "SignetPass deposit address",
+      "note": "Deposit from any wallet or exchange. Send only {{token}} on {{network}}; other tokens or networks may be lost."
+    },
+    "transfer": {
+      "available": "Main Wallet balance: {{amount}}",
+      "amount": "Amount (USD8)",
+      "submit": "Transfer {{amount}}",
+      "transferring": "Transferring…",
+      "errors": {
+        "amount-positive": "Enter an amount above 0",
+        "amount-max": "Your Main Wallet only has {{available}}"
+      },
+      "toasts": { "done": "{{amount}} moved to your SignetPass" }
+    },
+    "card": { "coming-soon": "Card payments are coming soon." }
+  }
+}

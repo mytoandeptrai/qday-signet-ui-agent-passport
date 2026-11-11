@@ -5,3 +5,4 @@ export * from './site.const';
 export * from './regex.const';
 export * from './route.const';
 export * from './networks.const';
+export * from './app-dialog.const';

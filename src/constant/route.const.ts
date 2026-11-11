@@ -6,7 +6,7 @@ export const ROUTES = {
   EXPLORE: '/explore',
   SESSIONS: '/sessions',
   CREATE_SESSION: '/create-session',
-  DEPOSIT: '/deposit',
+  WALLET: '/wallet',
   VOUCHERS: '/vouchers',
   SETTINGS: '/settings',
   ECOSYSTEM: '/ecosystem',

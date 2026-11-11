@@ -16,11 +16,11 @@ import { Route as publicLayoutRouteImport } from './routes/(public)/layout'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as appActivityRouteImport } from './routes/(app)/activity'
 import { Route as appCreateSessionRouteImport } from './routes/(app)/create-session'
-import { Route as appDepositRouteImport } from './routes/(app)/deposit'
 import { Route as appOverviewRouteImport } from './routes/(app)/overview'
 import { Route as appPlaygroundRouteImport } from './routes/(app)/playground'
 import { Route as appSettingsRouteImport } from './routes/(app)/settings'
 import { Route as appVouchersRouteImport } from './routes/(app)/vouchers'
+import { Route as appWalletRouteImport } from './routes/(app)/wallet'
 import { Route as publicEcosystemRouteImport } from './routes/(public)/ecosystem'
 import { Route as publicExploreRouteImport } from './routes/(public)/explore'
 import { Route as publicPrivacyRouteImport } from './routes/(public)/privacy'
@@ -62,11 +62,6 @@ const appCreateSessionRoute = appCreateSessionRouteImport.update({
   path: '/create-session',
   getParentRoute: () => appLayoutRoute,
 } as any)
-const appDepositRoute = appDepositRouteImport.update({
-  id: '/deposit',
-  path: '/deposit',
-  getParentRoute: () => appLayoutRoute,
-} as any)
 const appOverviewRoute = appOverviewRouteImport.update({
   id: '/overview',
   path: '/overview',
@@ -85,6 +80,11 @@ const appSettingsRoute = appSettingsRouteImport.update({
 const appVouchersRoute = appVouchersRouteImport.update({
   id: '/vouchers',
   path: '/vouchers',
+  getParentRoute: () => appLayoutRoute,
+} as any)
+const appWalletRoute = appWalletRouteImport.update({
+  id: '/wallet',
+  path: '/wallet',
   getParentRoute: () => appLayoutRoute,
 } as any)
 const publicEcosystemRoute = publicEcosystemRouteImport.update({
@@ -130,11 +130,11 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/activity': typeof appActivityRoute
   '/create-session': typeof appCreateSessionRoute
-  '/deposit': typeof appDepositRoute
   '/overview': typeof appOverviewRoute
   '/playground': typeof appPlaygroundRoute
   '/settings': typeof appSettingsRoute
   '/vouchers': typeof appVouchersRoute
+  '/wallet': typeof appWalletRoute
   '/ecosystem': typeof publicEcosystemRoute
   '/explore': typeof publicExploreRoute
   '/privacy': typeof publicPrivacyRoute
@@ -149,11 +149,11 @@ export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/activity': typeof appActivityRoute
   '/create-session': typeof appCreateSessionRoute
-  '/deposit': typeof appDepositRoute
   '/overview': typeof appOverviewRoute
   '/playground': typeof appPlaygroundRoute
   '/settings': typeof appSettingsRoute
   '/vouchers': typeof appVouchersRoute
+  '/wallet': typeof appWalletRoute
   '/ecosystem': typeof publicEcosystemRoute
   '/explore': typeof publicExploreRoute
   '/privacy': typeof publicPrivacyRoute
@@ -171,11 +171,11 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/(app)/activity': typeof appActivityRoute
   '/(app)/create-session': typeof appCreateSessionRoute
-  '/(app)/deposit': typeof appDepositRoute
   '/(app)/overview': typeof appOverviewRoute
   '/(app)/playground': typeof appPlaygroundRoute
   '/(app)/settings': typeof appSettingsRoute
   '/(app)/vouchers': typeof appVouchersRoute
+  '/(app)/wallet': typeof appWalletRoute
   '/(public)/ecosystem': typeof publicEcosystemRoute
   '/(public)/explore': typeof publicExploreRoute
   '/(public)/privacy': typeof publicPrivacyRoute
@@ -192,11 +192,11 @@ export interface FileRouteTypes {
     | '/login'
     | '/activity'
     | '/create-session'
-    | '/deposit'
     | '/overview'
     | '/playground'
     | '/settings'
     | '/vouchers'
+    | '/wallet'
     | '/ecosystem'
     | '/explore'
     | '/privacy'
@@ -211,11 +211,11 @@ export interface FileRouteTypes {
     | '/login'
     | '/activity'
     | '/create-session'
-    | '/deposit'
     | '/overview'
     | '/playground'
     | '/settings'
     | '/vouchers'
+    | '/wallet'
     | '/ecosystem'
     | '/explore'
     | '/privacy'
@@ -232,11 +232,11 @@ export interface FileRouteTypes {
     | '/login'
     | '/(app)/activity'
     | '/(app)/create-session'
-    | '/(app)/deposit'
     | '/(app)/overview'
     | '/(app)/playground'
     | '/(app)/settings'
     | '/(app)/vouchers'
+    | '/(app)/wallet'
     | '/(public)/ecosystem'
     | '/(public)/explore'
     | '/(public)/privacy'
@@ -305,13 +305,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof appCreateSessionRouteImport
       parentRoute: typeof appLayoutRoute
     }
-    '/(app)/deposit': {
-      id: '/(app)/deposit'
-      path: '/deposit'
-      fullPath: '/deposit'
-      preLoaderRoute: typeof appDepositRouteImport
-      parentRoute: typeof appLayoutRoute
-    }
     '/(app)/overview': {
       id: '/(app)/overview'
       path: '/overview'
@@ -338,6 +331,13 @@ declare module '@tanstack/react-router' {
       path: '/vouchers'
       fullPath: '/vouchers'
       preLoaderRoute: typeof appVouchersRouteImport
+      parentRoute: typeof appLayoutRoute
+    }
+    '/(app)/wallet': {
+      id: '/(app)/wallet'
+      path: '/wallet'
+      fullPath: '/wallet'
+      preLoaderRoute: typeof appWalletRouteImport
       parentRoute: typeof appLayoutRoute
     }
     '/(public)/ecosystem': {
@@ -395,11 +395,11 @@ declare module '@tanstack/react-router' {
 interface appLayoutRouteChildren {
   appActivityRoute: typeof appActivityRoute
   appCreateSessionRoute: typeof appCreateSessionRoute
-  appDepositRoute: typeof appDepositRoute
   appOverviewRoute: typeof appOverviewRoute
   appPlaygroundRoute: typeof appPlaygroundRoute
   appSettingsRoute: typeof appSettingsRoute
   appVouchersRoute: typeof appVouchersRoute
+  appWalletRoute: typeof appWalletRoute
   appAgentEscalationDecideRoute: typeof appAgentEscalationDecideRoute
   appAgentSessionApproveRoute: typeof appAgentSessionApproveRoute
   appSessionsSessionIdRoute: typeof appSessionsSessionIdRoute
@@ -408,11 +408,11 @@ interface appLayoutRouteChildren {
 const appLayoutRouteChildren: appLayoutRouteChildren = {
   appActivityRoute: appActivityRoute,
   appCreateSessionRoute: appCreateSessionRoute,
-  appDepositRoute: appDepositRoute,
   appOverviewRoute: appOverviewRoute,
   appPlaygroundRoute: appPlaygroundRoute,
   appSettingsRoute: appSettingsRoute,
   appVouchersRoute: appVouchersRoute,
+  appWalletRoute: appWalletRoute,
   appAgentEscalationDecideRoute: appAgentEscalationDecideRoute,
   appAgentSessionApproveRoute: appAgentSessionApproveRoute,
   appSessionsSessionIdRoute: appSessionsSessionIdRoute,

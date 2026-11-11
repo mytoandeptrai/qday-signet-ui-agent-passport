@@ -1,0 +1,35 @@
+{
+  "title": "Main Wallet",
+  "description": "Your self-custody wallet on QDay. Gas is sponsored, and your keys stay in MetaMask.",
+  "balance": { "label": "Balance", "send": "Send", "receive": "Receive" },
+  "networks": {
+    "title": "Networks",
+    "active": "Active",
+    "coming-soon": "Coming soon"
+  },
+  "transactions": {
+    "title": "Transactions",
+    "empty": "No transactions yet.",
+    "kinds": { "send": "Sent to", "receive": "Received from", "fund": "Funded" }
+  },
+  "send": {
+    "fields": {
+      "to": { "label": "Recipient address", "placeholder": "0x…" },
+      "amount": { "label": "Amount (USD8)" }
+    },
+    "available": "Available: {{amount}}",
+    "submit": "Send {{amount}}",
+    "sending": "Sending…",
+    "errors": {
+      "address": "Enter a valid 0x address",
+      "amount-positive": "Enter an amount above 0",
+      "amount-max": "You only have {{available}} available"
+    },
+    "toasts": { "sent": "Sent {{amount}} USD8", "failed": "Could not send. Try again." }
+  },
+  "receive": {
+    "note": "Send only USD8 on QDay to this address. Other tokens or networks may be lost.",
+    "address": "Your Main Wallet address",
+    "copied": "Address copied"
+  }
+}

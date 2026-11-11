@@ -1,10 +1,12 @@
 import { useGetBalance, useGetOnboarding, useGetProfile, useGetSettings } from '@/apis/account';
 import { useGetSessionList } from '@/apis/sessions';
+import { useAppDialog } from '@/hooks/use-app-dialog';
 import { useTranslation } from '@/integrations/i18n';
 import { toast } from 'sonner';
 
 export const useOverviewBalanceContainer = () => {
   const { t } = useTranslation('overview-page');
+  const { open } = useAppDialog();
   const { data: user } = useGetProfile();
   const { data: balance } = useGetBalance();
   const { data: settings } = useGetSettings();
@@ -28,5 +30,6 @@ export const useOverviewBalanceContainer = () => {
     activeLimit,
     activeSpent,
     onCopyAddress,
+    onAddFunds: () => open('add-funds'),
   };
 };

@@ -1,3 +1,4 @@
+import WalletGate from '@/components/app/wallet-gate';
 import { OverviewAllowanceMeterUi, OverviewBalanceUi } from '../../components';
 import { useOverviewBalanceContainer } from '../../hooks';
 
@@ -6,17 +7,19 @@ type OverviewBalanceContainerProps = {
 };
 
 const OverviewBalanceContainer = ({ onEditAllowance }: OverviewBalanceContainerProps) => {
-  const { available, walletAddress, allowanceConfigured, defaultLimit, activeLimit, activeSpent, onCopyAddress } = useOverviewBalanceContainer();
+  const { available, walletAddress, allowanceConfigured, defaultLimit, activeLimit, activeSpent, onCopyAddress, onAddFunds } = useOverviewBalanceContainer();
   return (
     <aside>
-      <OverviewBalanceUi available={available} walletAddress={walletAddress} onCopyAddress={onCopyAddress} />
-      <OverviewAllowanceMeterUi
-        configured={allowanceConfigured}
-        spent={activeSpent}
-        held={activeLimit}
-        defaultLimit={defaultLimit}
-        onEdit={onEditAllowance}
-      />
+      <WalletGate>
+        <OverviewBalanceUi available={available} walletAddress={walletAddress} onCopyAddress={onCopyAddress} onAddFunds={onAddFunds} />
+        <OverviewAllowanceMeterUi
+          configured={allowanceConfigured}
+          spent={activeSpent}
+          held={activeLimit}
+          defaultLimit={defaultLimit}
+          onEdit={onEditAllowance}
+        />
+      </WalletGate>
     </aside>
   );
 };

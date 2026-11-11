@@ -4,7 +4,7 @@ import {
   GetStartedFundsUi,
   GetStartedHeaderUi,
   GetStartedInstallUi,
-  GetStartedPasskeyUi,
+  GetStartedSignetpassUi,
   GetStartedStepsUi,
   GetStartedTipsUi,
 } from '../../components';
@@ -18,7 +18,7 @@ type GetStartedContainerProps = {
 };
 
 const GetStartedContainer = ({ step, open, onSelectStep, onToggleOpen }: GetStartedContainerProps) => {
-  const { stepId, done, prompt, windows, passkeyCount, available, allowanceForm, onCopyPrompt, onToggleWindows, onAddPasskey, onSaveAllowance } =
+  const { stepId, done, prompt, windows, signetPassCreated, available, allowanceForm, onCopyPrompt, onToggleWindows, onCreateSignetPass, onAddFunds, onSaveAllowance } =
     useGetStartedContainer({ step });
 
   return (
@@ -29,13 +29,13 @@ const GetStartedContainer = ({ step, open, onSelectStep, onToggleOpen }: GetStar
           <GetStartedStepsUi stepId={stepId} done={done} onSelectStep={onSelectStep} />
           <div>
             {stepId === 'connect' && <GetStartedInstallUi prompt={prompt} windows={windows} onCopy={onCopyPrompt} onToggleWindows={onToggleWindows} />}
-            {stepId === 'passkey' && <GetStartedPasskeyUi passkeyCount={passkeyCount} onAddPasskey={onAddPasskey} />}
+            {stepId === 'signetpass' && <GetStartedSignetpassUi created={signetPassCreated} onCreate={onCreateSignetPass} />}
             {stepId === 'allowance' && (
               <FormWrapper form={allowanceForm} onSubmit={onSaveAllowance}>
                 <GetStartedAllowanceUi />
               </FormWrapper>
             )}
-            {stepId === 'funds' && <GetStartedFundsUi available={available} />}
+            {stepId === 'funds' && <GetStartedFundsUi available={available} onAddFunds={onAddFunds} />}
             {stepId === 'learn' && <GetStartedTipsUi />}
           </div>
         </div>

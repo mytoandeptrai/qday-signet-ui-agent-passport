@@ -27,14 +27,14 @@
     "title": "Get started",
     "hints": {
       "connect": "Paste this into your coding agent.",
-      "passkey": "Passkeys protect your approvals.",
+      "signetpass": "Create the wallet your agents spend from.",
       "allowance": "Choose how much your agents can spend.",
       "funds": "Fund your balance.",
       "learn": "What to try next."
     },
     "steps": {
       "connect": "Connect your agent",
-      "passkey": "Secure with passkey",
+      "signetpass": "Create your SignetPass",
       "allowance": "Set your allowance",
       "funds": "Add funds",
       "learn": "Learn Signet"
@@ -44,13 +44,6 @@
     "copy-aria": "Copy the install prompt",
     "on-windows": "On Windows?",
     "on-unix": "On macOS or Linux?"
-  },
-  "passkey": {
-    "have_one": "You have {{count}} passkey on this account.",
-    "have_other": "You have {{count}} passkeys on this account.",
-    "none": "Add a passkey to approve spending with your fingerprint or face.",
-    "add": "Add a passkey",
-    "device": "Device {{number}}"
   },
   "allowance": {
     "title": "Allowance",
@@ -93,9 +86,13 @@
   },
   "toasts": {
     "prompt-copied": "Copied. Paste it into your agent.",
-    "passkey-added": "Passkey added",
     "allowance-saved": "Allowance saved",
     "address-copied": "Address copied",
     "session-revoked": "Session revoked"
+  },
+  "signetpass": {
+    "none": "Your SignetPass is the smart wallet agents spend from. You create it once and confirm in MetaMask.",
+    "created": "Your SignetPass is ready.",
+    "create": "Create SignetPass"
   }
 }

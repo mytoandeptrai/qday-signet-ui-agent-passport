@@ -1,4 +1,5 @@
 import { Outlet } from '@tanstack/react-router';
+import AppDialogs from '@/components/layouts/app-dialogs';
 import AppHeader from '@/components/layouts/app-header';
 import AppSidebar from '@/components/layouts/app-sidebar';
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar';
@@ -16,6 +17,7 @@ const AppLayout: FCC<AppLayoutProps> = () => {
           <Outlet />
         </main>
       </SidebarInset>
+      <AppDialogs />
     </SidebarProvider>
   );
 };

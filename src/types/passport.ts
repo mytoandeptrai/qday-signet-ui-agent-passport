@@ -2,7 +2,7 @@ export type SessionStatus = 'active' | 'revoked' | 'expired' | 'completed';
 export type ActivityStatus = 'settled' | 'blocked' | 'pending';
 export type EscalationStatus = 'pending' | 'approved' | 'declined';
 export type VoucherStatus = 'unused' | 'redeemed' | 'expired';
-export type DepositMethod = 'card' | 'bank' | 'crypto';
+export type DepositMethod = 'card' | 'bank' | 'crypto' | 'wallet';
 export type DepositStatus = 'completed' | 'pending' | 'failed';
 export type Appearance = 'light' | 'dark' | 'system';
 
@@ -147,4 +147,53 @@ export interface PlaygroundScenario {
   task: string;
   limit: number;
   steps: PlaygroundStep[];
+}
+
+export type WalletTxKind = 'send' | 'receive' | 'fund';
+
+export interface WalletTx {
+  id: string;
+  kind: WalletTxKind;
+  /** Recipient for `send`, sender for `receive`, "SignetPass" for `fund`. */
+  counterparty: string;
+  amount: number;
+  createdAt: string;
+}
+
+/** The user's gas-sponsored Main Wallet (USD8 on QDay). */
+export interface MainWallet {
+  balance: number;
+  transactions: WalletTx[];
+}
+
+export interface SignetPassAccount {
+  created: boolean;
+  createdAt?: string;
+}
+
+export type AgentStatus = 'pending' | 'active' | 'revoked';
+
+export interface Agent {
+  id: string;
+  name: string;
+  status: AgentStatus;
+  requestedAt: string;
+  approvedAt?: string;
+}
+
+export type SecurityEventType =
+  | 'wallet-connected'
+  | 'wallet-disconnected'
+  | 'signetpass-created'
+  | 'transfer'
+  | 'agent-approved'
+  | 'agent-revoked'
+  | 'session-created'
+  | 'session-revoked';
+
+export interface SecurityEvent {
+  id: string;
+  type: SecurityEventType;
+  detail: string;
+  createdAt: string;
 }

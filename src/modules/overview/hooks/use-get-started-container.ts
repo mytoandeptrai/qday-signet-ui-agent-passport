@@ -1,4 +1,6 @@
-import { useAddPasskeyMutation, useCompleteOnboardingMutation, useGetBalance, useGetOnboarding, useGetProfile, useGetSettings, useUpdateSettingsMutation } from '@/apis/account';
+import { useCompleteOnboardingMutation, useGetBalance, useGetOnboarding, useGetSettings, useUpdateSettingsMutation } from '@/apis/account';
+import { useGetSignetPass } from '@/apis/signetpass';
+import { useAppDialog } from '@/hooks/use-app-dialog';
 import { useTranslation } from '@/integrations/i18n';
 import { INSTALL_PROMPT } from '@/mock/landing';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -16,16 +18,15 @@ type UseGetStartedContainerParams = {
 
 export const useGetStartedContainer = ({ step }: UseGetStartedContainerParams) => {
   const { t } = useTranslation('overview-page');
-  const { data: user } = useGetProfile();
   const { data: balance } = useGetBalance();
   const { data: settings } = useGetSettings();
   const { data: onboarding } = useGetOnboarding();
   const completeOnboarding = useCompleteOnboardingMutation();
   const updateSettings = useUpdateSettingsMutation();
-  const addPasskey = useAddPasskeyMutation();
+  const { data: signetPass } = useGetSignetPass();
+  const { open } = useAppDialog();
   const [windows, setWindows] = useState(false);
 
-  const passkeyCount = user?.passkeys.length ?? 0;
   const available = balance?.available ?? 0;
 
   const allowanceForm = useForm<AllowanceFormData>({
@@ -36,7 +37,7 @@ export const useGetStartedContainer = ({ step }: UseGetStartedContainerParams) =
 
   const done: Record<GetStartedStepId, boolean> = {
     connect: onboarding?.connected ?? false,
-    passkey: passkeyCount > 0,
+    signetpass: signetPass?.created ?? false,
     allowance: onboarding?.allowance ?? false,
     funds: available > 0,
     learn: true,
@@ -52,10 +53,8 @@ export const useGetStartedContainer = ({ step }: UseGetStartedContainerParams) =
 
   const onToggleWindows = () => setWindows((w) => !w);
 
-  const onAddPasskey = async () => {
-    await addPasskey.mutateAsync({ label: t('passkey.device', { number: passkeyCount + 1 }) });
-    toast.success(t('toasts.passkey-added'));
-  };
+  const onCreateSignetPass = () => open('create-signetpass');
+  const onAddFunds = () => open('add-funds');
 
   const onSaveAllowance = async ({ limit, perCall }: AllowanceFormData) => {
     await updateSettings.mutateAsync({ defaultLimit: limit, defaultPerCallLimit: perCall });
@@ -68,12 +67,13 @@ export const useGetStartedContainer = ({ step }: UseGetStartedContainerParams) =
     done,
     prompt,
     windows,
-    passkeyCount,
+    signetPassCreated: signetPass?.created ?? false,
     available,
     allowanceForm,
     onCopyPrompt,
     onToggleWindows,
-    onAddPasskey,
+    onCreateSignetPass,
+    onAddFunds,
     onSaveAllowance,
   };
 };

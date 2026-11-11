@@ -13,7 +13,7 @@ import { useAppHeaderAccount } from './use-app-header-account';
 
 const AppHeaderAccount = () => {
   const { t } = useTranslation('layout');
-  const { user, onNavigate, onSignOut } = useAppHeaderAccount();
+  const { user, onNavigate, onAddFunds, onSignOut } = useAppHeaderAccount();
 
   return (
     <DropdownMenu>
@@ -30,7 +30,7 @@ const AppHeaderAccount = () => {
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem onSelect={() => onNavigate(ROUTES.SETTINGS)}>{t('account.settings')}</DropdownMenuItem>
-        <DropdownMenuItem onSelect={() => onNavigate(ROUTES.DEPOSIT)}>{t('account.deposit')}</DropdownMenuItem>
+        <DropdownMenuItem onSelect={onAddFunds}>{t('account.deposit')}</DropdownMenuItem>
         <DropdownMenuItem onSelect={() => onNavigate(ROUTES.VOUCHERS)}>{t('account.vouchers')}</DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem onSelect={onSignOut}>{t('account.sign-out')}</DropdownMenuItem>

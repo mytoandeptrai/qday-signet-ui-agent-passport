@@ -6,7 +6,8 @@
     "products": "Products",
     "signet-router": "Signet Router",
     "new-session": "New session",
-    "help": "Help"
+    "help": "Help",
+    "wallet": "Wallet"
   },
   "help": {
     "documentation": "Documentation",
@@ -28,7 +29,7 @@
   "account": {
     "menu": "Account menu",
     "settings": "Settings",
-    "deposit": "Deposit",
+    "deposit": "Add funds",
     "vouchers": "Vouchers",
     "sign-out": "Sign out"
   },
@@ -37,5 +38,23 @@
     "docs": "Docs open in the real product",
     "support": "Message sent to support (mock)",
     "signed-out": "Signed out"
+  },
+  "dialogs": {
+    "send": {
+      "title": "Send USD8",
+      "description": "Send USD8 from your Main Wallet. You confirm in MetaMask."
+    },
+    "receive": {
+      "title": "Receive USD8",
+      "description": "Share this address to receive USD8 on QDay."
+    },
+    "create-signetpass": {
+      "title": "Create your SignetPass",
+      "description": "Review the details, then confirm in MetaMask."
+    },
+    "add-funds": {
+      "title": "Add funds",
+      "description": "Fund your SignetPass so agents can spend within your limits."
+    }
   }
 }

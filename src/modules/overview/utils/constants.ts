@@ -2,7 +2,7 @@ export const IDEA_IDS = ['learn', 'purchases', 'cloud', 'apartments', 'candidate
 
 export type IdeaId = (typeof IDEA_IDS)[number];
 
-export const GET_STARTED_STEPS = ['connect', 'passkey', 'allowance', 'funds', 'learn'] as const;
+export const GET_STARTED_STEPS = ['connect', 'signetpass', 'allowance', 'funds', 'learn'] as const;
 
 export type GetStartedStepId = (typeof GET_STARTED_STEPS)[number];
 

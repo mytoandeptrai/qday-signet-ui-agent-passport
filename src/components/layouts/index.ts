@@ -4,3 +4,4 @@ export { default as AppSidebar } from './app-sidebar';
 export { default as PublicFooter } from './public-footer';
 export { default as PublicHeader } from './public-header';
 export { default as PublicLayout } from './public-layout';
+export { default as AppDialogs } from './app-dialogs';
