@@ -37,7 +37,7 @@ const LoginEmailFormUi = ({ isSignup = false, isLoading = false, redirect }: Log
         </Show>
         {t('labels.continue')}
       </Button>
-      <p className='flex justify-center gap-1 pt-4 text-muted-foreground text-small'>
+      <p className='flex justify-center items-center gap-1 pt-4 text-muted-foreground text-small'>
         {isSignup ? t('email.have-account') : t('email.new-here')}
         <CustomLink
           to={ROUTES.LOGIN}

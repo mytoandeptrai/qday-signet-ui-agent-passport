@@ -18,7 +18,7 @@ const LanguageSwitcher = ({ className }: LanguageSwitcherProps) => {
         className={cn('flex items-center gap-1.5 outline-none transition-colors', className)}
       >
         <GlobeIcon className='size-4' strokeWidth={1.5} />
-        <span className='hidden md:inline'>{current.nativeName}</span>
+        <span className='hidden md:inline text-sm'>{current.nativeName}</span>
       </DropdownMenuTrigger>
       <DropdownMenuContent align='end' className='min-w-40'>
         {languages.map((language) => (
