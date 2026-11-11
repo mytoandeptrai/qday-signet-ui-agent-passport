@@ -12,7 +12,7 @@ const AppHeader = () => {
   const { t } = useTranslation('layout');
 
   return (
-    <header className='flex h-16 shrink-0 items-center gap-3 border-b bg-background/60 px-4 md:px-8'>
+    <header className='sticky top-0 z-20 flex h-16 shrink-0 items-center gap-3 border-b bg-background/80 px-4 backdrop-blur-md md:px-8'>
       <SidebarTrigger className='-ml-1 md:hidden' />
       <AppHeaderBanner />
       <div className='ml-auto flex items-center gap-1'>
