@@ -34,15 +34,15 @@ const AppSidebar = () => {
 
   return (
     <Sidebar collapsible='icon'>
-      <SidebarHeader className='px-4 pt-5 pb-6'>
-        <CustomLink to={ROUTES.HOME} aria-label='Signet' className='flex items-center p-0'>
+      <SidebarHeader className='px-4 pt-5 pb-6 group-data-[collapsible=icon]:px-0'>
+        <CustomLink to={ROUTES.HOME} aria-label='Signet' className='flex items-center p-0 group-data-[collapsible=icon]:justify-center'>
           <SignetMark className='hidden size-7 shrink-0 group-data-[collapsible=icon]:block' />
           <span className='group-data-[collapsible=icon]:hidden'>
             <SignetLockup linked={false} className='h-7' />
           </span>
         </CustomLink>
       </SidebarHeader>
-      <SidebarContent className='overflow-x-hidden px-2'>
+      <SidebarContent className='overflow-x-hidden px-2 group-data-[collapsible=icon]:px-0'>
         <SidebarGroup>
           <SidebarMenu>
             {items.map(({ url, title, icon: Icon }) => (
@@ -76,7 +76,7 @@ const AppSidebar = () => {
           </SidebarMenu>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter className='px-2 pb-3'>
+      <SidebarFooter className='px-2 pb-3 group-data-[collapsible=icon]:px-0'>
         <SidebarMenu>
           <AppSidebarWallet />
           <SidebarMenuItem>
