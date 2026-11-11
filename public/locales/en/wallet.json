@@ -1,0 +1,25 @@
+{
+  "connect": {
+    "button": "Connect wallet",
+    "connecting": "Connecting…",
+    "rejected": "Connection rejected in MetaMask. Try again.",
+    "error": "Could not connect. Try again."
+  },
+  "gate": {
+    "title": "Connect your wallet",
+    "description": "Connect MetaMask to see your balances and approve payments. Your keys stay in MetaMask."
+  },
+  "menu": {
+    "label": "Connected wallet",
+    "copy": "Copy address",
+    "copied": "Copied",
+    "network": "Network",
+    "disconnect": "Disconnect"
+  },
+  "sign": {
+    "waiting": "Waiting for MetaMask signature…",
+    "success": "Signed",
+    "rejected": "Signature rejected in MetaMask.",
+    "error": "Signing failed. Try again."
+  }
+}

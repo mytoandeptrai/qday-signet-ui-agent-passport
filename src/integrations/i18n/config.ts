@@ -31,6 +31,7 @@ i18n
       'validation',
       'navigation',
       'layout',
+      'wallet',
       'public-layout',
       'login-page',
       'overview-page',

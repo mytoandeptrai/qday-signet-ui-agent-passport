@@ -10,6 +10,7 @@ import {
   SEED_SETTINGS,
   SEED_VOUCHERS,
 } from '@/mock/seed';
+import type { WalletSession } from '@/integrations/wallet/types';
 import type {
   ActivityItem,
   AppSettings,
@@ -32,10 +33,12 @@ interface PassportState {
   vouchers: Voucher[];
   deposits: Deposit[];
   settings: AppSettings;
+  wallet: WalletSession | null;
   onboarding: { connected: boolean; allowance: boolean };
 
   signIn: (user: User) => void;
   signOut: () => void;
+  setWallet: (wallet: WalletSession | null) => void;
   createSession: (input: CreateSessionInput) => SpendingSession;
   revokeSession: (id: string) => void;
   decideEscalation: (id: string, approve: boolean) => void;
@@ -59,6 +62,7 @@ const initial = () => ({
   vouchers: SEED_VOUCHERS,
   deposits: SEED_DEPOSITS,
   settings: SEED_SETTINGS,
+  wallet: null,
   onboarding: { connected: false, allowance: false },
 });
 
@@ -69,7 +73,8 @@ export const usePassportStore = create<PassportState>()(
       ...initial(),
 
       signIn: (user) => set({ user }),
-      signOut: () => set({ user: null }),
+      signOut: () => set({ user: null, wallet: null }),
+      setWallet: (wallet) => set({ wallet }),
 
       createSession: (input) => {
         const session: SpendingSession = {

@@ -22,6 +22,7 @@ import {
 } from '@/components/ui/sidebar';
 import { ROUTES } from '@/constant';
 import { useTranslation } from '@/integrations/i18n';
+import AppSidebarWallet from './app-sidebar-wallet';
 import { useAppSidebar } from './use-app-sidebar';
 
 const menuButtonClass = 'h-10 gap-3 px-3 text-body [&_svg]:size-[18px] [&_svg]:text-muted-foreground';
@@ -77,6 +78,7 @@ const AppSidebar = () => {
       </SidebarContent>
       <SidebarFooter className='px-2 pb-3'>
         <SidebarMenu>
+          <AppSidebarWallet />
           <SidebarMenuItem>
             <SidebarMenuButton asChild tooltip={t('nav.new-session')} className={`${menuButtonClass} text-muted-foreground`}>
               <Link to={ROUTES.CREATE_SESSION}>
