@@ -1,0 +1,18 @@
+{
+  "back": "← Overview",
+  "header": {
+    "description": "{{agent}} · started {{started}} · {{state}}",
+    "expires": "expires {{when}}"
+  },
+  "revoke": {
+    "button": "Revoke",
+    "title": "Revoke this session?",
+    "description": "{{amount}} returns to your balance. This cannot be undone.",
+    "cancel": "Cancel",
+    "confirm": "Revoke"
+  },
+  "activity": { "title": "Activity", "empty": "No payments yet." },
+  "spend": { "title": "Spend" },
+  "services": { "title": "Allowed services", "any": "Any service, within the limits." },
+  "toasts": { "revoked": "Session revoked" }
+}

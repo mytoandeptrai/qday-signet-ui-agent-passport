@@ -1,0 +1,23 @@
+{
+  "title": "New session",
+  "description": "A session is one job with a hard spending cap. Your agent cannot spend past it.",
+  "fields": {
+    "task": { "label": "Task", "placeholder": "Team dinner for 12" },
+    "agent": { "label": "Agent" },
+    "limit": { "label": "Session limit (USD)" },
+    "per-call": { "label": "Per-call limit (USD)" },
+    "hours": { "label": "Expires after (hours)" }
+  },
+  "available": "Available balance:",
+  "labels": { "create": "Create session", "creating": "Creating…" },
+  "errors": {
+    "task-min": "Describe the job in a few words",
+    "task-max": "Keep it under 80 characters",
+    "amount-required": "Enter an amount",
+    "amount-positive": "Must be more than $0",
+    "amount-max": "You only have {{available}} available",
+    "per-call-exceeds": "Per-call limit cannot exceed the session limit",
+    "hours-invalid": "Enter a whole number of hours, 1 to 168"
+  },
+  "toasts": { "created": "Session created", "held": "{{amount}} held for {{agent}}." }
+}

@@ -1,0 +1,9 @@
+{
+  "missing": "That request no longer exists.",
+  "back": "Back to overview",
+  "over-limit": "Over your limit · {{when}}",
+  "wants": "{{agent}} wants {{amount}}",
+  "explain": "{{service}}: {{description}}. This is past the limit you set, so it was stopped until you decide.",
+  "labels": { "approve-once": "Approve once", "decline": "Decline" },
+  "toasts": { "approved": "Approved once", "declined": "Declined" }
+}

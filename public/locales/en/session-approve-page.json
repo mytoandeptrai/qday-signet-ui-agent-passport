@@ -1,0 +1,7 @@
+{
+  "asking": "{{agent}} is asking to spend",
+  "expires": "Expires after {{hours}} hours. You can revoke it at any time.",
+  "short": "You have {{available}} available. Deposit funds first.",
+  "labels": { "approve": "Approve", "decline": "Decline" },
+  "toasts": { "approved": "Session approved", "declined": "Request declined" }
+}
