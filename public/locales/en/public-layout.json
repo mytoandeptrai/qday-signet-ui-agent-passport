@@ -1,0 +1,29 @@
+{
+  "nav": {
+    "how-it-works": "How it works",
+    "explore": "Explore",
+    "ecosystem": "Ecosystem",
+    "developers": "Developers"
+  },
+  "header": {
+    "main": "Main",
+    "menu": "Menu",
+    "close-menu": "Close menu",
+    "sign-in": "Sign in",
+    "dashboard": "Dashboard",
+    "get-started": "Get started"
+  },
+  "footer": {
+    "product": "Product",
+    "signet": "Signet",
+    "legal": "Legal",
+    "documentation": "Documentation",
+    "discord": "Discord",
+    "x": "X",
+    "linkedin": "LinkedIn",
+    "terms": "Terms",
+    "privacy": "Privacy",
+    "copyright": "© QDAY 2026",
+    "feedback": "Feedback"
+  }
+}

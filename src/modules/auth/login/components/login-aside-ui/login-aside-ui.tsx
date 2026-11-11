@@ -1,4 +1,4 @@
-import { SignetPlate } from '@/components/landing/signet-plate';
+import { SignetPlate } from '@/components/brand/signet-plate';
 import { useTranslation } from '@/integrations/i18n';
 
 const LoginAsideUi = () => {

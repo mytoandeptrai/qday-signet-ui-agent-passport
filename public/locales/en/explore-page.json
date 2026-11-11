@@ -1,0 +1,24 @@
+{
+  "title": "Explore services",
+  "description": "2,000+ services your agent can pay for. Showing {{count}} featured.",
+  "search-placeholder": "Search services",
+  "sort": {
+    "label": "Sort",
+    "popular": "Most popular",
+    "name": "Name",
+    "price-asc": "Price: low to high",
+    "price-desc": "Price: high to low"
+  },
+  "categories": "Categories",
+  "empty": "No services match “{{query}}”.",
+  "dialog": {
+    "price": "Price",
+    "category": "Category",
+    "provider": "Provider",
+    "use": "Use in a session",
+    "sign-in": "Sign in to use"
+  },
+  "toasts": {
+    "added": "{{name}} added to your next session"
+  }
+}

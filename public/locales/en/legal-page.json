@@ -1,0 +1,13 @@
+{
+  "terms": {
+    "title": "Terms of service"
+  },
+  "privacy": {
+    "title": "Privacy policy"
+  },
+  "updated": "Sample content for the demo. Last updated 1 January 2026.",
+  "paragraphs": [
+    "Signet is a demo product. Every name, number and partner on this site is sample data, and no real payment is made.",
+    "Replace this page with your legal text before launch."
+  ]
+}

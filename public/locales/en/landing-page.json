@@ -1,0 +1,96 @@
+{
+  "hero": {
+    "heading-sr": "Let your agents pay for shopping, APIs and leads",
+    "heading": "Let your agents pay for",
+    "description": "Signet gives your agent a balance it can spend across 2,000+ services, strictly within the limits you set.",
+    "get-started": "Get started",
+    "words": ["shopping", "APIs", "leads"],
+    "plate-label": "A lattice of connected nodes lighting up around the Signet mark"
+  },
+  "install": {
+    "button": "Install",
+    "copied": "Copied. Paste it into your agent.",
+    "aria": "Install: copy the install prompt",
+    "tip-before": "Install Signet: run",
+    "tip-after": ". It adds the signet command and the Signet skills, and you can read the script first. When it finishes, tell me in plain words what it printed.",
+    "tip-hint": "Paste into Claude Code or Codex",
+    "tip-action": "Click to copy",
+    "toast": "Install prompt copied. Paste it into your agent.",
+    "copy-aria": "Copy the install prompt",
+    "copy-toast": "Install prompt copied"
+  },
+  "terminal": {
+    "name": "signet",
+    "lines": [
+      "$ signet session create --task \"Team dinner\" --limit 20 --per-call 5",
+      "Session ses_team_dinner is live. $20.00 held.",
+      "→ StablePhone · 6 calls · $3.24",
+      "→ AgentRes · booking for 12 · $0.01",
+      "→ Amazon · table flowers · $48.00",
+      "Stopped: over the $20 session limit."
+    ]
+  },
+  "marquee": {
+    "label": "Investors and partners",
+    "title": "Investors & partners"
+  },
+  "session": {
+    "heading": "Set enforceable limits.",
+    "title": "Team dinner for 12",
+    "plate-label": "Daily spending bars rising toward a dashed limit line",
+    "revoke": "Revoke",
+    "revoked": "Revoked",
+    "revoked-toast": "Session revoked. Remaining balance returned.",
+    "spent": "spent",
+    "left": "left",
+    "limit": "${{amount}} limit",
+    "per-call": "${{amount}} per call",
+    "activity": "Activity",
+    "points": ["Set your spending rules", "Agents pay freely within those rules", "Revoke at any time"]
+  },
+  "lines": {
+    "agents": {
+      "text": "Each job runs within a spending session.",
+      "link": "How sessions work"
+    },
+    "record": {
+      "text": "Every payment lands on one record: what was bought, from whom, and which task asked for it.",
+      "link": "See your activity"
+    },
+    "services": {
+      "text": "Your agent can pay for StablePhone, StableEnrich, Resy, Amazon, PostalForm, AgentFax and more: 2,000+ services.",
+      "link": "Browse all services"
+    }
+  },
+  "how": {
+    "eyebrow": "How it works",
+    "heading": "Three steps to a first payment.",
+    "steps": ["Install with one line", "Set your limits", "Ask for a job"],
+    "job-prompt": "Call six restaurants and find us a private room for 12.",
+    "job-line": "StablePhone, 6 calls",
+    "job-toast": "Job sent to your agent",
+    "per-call": "${{amount}} a call"
+  },
+  "day": {
+    "heading": "A day on Signet.",
+    "label": "A timeline of six payments across one day, with the daily budget filling as each one lands",
+    "spent-today": "Spent today",
+    "budget": "of ${{amount}} budget",
+    "within-limits": "All within limits",
+    "stopped-count": "{{count}} stopped at your limit",
+    "stopped-line": "Stopped: ${{amount}} is over your limit",
+    "paid-line": "{{service}} · ${{amount}}",
+    "moments": [
+      "Called 12 hardware shops to ask who has the part",
+      "Found the owners of 20 cafés, with verified emails",
+      "Booked a table for eight on Friday",
+      "Ordered a welcome kit to the new hire's door",
+      "Tried to buy an office chair",
+      "Mailed a printed thank-you letter to a customer"
+    ]
+  },
+  "closing": {
+    "heading": "Give your agent a Signet.",
+    "plate-label": "Rings of services orbiting the Signet mark"
+  }
+}
