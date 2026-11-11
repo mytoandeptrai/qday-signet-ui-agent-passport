@@ -7,6 +7,8 @@ const MOCK_ADDRESS = '0x71C7656EC7ab88b098defB751B7401B5f6d8976F';
 /** Flip `rejectNext` (e.g. from the console or a test) to exercise the MetaMask rejection path. */
 export const mockWalletControl = { rejectNext: false };
 
+if (import.meta.env.DEV) (window as unknown as { __mockWallet: typeof mockWalletControl }).__mockWallet = mockWalletControl;
+
 const maybeReject = () => {
   if (!mockWalletControl.rejectNext) return;
   mockWalletControl.rejectNext = false;
