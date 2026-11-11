@@ -21,6 +21,11 @@ const GetStartedContainer = ({ step, open, onSelectStep, onToggleOpen }: GetStar
   const { stepId, done, prompt, windows, signetPassCreated, available, allowanceForm, onCopyPrompt, onToggleWindows, onCreateSignetPass, onAddFunds, onSaveAllowance } =
     useGetStartedContainer({ step });
 
+  const onSubmitAllowance = async (values: Parameters<typeof onSaveAllowance>[0]) => {
+    await onSaveAllowance(values);
+    onToggleOpen();
+  };
+
   return (
     <div className='mt-10 border-t pt-8'>
       <GetStartedHeaderUi stepId={stepId} open={open} onToggleOpen={onToggleOpen} />
@@ -31,7 +36,7 @@ const GetStartedContainer = ({ step, open, onSelectStep, onToggleOpen }: GetStar
             {stepId === 'connect' && <GetStartedInstallUi prompt={prompt} windows={windows} onCopy={onCopyPrompt} onToggleWindows={onToggleWindows} />}
             {stepId === 'signetpass' && <GetStartedSignetpassUi created={signetPassCreated} onCreate={onCreateSignetPass} />}
             {stepId === 'allowance' && (
-              <FormWrapper form={allowanceForm} onSubmit={onSaveAllowance}>
+              <FormWrapper form={allowanceForm} onSubmit={onSubmitAllowance}>
                 <GetStartedAllowanceUi />
               </FormWrapper>
             )}
