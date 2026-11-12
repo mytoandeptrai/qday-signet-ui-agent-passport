@@ -60,14 +60,15 @@ export const useAddFundsContainer = () => {
     summary,
     isLoading: status === 'waiting' || fund.isPending,
     onTabChange: (next: string) => setTab(next as AddFundsTab),
-    cardEnabled: isMoonPayEnabled,
+    // MoonPay delivers USDC on Base, so only a Base SignetPass can be funded by card.
+    cardEnabled: isMoonPayEnabled && pass?.network === cardNetwork.key,
     cardNetwork,
     onCardNetwork: !isUnsupported && activeNetwork.key === cardNetwork.key,
     isCardOpening: buyStatus === 'opening',
     isSwitchingToCard: switchingTo === cardNetwork.chainId,
     onSwitchToCardNetwork: () => switchNetwork(cardNetwork.key),
     // The SignetPass receives the coins.
-    onBuyWithCard: () => user?.walletAddress && startBuy(user.walletAddress),
+    onBuyWithCard: () => pass && startBuy(pass.address),
     onCreateSignetPass: () => open('create-signetpass'),
     onSubmit,
   };

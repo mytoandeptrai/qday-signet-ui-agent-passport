@@ -45,7 +45,22 @@
       }
     },
     "card": {
-      "coming-soon": "Card payments are coming soon."
+      "coming-soon": "Card payments are coming soon.",
+      "pay-with": "Pay with",
+      "card": "Card",
+      "receive": "Receive",
+      "token-on": "{{token}} on {{network}}",
+      "to": "To your SignetPass",
+      "continue": "Continue to MoonPay",
+      "opening": "Opening MoonPay…",
+      "note": "Card payments are handled by MoonPay. You sign in, verify and pay there; the coins arrive in your SignetPass within a few minutes.",
+      "switch-hint": "Card purchases deliver to {{network}}. Switch your wallet to {{network}} to continue.",
+      "switch": "Switch to {{network}}",
+      "toasts": {
+        "submitted": "Purchase submitted. Coins arrive in a few minutes.",
+        "completed": "Purchase complete.",
+        "error": "Couldn't open MoonPay. Try again in a moment."
+      }
     }
   }
 }
