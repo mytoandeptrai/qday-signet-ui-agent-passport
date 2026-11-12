@@ -5,7 +5,7 @@ export type ConnectStatus = 'idle' | 'connecting' | 'reconnecting';
 
 export const useWallet = () => {
   const { address, chainId, isConnected, isConnecting, isReconnecting } = useAccount();
-  const { openConnectModal } = useConnectModal();
+  const { openConnectModal, connectModalOpen } = useConnectModal();
   const { disconnectAsync } = useDisconnect();
 
   const status: ConnectStatus = isConnecting ? 'connecting' : isReconnecting ? 'reconnecting' : 'idle';
@@ -15,6 +15,7 @@ export const useWallet = () => {
     chainId,
     isConnected,
     status,
+    isConnectModalOpen: connectModalOpen,
     connect: () => openConnectModal?.(),
     disconnect: async () => {
       await disconnectAsync();
