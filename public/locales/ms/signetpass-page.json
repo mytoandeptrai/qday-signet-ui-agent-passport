@@ -45,7 +45,22 @@
       }
     },
     "card": {
-      "coming-soon": "Pembayaran kad akan datang."
+      "coming-soon": "Pembayaran kad akan datang.",
+      "pay-with": "Bayar dengan",
+      "card": "Kad",
+      "receive": "Terima",
+      "token-on": "{{token}} di {{network}}",
+      "to": "Ke SignetPass anda",
+      "continue": "Teruskan ke MoonPay",
+      "opening": "Membuka MoonPay…",
+      "note": "Pembayaran kad diuruskan oleh MoonPay. Anda log masuk, sahkan dan bayar di sana; syiling tiba di SignetPass anda dalam beberapa minit.",
+      "switch-hint": "Pembelian kad dihantar ke {{network}}. Tukar dompet anda ke {{network}} untuk meneruskan.",
+      "switch": "Tukar ke {{network}}",
+      "toasts": {
+        "submitted": "Pembelian dihantar. Syiling tiba dalam beberapa minit.",
+        "completed": "Pembelian selesai.",
+        "error": "MoonPay tidak dapat dibuka. Cuba lagi sebentar lagi."
+      }
     }
   }
 }

@@ -45,7 +45,22 @@
       }
     },
     "card": {
-      "coming-soon": "カード決済は近日公開予定です。"
+      "coming-soon": "カード決済は近日公開予定です。",
+      "pay-with": "支払い方法",
+      "card": "カード",
+      "receive": "受け取り",
+      "token-on": "{{network}} の {{token}}",
+      "to": "送付先 SignetPass",
+      "continue": "MoonPay に進む",
+      "opening": "MoonPay を開いています…",
+      "note": "カード決済は MoonPay が処理します。ログイン・本人確認・支払いは MoonPay で行い、数分で SignetPass に届きます。",
+      "switch-hint": "カード購入は {{network}} に届きます。続けるにはウォレットを {{network}} に切り替えてください。",
+      "switch": "{{network}} に切り替える",
+      "toasts": {
+        "submitted": "購入を受け付けました。数分で届きます。",
+        "completed": "購入が完了しました。",
+        "error": "MoonPay を開けませんでした。しばらくしてからもう一度お試しください。"
+      }
     }
   }
 }

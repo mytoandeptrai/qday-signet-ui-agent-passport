@@ -3,10 +3,11 @@ import { useGetMainWallet } from '@/apis/wallet';
 import { NETWORKS } from '@/constant';
 import { useAppDialog } from '@/hooks/use-app-dialog';
 import { useTranslation } from '@/integrations/i18n';
-import { useSignAction } from '@/integrations/wallet';
+import { isMoonPayEnabled, useMoonPayBuyStore } from '@/integrations/moonpay';
+import { useActiveNetwork, useSignAction } from '@/integrations/wallet';
 import { money } from '@/lib/format';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { type AddFundsTab, initialTransferFormData, type TransferFormData, transferFormSchema } from './schema';
@@ -21,6 +22,16 @@ export const useAddFundsContainer = () => {
   const { status, summary, run } = useSignAction();
   const [tab, setTab] = useState<AddFundsTab>('crypto');
   const mainBalance = mainWallet?.balance ?? 0;
+  const { network: activeNetwork, isUnsupported, switchingTo, switchNetwork } = useActiveNetwork();
+  const buyStatus = useMoonPayBuyStore((s) => s.status);
+  const startBuy = useMoonPayBuyStore((s) => s.start);
+  // Card purchases deliver USDC on Base.
+  const cardNetwork = NETWORKS.base;
+
+  // Close this dialog once the MoonPay overlay is up: the dialog would otherwise block clicks on it.
+  useEffect(() => {
+    if (buyStatus === 'open') close();
+  }, [buyStatus, close]);
 
   const form = useForm<TransferFormData>({
     resolver: zodResolver(transferFormSchema(t, mainBalance)),
@@ -49,6 +60,14 @@ export const useAddFundsContainer = () => {
     summary,
     isLoading: status === 'waiting' || fund.isPending,
     onTabChange: (next: string) => setTab(next as AddFundsTab),
+    cardEnabled: isMoonPayEnabled,
+    cardNetwork,
+    onCardNetwork: !isUnsupported && activeNetwork.key === cardNetwork.key,
+    isCardOpening: buyStatus === 'opening',
+    isSwitchingToCard: switchingTo === cardNetwork.chainId,
+    onSwitchToCardNetwork: () => switchNetwork(cardNetwork.key),
+    // The SignetPass receives the coins.
+    onBuyWithCard: () => user?.walletAddress && startBuy(user.walletAddress),
     onCreateSignetPass: () => open('create-signetpass'),
     onSubmit,
   };

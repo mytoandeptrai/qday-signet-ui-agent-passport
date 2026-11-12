@@ -3,6 +3,7 @@ import AppDialogs from '@/components/layouts/app-dialogs';
 import AppHeader from '@/components/layouts/app-header';
 import AppSidebar from '@/components/layouts/app-sidebar';
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar';
+import { MoonPayHost } from '@/integrations/moonpay';
 import type { FCC } from '@/types';
 
 type AppLayoutProps = {};
@@ -18,6 +19,7 @@ const AppLayout: FCC<AppLayoutProps> = () => {
         </main>
       </SidebarInset>
       <AppDialogs />
+      <MoonPayHost />
     </SidebarProvider>
   );
 };
