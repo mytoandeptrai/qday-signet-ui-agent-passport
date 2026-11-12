@@ -1,8 +1,9 @@
+import { selectedPass } from '@/stores/passport-store';
 import { mockRequest } from '../mock-transport';
 import type { AppSettings, OnboardingStep } from './types';
 
 export const getProfile = () => mockRequest((s) => s.user);
-export const getBalance = () => mockRequest((s) => s.balance);
+export const getBalance = () => mockRequest((s) => selectedPass(s)?.balance ?? { available: 0, held: 0, currency: 'USD' as const });
 export const getSettings = () => mockRequest((s) => s.settings);
 export const getOnboarding = () => mockRequest((s) => s.onboarding);
 

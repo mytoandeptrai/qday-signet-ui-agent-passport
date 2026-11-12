@@ -2,17 +2,29 @@
   "create": {
     "title": "Create your SignetPass",
     "description": "A smart spending wallet owned by your MetaMask address. Agents spend from it within the limits you set.",
+    "name": "Name",
+    "name-placeholder": "e.g. Shopping",
     "owner": "Owner",
     "network": "Network",
-    "address": "SignetPass address",
     "gas": "Gas for the SignetPass is not sponsored. The Main Wallet is.",
     "submit": "Create SignetPass",
     "creating": "Creating…",
-    "toasts": { "created": "SignetPass created" }
+    "toasts": {
+      "created": "{{name}} created"
+    },
+    "errors": {
+      "name-required": "Enter a name",
+      "name-max": "Use {{max}} characters or fewer",
+      "name-taken": "You already have a SignetPass with this name"
+    }
   },
   "add-funds": {
     "balance": "SignetPass balance",
-    "tabs": { "crypto": "Crypto", "wallet": "Main Wallet", "card": "Card" },
+    "tabs": {
+      "crypto": "Crypto",
+      "wallet": "Main Wallet",
+      "card": "Card"
+    },
     "needs-signetpass": "Create your SignetPass before adding funds.",
     "create-first": "Create SignetPass",
     "crypto": {
@@ -28,8 +40,12 @@
         "amount-positive": "Enter an amount above 0",
         "amount-max": "Your Main Wallet only has {{available}}"
       },
-      "toasts": { "done": "{{amount}} moved to your SignetPass" }
+      "toasts": {
+        "done": "{{amount}} moved to {{name}}"
+      }
     },
-    "card": { "coming-soon": "Card payments are coming soon." }
+    "card": {
+      "coming-soon": "Card payments are coming soon."
+    }
   }
 }

@@ -64,7 +64,7 @@
   "balance": {
     "title": "Baki SignetPass",
     "wallet": "SignetPass",
-    "your-wallet": "SignetPass anda"
+    "title-named": "Baki {{name}} ({{token}})"
   },
   "sessions": {
     "title": "Sesi",

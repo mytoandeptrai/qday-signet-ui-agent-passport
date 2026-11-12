@@ -52,7 +52,8 @@
     "reset": "デモデータをリセット",
     "account-id": "アカウント ID",
     "connected-wallet": "接続中のウォレット",
-    "not-connected": "未接続"
+    "not-connected": "未接続",
+    "no-signetpass": "SignetPass はまだありません"
   },
   "errors": {
     "amount-positive": "$0 より大きい金額にしてください",

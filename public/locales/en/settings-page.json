@@ -52,7 +52,8 @@
     "reset": "Reset demo data",
     "account-id": "Account ID",
     "connected-wallet": "Connected wallet",
-    "not-connected": "Not connected"
+    "not-connected": "Not connected",
+    "no-signetpass": "No SignetPass yet"
   },
   "errors": {
     "amount-positive": "Must be more than $0",

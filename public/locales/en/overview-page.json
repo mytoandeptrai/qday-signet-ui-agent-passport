@@ -64,7 +64,7 @@
   "balance": {
     "title": "SignetPass balance",
     "wallet": "SignetPass",
-    "your-wallet": "Your SignetPass"
+    "title-named": "{{name}} balance ({{token}})"
   },
   "sessions": {
     "title": "Sessions",

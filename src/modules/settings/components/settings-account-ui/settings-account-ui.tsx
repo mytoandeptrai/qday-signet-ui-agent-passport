@@ -2,18 +2,19 @@ import ShortAddress from '@/components/ui/short-address';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { useTranslation } from '@/integrations/i18n';
-import type { Appearance, User } from '@/types/passport';
+import type { Appearance, SignetPass, User } from '@/types/passport';
 import { APPEARANCES } from '../../hooks';
 
 type SettingsAccountUiProps = {
   user?: User | null;
   connectedWallet?: string;
+  signetPass?: SignetPass | null;
   appearance?: Appearance;
   onChangeAppearance: (appearance: Appearance) => void;
   onReset: () => void;
 };
 
-const SettingsAccountUi = ({ user, connectedWallet, appearance, onChangeAppearance, onReset }: SettingsAccountUiProps) => {
+const SettingsAccountUi = ({ user, connectedWallet, signetPass, appearance, onChangeAppearance, onReset }: SettingsAccountUiProps) => {
   const { t } = useTranslation('settings-page');
   return (
     <>
@@ -27,7 +28,7 @@ const SettingsAccountUi = ({ user, connectedWallet, appearance, onChangeAppearan
         <dt className='text-muted-foreground'>{t('account.connected-wallet')}</dt>
         <dd className='font-mono text-small'>{connectedWallet ? <ShortAddress value={connectedWallet} /> : t('account.not-connected')}</dd>
         <dt className='text-muted-foreground'>{t('account.wallet')}</dt>
-        <dd className='font-mono text-small'>{user && <ShortAddress value={user.walletAddress} />}</dd>
+        <dd className='font-mono text-small'>{signetPass ? <ShortAddress value={signetPass.address} /> : t('account.no-signetpass')}</dd>
       </dl>
       <div className='border-t pt-6'>
         <Label className='mb-4'>{t('account.appearance')}</Label>

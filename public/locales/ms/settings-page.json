@@ -52,7 +52,8 @@
     "reset": "Tetapkan semula data demo",
     "account-id": "ID Akaun",
     "connected-wallet": "Dompet disambungkan",
-    "not-connected": "Tidak disambungkan"
+    "not-connected": "Tidak disambungkan",
+    "no-signetpass": "Belum ada SignetPass"
   },
   "errors": {
     "amount-positive": "Mesti lebih daripada $0",

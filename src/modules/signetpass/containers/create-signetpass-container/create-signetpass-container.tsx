@@ -1,18 +1,13 @@
+import { FormWrapper } from '@/components/ui/form';
 import { CreateSignetpassUi } from '../../components';
 import { useCreateSignetPassContainer } from '../../hooks';
 
 const CreateSignetpassContainer = () => {
-  const { owner, signetPassAddress, network, status, summary, isLoading, onCreate } = useCreateSignetPassContainer();
+  const { owner, form, status, summary, isLoading, onSubmit } = useCreateSignetPassContainer();
   return (
-    <CreateSignetpassUi
-      owner={owner}
-      signetPassAddress={signetPassAddress}
-      network={network}
-      status={status}
-      summary={summary}
-      isLoading={isLoading}
-      onCreate={onCreate}
-    />
+    <FormWrapper form={form} onSubmit={onSubmit}>
+      <CreateSignetpassUi owner={owner} status={status} summary={summary} isLoading={isLoading} />
+    </FormWrapper>
   );
 };
 

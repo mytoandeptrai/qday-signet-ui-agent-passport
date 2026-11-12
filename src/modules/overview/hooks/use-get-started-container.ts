@@ -1,5 +1,5 @@
 import { useCompleteOnboardingMutation, useGetBalance, useGetOnboarding, useGetSettings, useUpdateSettingsMutation } from '@/apis/account';
-import { useGetSignetPass } from '@/apis/signetpass';
+import { useGetSignetPasses } from '@/apis/signetpass';
 import { useAppDialog } from '@/hooks/use-app-dialog';
 import { useTranslation } from '@/integrations/i18n';
 import { INSTALL_PROMPT } from '@/mock/landing';
@@ -23,7 +23,8 @@ export const useGetStartedContainer = ({ step }: UseGetStartedContainerParams) =
   const { data: onboarding } = useGetOnboarding();
   const completeOnboarding = useCompleteOnboardingMutation();
   const updateSettings = useUpdateSettingsMutation();
-  const { data: signetPass } = useGetSignetPass();
+  const { data: signetPasses } = useGetSignetPasses();
+  const hasSignetPass = (signetPasses?.passes.length ?? 0) > 0;
   const { open } = useAppDialog();
   const [windows, setWindows] = useState(false);
 
@@ -37,7 +38,7 @@ export const useGetStartedContainer = ({ step }: UseGetStartedContainerParams) =
 
   const done: Record<GetStartedStepId, boolean> = {
     connect: onboarding?.connected ?? false,
-    signetpass: signetPass?.created ?? false,
+    signetpass: hasSignetPass,
     allowance: onboarding?.allowance ?? false,
     funds: available > 0,
     learn: true,
@@ -67,7 +68,7 @@ export const useGetStartedContainer = ({ step }: UseGetStartedContainerParams) =
     done,
     prompt,
     windows,
-    signetPassCreated: signetPass?.created ?? false,
+    signetPassCreated: hasSignetPass,
     available,
     allowanceForm,
     onCopyPrompt,

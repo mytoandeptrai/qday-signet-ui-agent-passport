@@ -2,14 +2,20 @@
   "create": {
     "title": "Cipta SignetPass anda",
     "description": "Dompet perbelanjaan pintar yang dimiliki oleh alamat MetaMask anda. Ejen berbelanja daripadanya dalam had yang anda tetapkan.",
+    "name": "Nama",
+    "name-placeholder": "cth. Membeli-belah",
     "owner": "Pemilik",
     "network": "Rangkaian",
-    "address": "Alamat SignetPass",
     "gas": "Yuran gas untuk SignetPass tidak ditanggung. Dompet Utama ditanggung.",
     "submit": "Cipta SignetPass",
     "creating": "Mencipta…",
     "toasts": {
-      "created": "SignetPass dicipta"
+      "created": "{{name}} dicipta"
+    },
+    "errors": {
+      "name-required": "Masukkan nama",
+      "name-max": "Gunakan {{max}} aksara atau kurang",
+      "name-taken": "Anda sudah ada SignetPass dengan nama ini"
     }
   },
   "add-funds": {
@@ -35,7 +41,7 @@
         "amount-max": "Dompet Utama anda hanya mempunyai {{available}}"
       },
       "toasts": {
-        "done": "{{amount}} dipindahkan ke SignetPass anda"
+        "done": "{{amount}} dipindahkan ke {{name}}"
       }
     },
     "card": {

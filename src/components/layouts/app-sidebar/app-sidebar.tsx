@@ -22,6 +22,7 @@ import {
 } from '@/components/ui/sidebar';
 import { ROUTES } from '@/constant';
 import { useTranslation } from '@/integrations/i18n';
+import AppSidebarSignetPass from './app-sidebar-signetpass';
 import AppSidebarWallet from './app-sidebar-wallet';
 import { useAppSidebar } from './use-app-sidebar';
 
@@ -41,6 +42,9 @@ const AppSidebar = () => {
             <SignetLockup linked={false} className='h-7' />
           </span>
         </CustomLink>
+        <div className='mt-5 group-data-[collapsible=icon]:mt-4'>
+          <AppSidebarSignetPass />
+        </div>
       </SidebarHeader>
       <SidebarContent className='overflow-x-hidden px-2 group-data-[collapsible=icon]:px-0'>
         <SidebarGroup>

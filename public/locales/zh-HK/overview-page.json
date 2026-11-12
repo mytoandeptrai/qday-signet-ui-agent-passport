@@ -64,7 +64,7 @@
   "balance": {
     "title": "SignetPass 餘額",
     "wallet": "SignetPass",
-    "your-wallet": "你的 SignetPass"
+    "title-named": "{{name}} 餘額（{{token}}）"
   },
   "sessions": {
     "title": "會話",

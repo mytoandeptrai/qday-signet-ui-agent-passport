@@ -1,1 +1,1 @@
-export const KEYS = { SIGNETPASS: 'signetpass', CREATE: 'signetpass/create', FUND: 'signetpass/fund' };
+export const KEYS = { SIGNETPASSES: 'signetpass', CREATE: 'signetpass/create', SELECT: 'signetpass/select', FUND: 'signetpass/fund' };

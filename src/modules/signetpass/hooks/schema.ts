@@ -15,3 +15,19 @@ export const initialTransferFormData: TransferFormData = { amount: 0 };
 
 export const ADD_FUNDS_TABS = ['crypto', 'wallet', 'card'] as const;
 export type AddFundsTab = (typeof ADD_FUNDS_TABS)[number];
+
+export const SIGNETPASS_NAME_MAX = 32;
+
+export const createSignetPassFormSchema = (t: TFunction, takenNames: string[]) =>
+  z.object({
+    name: z
+      .string()
+      .trim()
+      .min(1, { message: t('create.errors.name-required') })
+      .max(SIGNETPASS_NAME_MAX, { message: t('create.errors.name-max', { max: SIGNETPASS_NAME_MAX }) })
+      .refine((name) => !takenNames.includes(name.toLowerCase()), { message: t('create.errors.name-taken') }),
+    network: z.enum(['base', 'qday']),
+  });
+
+export type CreateSignetPassFormData = z.infer<ReturnType<typeof createSignetPassFormSchema>>;
+export const initialCreateSignetPassFormData: CreateSignetPassFormData = { name: '', network: 'base' };

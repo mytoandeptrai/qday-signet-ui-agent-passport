@@ -1,4 +1,5 @@
-import { useGetBalance, useGetOnboarding, useGetProfile, useGetSettings } from '@/apis/account';
+import { useGetBalance, useGetOnboarding, useGetSettings } from '@/apis/account';
+import { useGetSignetPasses } from '@/apis/signetpass';
 import { useGetSessionList } from '@/apis/sessions';
 import { useAppDialog } from '@/hooks/use-app-dialog';
 import { useTranslation } from '@/integrations/i18n';
@@ -7,7 +8,8 @@ import { toast } from 'sonner';
 export const useOverviewBalanceContainer = () => {
   const { t } = useTranslation('overview-page');
   const { open } = useAppDialog();
-  const { data: user } = useGetProfile();
+  const { data: passes } = useGetSignetPasses();
+  const pass = passes?.selected;
   const { data: balance } = useGetBalance();
   const { data: settings } = useGetSettings();
   const { data: onboarding } = useGetOnboarding();
@@ -18,13 +20,13 @@ export const useOverviewBalanceContainer = () => {
   const activeSpent = active.reduce((n, s) => n + s.spent, 0);
 
   const onCopyAddress = () => {
-    navigator.clipboard?.writeText(user?.walletAddress ?? '').catch(() => undefined);
+    navigator.clipboard?.writeText(pass?.address ?? '').catch(() => undefined);
     toast.success(t('toasts.address-copied'));
   };
 
   return {
     available: balance?.available ?? 0,
-    walletAddress: user?.walletAddress,
+    pass,
     allowanceConfigured: onboarding?.allowance ?? false,
     defaultLimit: settings?.defaultLimit ?? 0,
     activeLimit,

@@ -50,7 +50,7 @@
       "description": "分享此地址即可在 QDay 上接收 USD8。"
     },
     "create-signetpass": {
-      "title": "建立你的 SignetPass",
+      "title": "建立 SignetPass",
       "description": "請檢查詳情，然後在 MetaMask 中確認。"
     },
     "add-funds": {
@@ -73,5 +73,9 @@
       "title": "批准代理",
       "description": "登記代理須在 MetaMask 中簽署。"
     }
+  },
+  "signetpass": {
+    "create": "建立 SignetPass",
+    "label": "你的 SignetPass（{{count}}）"
   }
 }

@@ -73,5 +73,9 @@
       "title": "エージェントを承認",
       "description": "エージェントの登録は MetaMask で署名します。"
     }
+  },
+  "signetpass": {
+    "create": "SignetPass を作成",
+    "label": "あなたの SignetPass（{{count}}）"
   }
 }

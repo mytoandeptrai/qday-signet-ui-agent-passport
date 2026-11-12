@@ -7,11 +7,11 @@ type OverviewBalanceContainerProps = {
 };
 
 const OverviewBalanceContainer = ({ onEditAllowance }: OverviewBalanceContainerProps) => {
-  const { available, walletAddress, allowanceConfigured, defaultLimit, activeLimit, activeSpent, onCopyAddress, onAddFunds } = useOverviewBalanceContainer();
+  const { available, pass, allowanceConfigured, defaultLimit, activeLimit, activeSpent, onCopyAddress, onAddFunds } = useOverviewBalanceContainer();
   return (
     <aside>
       <WalletGate>
-        <OverviewBalanceUi available={available} walletAddress={walletAddress} onCopyAddress={onCopyAddress} onAddFunds={onAddFunds} />
+        <OverviewBalanceUi available={available} pass={pass} onCopyAddress={onCopyAddress} onAddFunds={onAddFunds} />
         <OverviewAllowanceMeterUi
           configured={allowanceConfigured}
           spent={activeSpent}

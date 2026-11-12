@@ -50,7 +50,7 @@
       "description": "Share this address to receive USD8 on QDay."
     },
     "create-signetpass": {
-      "title": "Create your SignetPass",
+      "title": "Create a SignetPass",
       "description": "Review the details, then confirm in MetaMask."
     },
     "add-funds": {
@@ -73,5 +73,9 @@
       "title": "Approve agent",
       "description": "Registering an agent is signed in MetaMask."
     }
+  },
+  "signetpass": {
+    "create": "Create SignetPass",
+    "label": "Your SignetPasses ({{count}})"
   }
 }

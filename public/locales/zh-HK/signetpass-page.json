@@ -2,14 +2,20 @@
   "create": {
     "title": "建立你的 SignetPass",
     "description": "由你的 MetaMask 地址擁有的智能支出錢包。代理在你設定的上限內從中支出。",
+    "name": "名稱",
+    "name-placeholder": "例如：購物",
     "owner": "擁有者",
     "network": "網絡",
-    "address": "SignetPass 地址",
     "gas": "SignetPass 的 Gas 費不獲資助，主錢包則有。",
     "submit": "建立 SignetPass",
     "creating": "建立中…",
     "toasts": {
-      "created": "已建立 SignetPass"
+      "created": "已建立 {{name}}"
+    },
+    "errors": {
+      "name-required": "請輸入名稱",
+      "name-max": "最多 {{max}} 個字元",
+      "name-taken": "你已有同名的 SignetPass"
     }
   },
   "add-funds": {
@@ -35,7 +41,7 @@
         "amount-max": "你的主錢包只有 {{available}}"
       },
       "toasts": {
-        "done": "已將 {{amount}} 轉入你的 SignetPass"
+        "done": "已將 {{amount}} 轉入 {{name}}"
       }
     },
     "card": {

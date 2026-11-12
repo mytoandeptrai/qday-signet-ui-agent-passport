@@ -52,7 +52,8 @@
     "reset": "重設示範資料",
     "account-id": "帳戶 ID",
     "connected-wallet": "已連接的錢包",
-    "not-connected": "未連接"
+    "not-connected": "未連接",
+    "no-signetpass": "尚未建立 SignetPass"
   },
   "errors": {
     "amount-positive": "必須大於 $0",

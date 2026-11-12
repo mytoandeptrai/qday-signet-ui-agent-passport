@@ -1,3 +1,5 @@
+import type { NetworkKey } from '@/constant';
+
 export type SessionStatus = 'active' | 'revoked' | 'expired' | 'completed';
 export type ActivityStatus = 'settled' | 'blocked' | 'pending';
 export type EscalationStatus = 'pending' | 'approved' | 'declined';
@@ -9,7 +11,6 @@ export interface User {
   id: string;
   email: string;
   name: string;
-  walletAddress: string;
   createdAt: string;
 }
 
@@ -21,6 +22,7 @@ export interface Balance {
 
 export interface SpendingSession {
   id: string;
+  passId: string;
   task: string;
   agent: string;
   status: SessionStatus;
@@ -34,6 +36,7 @@ export interface SpendingSession {
 
 export interface ActivityItem {
   id: string;
+  passId: string;
   sessionId: string;
   service: string;
   description: string;
@@ -58,6 +61,7 @@ export interface Service {
 
 export interface Escalation {
   id: string;
+  passId: string;
   sessionId: string;
   agent: string;
   service: string;
@@ -69,6 +73,7 @@ export interface Escalation {
 
 export interface Deposit {
   id: string;
+  passId: string;
   method: DepositMethod;
   amount: number;
   status: DepositStatus;
@@ -136,7 +141,7 @@ export type WalletTxKind = 'send' | 'receive' | 'fund';
 export interface WalletTx {
   id: string;
   kind: WalletTxKind;
-  /** Recipient for `send`, sender for `receive`, "SignetPass" for `fund`. */
+  /** Recipient for `send`, sender for `receive`, the SignetPass name for `fund`. */
   counterparty: string;
   amount: number;
   createdAt: string;
@@ -148,15 +153,21 @@ export interface MainWallet {
   transactions: WalletTx[];
 }
 
-export interface SignetPassAccount {
-  created: boolean;
-  createdAt?: string;
+/** An agent spending account on one network; its token (USDC on Base, USD8 on QDay) follows the network. */
+export interface SignetPass {
+  id: string;
+  name: string;
+  address: string;
+  network: NetworkKey;
+  balance: Balance;
+  createdAt: string;
 }
 
 export type AgentStatus = 'pending' | 'active' | 'revoked';
 
 export interface Agent {
   id: string;
+  passId: string;
   name: string;
   status: AgentStatus;
   requestedAt: string;

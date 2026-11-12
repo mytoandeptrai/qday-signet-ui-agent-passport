@@ -1,16 +1,8 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import {
-  SEED_ACTIVITY,
-  SEED_AGENTS,
-  SEED_BALANCE,
-  SEED_DEPOSITS,
-  SEED_MAIN_WALLET,
-  SEED_ESCALATIONS,
-  SEED_SESSIONS,
-  SEED_SETTINGS,
-  SEED_SIGNETPASS,
-} from '@/mock/seed';
+import type { NetworkKey } from '@/constant';
+import { randomAddress } from '@/lib/address';
+import { SEED_MAIN_WALLET, SEED_SETTINGS } from '@/mock/seed';
 import type {
   ActivityItem,
   Agent,
@@ -22,28 +14,29 @@ import type {
   MainWallet,
   SecurityEvent,
   SecurityEventType,
-  SignetPassAccount,
+  SignetPass,
   SpendingSession,
   User,
 } from '@/types/passport';
 
 interface PassportState {
   user: User | null;
-  balance: Balance;
+  passes: SignetPass[];
+  selectedPassId: string | null;
   sessions: SpendingSession[];
   activity: ActivityItem[];
   escalations: Escalation[];
   deposits: Deposit[];
   settings: AppSettings;
   mainWallet: MainWallet;
-  signetPass: SignetPassAccount;
   agents: Agent[];
   securityLog: SecurityEvent[];
   onboarding: { connected: boolean; allowance: boolean };
 
   signIn: (user: User) => void;
   signOut: () => void;
-  createSignetPass: () => void;
+  createSignetPass: (input: { name: string; network: NetworkKey }) => SignetPass;
+  selectPass: (id: string) => void;
   sendFromMain: (to: string, amount: number) => void;
   fundFromMain: (amount: number) => void;
   approveAgent: (id: string) => void;
@@ -64,23 +57,35 @@ const logged = (type: SecurityEventType, detail: string, log: SecurityEvent[]): 
   ...log,
 ];
 
+/** Applies a balance change to one pass. */
+const withBalance = (passes: SignetPass[], id: string, change: (b: Balance) => Partial<Balance>) =>
+  passes.map((p) => (p.id === id ? { ...p, balance: { ...p.balance, ...change(p.balance) } } : p));
+
+export const selectedPass = (s: Pick<PassportState, 'passes' | 'selectedPassId'>) => s.passes.find((p) => p.id === s.selectedPassId) ?? null;
+
+const requirePass = (s: PassportState) => {
+  const pass = selectedPass(s);
+  if (!pass) throw new Error('Create a SignetPass first');
+  return pass;
+};
+
 const initial = () => ({
-  balance: SEED_BALANCE,
-  sessions: SEED_SESSIONS,
-  activity: SEED_ACTIVITY,
-  escalations: SEED_ESCALATIONS,
-  deposits: SEED_DEPOSITS,
+  passes: [] as SignetPass[],
+  selectedPassId: null as string | null,
+  sessions: [] as SpendingSession[],
+  activity: [] as ActivityItem[],
+  escalations: [] as Escalation[],
+  deposits: [] as Deposit[],
   settings: SEED_SETTINGS,
   mainWallet: SEED_MAIN_WALLET,
-  signetPass: SEED_SIGNETPASS,
-  agents: SEED_AGENTS,
+  agents: [] as Agent[],
   securityLog: [] as SecurityEvent[],
   onboarding: { connected: false, allowance: false },
 });
 
 export const usePassportStore = create<PassportState>()(
   persist(
-    (set) => ({
+    (set, get) => ({
       user: null,
       ...initial(),
 
@@ -88,11 +93,24 @@ export const usePassportStore = create<PassportState>()(
       signOut: () => set({ user: null }),
       recordWalletEvent: (type, address) => set((s) => ({ securityLog: logged(type, address, s.securityLog) })),
 
-      createSignetPass: () =>
+      createSignetPass: ({ name, network }) => {
+        const pass: SignetPass = {
+          id: uid('pass'),
+          name,
+          address: randomAddress(),
+          network,
+          balance: { available: 0, held: 0, currency: 'USD' },
+          createdAt: now(),
+        };
         set((s) => ({
-          signetPass: { created: true, createdAt: now() },
-          securityLog: logged('signetpass-created', s.user?.walletAddress ?? '', s.securityLog),
-        })),
+          passes: [...s.passes, pass],
+          selectedPassId: pass.id,
+          securityLog: logged('signetpass-created', `${name} · ${pass.address}`, s.securityLog),
+        }));
+        return pass;
+      },
+
+      selectPass: (id) => set((s) => (s.passes.some((p) => p.id === id) ? { selectedPassId: id } : s)),
 
       sendFromMain: (to, amount) =>
         set((s) => ({
@@ -103,16 +121,18 @@ export const usePassportStore = create<PassportState>()(
           securityLog: logged('transfer', `-${amount} USD8 → ${to}`, s.securityLog),
         })),
 
-      fundFromMain: (amount) =>
+      fundFromMain: (amount) => {
+        const pass = requirePass(get());
         set((s) => ({
           mainWallet: {
             balance: s.mainWallet.balance - amount,
-            transactions: [{ id: uid('wtx'), kind: 'fund', counterparty: 'SignetPass', amount, createdAt: now() }, ...s.mainWallet.transactions],
+            transactions: [{ id: uid('wtx'), kind: 'fund', counterparty: pass.name, amount, createdAt: now() }, ...s.mainWallet.transactions],
           },
-          deposits: [{ id: uid('dep'), method: 'wallet', amount, status: 'completed', createdAt: now() }, ...s.deposits],
-          balance: { ...s.balance, available: s.balance.available + amount },
-          securityLog: logged('transfer', `-${amount} USD8 → SignetPass`, s.securityLog),
-        })),
+          deposits: [{ id: uid('dep'), passId: pass.id, method: 'wallet', amount, status: 'completed', createdAt: now() }, ...s.deposits],
+          passes: withBalance(s.passes, pass.id, (b) => ({ available: b.available + amount })),
+          securityLog: logged('transfer', `-${amount} USD8 → ${pass.name}`, s.securityLog),
+        }));
+      },
 
       approveAgent: (id) =>
         set((s) => ({
@@ -127,8 +147,10 @@ export const usePassportStore = create<PassportState>()(
         })),
 
       createSession: (input) => {
+        const pass = requirePass(get());
         const session: SpendingSession = {
           id: uid('ses'),
+          passId: pass.id,
           task: input.task,
           agent: input.agent,
           status: 'active',
@@ -141,7 +163,7 @@ export const usePassportStore = create<PassportState>()(
         };
         set((s) => ({
           sessions: [session, ...s.sessions],
-          balance: { ...s.balance, available: s.balance.available - input.limit, held: s.balance.held + input.limit },
+          passes: withBalance(s.passes, pass.id, (b) => ({ available: b.available - input.limit, held: b.held + input.limit })),
           securityLog: logged('session-created', input.task, s.securityLog),
         }));
         return session;
@@ -154,11 +176,10 @@ export const usePassportStore = create<PassportState>()(
           const released = Math.max(0, target.limit - target.spent);
           return {
             sessions: s.sessions.map((x) => (x.id === id ? { ...x, status: 'revoked' } : x)),
-            balance: {
-              ...s.balance,
-              available: s.balance.available + released,
-              held: Math.max(0, s.balance.held - released),
-            },
+            passes: withBalance(s.passes, target.passId, (b) => ({
+              available: b.available + released,
+              held: Math.max(0, b.held - released),
+            })),
             securityLog: logged('session-revoked', target.task, s.securityLog),
           };
         }),
@@ -171,6 +192,7 @@ export const usePassportStore = create<PassportState>()(
           if (!approve) return { escalations };
           const item: ActivityItem = {
             id: uid('act'),
+            passId: esc.passId,
             sessionId: esc.sessionId,
             service: esc.service,
             description: esc.description,
@@ -182,7 +204,7 @@ export const usePassportStore = create<PassportState>()(
             escalations,
             activity: [item, ...s.activity],
             sessions: s.sessions.map((x) => (x.id === esc.sessionId ? { ...x, spent: x.spent + esc.amount, limit: Math.max(x.limit, x.spent + esc.amount) } : x)),
-            balance: { ...s.balance, available: s.balance.available - esc.amount },
+            passes: withBalance(s.passes, esc.passId, (b) => ({ available: b.available - esc.amount })),
           };
         }),
 
@@ -191,6 +213,7 @@ export const usePassportStore = create<PassportState>()(
 
       reset: () => set({ ...initial() }),
     }),
-    { name: 'signet-passport-mock', version: 2 }
+    // v3: one account became several SignetPasses; older saved data is dropped for the new seed.
+    { name: 'signet-passport-mock', version: 3 }
   )
 );

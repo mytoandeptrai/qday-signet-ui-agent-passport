@@ -1,3 +1,3 @@
-import { mockRequest } from '../mock-transport';
+import { forSelectedPass, mockRequest } from '../mock-transport';
 
-export const getDepositList = () => mockRequest((s) => s.deposits);
+export const getDepositList = () => mockRequest((s) => forSelectedPass(s, s.deposits));

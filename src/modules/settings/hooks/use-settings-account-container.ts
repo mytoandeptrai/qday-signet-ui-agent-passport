@@ -1,4 +1,5 @@
 import { useGetProfile, useGetSettings, useResetDemoDataMutation, useUpdateSettingsMutation } from '@/apis/account';
+import { useGetSignetPasses } from '@/apis/signetpass';
 import { useWallet } from '@/integrations/wallet';
 import { useTranslation } from '@/integrations/i18n';
 import { useTheme } from '@/integrations/theme/theme-context';
@@ -13,6 +14,7 @@ export const useSettingsAccountContainer = () => {
   const resetDemoData = useResetDemoDataMutation();
   const { setTheme } = useTheme();
   const { address: connectedWallet } = useWallet();
+  const { data: signetPasses } = useGetSignetPasses();
 
   const onChangeAppearance = (appearance: Appearance) => {
     updateSettings.mutate({ appearance });
@@ -24,5 +26,5 @@ export const useSettingsAccountContainer = () => {
     toast.success(t('toasts.reset'));
   };
 
-  return { user, connectedWallet, appearance: settings?.appearance, onChangeAppearance, onReset };
+  return { user, connectedWallet, signetPass: signetPasses?.selected, appearance: settings?.appearance, onChangeAppearance, onReset };
 };

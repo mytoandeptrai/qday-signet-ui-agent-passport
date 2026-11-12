@@ -2,14 +2,20 @@
   "create": {
     "title": "SignetPass を作成",
     "description": "MetaMask アドレスが所有するスマート支出ウォレットです。エージェントは設定した上限内でここから支出します。",
+    "name": "名前",
+    "name-placeholder": "例：ショッピング",
     "owner": "所有者",
     "network": "ネットワーク",
-    "address": "SignetPass アドレス",
     "gas": "SignetPass のガス代は負担されません。メインウォレットは負担されます。",
     "submit": "SignetPass を作成",
     "creating": "作成中…",
     "toasts": {
-      "created": "SignetPass を作成しました"
+      "created": "{{name}} を作成しました"
+    },
+    "errors": {
+      "name-required": "名前を入力してください",
+      "name-max": "{{max}} 文字以内で入力してください",
+      "name-taken": "同じ名前の SignetPass がすでにあります"
     }
   },
   "add-funds": {
@@ -35,7 +41,7 @@
         "amount-max": "メインウォレットの残高は {{available}} のみです"
       },
       "toasts": {
-        "done": "{{amount}} を SignetPass に移動しました"
+        "done": "{{amount}} を {{name}} に移動しました"
       }
     },
     "card": {

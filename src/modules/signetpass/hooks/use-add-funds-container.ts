@@ -1,7 +1,6 @@
-import { useGetProfile } from '@/apis/account';
-import { useFundFromMainMutation, useGetSignetPass } from '@/apis/signetpass';
+import { useFundFromMainMutation, useGetSignetPasses } from '@/apis/signetpass';
 import { useGetMainWallet } from '@/apis/wallet';
-import { DEFAULT_NETWORK, NETWORKS } from '@/constant';
+import { NETWORKS } from '@/constant';
 import { useAppDialog } from '@/hooks/use-app-dialog';
 import { useTranslation } from '@/integrations/i18n';
 import { useSignAction } from '@/integrations/wallet';
@@ -15,8 +14,8 @@ import { type AddFundsTab, initialTransferFormData, type TransferFormData, trans
 export const useAddFundsContainer = () => {
   const { t } = useTranslation('signetpass-page');
   const { open, close } = useAppDialog();
-  const { data: user } = useGetProfile();
-  const { data: signetPass } = useGetSignetPass();
+  const { data } = useGetSignetPasses();
+  const pass = data?.selected;
   const { data: mainWallet } = useGetMainWallet();
   const fund = useFundFromMainMutation();
   const { status, summary, run } = useSignAction();
@@ -31,18 +30,18 @@ export const useAddFundsContainer = () => {
   const amount = form.watch('amount');
 
   const onSubmit = async (values: TransferFormData) => {
-    const ok = await run({ kind: 'transfer', summary: `Transfer ${values.amount} USD8 to SignetPass` }, () => fund.mutateAsync(values));
+    const ok = await run({ kind: 'transfer', summary: `Transfer ${values.amount} USD8 to ${pass?.name}` }, () => fund.mutateAsync(values));
     if (!ok) return;
-    toast.success(t('add-funds.transfer.toasts.done', { amount: money(values.amount) }));
+    toast.success(t('add-funds.transfer.toasts.done', { amount: money(values.amount), name: pass?.name }));
     close();
   };
 
   return {
     t,
     tab,
-    created: signetPass?.created ?? false,
-    address: user?.walletAddress,
-    network: NETWORKS[DEFAULT_NETWORK],
+    created: !!pass,
+    address: pass?.address,
+    network: NETWORKS[pass?.network ?? 'base'],
     mainBalance,
     form,
     amount: Number.isFinite(amount) ? amount : 0,
