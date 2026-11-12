@@ -17,6 +17,9 @@ importers:
       '@hookform/resolvers':
         specifier: ^5.9.1
         version: 5.9.1(@standard-schema/spec@1.1.0)(react-hook-form@7.88.0(react@19.3.0))(superstruct@1.0.4)(zod@4.6.5)
+      '@moonpay/moonpay-react':
+        specifier: ^1.10.8
+        version: 1.10.8(react@19.3.0)
       '@radix-ui/react-accordion':
         specifier: ^1.2.20
         version: 1.2.20(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
@@ -998,6 +1001,11 @@ packages:
   '@metamask/utils@9.3.0':
     resolution: {integrity: sha512-w8CVbdkDrVXFJbfBSlDfafDR6BAkpDmv1bC1UJVCoVny5tW2RKAdn9i68Xf7asYT4TnUhl/hN4zfUiKQq9II4g==}
     engines: {node: '>=16.0.0'}
+
+  '@moonpay/moonpay-react@1.10.8':
+    resolution: {integrity: sha512-QAK7uCfG66H2G4SbyGtSpS9RzP0Ah0hNUGA8i3FUDWpXsRocW5UlPXWV8jkp7O8rCzHWtgKQvgCoMgpJUJozTg==}
+    peerDependencies:
+      react: '>=16'
 
   '@msgpack/msgpack@3.1.2':
     resolution: {integrity: sha512-JEW4DEtBzfe8HvUYecLU9e6+XJnKDlUAIve8FvPzF3Kzs6Xo/KuZkZJsDH0wJXl/qEZbeeE7edxDNY3kMs39hQ==}
@@ -7226,6 +7234,10 @@ snapshots:
       uuid: 9.0.1
     transitivePeerDependencies:
       - supports-color
+
+  '@moonpay/moonpay-react@1.10.8(react@19.3.0)':
+    dependencies:
+      react: 19.3.0
 
   '@msgpack/msgpack@3.1.2': {}
 

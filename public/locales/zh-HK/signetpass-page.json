@@ -45,7 +45,22 @@
       }
     },
     "card": {
-      "coming-soon": "信用卡付款即將推出。"
+      "coming-soon": "信用卡付款即將推出。",
+      "pay-with": "付款方式",
+      "card": "銀行卡",
+      "receive": "收取",
+      "token-on": "{{network}} 上的 {{token}}",
+      "to": "轉入你的 SignetPass",
+      "continue": "前往 MoonPay",
+      "opening": "正在開啟 MoonPay…",
+      "note": "卡付款由 MoonPay 處理。你會在 MoonPay 登入、驗證及付款；幣會在幾分鐘內轉入你的 SignetPass。",
+      "switch-hint": "卡購買會轉到 {{network}}。請把錢包切換到 {{network}} 再繼續。",
+      "switch": "切換到 {{network}}",
+      "toasts": {
+        "submitted": "已提交購買，幣會在幾分鐘內到賬。",
+        "completed": "購買完成。",
+        "error": "無法開啟 MoonPay，請稍後再試。"
+      }
     }
   }
 }
