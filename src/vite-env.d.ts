@@ -11,4 +11,7 @@ interface ImportMetaEnv {
   readonly VITE_QDAY_NATIVE_CURRENCY_DECIMALS?: string;
   readonly VITE_QDAY_USD8_DECIMALS?: string;
   readonly VITE_WALLETCONNECT_PROJECT_ID?: string;
+  readonly VITE_MOONPAY_PUBLISHABLE_KEY?: string;
+  readonly VITE_MOONPAY_SERVER_URL?: string;
+  readonly VITE_MOONPAY_CURRENCY_CODE?: string;
 }

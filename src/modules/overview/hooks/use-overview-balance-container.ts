@@ -3,6 +3,9 @@ import { useGetSignetPasses } from '@/apis/signetpass';
 import { useGetSessionList } from '@/apis/sessions';
 import { useAppDialog } from '@/hooks/use-app-dialog';
 import { useTranslation } from '@/integrations/i18n';
+import { isMoonPayEnabled } from '@/integrations/moonpay';
+import { useActiveNetwork, useWallet } from '@/integrations/wallet';
+import { useState } from 'react';
 import { toast } from 'sonner';
 
 export const useOverviewBalanceContainer = () => {
@@ -14,6 +17,10 @@ export const useOverviewBalanceContainer = () => {
   const { data: settings } = useGetSettings();
   const { data: onboarding } = useGetOnboarding();
   const { data: sessions = [] } = useGetSessionList();
+  const { address, isConnected } = useWallet();
+  const { network, isUnsupported } = useActiveNetwork();
+  // 'idle' -> 'opening' (SDK loading + URL signing) -> 'open' (MoonPay overlay showing).
+  const [buyState, setBuyState] = useState<'idle' | 'opening' | 'open'>('idle');
 
   const active = sessions.filter((s) => s.status === 'active');
   const activeLimit = active.reduce((n, s) => n + s.limit, 0);
@@ -33,5 +40,20 @@ export const useOverviewBalanceContainer = () => {
     activeSpent,
     onCopyAddress,
     onAddFunds: () => open('add-funds'),
+    // Card purchases deliver USDC on Base, so the option only shows while the wallet is on Base.
+    canBuyWithCard: isMoonPayEnabled && isConnected && !!address && !isUnsupported && network.key === 'base',
+    buyAddress: address,
+    buyState,
+    onBuyWithCard: () => setBuyState('opening'),
+    buyHandlers: {
+      onReady: () => setBuyState('open'),
+      onClose: () => setBuyState('idle'),
+      onSubmitted: () => toast.success(t('toasts.buy-submitted')),
+      onCompleted: () => toast.success(t('toasts.buy-completed')),
+      onError: () => {
+        setBuyState('idle');
+        toast.error(t('toasts.buy-error'));
+      },
+    },
   };
 };
