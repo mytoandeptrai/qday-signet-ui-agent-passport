@@ -52,7 +52,8 @@ const MoonPayBuyWidget = ({ walletAddress, onReady, onClose, onSubmitted, onComp
         variant='overlay'
         visible
         baseCurrencyCode='usd'
-        defaultCurrencyCode={moonPayConfig.currencyCode}
+        // currencyCode locks the coin (defaultCurrencyCode only preselects it), so the prefilled wallet always matches.
+        currencyCode={moonPayConfig.currencyCode}
         walletAddress={walletAddress}
         allowedIpAddress={ipHash}
         theme={theme === 'system' ? systemColorScheme : theme}
