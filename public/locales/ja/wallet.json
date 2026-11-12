@@ -1,25 +1,34 @@
 {
   "connect": {
     "button": "ウォレットを接続",
-    "connecting": "接続中…",
-    "rejected": "MetaMask で接続が拒否されました。もう一度お試しください。",
-    "error": "接続できませんでした。もう一度お試しください。"
+    "connecting": "MetaMask で承認してください…"
   },
   "gate": {
     "title": "ウォレットを接続",
-    "description": "MetaMask を接続して残高を確認し、支払いを承認します。秘密鍵は MetaMask 内に保管されます。"
+    "description": "MetaMask を接続して残高を確認し、支払いを承認します。秘密鍵は MetaMask 内に保管されます。",
+    "unsupported-title": "対応ネットワークに切り替える",
+    "unsupported-description": "ウォレットが Signet 非対応のネットワークにあります。切り替えて続行してください。",
+    "switch": "{{network}} に切り替える"
   },
   "menu": {
     "label": "接続中のウォレット",
     "copy": "アドレスをコピー",
     "copied": "コピーしました",
     "network": "ネットワーク",
-    "disconnect": "切断"
+    "disconnect": "切断",
+    "unsupported": "ウォレットが非対応のネットワークにあります",
+    "testnet": "テストネット"
   },
   "sign": {
-    "waiting": "MetaMask の署名を待っています…",
+    "waiting": "MetaMask で署名を承認してください…",
     "success": "署名しました",
-    "rejected": "MetaMask で署名が拒否されました。",
-    "error": "署名に失敗しました。もう一度お試しください。"
+    "rejected": "署名を拒否しました。何も変更されていません。ボタンをもう一度選ぶと再試行できます。",
+    "error": "MetaMask でこのリクエストに署名できませんでした。もう一度お試しください。MetaMask がロックされている場合は再読み込みしてください。",
+    "idle": "MetaMask が署名を求めます。トランザクションではないため、ガス代も資金の移動もありません。",
+    "waiting-for": "MetaMask で署名を承認してください：{{summary}}…"
+  },
+  "network": {
+    "switch-rejected": "MetaMask でネットワークの切り替えが拒否されました。",
+    "switch-error": "ネットワークを切り替えられませんでした。もう一度お試しください。"
   }
 }

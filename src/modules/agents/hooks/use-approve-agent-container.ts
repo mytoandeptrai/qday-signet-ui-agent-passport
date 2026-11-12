@@ -9,7 +9,7 @@ export const useApproveAgentContainer = () => {
   const { params, close } = useAppDialog();
   const { data: agents = [] } = useGetAgentList();
   const approve = useApproveAgentMutation();
-  const { status, run } = useSignAction();
+  const { status, summary, run } = useSignAction();
   const agent = agents.find((a) => a.id === params.id && a.status === 'pending');
 
   const onApprove = async () => {
@@ -20,5 +20,5 @@ export const useApproveAgentContainer = () => {
     close();
   };
 
-  return { t, agent, status, isLoading: status === 'waiting' || approve.isPending, onApprove, onCancel: close };
+  return { t, agent, status, summary, isLoading: status === 'waiting' || approve.isPending, onApprove, onCancel: close };
 };

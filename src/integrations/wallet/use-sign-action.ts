@@ -1,21 +1,35 @@
 import { useState } from 'react';
-import { usePassportStore } from '@/stores/passport-store';
-import { type SignRequest, type SignStatus, WalletNotConnectedError, WalletRejectedError } from './types';
-import { walletAdapter } from './wallet-adapter';
+import { useAccount, useSignMessage } from 'wagmi';
+import { getNetworkByChainId } from '@/constant';
+import { isUserRejectedError } from '@/utils/common';
+import { buildSignMessage } from './sign-message';
+import { type SignRequest, type SignStatus, WalletNotConnectedError, WalletUnsupportedNetworkError } from './types';
 
 /** Wraps a MetaMask signature in idle → waiting → success | rejected | error. */
 export const useSignAction = () => {
   const [status, setStatus] = useState<SignStatus>('idle');
+  const [summary, setSummary] = useState<string>();
+  const { address, chainId, isConnected } = useAccount();
+  const { signMessageAsync } = useSignMessage();
 
+  /**
+   * A real signature with no transaction: nothing is written on-chain yet. When the contracts are live,
+   * this is the one place to swap `signMessageAsync` for `writeContract`.
+   */
   const sign = async (request: SignRequest) => {
-    if (!usePassportStore.getState().wallet) throw new WalletNotConnectedError();
+    const network = getNetworkByChainId(chainId);
+    if (!isConnected || !address || !chainId) throw new WalletNotConnectedError();
+    if (!network) throw new WalletUnsupportedNetworkError();
+    setSummary(request.summary);
     setStatus('waiting');
     try {
-      const result = await walletAdapter.sign(request);
+      const signature = await signMessageAsync({
+        message: buildSignMessage(request, { address, chainId, chainName: network.name }),
+      });
       setStatus('success');
-      return result;
+      return { signature };
     } catch (error) {
-      setStatus(error instanceof WalletRejectedError ? 'rejected' : 'error');
+      setStatus(isUserRejectedError(error) ? 'rejected' : 'error');
       throw error;
     }
   };
@@ -32,7 +46,10 @@ export const useSignAction = () => {
     }
   };
 
-  const reset = () => setStatus('idle');
+  const reset = () => {
+    setStatus('idle');
+    setSummary(undefined);
+  };
 
-  return { status, sign, run, reset };
+  return { status, summary, sign, run, reset };
 };

@@ -1,9 +1,8 @@
 import { useGetProfile } from '@/apis/account';
 import { useCreateSignetPassMutation } from '@/apis/signetpass';
-import { DEFAULT_NETWORK, NETWORKS } from '@/constant';
 import { useAppDialog } from '@/hooks/use-app-dialog';
 import { useTranslation } from '@/integrations/i18n';
-import { useSignAction, useWallet } from '@/integrations/wallet';
+import { useActiveNetwork, useSignAction, useWallet } from '@/integrations/wallet';
 import { toast } from 'sonner';
 
 export const useCreateSignetPassContainer = () => {
@@ -11,8 +10,9 @@ export const useCreateSignetPassContainer = () => {
   const { close } = useAppDialog();
   const { address } = useWallet();
   const { data: user } = useGetProfile();
+  const { network } = useActiveNetwork();
   const createSignetPass = useCreateSignetPassMutation();
-  const { status, run } = useSignAction();
+  const { status, summary, run } = useSignAction();
 
   const onCreate = async () => {
     const ok = await run({ kind: 'create-signetpass', summary: 'Create SignetPass' }, () => createSignetPass.mutateAsync());
@@ -25,8 +25,9 @@ export const useCreateSignetPassContainer = () => {
     t,
     owner: address,
     signetPassAddress: user?.walletAddress,
-    network: NETWORKS[DEFAULT_NETWORK],
+    network,
     status,
+    summary,
     isLoading: status === 'waiting' || createSignetPass.isPending,
     onCreate,
   };

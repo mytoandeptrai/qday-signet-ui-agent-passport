@@ -11,11 +11,12 @@ interface CreateSignetPassUiProps {
   signetPassAddress?: string;
   network: NetworkConfig;
   status: SignStatus;
+  summary?: string;
   isLoading: boolean;
   onCreate: () => void;
 }
 
-const CreateSignetPassUi = ({ owner, signetPassAddress, network, status, isLoading, onCreate }: CreateSignetPassUiProps) => {
+const CreateSignetPassUi = ({ owner, signetPassAddress, network, status, summary, isLoading, onCreate }: CreateSignetPassUiProps) => {
   const { t } = useTranslation('signetpass-page');
   const rows: [string, ReactNode][] = [
     [t('create.owner'), owner ? <ShortAddress value={owner} /> : ''],
@@ -33,7 +34,7 @@ const CreateSignetPassUi = ({ owner, signetPassAddress, network, status, isLoadi
         ))}
       </dl>
       <p className='text-small text-muted-foreground'>{t('create.gas')}</p>
-      <SignStatusUi status={status} />
+      <SignStatusUi status={status} summary={summary} />
       <Button onClick={onCreate} disabled={isLoading}>
         {isLoading ? t('create.creating') : t('create.submit')}
       </Button>

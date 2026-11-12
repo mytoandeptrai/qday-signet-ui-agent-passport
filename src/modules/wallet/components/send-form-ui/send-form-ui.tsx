@@ -12,10 +12,11 @@ interface SendFormUiProps {
   amount: number;
   available: number;
   status: SignStatus;
+  summary?: string;
   isLoading: boolean;
 }
 
-const SendFormUi = ({ amount, available, status, isLoading }: SendFormUiProps) => {
+const SendFormUi = ({ amount, available, status, summary, isLoading }: SendFormUiProps) => {
   const { t } = useTranslation('wallet-page');
   const { control } = useFormContext<SendFormData>();
   return (
@@ -29,7 +30,7 @@ const SendFormUi = ({ amount, available, status, isLoading }: SendFormUiProps) =
       />
       <FormNumberInput control={control} name='amount' label={t('send.fields.amount.label')} disabled={isLoading} />
       <p className='text-small text-muted-foreground'>{t('send.available', { amount: money(available) })}</p>
-      <SignStatusUi status={status} />
+      <SignStatusUi status={status} summary={summary} />
       <Button type='submit' disabled={isLoading || amount <= 0}>
         {isLoading ? t('send.sending') : t('send.submit', { amount: money(amount) })}
       </Button>

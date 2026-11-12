@@ -1,25 +1,34 @@
 {
   "connect": {
     "button": "Connect wallet",
-    "connecting": "Connecting…",
-    "rejected": "Connection rejected in MetaMask. Try again.",
-    "error": "Could not connect. Try again."
+    "connecting": "Approve in MetaMask…"
   },
   "gate": {
     "title": "Connect your wallet",
-    "description": "Connect MetaMask to see your balances and approve payments. Your keys stay in MetaMask."
+    "description": "Connect MetaMask to see your balances and approve payments. Your keys stay in MetaMask.",
+    "unsupported-title": "Switch to a supported network",
+    "unsupported-description": "Your wallet is on a network Signet doesn't support. Switch to continue.",
+    "switch": "Switch to {{network}}"
   },
   "menu": {
     "label": "Connected wallet",
     "copy": "Copy address",
     "copied": "Copied",
     "network": "Network",
-    "disconnect": "Disconnect"
+    "disconnect": "Disconnect",
+    "unsupported": "Your wallet is on an unsupported network",
+    "testnet": "Testnet"
   },
   "sign": {
-    "waiting": "Waiting for MetaMask signature…",
+    "waiting": "Check MetaMask and approve the signature…",
     "success": "Signed",
-    "rejected": "Signature rejected in MetaMask.",
-    "error": "Signing failed. Try again."
+    "rejected": "You declined the signature. Nothing was changed — select the button again to retry.",
+    "error": "MetaMask couldn't sign this request. Try again, or reload if MetaMask is locked.",
+    "idle": "MetaMask will ask for a signature. It isn't a transaction — no gas, no funds move.",
+    "waiting-for": "Check MetaMask and approve the signature to {{summary}}…"
+  },
+  "network": {
+    "switch-rejected": "Network switch declined in MetaMask.",
+    "switch-error": "Couldn't switch network. Try again."
   }
 }

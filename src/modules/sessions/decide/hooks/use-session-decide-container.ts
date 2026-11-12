@@ -9,7 +9,7 @@ export const useSessionDecideContainer = () => {
   const { params, close } = useAppDialog();
   const { data: escalations = [] } = useGetEscalationList();
   const decide = useDecideEscalationMutation();
-  const { status, run } = useSignAction();
+  const { status, summary, run } = useSignAction();
   const escalation = escalations.find((e) => e.id === params.id);
 
   const onDecide = async (approve: boolean) => {
@@ -27,6 +27,7 @@ export const useSessionDecideContainer = () => {
     escalation,
     isDone: escalation ? escalation.status !== 'pending' : true,
     status,
+    summary,
     isLoading: status === 'waiting' || decide.isPending,
     onApprove: () => onDecide(true),
     onDecline: () => onDecide(false),

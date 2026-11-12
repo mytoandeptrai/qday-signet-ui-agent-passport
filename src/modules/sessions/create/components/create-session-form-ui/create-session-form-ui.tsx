@@ -12,12 +12,13 @@ import { AGENTS, type CreateSessionFormData } from '../../hooks';
 type CreateSessionFormUiProps = {
   available: number;
   status: SignStatus;
+  summary?: string;
   isLoading?: boolean;
 };
 
 const agentOptions = AGENTS.map((a) => ({ value: a, label: a }));
 
-const CreateSessionFormUi = ({ available, status, isLoading = false }: CreateSessionFormUiProps) => {
+const CreateSessionFormUi = ({ available, status, summary, isLoading = false }: CreateSessionFormUiProps) => {
   const { control } = useFormContext<CreateSessionFormData>();
   const { t } = useTranslation('create-session-page');
   return (
@@ -32,7 +33,7 @@ const CreateSessionFormUi = ({ available, status, isLoading = false }: CreateSes
       <p className='text-body text-muted-foreground'>
         {t('available')} <b className='font-medium text-foreground'>{money(available)}</b>
       </p>
-      <SignStatusUi status={status} />
+      <SignStatusUi status={status} summary={summary} />
       <Button type='submit' disabled={isLoading}>
         {isLoading ? t('labels.creating') : t('labels.create')}
       </Button>

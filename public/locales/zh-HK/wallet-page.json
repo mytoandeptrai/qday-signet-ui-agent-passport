@@ -8,8 +8,10 @@
   },
   "networks": {
     "title": "網絡",
-    "active": "使用中",
-    "coming-soon": "即將推出"
+    "connected": "目前網絡",
+    "switch": "切換",
+    "connect-hint": "連接錢包後即可切換網絡。",
+    "testnet": "測試網"
   },
   "transactions": {
     "title": "交易",

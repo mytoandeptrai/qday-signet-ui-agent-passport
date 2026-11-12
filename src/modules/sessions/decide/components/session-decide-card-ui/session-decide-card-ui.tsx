@@ -10,12 +10,13 @@ type SessionDecideCardUiProps = {
   escalation: Escalation;
   isDone: boolean;
   status: SignStatus;
+  summary?: string;
   isLoading: boolean;
   onApprove: () => void;
   onDecline: () => void;
 };
 
-const SessionDecideCardUi = ({ escalation: e, isDone, status, isLoading, onApprove, onDecline }: SessionDecideCardUiProps) => {
+const SessionDecideCardUi = ({ escalation: e, isDone, status, summary, isLoading, onApprove, onDecline }: SessionDecideCardUiProps) => {
   const { t } = useTranslation('session-decide-page');
   return (
     <div>
@@ -26,7 +27,7 @@ const SessionDecideCardUi = ({ escalation: e, isDone, status, isLoading, onAppro
       <p className='mt-3 text-lead font-medium'>{t('wants', { agent: e.agent, amount: money(e.amount) })}</p>
       <p className='mt-2 text-body text-muted-foreground'>{t('explain', { service: e.service, description: e.description })}</p>
       <div className='mt-3'>
-        <SignStatusUi status={status} />
+        <SignStatusUi status={status} summary={summary} />
       </div>
       <div className='mt-6 flex gap-2'>
         <Button className='flex-1' disabled={isDone || isLoading} onClick={onApprove}>

@@ -14,12 +14,13 @@ type SessionApproveCardUiProps = {
   available: number;
   isShort: boolean;
   status: SignStatus;
+  summary?: string;
   isLoading: boolean;
   onApprove: () => void;
   onDecline: () => void;
 };
 
-const SessionApproveCardUi = ({ task, agent, limit, perCall, hours, available, isShort, status, isLoading, onApprove, onDecline }: SessionApproveCardUiProps) => {
+const SessionApproveCardUi = ({ task, agent, limit, perCall, hours, available, isShort, status, summary, isLoading, onApprove, onDecline }: SessionApproveCardUiProps) => {
   const { t } = useTranslation('session-approve-page');
   return (
     <div>
@@ -35,7 +36,7 @@ const SessionApproveCardUi = ({ task, agent, limit, perCall, hours, available, i
         </p>
       )}
       <div className='mt-3'>
-        <SignStatusUi status={status} />
+        <SignStatusUi status={status} summary={summary} />
       </div>
       <div className='mt-6 flex gap-2'>
         <Button className='flex-1' disabled={isShort || isLoading} onClick={onApprove}>

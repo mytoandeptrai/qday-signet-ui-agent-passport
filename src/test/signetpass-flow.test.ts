@@ -5,10 +5,10 @@ import { usePassportStore } from '@/stores/passport-store';
 beforeEach(() => usePassportStore.getState().reset());
 
 describe('networks config', () => {
-  it('defaults to QDay/USD8 and keeps Base/USDC disabled', () => {
+  it('defaults to QDay/USD8 and supports Base/USDC', () => {
     expect(DEFAULT_NETWORK).toBe('qday');
     expect(NETWORKS.qday).toMatchObject({ enabled: true, token: { symbol: 'USD8' } });
-    expect(NETWORKS.base).toMatchObject({ enabled: false, token: { symbol: 'USDC' } });
+    expect(NETWORKS.base).toMatchObject({ enabled: true, token: { symbol: 'USDC' } });
   });
 });
 

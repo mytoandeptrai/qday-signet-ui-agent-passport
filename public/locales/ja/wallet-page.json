@@ -8,8 +8,10 @@
   },
   "networks": {
     "title": "ネットワーク",
-    "active": "有効",
-    "coming-soon": "近日公開"
+    "connected": "接続中のネットワーク",
+    "switch": "切り替え",
+    "connect-hint": "ウォレットを接続するとネットワークを切り替えられます。",
+    "testnet": "テストネット"
   },
   "transactions": {
     "title": "取引",

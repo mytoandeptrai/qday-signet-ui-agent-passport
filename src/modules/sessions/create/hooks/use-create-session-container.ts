@@ -19,7 +19,7 @@ export const useCreateSessionContainer = () => {
   const { data: settings } = useGetSettings();
   const { data: balance } = useGetBalance();
   const createSession = useCreateSessionMutation();
-  const { status, run } = useSignAction();
+  const { status, summary, run } = useSignAction();
   const available = balance?.available ?? 0;
 
   const form = useForm<CreateSessionFormData>({
@@ -46,5 +46,5 @@ export const useCreateSessionContainer = () => {
     navigate({ to: '/sessions/$sessionId', params: { sessionId } });
   };
 
-  return { t, form, available, status, isLoading: status === 'waiting' || createSession.isPending, onSubmit };
+  return { t, form, available, status, summary, isLoading: status === 'waiting' || createSession.isPending, onSubmit };
 };

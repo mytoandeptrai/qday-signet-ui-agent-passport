@@ -19,7 +19,7 @@ export const useAddFundsContainer = () => {
   const { data: signetPass } = useGetSignetPass();
   const { data: mainWallet } = useGetMainWallet();
   const fund = useFundFromMainMutation();
-  const { status, run } = useSignAction();
+  const { status, summary, run } = useSignAction();
   const [tab, setTab] = useState<AddFundsTab>('crypto');
   const mainBalance = mainWallet?.balance ?? 0;
 
@@ -47,6 +47,7 @@ export const useAddFundsContainer = () => {
     form,
     amount: Number.isFinite(amount) ? amount : 0,
     status,
+    summary,
     isLoading: status === 'waiting' || fund.isPending,
     onTabChange: (next: string) => setTab(next as AddFundsTab),
     onCreateSignetPass: () => open('create-signetpass'),

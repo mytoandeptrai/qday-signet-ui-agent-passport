@@ -11,7 +11,6 @@ import {
   SEED_SETTINGS,
   SEED_SIGNETPASS,
 } from '@/mock/seed';
-import type { WalletSession } from '@/integrations/wallet/types';
 import type {
   ActivityItem,
   Agent,
@@ -36,7 +35,6 @@ interface PassportState {
   escalations: Escalation[];
   deposits: Deposit[];
   settings: AppSettings;
-  wallet: WalletSession | null;
   mainWallet: MainWallet;
   signetPass: SignetPassAccount;
   agents: Agent[];
@@ -50,7 +48,7 @@ interface PassportState {
   fundFromMain: (amount: number) => void;
   approveAgent: (id: string) => void;
   revokeAgent: (id: string) => void;
-  setWallet: (wallet: WalletSession | null) => void;
+  recordWalletEvent: (type: 'wallet-connected' | 'wallet-disconnected', address: string) => void;
   createSession: (input: CreateSessionInput) => SpendingSession;
   revokeSession: (id: string) => void;
   decideEscalation: (id: string, approve: boolean) => void;
@@ -73,7 +71,6 @@ const initial = () => ({
   escalations: SEED_ESCALATIONS,
   deposits: SEED_DEPOSITS,
   settings: SEED_SETTINGS,
-  wallet: null,
   mainWallet: SEED_MAIN_WALLET,
   signetPass: SEED_SIGNETPASS,
   agents: SEED_AGENTS,
@@ -88,14 +85,8 @@ export const usePassportStore = create<PassportState>()(
       ...initial(),
 
       signIn: (user) => set({ user }),
-      signOut: () => set({ user: null, wallet: null }),
-      setWallet: (wallet) =>
-        set((s) => ({
-          wallet,
-          securityLog: wallet
-            ? logged('wallet-connected', wallet.address, s.securityLog)
-            : logged('wallet-disconnected', s.wallet?.address ?? '', s.securityLog),
-        })),
+      signOut: () => set({ user: null }),
+      recordWalletEvent: (type, address) => set((s) => ({ securityLog: logged(type, address, s.securityLog) })),
 
       createSignetPass: () =>
         set((s) => ({

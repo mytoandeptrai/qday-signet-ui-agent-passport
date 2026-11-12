@@ -13,7 +13,7 @@ export const useSendContainer = () => {
   const { close } = useAppDialog();
   const { data: wallet } = useGetMainWallet();
   const send = useSendFromMainMutation();
-  const { status, run } = useSignAction();
+  const { status, summary, run } = useSignAction();
   const available = wallet?.balance ?? 0;
 
   const form = useForm<SendFormData>({
@@ -36,6 +36,7 @@ export const useSendContainer = () => {
     available,
     amount: Number.isFinite(amount) ? amount : 0,
     status,
+    summary,
     isLoading: status === 'waiting' || send.isPending,
     onSubmit,
   };

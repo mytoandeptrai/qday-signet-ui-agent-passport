@@ -8,8 +8,10 @@
   },
   "networks": {
     "title": "Rangkaian",
-    "active": "Aktif",
-    "coming-soon": "Akan datang"
+    "connected": "Rangkaian disambungkan",
+    "switch": "Tukar",
+    "connect-hint": "Sambungkan dompet untuk menukar rangkaian.",
+    "testnet": "Testnet"
   },
   "transactions": {
     "title": "Transaksi",

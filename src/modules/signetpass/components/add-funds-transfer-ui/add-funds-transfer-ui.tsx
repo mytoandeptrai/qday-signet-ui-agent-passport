@@ -11,17 +11,18 @@ interface AddFundsTransferUiProps {
   mainBalance: number;
   amount: number;
   status: SignStatus;
+  summary?: string;
   isLoading: boolean;
 }
 
-const AddFundsTransferUi = ({ mainBalance, amount, status, isLoading }: AddFundsTransferUiProps) => {
+const AddFundsTransferUi = ({ mainBalance, amount, status, summary, isLoading }: AddFundsTransferUiProps) => {
   const { t } = useTranslation('signetpass-page');
   const { control } = useFormContext<TransferFormData>();
   return (
     <div className='flex flex-col gap-4'>
       <p className='text-small text-muted-foreground'>{t('add-funds.transfer.available', { amount: money(mainBalance) })}</p>
       <FormNumberInput control={control} name='amount' label={t('add-funds.transfer.amount')} disabled={isLoading} />
-      <SignStatusUi status={status} />
+      <SignStatusUi status={status} summary={summary} />
       <Button type='submit' disabled={isLoading || amount <= 0}>
         {isLoading ? t('add-funds.transfer.transferring') : t('add-funds.transfer.submit', { amount: money(amount) })}
       </Button>

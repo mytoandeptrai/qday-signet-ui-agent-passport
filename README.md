@@ -14,8 +14,8 @@ pnpm build      # vite build + tsc
 ## Try it
 
 - Sign in with any email. The one-time code is `123456`.
-- Click **Connect wallet** in the sidebar. The mock MetaMask connects after about a second; money and signing screens stay hidden until it does.
-- Every signature shows "Waiting for MetaMask signature…". To see a rejection, run `window.__mockWallet.rejectNext = true` in the dev console first.
+- Click **Connect wallet** in the sidebar and connect a real MetaMask (RainbowKit modal). Money and signing screens stay hidden until it is connected on QDay or Base; switch networks from the wallet menu or the Wallet page.
+- Every action asks MetaMask for a real message signature (`signMessage`, no transaction, no gas). Decline it in MetaMask to see the rejected state. Balances and records stay mocked.
 - Settings → Account → "Reset demo data" restores the seed.
 
 ## Layout
@@ -32,9 +32,9 @@ pnpm build      # vite build + tsc
 
 ## Wallet
 
-- `src/integrations/wallet/` — the seam between the UI and MetaMask. `walletAdapter` (`wallet-adapter.ts`) points at the mock; swap it for a wagmi/viem adapter (setup lives in `qday-payment-merchant-portal/src/integrations/web3`) without touching the UI.
+- `src/integrations/web3/` — wagmi + RainbowKit setup copied from `qday-payment-merchant-portal`: QDay and Base Sepolia chains, MetaMask only, themed and localised. `src/integrations/wallet/` wraps it in `useWallet`, `useSignAction` (`signMessageAsync` — swap for `writeContract` once contracts are live) and `useActiveNetwork`.
 - `useWallet` connects and disconnects, `useSignAction` runs a signature through `idle → waiting → success | rejected | error`, and `WalletGate` hides money UI until a wallet is connected. Only the address and chain id are stored, never keys.
-- `src/constant/networks.const.ts` — QDay/USD8 is the default; Base/USDC is configured but disabled. The QDay network comes from `VITE_QDAY_*` env (Base is built into viem/wagmi, so it needs none); the QDay chain id and USD8 decimals are placeholders until the testnet details are confirmed.
+- `src/constant/networks.const.ts` — QDay/USD8 is the default; Base/USDC is enabled too. The QDay network comes from `VITE_QDAY_*` env (Base is built into viem/wagmi); set `VITE_WALLETCONNECT_PROJECT_ID` (RainbowKit requires one). The QDay native currency and USD8 decimals are placeholders until the testnet details are confirmed.
 - Create, send, receive, add funds and approve flows are dialogs and sheets opened by the `dialog` search param (`src/constant/app-dialog.const.ts`, rendered by `components/layouts/app-dialogs`), so they are deep-linkable.
 
 ## Theme

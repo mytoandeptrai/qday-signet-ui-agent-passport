@@ -1,25 +1,34 @@
 {
   "connect": {
     "button": "Sambung dompet",
-    "connecting": "Menyambung…",
-    "rejected": "Sambungan ditolak dalam MetaMask. Cuba lagi.",
-    "error": "Tidak dapat menyambung. Cuba lagi."
+    "connecting": "Luluskan dalam MetaMask…"
   },
   "gate": {
     "title": "Sambungkan dompet anda",
-    "description": "Sambungkan MetaMask untuk melihat baki dan meluluskan pembayaran. Kunci anda kekal dalam MetaMask."
+    "description": "Sambungkan MetaMask untuk melihat baki dan meluluskan pembayaran. Kunci anda kekal dalam MetaMask.",
+    "unsupported-title": "Tukar ke rangkaian yang disokong",
+    "unsupported-description": "Dompet anda berada pada rangkaian yang tidak disokong Signet. Tukar untuk teruskan.",
+    "switch": "Tukar ke {{network}}"
   },
   "menu": {
     "label": "Dompet disambungkan",
     "copy": "Salin alamat",
     "copied": "Disalin",
     "network": "Rangkaian",
-    "disconnect": "Putuskan sambungan"
+    "disconnect": "Putuskan sambungan",
+    "unsupported": "Dompet anda berada pada rangkaian yang tidak disokong",
+    "testnet": "Testnet"
   },
   "sign": {
-    "waiting": "Menunggu tandatangan MetaMask…",
+    "waiting": "Semak MetaMask dan luluskan tandatangan…",
     "success": "Ditandatangani",
-    "rejected": "Tandatangan ditolak dalam MetaMask.",
-    "error": "Penandatanganan gagal. Cuba lagi."
+    "rejected": "Anda menolak tandatangan. Tiada apa-apa yang diubah — pilih butang sekali lagi untuk cuba semula.",
+    "error": "MetaMask tidak dapat menandatangani permintaan ini. Cuba lagi, atau muat semula jika MetaMask dikunci.",
+    "idle": "MetaMask akan meminta tandatangan. Ia bukan transaksi — tiada gas, tiada dana berpindah.",
+    "waiting-for": "Semak MetaMask dan luluskan tandatangan untuk {{summary}}…"
+  },
+  "network": {
+    "switch-rejected": "Pertukaran rangkaian ditolak dalam MetaMask.",
+    "switch-error": "Tidak dapat menukar rangkaian. Cuba lagi."
   }
 }

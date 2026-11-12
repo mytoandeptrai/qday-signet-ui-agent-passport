@@ -1,36 +1,23 @@
-import { useState } from 'react';
-import { usePassportStore } from '@/stores/passport-store';
-import { walletAdapter } from './wallet-adapter';
-import { WalletRejectedError } from './types';
+import { useConnectModal } from '@rainbow-me/rainbowkit';
+import { useAccount, useDisconnect } from 'wagmi';
 
-export type ConnectStatus = 'idle' | 'connecting' | 'rejected' | 'error';
+export type ConnectStatus = 'idle' | 'connecting' | 'reconnecting';
 
 export const useWallet = () => {
-  const wallet = usePassportStore((s) => s.wallet);
-  const setWallet = usePassportStore((s) => s.setWallet);
-  const [status, setStatus] = useState<ConnectStatus>('idle');
+  const { address, chainId, isConnected, isConnecting, isReconnecting } = useAccount();
+  const { openConnectModal } = useConnectModal();
+  const { disconnectAsync } = useDisconnect();
 
-  const connect = async () => {
-    setStatus('connecting');
-    try {
-      setWallet(await walletAdapter.connect());
-      setStatus('idle');
-    } catch (error) {
-      setStatus(error instanceof WalletRejectedError ? 'rejected' : 'error');
-    }
-  };
-
-  const disconnect = async () => {
-    await walletAdapter.disconnect();
-    setWallet(null);
-  };
+  const status: ConnectStatus = isConnecting ? 'connecting' : isReconnecting ? 'reconnecting' : 'idle';
 
   return {
-    address: wallet?.address,
-    chainId: wallet?.chainId,
-    isConnected: !!wallet,
+    address,
+    chainId,
+    isConnected,
     status,
-    connect,
-    disconnect,
+    connect: () => openConnectModal?.(),
+    disconnect: async () => {
+      await disconnectAsync();
+    },
   };
 };

@@ -8,7 +8,7 @@ import {
 import { useAddFundsContainer } from '../../hooks';
 
 const AddFundsContainer = () => {
-  const { tab, created, address, network, mainBalance, form, amount, status, isLoading, onTabChange, onCreateSignetPass, onSubmit } =
+  const { tab, created, address, network, mainBalance, form, amount, status, summary, isLoading, onTabChange, onCreateSignetPass, onSubmit } =
     useAddFundsContainer();
 
   if (!created) return <AddFundsNeedsSignetpassUi onCreate={onCreateSignetPass} />;
@@ -19,7 +19,7 @@ const AddFundsContainer = () => {
       {tab === 'crypto' && <AddFundsCryptoUi address={address} network={network} />}
       {tab === 'wallet' && (
         <FormWrapper form={form} onSubmit={onSubmit}>
-          <AddFundsTransferUi mainBalance={mainBalance} amount={amount} status={status} isLoading={isLoading} />
+          <AddFundsTransferUi mainBalance={mainBalance} amount={amount} status={status} summary={summary} isLoading={isLoading} />
         </FormWrapper>
       )}
     </div>

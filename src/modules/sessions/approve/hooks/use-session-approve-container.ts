@@ -13,7 +13,7 @@ export const useSessionApproveContainer = () => {
   const navigate = useNavigate();
   const { data: balance } = useGetBalance();
   const createSession = useCreateSessionMutation();
-  const { status, run } = useSignAction();
+  const { status, summary, run } = useSignAction();
   const available = balance?.available ?? 0;
 
   const request = {
@@ -52,6 +52,7 @@ export const useSessionApproveContainer = () => {
     available,
     isShort: request.limit > available,
     status,
+    summary,
     isLoading: status === 'waiting' || createSession.isPending,
     onApprove,
     onDecline,

@@ -1,25 +1,34 @@
 {
   "connect": {
     "button": "連接錢包",
-    "connecting": "連接中…",
-    "rejected": "MetaMask 已拒絕連接，請再試一次。",
-    "error": "無法連接，請再試一次。"
+    "connecting": "請在 MetaMask 中批准…"
   },
   "gate": {
     "title": "連接你的錢包",
-    "description": "連接 MetaMask 以查看餘額並批准付款。你的密鑰一直保存在 MetaMask 中。"
+    "description": "連接 MetaMask 以查看餘額並批准付款。你的密鑰一直保存在 MetaMask 中。",
+    "unsupported-title": "切換至支援的網絡",
+    "unsupported-description": "你的錢包所在的網絡不受 Signet 支援，請切換後繼續。",
+    "switch": "切換至 {{network}}"
   },
   "menu": {
     "label": "已連接的錢包",
     "copy": "複製地址",
     "copied": "已複製",
     "network": "網絡",
-    "disconnect": "斷開連接"
+    "disconnect": "斷開連接",
+    "unsupported": "你的錢包處於不支援的網絡",
+    "testnet": "測試網"
   },
   "sign": {
-    "waiting": "正在等待 MetaMask 簽署…",
+    "waiting": "請在 MetaMask 中確認簽署…",
     "success": "已簽署",
-    "rejected": "MetaMask 已拒絕簽署。",
-    "error": "簽署失敗，請再試一次。"
+    "rejected": "你已拒絕簽署，沒有任何變更。再次選擇按鈕即可重試。",
+    "error": "MetaMask 無法簽署此請求。請再試一次；如 MetaMask 已鎖定，請重新載入。",
+    "idle": "MetaMask 會要求你簽署。這不是交易，不會產生 gas，也不會轉移資金。",
+    "waiting-for": "請在 MetaMask 中確認簽署：{{summary}}…"
+  },
+  "network": {
+    "switch-rejected": "已在 MetaMask 中拒絕切換網絡。",
+    "switch-error": "無法切換網絡，請再試一次。"
   }
 }

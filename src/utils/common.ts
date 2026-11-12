@@ -395,12 +395,13 @@ export const slugify = (name: string) => {
     .slice(0, 255);
 };
 
+export const isUserRejectedError = (error: unknown): boolean =>
+  error instanceof BaseError
+    ? !!error.walk((cause) => cause instanceof UserRejectedRequestError)
+    : (error as { code?: unknown } | null)?.code === UserRejectedRequestError.code;
+
 export const getWalletErrorMessage = (error: unknown, t: TFunction, fallback: string): string => {
-  const isRejected =
-    error instanceof BaseError
-      ? !!error.walk((cause) => cause instanceof UserRejectedRequestError)
-      : (error as { code?: unknown } | null)?.code === UserRejectedRequestError.code;
-  if (isRejected) return t('errors.wallet.user-rejected', { ns: 'common' });
+  if (isUserRejectedError(error)) return t('errors.wallet.user-rejected', { ns: 'common' });
 
   if (error instanceof BaseError) return error.shortMessage || fallback;
   if (error instanceof Error && error.message) return error.message.split('\n')[0];

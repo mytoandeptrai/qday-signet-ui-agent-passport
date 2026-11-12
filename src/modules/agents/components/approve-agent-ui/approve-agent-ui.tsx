@@ -7,18 +7,19 @@ import type { Agent } from '@/types/passport';
 interface ApproveAgentUiProps {
   agent?: Agent;
   status: SignStatus;
+  summary?: string;
   isLoading: boolean;
   onApprove: () => void;
   onCancel: () => void;
 }
 
-const ApproveAgentUi = ({ agent, status, isLoading, onApprove, onCancel }: ApproveAgentUiProps) => {
+const ApproveAgentUi = ({ agent, status, summary, isLoading, onApprove, onCancel }: ApproveAgentUiProps) => {
   const { t } = useTranslation('agents-page');
   if (!agent) return <p className='text-muted-foreground'>{t('approve.missing')}</p>;
   return (
     <div className='flex flex-col gap-4'>
       <p className='text-body'>{t('approve.summary', { agent: agent.name })}</p>
-      <SignStatusUi status={status} />
+      <SignStatusUi status={status} summary={summary} />
       <div className='flex gap-2'>
         <Button className='flex-1' disabled={isLoading} onClick={onApprove}>
           {isLoading ? t('approve.approving') : t('approve.submit')}
