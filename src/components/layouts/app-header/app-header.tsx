@@ -5,7 +5,7 @@ import { CustomLink } from '@/components/ui/custom-link';
 import { useTranslation } from '@/integrations/i18n';
 import { ROUTES } from '@/constant';
 import AppHeaderAccount from './app-header-account';
-import AppHeaderBanner from './app-header-banner';
+// import AppHeaderBanner from './app-header-banner';
 import AppHeaderNotifications from './app-header-notifications';
 
 const AppHeader = () => {
@@ -14,7 +14,8 @@ const AppHeader = () => {
   return (
     <header className='sticky top-0 z-20 flex h-16 shrink-0 items-center gap-3 border-b bg-background/80 px-4 backdrop-blur-md md:px-8'>
       <SidebarTrigger className='-ml-1 md:hidden' />
-      <AppHeaderBanner />
+      {/* Signet Router banner: hidden until the product ships. */}
+      {/* <AppHeaderBanner /> */}
       <div className='ml-auto flex items-center gap-1'>
         <LanguageSwitcher className='h-9 px-2 text-muted-foreground hover:text-foreground' />
         <AppHeaderNotifications />
