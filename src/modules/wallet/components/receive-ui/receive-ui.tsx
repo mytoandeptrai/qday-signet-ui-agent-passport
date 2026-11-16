@@ -1,12 +1,14 @@
 import CopyButton from '@/components/ui/copy-button';
+import type { NetworkConfig } from '@/constant';
 import { useTranslation } from '@/integrations/i18n';
 
 interface ReceiveUiProps {
   address?: string;
   qr?: string;
+  network: NetworkConfig;
 }
 
-const ReceiveUi = ({ address, qr }: ReceiveUiProps) => {
+const ReceiveUi = ({ address, qr, network }: ReceiveUiProps) => {
   const { t } = useTranslation('wallet-page');
   return (
     <div className='flex flex-col items-center gap-4'>
@@ -18,7 +20,7 @@ const ReceiveUi = ({ address, qr }: ReceiveUiProps) => {
           {address && <CopyButton value={address} toastMessage={t('receive.copied')} />}
         </div>
       </div>
-      <p className='text-caption text-muted-foreground'>{t('receive.note')}</p>
+      <p className='text-caption text-muted-foreground'>{t('receive.note', { token: network.token.symbol, network: network.name })}</p>
     </div>
   );
 };

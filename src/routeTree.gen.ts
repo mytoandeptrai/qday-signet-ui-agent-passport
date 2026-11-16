@@ -27,6 +27,7 @@ import { Route as publicPrivacyRouteImport } from './routes/(public)/privacy'
 import { Route as publicTermsRouteImport } from './routes/(public)/terms'
 import { Route as appSessionsIndexRouteImport } from './routes/(app)/sessions.index'
 import { Route as appSessionsSessionIdRouteImport } from './routes/(app)/sessions.$sessionId'
+import { Route as appSignetpassPassIdRouteImport } from './routes/(app)/signetpass.$passId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -116,6 +117,11 @@ const appSessionsSessionIdRoute = appSessionsSessionIdRouteImport.update({
   path: '/sessions/$sessionId',
   getParentRoute: () => appLayoutRoute,
 } as any)
+const appSignetpassPassIdRoute = appSignetpassPassIdRouteImport.update({
+  id: '/signetpass/$passId',
+  path: '/signetpass/$passId',
+  getParentRoute: () => appLayoutRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -133,6 +139,7 @@ export interface FileRoutesByFullPath {
   '/privacy': typeof publicPrivacyRoute
   '/terms': typeof publicTermsRoute
   '/sessions/$sessionId': typeof appSessionsSessionIdRoute
+  '/signetpass/$passId': typeof appSignetpassPassIdRoute
   '/sessions/': typeof appSessionsIndexRoute
 }
 export interface FileRoutesByTo {
@@ -151,6 +158,7 @@ export interface FileRoutesByTo {
   '/privacy': typeof publicPrivacyRoute
   '/terms': typeof publicTermsRoute
   '/sessions/$sessionId': typeof appSessionsSessionIdRoute
+  '/signetpass/$passId': typeof appSignetpassPassIdRoute
   '/sessions': typeof appSessionsIndexRoute
 }
 export interface FileRoutesById {
@@ -172,6 +180,7 @@ export interface FileRoutesById {
   '/(public)/privacy': typeof publicPrivacyRoute
   '/(public)/terms': typeof publicTermsRoute
   '/(app)/sessions/$sessionId': typeof appSessionsSessionIdRoute
+  '/(app)/signetpass/$passId': typeof appSignetpassPassIdRoute
   '/(app)/sessions/': typeof appSessionsIndexRoute
 }
 export interface FileRouteTypes {
@@ -192,6 +201,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/terms'
     | '/sessions/$sessionId'
+    | '/signetpass/$passId'
     | '/sessions/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -210,6 +220,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/terms'
     | '/sessions/$sessionId'
+    | '/signetpass/$passId'
     | '/sessions'
   id:
     | '__root__'
@@ -230,6 +241,7 @@ export interface FileRouteTypes {
     | '/(public)/privacy'
     | '/(public)/terms'
     | '/(app)/sessions/$sessionId'
+    | '/(app)/signetpass/$passId'
     | '/(app)/sessions/'
   fileRoutesById: FileRoutesById
 }
@@ -369,6 +381,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof appSessionsSessionIdRouteImport
       parentRoute: typeof appLayoutRoute
     }
+    '/(app)/signetpass/$passId': {
+      id: '/(app)/signetpass/$passId'
+      path: '/signetpass/$passId'
+      fullPath: '/signetpass/$passId'
+      preLoaderRoute: typeof appSignetpassPassIdRouteImport
+      parentRoute: typeof appLayoutRoute
+    }
   }
 }
 
@@ -381,6 +400,7 @@ interface appLayoutRouteChildren {
   appShoppingRoute: typeof appShoppingRoute
   appWalletRoute: typeof appWalletRoute
   appSessionsSessionIdRoute: typeof appSessionsSessionIdRoute
+  appSignetpassPassIdRoute: typeof appSignetpassPassIdRoute
   appSessionsIndexRoute: typeof appSessionsIndexRoute
 }
 
@@ -393,6 +413,7 @@ const appLayoutRouteChildren: appLayoutRouteChildren = {
   appShoppingRoute: appShoppingRoute,
   appWalletRoute: appWalletRoute,
   appSessionsSessionIdRoute: appSessionsSessionIdRoute,
+  appSignetpassPassIdRoute: appSignetpassPassIdRoute,
   appSessionsIndexRoute: appSessionsIndexRoute,
 }
 

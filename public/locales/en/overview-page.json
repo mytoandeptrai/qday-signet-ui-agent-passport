@@ -59,11 +59,6 @@
       "session": "Create spending session"
     }
   },
-  "install": {
-    "copy-aria": "Copy the install prompt",
-    "on-windows": "On Windows?",
-    "on-unix": "On macOS or Linux?"
-  },
   "allowance": {
     "title": "Allowance",
     "limit": "Allowance per session (USD)",
@@ -76,9 +71,8 @@
     "balance": "Fund your main balance. Your balance is {{amount}}. Add more any time, by card, bank or crypto."
   },
   "balance": {
-    "title": "SignetPass balance",
-    "wallet": "SignetPass",
-    "title-named": "{{name}} balance ({{token}})",
+    "title": "Main Wallet balance on {{chain}}",
+    "wallet": "Main Wallet",
     "passkey-on": "Passkey is on. Approvals are confirmed with a MetaMask signature.",
     "passkey-off": "Passkey is off. Approvals go through without a signature.",
     "passkey-manage": "Manage in Settings"
@@ -102,7 +96,6 @@
     "per-call-exceeds": "The per-call limit cannot exceed the allowance"
   },
   "toasts": {
-    "prompt-copied": "Copied. Paste it into your agent.",
     "allowance-saved": "Allowance saved",
     "address-copied": "Address copied",
     "session-revoked": "Session revoked"
@@ -110,7 +103,9 @@
   "signetpass": {
     "none": "Your SignetPass is the smart wallet agents spend from.",
     "created": "Your SignetPass is ready.",
-    "create": "Create SignetPass"
+    "create": "Create SignetPass",
+    "inactive": "Your SignetPass is created but not activated. Activate it to deploy the smart wallet; the fee is paid by your Main Wallet.",
+    "activate": "Activate SignetPass"
   },
   "learn": {
     "intro": "In the Tutorial section, watch some concrete examples of Signet in action. From entering a prompt into Signet CLI to what your agent will do. Learn how to tell your agent to use signet for those 3 different type of spending use cases:",

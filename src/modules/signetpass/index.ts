@@ -1,1 +1,1 @@
-export { AddFundsContainer, CreateSignetpassContainer } from './containers';
+export { ActivateSignetpassContainer, AddFundsContainer, CreateSignetpassContainer, MoveFundsContainer, SignetpassDetailsContainer } from './containers';

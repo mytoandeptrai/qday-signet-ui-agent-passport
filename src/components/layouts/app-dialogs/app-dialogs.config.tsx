@@ -2,7 +2,7 @@ import type { ComponentType } from 'react';
 import type { AppDialogName } from '@/constant';
 import { ApproveAgentContainer } from '@/modules/agents';
 import { CreateSessionContainer, SessionApproveContainer, SessionDecideContainer } from '@/modules/sessions';
-import { AddFundsContainer, CreateSignetpassContainer } from '@/modules/signetpass';
+import { ActivateSignetpassContainer, AddFundsContainer, CreateSignetpassContainer, MoveFundsContainer } from '@/modules/signetpass';
 import { ReceiveContainer, SendContainer } from '@/modules/wallet';
 
 interface AppDialogConfig {
@@ -15,7 +15,9 @@ export const APP_DIALOG_CONFIG: Partial<Record<AppDialogName, AppDialogConfig>> 
   send: { kind: 'modal', Content: SendContainer },
   receive: { kind: 'modal', Content: ReceiveContainer },
   'create-signetpass': { kind: 'modal', Content: CreateSignetpassContainer },
+  'activate-signetpass': { kind: 'modal', Content: ActivateSignetpassContainer },
   'add-funds': { kind: 'sheet', Content: AddFundsContainer },
+  'move-funds': { kind: 'modal', Content: MoveFundsContainer },
   'create-session': { kind: 'sheet', Content: CreateSessionContainer },
   'approve-session': { kind: 'modal', Content: SessionApproveContainer },
   'approve-agent': { kind: 'modal', Content: ApproveAgentContainer },

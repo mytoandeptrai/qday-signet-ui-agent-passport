@@ -152,29 +152,35 @@ export interface PlaygroundScenario {
   steps: PlaygroundStep[];
 }
 
-export type WalletTxKind = 'send' | 'receive' | 'fund';
+export type WalletTxKind = 'send' | 'receive' | 'fund' | 'fee';
 
 export interface WalletTx {
   id: string;
   kind: WalletTxKind;
-  /** Recipient for `send`, sender for `receive`, the SignetPass name for `fund`. */
+  /** Recipient for `send`, sender for `receive`, the SignetPass name for `fund` and `fee`. */
   counterparty: string;
   amount: number;
   createdAt: string;
 }
 
-/** The user's gas-sponsored Main Wallet (USD8 on QDay). */
+/** The Main Wallet is the EOA the user connects with MetaMask. It holds one balance per network: stablecoin only. */
 export interface MainWallet {
   balance: number;
   transactions: WalletTx[];
 }
+
+export type SignetPassStatus = 'inactive' | 'active';
 
 /** An agent spending account on one network; its token (USDC on Base, USD8 on QDay) follows the network. */
 export interface SignetPass {
   id: string;
   name: string;
   address: string;
+  /** Main Wallet (EOA, lowercase) that created the pass and pays for it. */
+  owner: string;
   network: NetworkKey;
+  /** A new pass is `inactive` until the owner activates it (deploys the smart account and pays the fee). Only an active pass can hold funds or start sessions. */
+  status: SignetPassStatus;
   balance: Balance;
   createdAt: string;
 }
@@ -194,6 +200,7 @@ export type SecurityEventType =
   | 'wallet-connected'
   | 'wallet-disconnected'
   | 'signetpass-created'
+  | 'signetpass-activated'
   | 'transfer'
   | 'agent-approved'
   | 'agent-revoked'

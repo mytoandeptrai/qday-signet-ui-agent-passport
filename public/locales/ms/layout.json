@@ -46,20 +46,20 @@
   },
   "dialogs": {
     "send": {
-      "title": "Hantar USD8",
-      "description": "Hantar USD8 dari Dompet Utama anda. Anda mengesahkan dalam MetaMask."
+      "title": "Hantar",
+      "description": "Hantar daripada Dompet Utama anda. Anda mengesahkan dalam MetaMask."
     },
     "receive": {
-      "title": "Terima USD8",
-      "description": "Kongsi alamat ini untuk menerima USD8 di QDay."
+      "title": "Terima",
+      "description": "Kongsi alamat Dompet Utama anda untuk menerima token di rangkaian ini."
     },
     "create-signetpass": {
       "title": "Cipta SignetPass",
-      "description": "Semak butiran, kemudian sahkan dalam MetaMask."
+      "description": "Namakan SignetPass anda dan sahkan dalam MetaMask. Anda mengaktifkannya seterusnya."
     },
     "add-funds": {
       "title": "Tambah dana",
-      "description": "Danai SignetPass anda supaya ejen boleh berbelanja dalam had anda."
+      "description": "Tambah dana ke Dompet Utama anda, kemudian pindahkan ke SignetPass."
     },
     "create-session": {
       "title": "Sesi baharu",
@@ -76,6 +76,14 @@
     "approve-agent": {
       "title": "Luluskan ejen",
       "description": "Pendaftaran ejen ditandatangani dalam MetaMask."
+    },
+    "move-funds": {
+      "title": "Pindahkan dana",
+      "description": "Pindahkan dana daripada Dompet Utama ke SignetPass anda. Anda mengesahkan dalam MetaMask."
+    },
+    "activate-signetpass": {
+      "title": "Aktifkan SignetPass",
+      "description": "Tempatkan dompet pintar SignetPass anda."
     }
   },
   "signetpass": {

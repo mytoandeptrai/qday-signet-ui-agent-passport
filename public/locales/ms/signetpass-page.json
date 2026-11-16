@@ -6,7 +6,6 @@
     "name-placeholder": "cth. Membeli-belah",
     "owner": "Pemilik",
     "network": "Rangkaian",
-    "gas": "Yuran gas untuk SignetPass tidak ditanggung. Dompet Utama ditanggung.",
     "submit": "Cipta SignetPass",
     "creating": "Mencipta…",
     "toasts": {
@@ -15,37 +14,94 @@
     "errors": {
       "name-required": "Masukkan nama",
       "name-max": "Gunakan {{max}} aksara atau kurang",
-      "name-taken": "Anda sudah ada SignetPass dengan nama ini"
-    }
+      "name-taken": "Anda sudah ada SignetPass dengan nama ini",
+      "balance": "Dompet Utama anda memerlukan sekurang-kurangnya {{fee}} {{token}} untuk membayar yuran penempatan."
+    },
+    "note": "Yuran dibayar oleh Dompet Utama anda dan anda mengesahkan dalam MetaMask. Mengaktifkan SignetPass selepas itu adalah percuma.",
+    "fee": "Yuran penempatan",
+    "balance": "Baki Dompet Utama"
   },
   "add-funds": {
     "balance": "Baki SignetPass",
     "tabs": {
       "crypto": "Kripto",
-      "wallet": "Dompet Utama",
       "card": "Kad"
     },
-    "needs-signetpass": "Cipta SignetPass anda sebelum menambah dana.",
-    "create-first": "Cipta SignetPass",
     "crypto": {
-      "address": "Alamat deposit SignetPass",
+      "address": "Alamat Dompet Utama anda",
       "note": "Deposit daripada mana-mana dompet atau bursa. Hantar hanya {{token}} di {{network}}; token atau rangkaian lain mungkin hilang."
-    },
-    "transfer": {
-      "available": "Baki Dompet Utama: {{amount}}",
-      "amount": "Jumlah (USD8)",
-      "submit": "Pindahkan {{amount}}",
-      "transferring": "Memindahkan…",
-      "errors": {
-        "amount-positive": "Masukkan jumlah melebihi 0",
-        "amount-max": "Dompet Utama anda hanya mempunyai {{available}}"
-      },
-      "toasts": {
-        "done": "{{amount}} dipindahkan ke {{name}}"
-      }
     },
     "card": {
       "coming-soon": "Pembayaran kad akan datang."
+    }
+  },
+  "move-funds": {
+    "from": "Daripada",
+    "to": "Kepada",
+    "main-wallet": "Dompet Utama",
+    "available": "Baki Dompet Utama",
+    "amount": "Jumlah ({{token}})",
+    "submit": "Pindahkan {{amount}}",
+    "transferring": "Memindahkan…",
+    "needs-signetpass": "Cipta SignetPass sebelum memindahkan dana.",
+    "create-first": "Cipta SignetPass",
+    "errors": {
+      "amount-positive": "Masukkan jumlah melebihi 0",
+      "amount-max": "Dompet Utama anda hanya mempunyai {{available}}"
+    },
+    "toasts": {
+      "done": "{{amount}} dipindahkan ke {{name}}"
+    },
+    "needs-activation": "Aktifkan SignetPass anda sebelum memindahkan dana.",
+    "activate": "Aktifkan SignetPass"
+  },
+  "details": {
+    "back": "Kembali ke Dompet",
+    "balance": "Baki SignetPass",
+    "active": "Aktif",
+    "held": "{{amount}} ditahan untuk sesi perbelanjaan",
+    "move-funds": "Pindahkan dana",
+    "copy-address": "Salin alamat SignetPass",
+    "address-copied": "Alamat disalin",
+    "install": {
+      "title": "Pasang Signet CLI",
+      "description": "Salin arahan ini dan jalankan dalam terminal ejen anda. Ia memasang Signet dan mendaftarkan ejen ke SignetPass ini.",
+      "copy-aria": "Salin arahan pemasangan",
+      "copied": "Disalin. Tampalkan ke dalam terminal ejen anda.",
+      "on-windows": "Guna Windows?",
+      "on-unix": "Guna macOS atau Linux?"
+    },
+    "next": {
+      "title": "Perbelanjaan",
+      "create-session": "Cipta sesi",
+      "sessions": "Sesi Perbelanjaan",
+      "agents": "Ejen",
+      "activity": "Aktiviti"
+    },
+    "not-found": {
+      "title": "SignetPass tidak ditemui",
+      "description": "Ia mungkin milik akaun atau rangkaian lain. Tukar semula dalam MetaMask, atau buka Dompet anda.",
+      "action": "Pergi ke Dompet"
+    },
+    "rename": {
+      "action": "Namakan semula",
+      "title": "Namakan semula SignetPass",
+      "description": "Pilih nama yang anda kenali. Akses ejen kekal.",
+      "submit": "Simpan nama",
+      "done": "Dinamakan semula kepada {{name}}"
+    },
+    "inactive": "Belum diaktifkan",
+    "activate": "Aktifkan SignetPass",
+    "inactive-note": "Aktifkan SignetPass ini untuk menambah dana dan memulakan sesi perbelanjaan."
+  },
+  "activate": {
+    "signetpass": "SignetPass",
+    "network": "Rangkaian",
+    "note": "Pengaktifan menempatkan dompet pintar SignetPass anda di {{network}}. Tiada yuran dan tiada tandatangan.",
+    "submit": "Aktifkan SignetPass",
+    "activating": "Mengaktifkan…",
+    "toasts": {
+      "done": "{{name}} telah aktif"
     }
   }
 }

@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import type { NetworkKey } from '@/constant';
+import { DEFAULT_NETWORK, NETWORKS, PASS_FEE, type NetworkKey } from '@/constant';
 import { randomAddress } from '@/lib/address';
 import { SEED_MAIN_WALLET, SEED_SETTINGS } from '@/mock/seed';
 import type {
@@ -19,8 +19,17 @@ import type {
   User,
 } from '@/types/passport';
 
+/** The Main Wallet in use: the connected MetaMask account on the network it is on. Set by the wallet integration. */
+interface WalletContext {
+  address: string | null;
+  network: NetworkKey;
+}
+
 interface PassportState {
   user: User | null;
+  context: WalletContext;
+  /** One Main Wallet balance per account and network, keyed `address:network`. */
+  mainWallets: Record<string, MainWallet>;
   passes: SignetPass[];
   selectedPassId: string | null;
   sessions: SpendingSession[];
@@ -28,14 +37,16 @@ interface PassportState {
   escalations: Escalation[];
   deposits: Deposit[];
   settings: AppSettings;
-  mainWallet: MainWallet;
   agents: Agent[];
   securityLog: SecurityEvent[];
   onboarding: { connected: boolean; allowance: boolean };
 
   signIn: (user: User) => void;
   signOut: () => void;
-  createSignetPass: (input: { name: string; network: NetworkKey }) => SignetPass;
+  setContext: (address: string | null, network: NetworkKey) => void;
+  createSignetPass: (input: { name: string }) => SignetPass;
+  activateSignetPass: (id: string) => void;
+  renamePass: (id: string, name: string) => void;
   selectPass: (id: string) => void;
   sendFromMain: (to: string, amount: number) => void;
   fundFromMain: (amount: number) => void;
@@ -61,7 +72,34 @@ const logged = (type: SecurityEventType, detail: string, log: SecurityEvent[]): 
 const withBalance = (passes: SignetPass[], id: string, change: (b: Balance) => Partial<Balance>) =>
   passes.map((p) => (p.id === id ? { ...p, balance: { ...p.balance, ...change(p.balance) } } : p));
 
-export const selectedPass = (s: Pick<PassportState, 'passes' | 'selectedPassId'>) => s.passes.find((p) => p.id === s.selectedPassId) ?? null;
+const walletKey = (c: WalletContext) => `${c.address}:${c.network}`;
+
+/** Gives an account that shows up for the first time a Main Wallet on this network. */
+const provision = (wallets: Record<string, MainWallet>, c: WalletContext) =>
+  c.address && !wallets[walletKey(c)] ? { ...wallets, [walletKey(c)]: structuredClone(SEED_MAIN_WALLET) } : wallets;
+
+export const currentMainWallet = (s: Pick<PassportState, 'context' | 'mainWallets'>) => (s.context.address ? (s.mainWallets[walletKey(s.context)] ?? null) : null);
+
+/** SignetPasses of the connected account on the network in use. */
+export const visiblePasses = (s: Pick<PassportState, 'passes' | 'context'>) =>
+  s.passes.filter((p) => p.owner === s.context.address && p.network === s.context.network);
+
+/** The chosen pass when it is visible, else the first visible one, so switching account or network never leaves a stale selection. */
+export const selectedPass = (s: Pick<PassportState, 'passes' | 'selectedPassId' | 'context'>) => {
+  const visible = visiblePasses(s);
+  return visible.find((p) => p.id === s.selectedPassId) ?? visible[0] ?? null;
+};
+
+const requireWallet = (s: PassportState) => {
+  const wallet = currentMainWallet(s);
+  if (!wallet) throw new Error('Connect a wallet first');
+  return wallet;
+};
+
+/** Applies a change to the Main Wallet in use. */
+const withWallet = (s: PassportState, change: (w: MainWallet) => MainWallet) => ({
+  mainWallets: { ...s.mainWallets, [walletKey(s.context)]: change(requireWallet(s)) },
+});
 
 const requirePass = (s: PassportState) => {
   const pass = selectedPass(s);
@@ -69,7 +107,15 @@ const requirePass = (s: PassportState) => {
   return pass;
 };
 
+/** Funds and sessions need a pass whose smart account is deployed. */
+const requireActivePass = (s: PassportState) => {
+  const pass = requirePass(s);
+  if (pass.status !== 'active') throw new Error('Activate the SignetPass first');
+  return pass;
+};
+
 const initial = () => ({
+  mainWallets: {} as Record<string, MainWallet>,
   passes: [] as SignetPass[],
   selectedPassId: null as string | null,
   sessions: [] as SpendingSession[],
@@ -77,7 +123,6 @@ const initial = () => ({
   escalations: [] as Escalation[],
   deposits: [] as Deposit[],
   settings: SEED_SETTINGS,
-  mainWallet: SEED_MAIN_WALLET,
   agents: [] as Agent[],
   securityLog: [] as SecurityEvent[],
   onboarding: { connected: false, allowance: false },
@@ -87,50 +132,81 @@ export const usePassportStore = create<PassportState>()(
   persist(
     (set, get) => ({
       user: null,
+      context: { address: null, network: DEFAULT_NETWORK } as WalletContext,
       ...initial(),
 
       signIn: (user) => set({ user }),
       signOut: () => set({ user: null }),
       recordWalletEvent: (type, address) => set((s) => ({ securityLog: logged(type, address, s.securityLog) })),
 
-      createSignetPass: ({ name, network }) => {
+      setContext: (address, network) =>
+        set((s) => {
+          const context = { address, network };
+          return { context, mainWallets: provision(s.mainWallets, context) };
+        }),
+
+      // Creating costs the fee, paid by the Main Wallet.
+      createSignetPass: ({ name }) => {
+        const state = get();
+        if (requireWallet(state).balance < PASS_FEE) throw new Error('Not enough balance for the SignetPass fee');
+        const { address, network } = state.context;
         const pass: SignetPass = {
           id: uid('pass'),
           name,
           address: randomAddress(),
+          owner: address as string,
           network,
+          status: 'inactive',
           balance: { available: 0, held: 0, currency: 'USD' },
           createdAt: now(),
         };
         set((s) => ({
           passes: [...s.passes, pass],
           selectedPassId: pass.id,
+          ...withWallet(s, (w) => ({
+            balance: w.balance - PASS_FEE,
+            transactions: [{ id: uid('wtx'), kind: 'fee', counterparty: name, amount: PASS_FEE, createdAt: now() }, ...w.transactions],
+          })),
           securityLog: logged('signetpass-created', `${name} · ${pass.address}`, s.securityLog),
         }));
         return pass;
       },
 
-      selectPass: (id) => set((s) => (s.passes.some((p) => p.id === id) ? { selectedPassId: id } : s)),
+      // Deploys the smart account. The fee was already paid at creation.
+      activateSignetPass: (id) => {
+        const state = get();
+        const pass = visiblePasses(state).find((p) => p.id === id);
+        if (!pass) throw new Error('SignetPass not found');
+        if (pass.status === 'active') return;
+        set((s) => ({
+          passes: s.passes.map((p) => (p.id === id ? { ...p, status: 'active' } : p)),
+          securityLog: logged('signetpass-activated', `${pass.name} · ${pass.address}`, s.securityLog),
+        }));
+      },
+
+      renamePass: (id, name) => set((s) => ({ passes: s.passes.map((p) => (p.id === id ? { ...p, name: name.trim() } : p)) })),
+
+      selectPass: (id) => set((s) => (visiblePasses(s).some((p) => p.id === id) ? { selectedPassId: id } : s)),
 
       sendFromMain: (to, amount) =>
         set((s) => ({
-          mainWallet: {
-            balance: s.mainWallet.balance - amount,
-            transactions: [{ id: uid('wtx'), kind: 'send', counterparty: to, amount, createdAt: now() }, ...s.mainWallet.transactions],
-          },
-          securityLog: logged('transfer', `-${amount} USD8 → ${to}`, s.securityLog),
+          ...withWallet(s, (w) => ({
+            balance: w.balance - amount,
+            transactions: [{ id: uid('wtx'), kind: 'send', counterparty: to, amount, createdAt: now() }, ...w.transactions],
+          })),
+          securityLog: logged('transfer', `-${amount} ${NETWORKS[s.context.network].token.symbol} → ${to}`, s.securityLog),
         })),
 
       fundFromMain: (amount) => {
-        const pass = requirePass(get());
+        const pass = requireActivePass(get());
         set((s) => ({
-          mainWallet: {
-            balance: s.mainWallet.balance - amount,
-            transactions: [{ id: uid('wtx'), kind: 'fund', counterparty: pass.name, amount, createdAt: now() }, ...s.mainWallet.transactions],
-          },
+          ...withWallet(s, (w) => ({
+            balance: w.balance - amount,
+            transactions: [{ id: uid('wtx'), kind: 'fund', counterparty: pass.name, amount, createdAt: now() }, ...w.transactions],
+          })),
           deposits: [{ id: uid('dep'), passId: pass.id, method: 'wallet', amount, status: 'completed', createdAt: now() }, ...s.deposits],
           passes: withBalance(s.passes, pass.id, (b) => ({ available: b.available + amount })),
-          securityLog: logged('transfer', `-${amount} USD8 → ${pass.name}`, s.securityLog),
+          securityLog: logged('transfer', `-${amount} ${NETWORKS[pass.network].token.symbol} → ${pass.name}`, s.securityLog),
         }));
       },
 
@@ -147,7 +223,7 @@ export const usePassportStore = create<PassportState>()(
         })),
 
       createSession: (input) => {
-        const pass = requirePass(get());
+        const pass = requireActivePass(get());
         const session: SpendingSession = {
           id: uid('ses'),
           passId: pass.id,
@@ -211,9 +287,10 @@ export const usePassportStore = create<PassportState>()(
       updateSettings: (patch) => set((s) => ({ settings: { ...s.settings, ...patch } })),
       completeOnboarding: (step) => set((s) => ({ onboarding: { ...s.onboarding, [step]: true } })),
 
-      reset: () => set({ ...initial() }),
+      reset: () => set((s) => ({ ...initial(), mainWallets: provision({}, s.context) })),
     }),
-    // v3: one account became several SignetPasses; older saved data is dropped for the new seed.
-    { name: 'signet-passport-mock', version: 3 }
+    // v4: the Main Wallet is the connected account (one balance per network) and passes belong to it; older saved data is dropped for the new seed.
+    // The wallet context follows MetaMask on every load, so it is not saved.
+    { name: 'signet-passport-mock', version: 4, partialize: ({ context: _context, ...saved }) => saved }
   )
 );

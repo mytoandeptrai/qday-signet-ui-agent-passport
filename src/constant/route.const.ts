@@ -7,6 +7,7 @@ export const ROUTES = {
   SHOPPING: '/shopping',
   SESSIONS: '/sessions',
   WALLET: '/wallet',
+  SIGNETPASS: '/signetpass',
   AGENTS: '/agents',
   SETTINGS: '/settings',
   ECOSYSTEM: '/ecosystem',

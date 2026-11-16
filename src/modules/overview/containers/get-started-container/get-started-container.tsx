@@ -2,13 +2,11 @@ import {
   GetStartedActionUi,
   GetStartedFundsUi,
   GetStartedHeaderUi,
-  GetStartedInstallUi,
   GetStartedSignetpassUi,
   GetStartedStepsUi,
   GetStartedTipsUi,
 } from '../../components';
 import { useGetStartedContainer } from '../../hooks';
-import { GET_STARTED_STEPS } from '../../utils';
 
 type GetStartedContainerProps = {
   step: number;
@@ -22,14 +20,14 @@ const GetStartedContainer = ({ step, open, onSelectStep, onToggleOpen }: GetStar
     t,
     stepId,
     done,
-    prompt,
-    windows,
     signetPassCreated,
+    signetPassNeedsActivation,
     balanceLabel,
-    onCopyPrompt,
-    onToggleWindows,
     onCreateSignetPass,
+    onActivateSignetPass,
     onAddFunds,
+    onMoveFunds,
+    onInstallCli,
     onCreateSession,
   } = useGetStartedContainer({ step });
 
@@ -42,27 +40,22 @@ const GetStartedContainer = ({ step, open, onSelectStep, onToggleOpen }: GetStar
           <div>
             {stepId === 'learn' && <GetStartedTipsUi />}
             {stepId === 'funds' && <GetStartedFundsUi balance={balanceLabel} onAddFunds={onAddFunds} />}
-            {stepId === 'signetpass' && <GetStartedSignetpassUi created={signetPassCreated} onCreate={onCreateSignetPass} />}
+            {stepId === 'signetpass' && <GetStartedSignetpassUi created={signetPassCreated} needsActivation={signetPassNeedsActivation} onCreate={onCreateSignetPass} onActivate={onActivateSignetPass} />}
             {stepId === 'move' && (
               <GetStartedActionUi
                 text={t('get-started.text.move')}
                 actionLabel={t('get-started.actions.move')}
-                onAction={signetPassCreated ? onAddFunds : onCreateSignetPass}
+                onAction={onMoveFunds}
               />
             )}
-            {stepId === 'install' &&
-              (signetPassCreated ? (
-                <GetStartedActionUi text={t('get-started.text.install')}>
-                  <GetStartedInstallUi prompt={prompt} windows={windows} onCopy={onCopyPrompt} onToggleWindows={onToggleWindows} />
-                </GetStartedActionUi>
-              ) : (
-                <GetStartedActionUi text={t('get-started.text.install')} actionLabel={t('get-started.actions.install')} onAction={onCreateSignetPass} />
-              ))}
+            {stepId === 'install' && (
+              <GetStartedActionUi text={t('get-started.text.install')} actionLabel={t('get-started.actions.install')} onAction={onInstallCli} />
+            )}
             {stepId === 'connect' && (
               <GetStartedActionUi
                 text={t('get-started.text.connect')}
                 actionLabel={t('get-started.actions.install')}
-                onAction={() => onSelectStep(GET_STARTED_STEPS.indexOf('install'))}
+                onAction={onInstallCli}
               />
             )}
             {stepId === 'session' && (

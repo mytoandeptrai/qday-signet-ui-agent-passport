@@ -1,17 +1,26 @@
 {
   "title": "Main Wallet",
-  "description": "Your self-custody wallet on QDay. Gas is sponsored, and your keys stay in MetaMask.",
+  "description": "Your MetaMask account. Balances are per network, and SignetPasses are created from it.",
   "balance": {
-    "label": "Balance",
+    "label": "{{symbol}} balance",
     "send": "Send",
-    "receive": "Receive"
+    "receive": "Receive",
+    "title": "{{chain}} Main Wallet",
+    "metamask": "Connected via MetaMask",
+    "hide": "Hide balance",
+    "show": "Show balance",
+    "copy-address": "Copy wallet address",
+    "copied": "Address copied"
   },
   "networks": {
-    "title": "Networks",
+    "title": "Blockchain",
     "connected": "Connected network",
     "switch": "Switch",
     "connect-hint": "Connect a wallet to switch networks.",
-    "testnet": "Testnet"
+    "testnet": "Testnet",
+    "environment": "Network type",
+    "mainnet": "Mainnet",
+    "coming-soon": "Coming soon"
   },
   "transactions": {
     "title": "Transactions",
@@ -19,7 +28,8 @@
     "kinds": {
       "send": "Sent to",
       "receive": "Received from",
-      "fund": "Funded"
+      "fund": "Funded",
+      "fee": "SignetPass fee"
     }
   },
   "send": {
@@ -29,7 +39,7 @@
         "placeholder": "0x…"
       },
       "amount": {
-        "label": "Amount (USD8)"
+        "label": "Amount ({{token}})"
       }
     },
     "available": "Available: {{amount}}",
@@ -41,13 +51,25 @@
       "amount-max": "You only have {{available}} available"
     },
     "toasts": {
-      "sent": "Sent {{amount}} USD8",
+      "sent": "Sent {{amount}} {{token}}",
       "failed": "Could not send. Try again."
     }
   },
   "receive": {
-    "note": "Send only USD8 on QDay to this address. Other tokens or networks may be lost.",
+    "note": "Send only {{token}} on {{network}} to this address. Other tokens or networks may be lost.",
     "address": "Your Main Wallet address",
     "copied": "Address copied"
+  },
+  "tokens": {
+    "title": "Tokens",
+    "native": "Native token, pays gas",
+    "stable": "Stablecoin"
+  },
+  "signetpasses": {
+    "title": "SignetPasses",
+    "create": "Create SignetPass",
+    "empty": "No SignetPass on {{network}} yet. Create one so an agent can spend.",
+    "active": "Active",
+    "inactive": "Not activated"
   }
 }

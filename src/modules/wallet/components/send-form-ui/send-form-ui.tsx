@@ -9,6 +9,7 @@ import { useFormContext } from 'react-hook-form';
 import type { SendFormData } from '../../hooks';
 
 interface SendFormUiProps {
+  symbol: string;
   amount: number;
   available: number;
   status: SignStatus;
@@ -16,7 +17,7 @@ interface SendFormUiProps {
   isLoading: boolean;
 }
 
-const SendFormUi = ({ amount, available, status, summary, isLoading }: SendFormUiProps) => {
+const SendFormUi = ({ symbol, amount, available, status, summary, isLoading }: SendFormUiProps) => {
   const { t } = useTranslation('wallet-page');
   const { control } = useFormContext<SendFormData>();
   return (
@@ -28,7 +29,7 @@ const SendFormUi = ({ amount, available, status, summary, isLoading }: SendFormU
         placeholder={t('send.fields.to.placeholder')}
         disabled={isLoading}
       />
-      <FormNumberInput control={control} name='amount' label={t('send.fields.amount.label')} disabled={isLoading} />
+      <FormNumberInput control={control} name='amount' label={t('send.fields.amount.label', { token: symbol })} disabled={isLoading} />
       <p className='text-small text-muted-foreground'>{t('send.available', { amount: money(available) })}</p>
       <SignStatusUi status={status} summary={summary} />
       <Button type='submit' disabled={isLoading || amount <= 0}>

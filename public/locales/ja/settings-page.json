@@ -35,7 +35,8 @@
       "agent-approved": "エージェントを承認",
       "agent-revoked": "エージェントを取り消し",
       "session-created": "セッションを作成",
-      "session-revoked": "セッションを取り消し"
+      "session-revoked": "セッションを取り消し",
+      "signetpass-activated": "SignetPass を有効化"
     }
   },
   "account": {

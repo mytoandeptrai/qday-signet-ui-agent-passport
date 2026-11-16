@@ -59,11 +59,6 @@
       "session": "支出セッションを作成"
     }
   },
-  "install": {
-    "copy-aria": "インストール用プロンプトをコピー",
-    "on-windows": "Windows をお使いですか？",
-    "on-unix": "macOS または Linux をお使いですか？"
-  },
   "allowance": {
     "title": "利用枠",
     "limit": "セッションごとの利用枠（USD）",
@@ -76,9 +71,8 @@
     "balance": "メイン残高に入金します。残高は {{amount}} です。カード、銀行、暗号資産でいつでも追加できます。"
   },
   "balance": {
-    "title": "SignetPass 残高",
-    "wallet": "SignetPass",
-    "title-named": "{{name}} の残高（{{token}}）",
+    "title": "{{chain}} のメインウォレット残高",
+    "wallet": "メインウォレット",
     "passkey-on": "パスキーはオンです。承認は MetaMask の署名で確認されます。",
     "passkey-off": "パスキーはオフです。承認は署名なしで実行されます。",
     "passkey-manage": "設定で管理"
@@ -102,7 +96,6 @@
     "per-call-exceeds": "1回あたりの上限は利用枠を超えられません"
   },
   "toasts": {
-    "prompt-copied": "コピーしました。エージェントに貼り付けてください。",
     "allowance-saved": "利用枠を保存しました",
     "address-copied": "アドレスをコピーしました",
     "session-revoked": "セッションを取り消しました"
@@ -110,7 +103,9 @@
   "signetpass": {
     "none": "SignetPass は、エージェントが支出するスマートウォレットです。",
     "created": "SignetPass の準備ができました。",
-    "create": "SignetPass を作成"
+    "create": "SignetPass を作成",
+    "inactive": "SignetPass は作成済みですが、まだ有効化されていません。有効化するとスマートウォレットがデプロイされ、手数料はメインウォレットから支払われます。",
+    "activate": "SignetPass を有効化"
   },
   "learn": {
     "intro": "チュートリアルで、Signet の具体的な活用例をご覧ください。Signet CLI にプロンプトを入力するところから、エージェントの動きまで確認できます。次の3種類の支出ユースケースで、エージェントに Signet を使わせる方法を学べます。",

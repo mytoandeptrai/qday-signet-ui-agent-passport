@@ -6,7 +6,6 @@
     "name-placeholder": "例如：購物",
     "owner": "擁有者",
     "network": "網絡",
-    "gas": "SignetPass 的 Gas 費不獲資助，主錢包則有。",
     "submit": "建立 SignetPass",
     "creating": "建立中…",
     "toasts": {
@@ -15,37 +14,94 @@
     "errors": {
       "name-required": "請輸入名稱",
       "name-max": "最多 {{max}} 個字元",
-      "name-taken": "你已有同名的 SignetPass"
-    }
+      "name-taken": "你已有同名的 SignetPass",
+      "balance": "你的主錢包需要至少 {{fee}} {{token}} 才能支付部署費用。"
+    },
+    "note": "費用由主錢包支付，並在 MetaMask 確認。之後啟用 SignetPass 免費。",
+    "fee": "部署費用",
+    "balance": "主錢包餘額"
   },
   "add-funds": {
     "balance": "SignetPass 餘額",
     "tabs": {
       "crypto": "加密貨幣",
-      "wallet": "主錢包",
       "card": "信用卡"
     },
-    "needs-signetpass": "請先建立 SignetPass 再增值。",
-    "create-first": "建立 SignetPass",
     "crypto": {
-      "address": "SignetPass 存款地址",
+      "address": "你的主錢包地址",
       "note": "可從任何錢包或交易所存入。請只在 {{network}} 上發送 {{token}}，其他代幣或網絡可能會遺失。"
-    },
-    "transfer": {
-      "available": "主錢包餘額：{{amount}}",
-      "amount": "金額（USD8）",
-      "submit": "轉移 {{amount}}",
-      "transferring": "轉移中…",
-      "errors": {
-        "amount-positive": "請輸入大於 0 的金額",
-        "amount-max": "你的主錢包只有 {{available}}"
-      },
-      "toasts": {
-        "done": "已將 {{amount}} 轉入 {{name}}"
-      }
     },
     "card": {
       "coming-soon": "信用卡付款即將推出。"
+    }
+  },
+  "move-funds": {
+    "from": "來源",
+    "to": "目的地",
+    "main-wallet": "主錢包",
+    "available": "主錢包餘額",
+    "amount": "金額（{{token}}）",
+    "submit": "轉移 {{amount}}",
+    "transferring": "轉移中…",
+    "needs-signetpass": "請先建立 SignetPass 再轉移資金。",
+    "create-first": "建立 SignetPass",
+    "errors": {
+      "amount-positive": "請輸入大於 0 的金額",
+      "amount-max": "你的主錢包只有 {{available}}"
+    },
+    "toasts": {
+      "done": "已將 {{amount}} 轉入 {{name}}"
+    },
+    "needs-activation": "請先啟用 SignetPass 再轉移資金。",
+    "activate": "啟用 SignetPass"
+  },
+  "details": {
+    "back": "返回錢包",
+    "balance": "SignetPass 餘額",
+    "active": "已啟用",
+    "held": "{{amount}} 已預留予支出會話",
+    "move-funds": "轉移資金",
+    "copy-address": "複製 SignetPass 地址",
+    "address-copied": "已複製地址",
+    "install": {
+      "title": "安裝 Signet CLI",
+      "description": "複製此指令並在代理的終端機執行。它會安裝 Signet，並將代理登記到此 SignetPass。",
+      "copy-aria": "複製安裝指令",
+      "copied": "已複製，請貼到代理的終端機。",
+      "on-windows": "使用 Windows？",
+      "on-unix": "使用 macOS 或 Linux？"
+    },
+    "next": {
+      "title": "支出",
+      "create-session": "建立會話",
+      "sessions": "支出會話",
+      "agents": "代理",
+      "activity": "活動"
+    },
+    "not-found": {
+      "title": "找不到 SignetPass",
+      "description": "它可能屬於另一個帳戶或網絡。請在 MetaMask 切換，或開啟錢包。",
+      "action": "前往錢包"
+    },
+    "rename": {
+      "action": "重新命名",
+      "title": "重新命名 SignetPass",
+      "description": "請選擇你容易辨認的名稱。代理的權限不變。",
+      "submit": "儲存名稱",
+      "done": "已重新命名為 {{name}}"
+    },
+    "inactive": "未啟用",
+    "activate": "啟用 SignetPass",
+    "inactive-note": "請先啟用此 SignetPass，才能增值及開始支出會話。"
+  },
+  "activate": {
+    "signetpass": "SignetPass",
+    "network": "網絡",
+    "note": "啟用後會在 {{network}} 上部署你的 SignetPass 智能錢包。無需費用，也無需簽署。",
+    "submit": "啟用 SignetPass",
+    "activating": "啟用中…",
+    "toasts": {
+      "done": "{{name}} 已啟用"
     }
   }
 }

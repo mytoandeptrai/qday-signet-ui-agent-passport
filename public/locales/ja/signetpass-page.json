@@ -6,7 +6,6 @@
     "name-placeholder": "例：ショッピング",
     "owner": "所有者",
     "network": "ネットワーク",
-    "gas": "SignetPass のガス代は負担されません。メインウォレットは負担されます。",
     "submit": "SignetPass を作成",
     "creating": "作成中…",
     "toasts": {
@@ -15,37 +14,94 @@
     "errors": {
       "name-required": "名前を入力してください",
       "name-max": "{{max}} 文字以内で入力してください",
-      "name-taken": "同じ名前の SignetPass がすでにあります"
-    }
+      "name-taken": "同じ名前の SignetPass がすでにあります",
+      "balance": "デプロイ手数料を支払うには、メインウォレットに少なくとも {{fee}} {{token}} が必要です。"
+    },
+    "note": "手数料はメインウォレットから支払われ、MetaMask で確認します。その後の有効化は無料です。",
+    "fee": "デプロイ手数料",
+    "balance": "メインウォレット残高"
   },
   "add-funds": {
     "balance": "SignetPass 残高",
     "tabs": {
       "crypto": "暗号資産",
-      "wallet": "メインウォレット",
       "card": "カード"
     },
-    "needs-signetpass": "入金する前に SignetPass を作成してください。",
-    "create-first": "SignetPass を作成",
     "crypto": {
-      "address": "SignetPass 入金アドレス",
+      "address": "メインウォレットのアドレス",
       "note": "任意のウォレットや取引所から入金できます。{{network}} 上の {{token}} のみ送ってください。他のトークンやネットワークでは失われる可能性があります。"
-    },
-    "transfer": {
-      "available": "メインウォレット残高：{{amount}}",
-      "amount": "金額（USD8）",
-      "submit": "{{amount}} を移動",
-      "transferring": "移動中…",
-      "errors": {
-        "amount-positive": "0 より大きい金額を入力してください",
-        "amount-max": "メインウォレットの残高は {{available}} のみです"
-      },
-      "toasts": {
-        "done": "{{amount}} を {{name}} に移動しました"
-      }
     },
     "card": {
       "coming-soon": "カード決済は近日公開予定です。"
+    }
+  },
+  "move-funds": {
+    "from": "送金元",
+    "to": "送金先",
+    "main-wallet": "メインウォレット",
+    "available": "メインウォレット残高",
+    "amount": "金額（{{token}}）",
+    "submit": "{{amount}} を移動",
+    "transferring": "移動中…",
+    "needs-signetpass": "資金を移動する前に SignetPass を作成してください。",
+    "create-first": "SignetPass を作成",
+    "errors": {
+      "amount-positive": "0 より大きい金額を入力してください",
+      "amount-max": "メインウォレットの残高は {{available}} のみです"
+    },
+    "toasts": {
+      "done": "{{amount}} を {{name}} に移動しました"
+    },
+    "needs-activation": "資金を移動する前に SignetPass を有効化してください。",
+    "activate": "SignetPass を有効化"
+  },
+  "details": {
+    "back": "ウォレットに戻る",
+    "balance": "SignetPass 残高",
+    "active": "有効",
+    "held": "{{amount}} は支出セッション用に確保されています",
+    "move-funds": "資金を移動",
+    "copy-address": "SignetPass のアドレスをコピー",
+    "address-copied": "アドレスをコピーしました",
+    "install": {
+      "title": "Signet CLI をインストール",
+      "description": "このコマンドをコピーして、エージェントのターミナルで実行します。Signet がインストールされ、エージェントがこの SignetPass に登録されます。",
+      "copy-aria": "インストールコマンドをコピー",
+      "copied": "コピーしました。エージェントのターミナルに貼り付けてください。",
+      "on-windows": "Windows をお使いですか？",
+      "on-unix": "macOS または Linux をお使いですか？"
+    },
+    "next": {
+      "title": "支出",
+      "create-session": "セッションを作成",
+      "sessions": "支出セッション",
+      "agents": "エージェント",
+      "activity": "アクティビティ"
+    },
+    "not-found": {
+      "title": "SignetPass が見つかりません",
+      "description": "別のアカウントまたはネットワークのものかもしれません。MetaMask で切り替えるか、ウォレットを開いてください。",
+      "action": "ウォレットへ"
+    },
+    "rename": {
+      "action": "名前を変更",
+      "title": "SignetPass の名前を変更",
+      "description": "わかりやすい名前を付けてください。エージェントのアクセスは変わりません。",
+      "submit": "名前を保存",
+      "done": "{{name}} に変更しました"
+    },
+    "inactive": "未有効化",
+    "activate": "SignetPass を有効化",
+    "inactive-note": "資金を追加して支出セッションを始めるには、この SignetPass を有効化してください。"
+  },
+  "activate": {
+    "signetpass": "SignetPass",
+    "network": "ネットワーク",
+    "note": "有効化すると、{{network}} 上に SignetPass のスマートウォレットがデプロイされます。手数料も署名も不要です。",
+    "submit": "SignetPass を有効化",
+    "activating": "有効化中…",
+    "toasts": {
+      "done": "{{name}} を有効化しました"
     }
   }
 }

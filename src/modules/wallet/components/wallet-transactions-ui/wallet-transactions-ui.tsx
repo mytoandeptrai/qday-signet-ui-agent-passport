@@ -7,9 +7,10 @@ import type { WalletTx } from '@/types/passport';
 
 interface WalletTransactionsUiProps {
   transactions: WalletTx[];
+  symbol: string;
 }
 
-const WalletTransactionsUi = ({ transactions }: WalletTransactionsUiProps) => {
+const WalletTransactionsUi = ({ transactions, symbol }: WalletTransactionsUiProps) => {
   const { t } = useTranslation('wallet-page');
   return (
     <section className='mt-8'>
@@ -35,7 +36,7 @@ const WalletTransactionsUi = ({ transactions }: WalletTransactionsUiProps) => {
                 </div>
                 <span className={cn('text-body tabular-nums', incoming && 'text-success')}>
                   {incoming ? '+' : '−'}
-                  {money(tx.amount)}
+                  {money(tx.amount)} <span className='text-small text-muted-foreground'>{symbol}</span>
                 </span>
               </li>
             );

@@ -36,5 +36,9 @@
   "toasts": {
     "created": "セッションを作成しました",
     "held": "{{agent}} のために {{amount}} を確保しました。"
+  },
+  "needs-activation": {
+    "text": "セッションを始める前に SignetPass を有効化してください。資金を保持するにはデプロイが必要です。",
+    "action": "SignetPass を有効化"
   }
 }

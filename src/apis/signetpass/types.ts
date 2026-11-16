@@ -1,11 +1,19 @@
-import type { NetworkKey } from '@/constant';
 import type { SignetPass } from '@/types/passport';
 
 export type { SignetPass };
 
+/** The pass is created on the network the Main Wallet is on. */
 export interface CreateSignetPassParams {
   name: string;
-  network: NetworkKey;
+}
+
+export interface RenameSignetPassParams {
+  id: string;
+  name: string;
+}
+
+export interface ActivateSignetPassParams {
+  id: string;
 }
 
 export interface SelectSignetPassParams {

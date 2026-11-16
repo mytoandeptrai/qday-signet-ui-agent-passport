@@ -1,17 +1,26 @@
 {
   "title": "主錢包",
-  "description": "你在 QDay 上的自主託管錢包。Gas 費由平台資助，你的密鑰保存在 MetaMask。",
+  "description": "你的 MetaMask 帳戶。餘額按網絡分開，SignetPass 由此建立。",
   "balance": {
-    "label": "餘額",
+    "label": "{{symbol}} 餘額",
     "send": "發送",
-    "receive": "接收"
+    "receive": "接收",
+    "title": "{{chain}} 主錢包",
+    "metamask": "已透過 MetaMask 連接",
+    "hide": "隱藏餘額",
+    "show": "顯示餘額",
+    "copy-address": "複製錢包地址",
+    "copied": "已複製地址"
   },
   "networks": {
-    "title": "網絡",
+    "title": "區塊鏈",
     "connected": "目前網絡",
     "switch": "切換",
     "connect-hint": "連接錢包後即可切換網絡。",
-    "testnet": "測試網"
+    "testnet": "測試網",
+    "environment": "網絡類型",
+    "mainnet": "主網",
+    "coming-soon": "即將推出"
   },
   "transactions": {
     "title": "交易",
@@ -19,7 +28,8 @@
     "kinds": {
       "send": "發送至",
       "receive": "接收自",
-      "fund": "已注資"
+      "fund": "已注資",
+      "fee": "SignetPass 費用"
     }
   },
   "send": {
@@ -29,7 +39,7 @@
         "placeholder": "0x…"
       },
       "amount": {
-        "label": "金額（USD8）"
+        "label": "金額（{{token}}）"
       }
     },
     "available": "可用：{{amount}}",
@@ -41,13 +51,25 @@
       "amount-max": "你只有 {{available}} 可用"
     },
     "toasts": {
-      "sent": "已發送 {{amount}} USD8",
+      "sent": "已發送 {{amount}} {{token}}",
       "failed": "無法發送，請再試一次。"
     }
   },
   "receive": {
-    "note": "請只向此地址發送 QDay 上的 USD8。其他代幣或網絡可能會遺失。",
+    "note": "請只向此地址發送 {{network}} 上的 {{token}}。其他代幣或網絡可能會遺失。",
     "address": "你的主錢包地址",
     "copied": "已複製地址"
+  },
+  "tokens": {
+    "title": "代幣",
+    "native": "原生代幣，用於支付 Gas",
+    "stable": "穩定幣"
+  },
+  "signetpasses": {
+    "title": "SignetPass",
+    "create": "建立 SignetPass",
+    "empty": "{{network}} 上還沒有 SignetPass。建立一個，讓代理可以支出。",
+    "active": "已啟用",
+    "inactive": "未啟用"
   }
 }

@@ -35,7 +35,8 @@
       "agent-approved": "Agent approved",
       "agent-revoked": "Agent revoked",
       "session-created": "Session created",
-      "session-revoked": "Session revoked"
+      "session-revoked": "Session revoked",
+      "signetpass-activated": "SignetPass activated"
     }
   },
   "account": {

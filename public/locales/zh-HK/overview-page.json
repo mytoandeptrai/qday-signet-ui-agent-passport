@@ -59,11 +59,6 @@
       "session": "建立支出會話"
     }
   },
-  "install": {
-    "copy-aria": "複製安裝指令",
-    "on-windows": "使用 Windows？",
-    "on-unix": "使用 macOS 或 Linux？"
-  },
   "allowance": {
     "title": "額度",
     "limit": "每個會話的額度（USD）",
@@ -76,9 +71,8 @@
     "balance": "為主餘額增值。你的餘額為 {{amount}}。可隨時以信用卡、銀行或加密貨幣增值。"
   },
   "balance": {
-    "title": "SignetPass 餘額",
-    "wallet": "SignetPass",
-    "title-named": "{{name}} 餘額（{{token}}）",
+    "title": "{{chain}} 主錢包餘額",
+    "wallet": "主錢包",
     "passkey-on": "Passkey 已開啟。批准需以 MetaMask 簽署確認。",
     "passkey-off": "Passkey 已關閉。批准將無需簽署即可進行。",
     "passkey-manage": "在設定中管理"
@@ -102,7 +96,6 @@
     "per-call-exceeds": "單次上限不可超過額度"
   },
   "toasts": {
-    "prompt-copied": "已複製，請貼到你的代理。",
     "allowance-saved": "已儲存額度",
     "address-copied": "已複製地址",
     "session-revoked": "已撤銷會話"
@@ -110,7 +103,9 @@
   "signetpass": {
     "none": "SignetPass 是代理支出所用的智能錢包。",
     "created": "你的 SignetPass 已就緒。",
-    "create": "建立 SignetPass"
+    "create": "建立 SignetPass",
+    "inactive": "你的 SignetPass 已建立但尚未啟用。啟用後會部署智能錢包，費用由主錢包支付。",
+    "activate": "啟用 SignetPass"
   },
   "learn": {
     "intro": "在教學部分，觀看 Signet 實際運作的具體例子，從在 Signet CLI 輸入提示，到代理的行動。學習如何指示代理在以下 3 種支出情境中使用 Signet：",

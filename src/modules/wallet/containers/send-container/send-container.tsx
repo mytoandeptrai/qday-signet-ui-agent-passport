@@ -3,10 +3,10 @@ import { SendFormUi } from '../../components';
 import { useSendContainer } from '../../hooks';
 
 const SendContainer = () => {
-  const { form, amount, available, status, summary, isLoading, onSubmit } = useSendContainer();
+  const { form, symbol, amount, available, status, summary, isLoading, onSubmit } = useSendContainer();
   return (
     <FormWrapper form={form} onSubmit={onSubmit}>
-      <SendFormUi amount={amount} available={available} status={status} summary={summary} isLoading={isLoading} />
+      <SendFormUi symbol={symbol} amount={amount} available={available} status={status} summary={summary} isLoading={isLoading} />
     </FormWrapper>
   );
 };

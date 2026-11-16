@@ -36,5 +36,9 @@
   "toasts": {
     "created": "Sesi dicipta",
     "held": "{{amount}} ditahan untuk {{agent}}."
+  },
+  "needs-activation": {
+    "text": "Aktifkan SignetPass anda sebelum memulakan sesi. Ia perlu ditempatkan untuk menyimpan dana.",
+    "action": "Aktifkan SignetPass"
   }
 }

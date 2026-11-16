@@ -3,9 +3,11 @@ import z from 'zod';
 /** Dialogs and sheets that open on top of any (app) page, driven by the `dialog` search param. */
 export const APP_DIALOGS = [
   'add-funds',
+  'move-funds',
   'send',
   'receive',
   'create-signetpass',
+  'activate-signetpass',
   'create-session',
   'approve-session',
   'decide-request',

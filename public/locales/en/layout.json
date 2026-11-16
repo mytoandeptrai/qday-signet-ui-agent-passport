@@ -46,20 +46,20 @@
   },
   "dialogs": {
     "send": {
-      "title": "Send USD8",
-      "description": "Send USD8 from your Main Wallet. You confirm in MetaMask."
+      "title": "Send",
+      "description": "Send from your Main Wallet. You confirm in MetaMask."
     },
     "receive": {
-      "title": "Receive USD8",
-      "description": "Share this address to receive USD8 on QDay."
+      "title": "Receive",
+      "description": "Share your Main Wallet address to receive tokens on this network."
     },
     "create-signetpass": {
       "title": "Create a SignetPass",
-      "description": "Review the details, then confirm in MetaMask."
+      "description": "Name your SignetPass and confirm in MetaMask. You activate it next."
     },
     "add-funds": {
       "title": "Add funds",
-      "description": "Fund your SignetPass so agents can spend within your limits."
+      "description": "Add funds to your Main Wallet, then move them to a SignetPass."
     },
     "create-session": {
       "title": "New session",
@@ -76,6 +76,14 @@
     "approve-agent": {
       "title": "Approve agent",
       "description": "Registering an agent is signed in MetaMask."
+    },
+    "move-funds": {
+      "title": "Move funds",
+      "description": "Move funds from your Main Wallet to your SignetPass. You confirm in MetaMask."
+    },
+    "activate-signetpass": {
+      "title": "Activate SignetPass",
+      "description": "Deploy your SignetPass smart wallet."
     }
   },
   "signetpass": {

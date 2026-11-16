@@ -59,11 +59,6 @@
       "session": "Cipta sesi perbelanjaan"
     }
   },
-  "install": {
-    "copy-aria": "Salin prom pemasangan",
-    "on-windows": "Guna Windows?",
-    "on-unix": "Guna macOS atau Linux?"
-  },
   "allowance": {
     "title": "Elaun",
     "limit": "Elaun setiap sesi (USD)",
@@ -76,9 +71,8 @@
     "balance": "Tambah dana ke baki utama anda. Baki anda ialah {{amount}}. Tambah lagi pada bila-bila masa, melalui kad, bank atau kripto."
   },
   "balance": {
-    "title": "Baki SignetPass",
-    "wallet": "SignetPass",
-    "title-named": "Baki {{name}} ({{token}})",
+    "title": "Baki Dompet Utama di {{chain}}",
+    "wallet": "Dompet Utama",
     "passkey-on": "Passkey dihidupkan. Kelulusan disahkan dengan tandatangan MetaMask.",
     "passkey-off": "Passkey dimatikan. Kelulusan berjalan tanpa tandatangan.",
     "passkey-manage": "Urus dalam Tetapan"
@@ -102,7 +96,6 @@
     "per-call-exceeds": "Had setiap panggilan tidak boleh melebihi elaun"
   },
   "toasts": {
-    "prompt-copied": "Disalin. Tampalkan ke dalam ejen anda.",
     "allowance-saved": "Elaun disimpan",
     "address-copied": "Alamat disalin",
     "session-revoked": "Sesi dibatalkan"
@@ -110,7 +103,9 @@
   "signetpass": {
     "none": "SignetPass anda ialah dompet pintar tempat ejen berbelanja.",
     "created": "SignetPass anda sudah sedia.",
-    "create": "Cipta SignetPass"
+    "create": "Cipta SignetPass",
+    "inactive": "SignetPass anda telah dicipta tetapi belum diaktifkan. Aktifkan untuk menempatkan dompet pintar; yuran dibayar oleh Dompet Utama anda.",
+    "activate": "Aktifkan SignetPass"
   },
   "learn": {
     "intro": "Dalam bahagian Tutorial, tonton beberapa contoh konkrit Signet beraksi. Daripada memasukkan prompt ke dalam Signet CLI sehingga apa yang akan dilakukan ejen anda. Pelajari cara mengarahkan ejen anda menggunakan Signet untuk 3 jenis kes penggunaan perbelanjaan:",

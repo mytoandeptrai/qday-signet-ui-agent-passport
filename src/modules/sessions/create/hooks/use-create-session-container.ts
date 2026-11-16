@@ -1,5 +1,6 @@
 import { useGetBalance, useGetSettings } from '@/apis/account';
 import { useCreateSessionMutation } from '@/apis/sessions';
+import { useGetSignetPasses } from '@/apis/signetpass';
 import { useAppDialog } from '@/hooks/use-app-dialog';
 import { useTranslation } from '@/integrations/i18n';
 import { useSignAction } from '@/integrations/wallet';
@@ -14,10 +15,11 @@ const DEFAULT_DURATION_HOURS = 8;
 
 export const useCreateSessionContainer = () => {
   const { t } = useTranslation('create-session-page');
-  const { params } = useAppDialog();
+  const { params, open } = useAppDialog();
   const navigate = useNavigate();
   const { data: settings } = useGetSettings();
   const { data: balance } = useGetBalance();
+  const { data: passes } = useGetSignetPasses();
   const createSession = useCreateSessionMutation();
   const { status, summary, run } = useSignAction();
   const available = balance?.available ?? 0;
@@ -46,5 +48,15 @@ export const useCreateSessionContainer = () => {
     navigate({ to: '/sessions/$sessionId', params: { sessionId } });
   };
 
-  return { t, form, available, status, summary, isLoading: status === 'waiting' || createSession.isPending, onSubmit };
+  return {
+    t,
+    form,
+    available,
+    needsActivation: !!passes?.selected && passes.selected.status !== 'active',
+    status,
+    summary,
+    isLoading: status === 'waiting' || createSession.isPending,
+    onActivate: () => open('activate-signetpass'),
+    onSubmit,
+  };
 };

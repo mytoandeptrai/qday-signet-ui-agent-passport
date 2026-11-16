@@ -36,5 +36,9 @@
   "toasts": {
     "created": "已建立會話",
     "held": "已為 {{agent}} 預留 {{amount}}。"
+  },
+  "needs-activation": {
+    "text": "開始會話前請先啟用 SignetPass。它需要先部署才能存放資金。",
+    "action": "啟用 SignetPass"
   }
 }

@@ -1,17 +1,26 @@
 {
   "title": "Dompet Utama",
-  "description": "Dompet jagaan sendiri anda di QDay. Yuran gas ditanggung, dan kunci anda kekal dalam MetaMask.",
+  "description": "Akaun MetaMask anda. Baki mengikut rangkaian, dan SignetPass dicipta daripadanya.",
   "balance": {
-    "label": "Baki",
+    "label": "Baki {{symbol}}",
     "send": "Hantar",
-    "receive": "Terima"
+    "receive": "Terima",
+    "title": "Dompet Utama {{chain}}",
+    "metamask": "Disambung melalui MetaMask",
+    "hide": "Sembunyikan baki",
+    "show": "Tunjukkan baki",
+    "copy-address": "Salin alamat dompet",
+    "copied": "Alamat disalin"
   },
   "networks": {
-    "title": "Rangkaian",
+    "title": "Blockchain",
     "connected": "Rangkaian disambungkan",
     "switch": "Tukar",
     "connect-hint": "Sambungkan dompet untuk menukar rangkaian.",
-    "testnet": "Testnet"
+    "testnet": "Testnet",
+    "environment": "Jenis rangkaian",
+    "mainnet": "Mainnet",
+    "coming-soon": "Akan datang"
   },
   "transactions": {
     "title": "Transaksi",
@@ -19,7 +28,8 @@
     "kinds": {
       "send": "Dihantar kepada",
       "receive": "Diterima daripada",
-      "fund": "Didanai"
+      "fund": "Didanai",
+      "fee": "Yuran SignetPass"
     }
   },
   "send": {
@@ -29,7 +39,7 @@
         "placeholder": "0x…"
       },
       "amount": {
-        "label": "Jumlah (USD8)"
+        "label": "Jumlah ({{token}})"
       }
     },
     "available": "Tersedia: {{amount}}",
@@ -41,13 +51,25 @@
       "amount-max": "Anda hanya mempunyai {{available}} yang tersedia"
     },
     "toasts": {
-      "sent": "{{amount}} USD8 dihantar",
+      "sent": "{{amount}} {{token}} dihantar",
       "failed": "Tidak dapat menghantar. Cuba lagi."
     }
   },
   "receive": {
-    "note": "Hantar hanya USD8 di QDay ke alamat ini. Token atau rangkaian lain mungkin hilang.",
+    "note": "Hantar hanya {{token}} di {{network}} ke alamat ini. Token atau rangkaian lain mungkin hilang.",
     "address": "Alamat Dompet Utama anda",
     "copied": "Alamat disalin"
+  },
+  "tokens": {
+    "title": "Token",
+    "native": "Token asli, bayar gas",
+    "stable": "Stablecoin"
+  },
+  "signetpasses": {
+    "title": "SignetPass",
+    "create": "Cipta SignetPass",
+    "empty": "Belum ada SignetPass di {{network}}. Cipta satu supaya ejen boleh berbelanja.",
+    "active": "Aktif",
+    "inactive": "Belum diaktifkan"
   }
 }

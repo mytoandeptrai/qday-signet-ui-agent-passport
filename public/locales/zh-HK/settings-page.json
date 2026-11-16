@@ -35,7 +35,8 @@
       "agent-approved": "已批准代理",
       "agent-revoked": "已撤銷代理",
       "session-created": "已建立會話",
-      "session-revoked": "已撤銷會話"
+      "session-revoked": "已撤銷會話",
+      "signetpass-activated": "SignetPass 已啟用"
     }
   },
   "account": {

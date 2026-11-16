@@ -1,18 +1,57 @@
+import { useGetSignetPasses } from '@/apis/signetpass';
 import { useGetMainWallet } from '@/apis/wallet';
+import { NETWORKS } from '@/constant';
 import { useAppDialog } from '@/hooks/use-app-dialog';
 import { useTranslation } from '@/integrations/i18n';
+import { useActiveNetwork, useWallet } from '@/integrations/wallet';
+import { money } from '@/lib/format';
+import { useState } from 'react';
+
+export type WalletTokenId = 'native' | 'stable';
+
+export interface WalletToken {
+  id: WalletTokenId;
+  symbol: string;
+  /** Formatted balance. */
+  amount: string;
+}
 
 export const useWalletContainer = () => {
   const { t } = useTranslation('wallet-page');
   const { data: wallet, isLoading } = useGetMainWallet();
+  const { data: passes } = useGetSignetPasses();
   const { open } = useAppDialog();
+  const { address, isConnected } = useWallet();
+  const { isUnsupported, switchingTo, switchNetwork } = useActiveNetwork();
+  const [tokenId, setTokenId] = useState<WalletTokenId>('stable');
+  const [hidden, setHidden] = useState(false);
+
+  const network = NETWORKS[wallet?.network ?? 'base'];
+  // The gas token has no balance in the demo; the stablecoin is the one Send, Receive and SignetPasses use.
+  const tokens: WalletToken[] = [
+    { id: 'native', symbol: network.nativeSymbol, amount: '0.00' },
+    { id: 'stable', symbol: network.token.symbol, amount: money(wallet?.balance ?? 0) },
+  ];
+  const selected = tokens.find((token) => token.id === tokenId) ?? tokens[1];
 
   return {
     t,
-    balance: wallet?.balance ?? 0,
+    network,
+    address,
+    isConnected,
+    isUnsupported,
+    switchingTo,
+    tokens,
+    selected,
+    hidden,
     transactions: wallet?.transactions ?? [],
+    signetPasses: passes?.passes ?? [],
     isLoading,
+    onSwitchNetwork: switchNetwork,
+    onSelectToken: setTokenId,
+    onToggleHidden: () => setHidden((h) => !h),
     onSend: () => open('send'),
     onReceive: () => open('receive'),
+    onCreateSignetPass: () => open('create-signetpass'),
   };
 };

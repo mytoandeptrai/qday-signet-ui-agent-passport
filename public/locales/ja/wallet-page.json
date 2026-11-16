@@ -1,17 +1,26 @@
 {
   "title": "メインウォレット",
-  "description": "QDay 上のセルフカストディウォレットです。ガス代は負担され、秘密鍵は MetaMask に保管されます。",
+  "description": "あなたの MetaMask アカウントです。残高はネットワークごとに分かれ、SignetPass はここから作成します。",
   "balance": {
-    "label": "残高",
+    "label": "{{symbol}} 残高",
     "send": "送金",
-    "receive": "受取"
+    "receive": "受取",
+    "title": "{{chain}} メインウォレット",
+    "metamask": "MetaMask で接続中",
+    "hide": "残高を非表示",
+    "show": "残高を表示",
+    "copy-address": "ウォレットのアドレスをコピー",
+    "copied": "アドレスをコピーしました"
   },
   "networks": {
-    "title": "ネットワーク",
+    "title": "ブロックチェーン",
     "connected": "接続中のネットワーク",
     "switch": "切り替え",
     "connect-hint": "ウォレットを接続するとネットワークを切り替えられます。",
-    "testnet": "テストネット"
+    "testnet": "テストネット",
+    "environment": "ネットワークの種類",
+    "mainnet": "メインネット",
+    "coming-soon": "近日公開"
   },
   "transactions": {
     "title": "取引",
@@ -19,7 +28,8 @@
     "kinds": {
       "send": "送金先",
       "receive": "受取元",
-      "fund": "入金"
+      "fund": "入金",
+      "fee": "SignetPass 手数料"
     }
   },
   "send": {
@@ -29,7 +39,7 @@
         "placeholder": "0x…"
       },
       "amount": {
-        "label": "金額（USD8）"
+        "label": "金額（{{token}}）"
       }
     },
     "available": "利用可能：{{amount}}",
@@ -41,13 +51,25 @@
       "amount-max": "利用可能額は {{available}} のみです"
     },
     "toasts": {
-      "sent": "{{amount}} USD8 を送金しました",
+      "sent": "{{amount}} {{token}} を送金しました",
       "failed": "送金できませんでした。もう一度お試しください。"
     }
   },
   "receive": {
-    "note": "このアドレスには QDay 上の USD8 のみを送ってください。他のトークンやネットワークでは失われる可能性があります。",
+    "note": "このアドレスには {{network}} 上の {{token}} のみを送ってください。他のトークンやネットワークでは失われる可能性があります。",
     "address": "あなたのメインウォレットアドレス",
     "copied": "アドレスをコピーしました"
+  },
+  "tokens": {
+    "title": "トークン",
+    "native": "ネイティブトークン（ガス代）",
+    "stable": "ステーブルコイン"
+  },
+  "signetpasses": {
+    "title": "SignetPass",
+    "create": "SignetPass を作成",
+    "empty": "{{network}} にはまだ SignetPass がありません。作成すると、エージェントが支出できるようになります。",
+    "active": "有効",
+    "inactive": "未有効化"
   }
 }
