@@ -2,7 +2,7 @@ import { Link } from '@tanstack/react-router';
 import { SignetPlate } from '@/components/brand/signet-plate';
 import { PublicHeader } from '@/components/layouts';
 import { ROUTES } from '@/constant';
-import { InstallButtonUi, RotatingWordUi, TerminalCardUi } from '../../components';
+import { RotatingWordUi, TerminalCardUi } from '../../components';
 import { HERO_PIN_LENGTH } from '../../utils';
 import { useHeroContainer } from '../../hooks';
 
