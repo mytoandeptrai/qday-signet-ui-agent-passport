@@ -9,14 +9,10 @@ const OverviewContainer = () => {
   const { step, open, onSelectStep, onToggleOpen } = useOverviewContainer();
   return (
     <>
-      <div className='grid gap-10 lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-14'>
-        <div className='min-w-0'>
-          <PendingEscalationsContainer />
-          <OverviewIdeasUi ideas={IDEA_IDS} />
-          <GetStartedContainer step={step} open={open} onSelectStep={onSelectStep} onToggleOpen={onToggleOpen} />
-        </div>
-        <OverviewBalanceContainer />
-      </div>
+      <PendingEscalationsContainer />
+      <OverviewBalanceContainer />
+      <GetStartedContainer step={step} open={open} onSelectStep={onSelectStep} onToggleOpen={onToggleOpen} />
+      <OverviewIdeasUi ideas={IDEA_IDS} />
     </>
   );
 };

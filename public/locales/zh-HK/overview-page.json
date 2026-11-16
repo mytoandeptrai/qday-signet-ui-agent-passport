@@ -104,7 +104,7 @@
     "none": "SignetPass 是代理支出所用的智能錢包。",
     "created": "你的 SignetPass 已就緒。",
     "create": "建立 SignetPass",
-    "inactive": "你的 SignetPass 已建立但尚未啟用。啟用後會部署智能錢包，費用由主錢包支付。",
+    "inactive": "你的 SignetPass 已建立但尚未啟用。啟用後會部署智能錢包，免費。",
     "activate": "啟用 SignetPass"
   },
   "learn": {

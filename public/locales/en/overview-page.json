@@ -104,7 +104,7 @@
     "none": "Your SignetPass is the smart wallet agents spend from.",
     "created": "Your SignetPass is ready.",
     "create": "Create SignetPass",
-    "inactive": "Your SignetPass is created but not activated. Activate it to deploy the smart wallet; the fee is paid by your Main Wallet.",
+    "inactive": "Your SignetPass is created but not activated. Activate it to deploy the smart wallet. It is free.",
     "activate": "Activate SignetPass"
   },
   "learn": {

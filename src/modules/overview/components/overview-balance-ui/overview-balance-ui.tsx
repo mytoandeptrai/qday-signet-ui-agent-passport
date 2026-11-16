@@ -32,19 +32,28 @@ const OverviewBalanceUi = ({
 }: OverviewBalanceUiProps) => {
   const { t } = useTranslation("overview-page");
   return (
-    <>
-      <div className="text-body text-muted-foreground">
-        {t("balance.title", { chain: network.name })}
+    <div className="flex flex-wrap items-end justify-between gap-x-10 gap-y-5">
+      <div>
+        <div className="flex flex-wrap items-center gap-2 text-body text-muted-foreground">
+          <span>{t("balance.title", { chain: network.name })}</span>
+          <span className="border px-1.5 py-0.5 text-small">{network.testnetName}</span>
+        </div>
+        <div className="mt-1.5 flex items-baseline gap-2">
+          <span className="font-display text-figure leading-none font-semibold tabular-nums">
+            {money(balance)}
+          </span>
+          <span className="text-body text-muted-foreground">
+            {network.token.symbol}
+          </span>
+        </div>
+        <p className="mt-4 text-small text-muted-foreground">
+          {passkeyEnabled ? t("balance.passkey-on") : t("balance.passkey-off")}{" "}
+          <Link to={ROUTES.SETTINGS} className="underline underline-offset-2 hover:text-foreground">
+            {t("balance.passkey-manage")}
+          </Link>
+        </p>
       </div>
-      <div className="mt-1.5 flex items-baseline gap-2">
-        <span className="font-display text-figure leading-none font-semibold tabular-nums">
-          {money(balance)}
-        </span>
-        <span className="text-body text-muted-foreground">
-          {network.token.symbol}
-        </span>
-      </div>
-      <div className="mt-5 flex gap-2">
+      <div className="flex gap-2">
         <Button variant="outline" onClick={onAddFunds}>
           {t("labels.add-funds")}
         </Button>
@@ -68,13 +77,7 @@ const OverviewBalanceUi = ({
           </DropdownMenu>
         )}
       </div>
-      <p className="mt-4 text-small text-muted-foreground">
-        {passkeyEnabled ? t("balance.passkey-on") : t("balance.passkey-off")}{" "}
-        <Link to={ROUTES.SETTINGS} className="underline underline-offset-2 hover:text-foreground">
-          {t("balance.passkey-manage")}
-        </Link>
-      </p>
-    </>
+    </div>
   );
 };
 

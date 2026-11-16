@@ -104,7 +104,7 @@
     "none": "SignetPass anda ialah dompet pintar tempat ejen berbelanja.",
     "created": "SignetPass anda sudah sedia.",
     "create": "Cipta SignetPass",
-    "inactive": "SignetPass anda telah dicipta tetapi belum diaktifkan. Aktifkan untuk menempatkan dompet pintar; yuran dibayar oleh Dompet Utama anda.",
+    "inactive": "SignetPass anda telah dicipta tetapi belum diaktifkan. Aktifkannya untuk menempatkan dompet pintar. Ia percuma.",
     "activate": "Aktifkan SignetPass"
   },
   "learn": {

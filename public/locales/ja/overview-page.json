@@ -104,7 +104,7 @@
     "none": "SignetPass は、エージェントが支出するスマートウォレットです。",
     "created": "SignetPass の準備ができました。",
     "create": "SignetPass を作成",
-    "inactive": "SignetPass は作成済みですが、まだ有効化されていません。有効化するとスマートウォレットがデプロイされ、手数料はメインウォレットから支払われます。",
+    "inactive": "SignetPass は作成済みですが、まだ有効化されていません。有効化するとスマートウォレットがデプロイされます。無料です。",
     "activate": "SignetPass を有効化"
   },
   "learn": {

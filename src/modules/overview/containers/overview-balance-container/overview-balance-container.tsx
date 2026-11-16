@@ -5,11 +5,11 @@ import { useOverviewBalanceContainer } from '../../hooks';
 const OverviewBalanceContainer = () => {
   const { balance, network, address, passkeyEnabled, onCopyAddress, onAddFunds } = useOverviewBalanceContainer();
   return (
-    <aside>
+    <section className='border-b pb-8'>
       <WalletGate>
         <OverviewBalanceUi balance={balance} network={network} address={address} passkeyEnabled={passkeyEnabled} onCopyAddress={onCopyAddress} onAddFunds={onAddFunds} />
       </WalletGate>
-    </aside>
+    </section>
   );
 };
 
