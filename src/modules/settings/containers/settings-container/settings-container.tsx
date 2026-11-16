@@ -9,11 +9,9 @@ import {
   HistoryIcon,
   InfoIcon,
   LockIcon,
-  LogOutIcon,
   MoonIcon,
   Trash2Icon,
 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import { PageHeader } from '@/components/ui/page-header';
 import SignStatusUi from '@/components/ui/sign-status';
 import { Switch } from '@/components/ui/switch';
@@ -43,7 +41,6 @@ const SettingsContainer = () => {
     onCloseSheet,
     onSoon,
     onReset,
-    onSignOut,
   } = useSettingsContainer();
   return (
     <div className='max-w-2xl pb-10'>
@@ -101,11 +98,6 @@ const SettingsContainer = () => {
       <SettingsSectionUi title={t('sections.about')}>
         <SettingsRowUi icon={InfoIcon} label={t('rows.version')} right={<span className='text-small text-muted-foreground'>{APP_VERSION}</span>} />
       </SettingsSectionUi>
-
-      <Button variant='outline' className='mt-8' onClick={onSignOut}>
-        <LogOutIcon />
-        {t('sign-out')}
-      </Button>
 
       <SettingsSheetUi open={sheet === 'limits'} title={t('rows.limits')} onClose={onCloseSheet}>
         <SettingsLimitsContainer />
