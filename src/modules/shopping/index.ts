@@ -1,0 +1,1 @@
+export { ShoppingContainer } from './containers';

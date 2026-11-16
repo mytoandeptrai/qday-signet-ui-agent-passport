@@ -2,10 +2,9 @@ export const IDEA_IDS = ['learn', 'purchases', 'cloud', 'apartments', 'candidate
 
 export type IdeaId = (typeof IDEA_IDS)[number];
 
-export const GET_STARTED_STEPS = ['connect', 'signetpass', 'allowance', 'funds', 'learn'] as const;
+export const GET_STARTED_STEPS = ['learn', 'funds', 'signetpass', 'move', 'install', 'connect', 'session'] as const;
 
 export type GetStartedStepId = (typeof GET_STARTED_STEPS)[number];
 
-export const ALLOWANCE_STEP_INDEX = GET_STARTED_STEPS.indexOf('allowance');
 export const VISIBLE_SESSIONS = 4;
 export const VISIBLE_ACTIVITY = 5;

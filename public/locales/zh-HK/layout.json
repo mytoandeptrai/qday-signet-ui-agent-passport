@@ -9,7 +9,11 @@
     "help": "說明",
     "wallet": "錢包",
     "agents": "代理",
-    "sessions": "會話"
+    "sessions": "支出會話",
+    "agentic-payments": "代理支付",
+    "marketplace": "市集",
+    "services": "服務",
+    "shopping": "購物"
   },
   "help": {
     "documentation": "文件",

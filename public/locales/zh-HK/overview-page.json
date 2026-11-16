@@ -13,7 +13,7 @@
     "review": "審閱"
   },
   "ideas": {
-    "title": "Signet 實際應用",
+    "title": "教學 – 認識 Signet",
     "items": {
       "learn": "認識你的 Signet",
       "purchases": "把推薦變成購買",
@@ -26,18 +26,33 @@
   "get-started": {
     "title": "開始使用",
     "hints": {
-      "connect": "將此內容貼到你的編程代理。",
-      "signetpass": "建立供代理支出的錢包。",
-      "allowance": "選擇代理可支出的金額。",
-      "funds": "為你的餘額注資。",
-      "learn": "接下來可以試試什麼。"
+      "learn": "接下來可以試試。",
+      "funds": "為你的餘額增值。",
+      "signetpass": "建立代理用來支出的錢包。",
+      "move": "讓代理有資金可用。",
+      "install": "在代理的終端機執行。",
+      "connect": "你的代理會自行註冊。",
+      "session": "設定代理的支出上限。"
     },
     "steps": {
+      "learn": "認識 Signet",
+      "funds": "為主錢包增值",
+      "signetpass": "建立 SignetPass",
+      "move": "將資金轉入支出錢包",
+      "install": "安裝 Signet CLI",
       "connect": "連接你的代理",
-      "signetpass": "建立你的 SignetPass",
-      "allowance": "設定額度",
-      "funds": "增值",
-      "learn": "認識 Signet"
+      "session": "建立支出會話"
+    },
+    "text": {
+      "move": "代理可從支出錢包付款。你需要建立設有上限的支出會話，才能讓代理這樣做。一切由你掌控。",
+      "install": "複製並在代理的終端機執行 SignetPass 提供的指令。這會安裝工具和協議，讓你的代理與 Signet 溝通和互動。",
+      "connect": "在代理的終端機安裝 Signet CLI 後，代理會自動註冊到你的 SignetPass。你的代理現已可以支出。",
+      "session": "在支出會話的上限內控制代理的支出。你可以設定預算、每筆交易的最高金額和會話到期時間。支出會話的管理簡單又靈活。你可以預先建立支出會話，之後代理需要時便能自主支出，無須再經你批准。你也可以讓 Signet 預設按代理想購買的開支向你建議支出會話。你會在 Trellis 錢包收到通知，檢視、按需要調整金額並批准。一切由你掌控。"
+    },
+    "actions": {
+      "move": "轉入資金",
+      "install": "安裝 Signet CLI",
+      "session": "建立支出會話"
     }
   },
   "install": {
@@ -54,12 +69,7 @@
     "held": "已預留 {{amount}} · 預設 ${{limit}}"
   },
   "funds": {
-    "balance": "你的餘額為 {{amount}}。可隨時以信用卡、銀行或加密貨幣增值。"
-  },
-  "tips": {
-    "session": "會話是設有嚴格上限的單一工作。",
-    "stopped": "超出上限的付款會被攔截，並等待你決定。",
-    "revoke": "隨時可撤銷會話，餘額會退回你的帳戶。"
+    "balance": "為主餘額增值。你的餘額為 {{amount}}。可隨時以信用卡、銀行或加密貨幣增值。"
   },
   "balance": {
     "title": "SignetPass 餘額",
@@ -91,8 +101,16 @@
     "session-revoked": "已撤銷會話"
   },
   "signetpass": {
-    "none": "SignetPass 是代理支出所用的智能錢包。只需建立一次，並在 MetaMask 中確認。",
+    "none": "SignetPass 是代理支出所用的智能錢包。",
     "created": "你的 SignetPass 已就緒。",
     "create": "建立 SignetPass"
+  },
+  "learn": {
+    "intro": "在教學部分，觀看 Signet 實際運作的具體例子，從在 Signet CLI 輸入提示，到代理的行動。學習如何指示代理在以下 3 種支出情境中使用 Signet：",
+    "items": {
+      "x402": "一次性 x402 付款（API 及數碼商品或服務）",
+      "ecommerce": "電子商務付款",
+      "prepaid": "預付款"
+    }
   }
 }

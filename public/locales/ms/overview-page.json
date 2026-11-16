@@ -13,7 +13,7 @@
     "review": "Semak"
   },
   "ideas": {
-    "title": "Signet beraksi",
+    "title": "Tutorial – Ketahui tentang Signet",
     "items": {
       "learn": "Ketahui tentang Signet anda",
       "purchases": "Ubah cadangan menjadi pembelian",
@@ -26,18 +26,33 @@
   "get-started": {
     "title": "Mulakan",
     "hints": {
-      "connect": "Tampal ini ke dalam ejen pengekodan anda.",
-      "signetpass": "Cipta dompet tempat ejen anda berbelanja.",
-      "allowance": "Pilih berapa banyak ejen anda boleh berbelanja.",
-      "funds": "Danai baki anda.",
-      "learn": "Apa yang boleh dicuba seterusnya."
+      "learn": "Apa yang boleh dicuba seterusnya.",
+      "funds": "Tambah dana ke baki anda.",
+      "signetpass": "Cipta dompet tempat ejen berbelanja.",
+      "move": "Beri ejen anda dana untuk dibelanjakan.",
+      "install": "Jalankan ini dalam terminal ejen anda.",
+      "connect": "Ejen anda mendaftar sendiri.",
+      "session": "Tetapkan had perbelanjaan ejen anda."
     },
     "steps": {
+      "learn": "Kenali Signet",
+      "funds": "Tambah dana ke dompet utama",
+      "signetpass": "Cipta SignetPass",
+      "move": "Pindahkan dana ke dompet perbelanjaan",
+      "install": "Pasang Signet CLI",
       "connect": "Sambungkan ejen anda",
-      "signetpass": "Cipta SignetPass anda",
-      "allowance": "Tetapkan elaun anda",
-      "funds": "Tambah dana",
-      "learn": "Kenali Signet"
+      "session": "Cipta sesi perbelanjaan"
+    },
+    "text": {
+      "move": "Ejen boleh berbelanja daripada dompet perbelanjaan. Anda perlu mencipta sesi perbelanjaan dengan had untuk membenarkannya. Anda yang mengawal.",
+      "install": "Salin/tampal dan jalankan arahan yang disediakan dalam SignetPass anda pada terminal ejen anda. Ini akan memasang alat dan protokol supaya ejen anda boleh berkomunikasi dan berinteraksi dengan Signet.",
+      "connect": "Memasang Signet CLI dalam terminal ejen anda akan mendaftarkan ejen anda ke SignetPass secara automatik. Ejen anda kini sedia berbelanja.",
+      "session": "Kawal perbelanjaan ejen anda dalam had sesi perbelanjaan. Anda boleh menetapkan bajet, jumlah maksimum bagi setiap transaksi dan tempoh tamat sesi. Pengurusan sesi perbelanjaan mudah dan fleksibel. Anda boleh mencipta sesi perbelanjaan lebih awal dan membiarkan ejen anda berbelanja secara autonomi apabila perlu tanpa kelulusan anda lagi. Anda juga boleh membiarkan Signet mencadangkan sesi perbelanjaan secara lalai, sepadan dengan perbelanjaan yang ingin dibuat oleh ejen. Terima pemberitahuan pada dompet Trellis anda, semak, laraskan jumlah jika perlu dan luluskan. Anda yang mengawal."
+    },
+    "actions": {
+      "move": "Pindahkan dana",
+      "install": "Pasang Signet CLI",
+      "session": "Cipta sesi perbelanjaan"
     }
   },
   "install": {
@@ -54,12 +69,7 @@
     "held": "{{amount}} ditahan · lalai ${{limit}}"
   },
   "funds": {
-    "balance": "Baki anda ialah {{amount}}. Tambah lagi pada bila-bila masa, melalui kad, bank atau kripto."
-  },
-  "tips": {
-    "session": "Sesi ialah satu tugasan dengan had yang tegas.",
-    "stopped": "Pembayaran melebihi had anda dihentikan, kemudian menunggu keputusan anda.",
-    "revoke": "Batalkan sesi pada bila-bila masa dan bakinya dikembalikan ke baki anda."
+    "balance": "Tambah dana ke baki utama anda. Baki anda ialah {{amount}}. Tambah lagi pada bila-bila masa, melalui kad, bank atau kripto."
   },
   "balance": {
     "title": "Baki SignetPass",
@@ -91,8 +101,16 @@
     "session-revoked": "Sesi dibatalkan"
   },
   "signetpass": {
-    "none": "SignetPass anda ialah dompet pintar tempat ejen berbelanja. Anda mencipta sekali sahaja dan mengesahkan dalam MetaMask.",
+    "none": "SignetPass anda ialah dompet pintar tempat ejen berbelanja.",
     "created": "SignetPass anda sudah sedia.",
     "create": "Cipta SignetPass"
+  },
+  "learn": {
+    "intro": "Dalam bahagian Tutorial, tonton beberapa contoh konkrit Signet beraksi. Daripada memasukkan prompt ke dalam Signet CLI sehingga apa yang akan dilakukan ejen anda. Pelajari cara mengarahkan ejen anda menggunakan Signet untuk 3 jenis kes penggunaan perbelanjaan:",
+    "items": {
+      "x402": "Bayaran x402 sekali jalan (API dan barangan atau perkhidmatan digital)",
+      "ecommerce": "Pembayaran e-dagang",
+      "prepaid": "Pembayaran prabayar"
+    }
   }
 }

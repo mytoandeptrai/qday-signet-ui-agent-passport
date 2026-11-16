@@ -18,14 +18,14 @@ const GetStartedStepsUi = ({ stepId, done, onSelectStep }: GetStartedStepsUiProp
           <button
             type='button'
             onClick={() => onSelectStep(i)}
-            className={cn('flex w-full items-center gap-4 py-2 text-left text-body', id === stepId ? 'text-foreground' : 'text-muted-foreground')}
+            className={cn('flex w-full items-center gap-4 py-2 text-left text-body whitespace-nowrap', id === stepId ? 'text-foreground' : 'text-muted-foreground')}
           >
             {done[id] ? (
-              <span className='grid size-5 place-items-center rounded-full bg-success text-white'>
+              <span className='grid size-5 shrink-0 place-items-center rounded-full bg-success text-white'>
                 <Check className='size-3' strokeWidth={3} />
               </span>
             ) : (
-              <Circle className='size-5' strokeWidth={1.3} />
+              <Circle className='size-5 shrink-0' strokeWidth={1.3} />
             )}
             {t(`get-started.steps.${id}`)}
           </button>

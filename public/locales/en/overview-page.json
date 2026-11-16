@@ -13,7 +13,7 @@
     "review": "Review"
   },
   "ideas": {
-    "title": "Signet in action",
+    "title": "Tutorials – Learn about Signet",
     "items": {
       "learn": "Learn about your Signet",
       "purchases": "Turn recommendations into purchases",
@@ -26,18 +26,33 @@
   "get-started": {
     "title": "Get started",
     "hints": {
-      "connect": "Paste this into your coding agent.",
-      "signetpass": "Create the wallet your agents spend from.",
-      "allowance": "Choose how much your agents can spend.",
+      "learn": "What to try next.",
       "funds": "Fund your balance.",
-      "learn": "What to try next."
+      "signetpass": "Create the wallet your agents spend from.",
+      "move": "Give your agents funds to spend.",
+      "install": "Run this in your agent terminal.",
+      "connect": "Your agent registers itself.",
+      "session": "Set the limits your agents spend within."
     },
     "steps": {
+      "learn": "Learn Signet",
+      "funds": "Fund your main wallet",
+      "signetpass": "Create a SignetPass",
+      "move": "Move funds to your spending wallet",
+      "install": "Install Signet CLI",
       "connect": "Connect your agent",
-      "signetpass": "Create your SignetPass",
-      "allowance": "Set your allowance",
-      "funds": "Add funds",
-      "learn": "Learn Signet"
+      "session": "Create a spending session"
+    },
+    "text": {
+      "move": "Agents can spend from the spending wallet. You need to create a spending session with limits to allow them to do so. You are in control.",
+      "install": "Copy/paste and run the command provided in your SignetPass to your agent terminal. This will install the tools and protocols for your agent to communicate and interact with Signet.",
+      "connect": "Installing the Signet CLI into your agent terminal will automatically register your agent to your SignetPass. Your agent is now ready to spend.",
+      "session": "Control the spending of your agents within the limits of a spending session. You can define a budget, a max spending amount per transaction, a session time expiration. Spending sessions management is easy and flexible. You can create a spending session in advance and then let your agent spend autonomously when needed without your approval anymore. You can also let Signet propose you a spending session per default, matching with the expense the agent wants to spend to buy something. Get a notification on your Trellis wallet, review, adjust the amount if needed and approve. You have the control."
+    },
+    "actions": {
+      "move": "Move funds",
+      "install": "Install Signet CLI",
+      "session": "Create spending session"
     }
   },
   "install": {
@@ -54,12 +69,7 @@
     "held": "{{amount}} held · ${{limit}} default"
   },
   "funds": {
-    "balance": "Your balance is {{amount}}. Add more any time, by card, bank or crypto."
-  },
-  "tips": {
-    "session": "A session is one job with a hard cap.",
-    "stopped": "Payments over your limit are stopped, then wait for you.",
-    "revoke": "Revoke a session at any time and the rest returns to your balance."
+    "balance": "Fund your main balance. Your balance is {{amount}}. Add more any time, by card, bank or crypto."
   },
   "balance": {
     "title": "SignetPass balance",
@@ -91,8 +101,16 @@
     "session-revoked": "Session revoked"
   },
   "signetpass": {
-    "none": "Your SignetPass is the smart wallet agents spend from. You create it once and confirm in MetaMask.",
+    "none": "Your SignetPass is the smart wallet agents spend from.",
     "created": "Your SignetPass is ready.",
     "create": "Create SignetPass"
+  },
+  "learn": {
+    "intro": "In the Tutorial section, watch some concrete examples of Signet in action. From entering a prompt into Signet CLI to what your agent will do. Learn how to tell your agent to use signet for those 3 different type of spending use cases:",
+    "items": {
+      "x402": "1 shot x402 payment (API and digital goods or services)",
+      "ecommerce": "E-commerce payment",
+      "prepaid": "Prepaid payment"
+    }
   }
 }

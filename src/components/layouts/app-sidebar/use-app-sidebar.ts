@@ -1,6 +1,6 @@
 import { toast } from 'sonner';
 import { useTranslation } from '@/integrations/i18n';
-import { navItems } from './app-sidebar.config';
+import { navGroups } from './app-sidebar.config';
 
 export const useAppSidebar = () => {
   const { t } = useTranslation('layout');
@@ -9,5 +9,5 @@ export const useAppSidebar = () => {
   const onDocsClick = () => toast(t('toasts.docs'));
   const onSupportClick = () => toast.success(t('toasts.support'));
 
-  return { items: navItems(t), onRouterClick, onDocsClick, onSupportClick };
+  return { groups: navGroups(t), onRouterClick, onDocsClick, onSupportClick };
 };

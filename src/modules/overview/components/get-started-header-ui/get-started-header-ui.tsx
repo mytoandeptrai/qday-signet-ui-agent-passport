@@ -12,7 +12,7 @@ type GetStartedHeaderUiProps = {
 const GetStartedHeaderUi = ({ stepId, open, onToggleOpen }: GetStartedHeaderUiProps) => {
   const { t } = useTranslation('overview-page');
   return (
-    <div className='grid gap-8 md:grid-cols-[200px_minmax(0,1fr)]'>
+    <div className='grid gap-8 md:grid-cols-[280px_minmax(0,1fr)]'>
       <h2 className='text-body text-muted-foreground'>{t('get-started.title')}</h2>
       <div className='flex items-start justify-between'>
         <span className='text-body text-muted-foreground'>{t(`get-started.hints.${stepId}`)}</span>

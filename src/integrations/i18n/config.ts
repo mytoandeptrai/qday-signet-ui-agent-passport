@@ -48,6 +48,7 @@ i18n
       'settings-page',
       'landing-page',
       'explore-page',
+      'shopping-page',
       'ecosystem-page',
       'legal-page',
       'comments',

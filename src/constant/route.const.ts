@@ -4,6 +4,7 @@ export const ROUTES = {
   OVERVIEW: '/overview',
   ACTIVITY: '/activity',
   EXPLORE: '/explore',
+  SHOPPING: '/shopping',
   SESSIONS: '/sessions',
   WALLET: '/wallet',
   AGENTS: '/agents',

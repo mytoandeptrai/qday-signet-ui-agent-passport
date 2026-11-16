@@ -9,7 +9,11 @@
     "help": "Bantuan",
     "wallet": "Dompet",
     "agents": "Ejen",
-    "sessions": "Sesi"
+    "sessions": "Sesi Perbelanjaan",
+    "agentic-payments": "Pembayaran Agentik",
+    "marketplace": "Pasar",
+    "services": "Perkhidmatan",
+    "shopping": "Beli-belah"
   },
   "help": {
     "documentation": "Dokumentasi",

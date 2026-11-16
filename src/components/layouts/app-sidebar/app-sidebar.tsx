@@ -13,12 +13,13 @@ import {
   SidebarContent,
   SidebarFooter,
   SidebarGroup,
-  // SidebarGroupLabel,
+  SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarRail,
+  SidebarSeparator,
 } from '@/components/ui/sidebar';
 import { ROUTES } from '@/constant';
 import { useTranslation } from '@/integrations/i18n';
@@ -31,41 +32,45 @@ const menuButtonClass = 'h-10 gap-3 px-3 text-body [&_svg]:size-4.5 [&_svg]:text
 const AppSidebar = () => {
   const { t } = useTranslation('layout');
   const matchRoute = useMatchRoute();
-  const { items, /* onRouterClick, */ onDocsClick, onSupportClick } = useAppSidebar();
+  const { groups, /* onRouterClick, */ onDocsClick, onSupportClick } = useAppSidebar();
 
   return (
     <Sidebar collapsible='icon'>
-      <SidebarHeader className='px-4 pt-5 pb-6 group-data-[collapsible=icon]:px-2'>
-        <CustomLink to={ROUTES.HOME} aria-label='Signet' className='flex items-center p-0 group-data-[collapsible=icon]:justify-center'>
+      <SidebarHeader className='px-4 pt-4 pb-1.5 group-data-[collapsible=icon]:px-2 group-data-[collapsible=icon]:pb-2.5'>
+        <CustomLink to={ROUTES.HOME} aria-label='Signet' className='flex items-center p-0 justify-center'>
           <SignetMark className='hidden size-7 shrink-0 group-data-[collapsible=icon]:block' />
           <span className='group-data-[collapsible=icon]:hidden'>
-            <SignetLockup linked={false} className='h-7' />
+            <SignetLockup linked={false} className='h-8' />
           </span>
         </CustomLink>
-        <div className='mt-5 group-data-[collapsible=icon]:mt-4'>
+        <div>
           <AppSidebarSignetPass />
         </div>
       </SidebarHeader>
+      <SidebarSeparator className='mx-0' />
       <SidebarContent className='overflow-x-hidden px-2 group-data-[collapsible=icon]:px-0'>
-        <SidebarGroup>
-          <SidebarMenu>
-            {items.map(({ url, title, icon: Icon }) => (
-              <SidebarMenuItem key={url}>
-                <SidebarMenuButton
-                  asChild
-                  tooltip={title}
-                  isActive={!!matchRoute({ to: url, fuzzy: true })}
-                  className={menuButtonClass}
-                >
-                  <Link to={url}>
-                    <Icon strokeWidth={1.4} />
-                    <span>{title}</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            ))}
-          </SidebarMenu>
-        </SidebarGroup>
+        {groups.map(({ label, items }) => (
+          <SidebarGroup key={label ?? 'main'}>
+            {label && <SidebarGroupLabel className='px-3 text-small font-medium text-muted-foreground'>{label}</SidebarGroupLabel>}
+            <SidebarMenu>
+              {items.map(({ url, title, icon: Icon }) => (
+                <SidebarMenuItem key={url}>
+                  <SidebarMenuButton
+                    asChild
+                    tooltip={title}
+                    isActive={!!matchRoute({ to: url, fuzzy: true })}
+                    className={menuButtonClass}
+                  >
+                    <Link to={url}>
+                      <Icon strokeWidth={1.4} />
+                      <span>{title}</span>
+                    </Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroup>
+        ))}
         {/* Signet Router is not available yet; restore this group (and onRouterClick) when it ships.
         <SidebarGroup className='mt-4'>
           <SidebarGroupLabel className='px-3 text-small font-medium text-muted-foreground'>

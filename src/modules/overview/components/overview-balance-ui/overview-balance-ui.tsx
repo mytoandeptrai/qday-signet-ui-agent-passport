@@ -37,11 +37,18 @@ const OverviewBalanceUi = ({
             })
           : t("balance.title")}
       </div>
-      <div className="mt-1.5 font-display text-figure leading-none font-semibold tabular-nums">
-        {money(available)}
+      <div className="mt-1.5 flex items-baseline gap-2">
+        <span className="font-display text-figure leading-none font-semibold tabular-nums">
+          {money(available)}
+        </span>
+        {pass && (
+          <span className="text-body text-muted-foreground">
+            {NETWORKS[pass.network].token.symbol}
+          </span>
+        )}
       </div>
       <div className="mt-5 flex gap-2">
-        <Button variant="outline" className="flex-1" onClick={onAddFunds}>
+        <Button variant="outline" onClick={onAddFunds}>
           {t("labels.add-funds")}
         </Button>
         {pass && (

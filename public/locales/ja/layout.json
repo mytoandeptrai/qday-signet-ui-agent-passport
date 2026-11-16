@@ -9,7 +9,11 @@
     "help": "ヘルプ",
     "wallet": "ウォレット",
     "agents": "エージェント",
-    "sessions": "セッション"
+    "sessions": "支出セッション",
+    "agentic-payments": "エージェント決済",
+    "marketplace": "マーケットプレイス",
+    "services": "サービス",
+    "shopping": "ショッピング"
   },
   "help": {
     "documentation": "ドキュメント",

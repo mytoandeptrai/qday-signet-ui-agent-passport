@@ -1,6 +1,5 @@
-import { FormWrapper } from '@/components/ui/form';
 import {
-  GetStartedAllowanceUi,
+  GetStartedActionUi,
   GetStartedFundsUi,
   GetStartedHeaderUi,
   GetStartedInstallUi,
@@ -9,6 +8,7 @@ import {
   GetStartedTipsUi,
 } from '../../components';
 import { useGetStartedContainer } from '../../hooks';
+import { GET_STARTED_STEPS } from '../../utils';
 
 type GetStartedContainerProps = {
   step: number;
@@ -18,30 +18,56 @@ type GetStartedContainerProps = {
 };
 
 const GetStartedContainer = ({ step, open, onSelectStep, onToggleOpen }: GetStartedContainerProps) => {
-  const { stepId, done, prompt, windows, signetPassCreated, available, allowanceForm, onCopyPrompt, onToggleWindows, onCreateSignetPass, onAddFunds, onSaveAllowance } =
-    useGetStartedContainer({ step });
-
-  const onSubmitAllowance = async (values: Parameters<typeof onSaveAllowance>[0]) => {
-    await onSaveAllowance(values);
-    onToggleOpen();
-  };
+  const {
+    t,
+    stepId,
+    done,
+    prompt,
+    windows,
+    signetPassCreated,
+    balanceLabel,
+    onCopyPrompt,
+    onToggleWindows,
+    onCreateSignetPass,
+    onAddFunds,
+    onCreateSession,
+  } = useGetStartedContainer({ step });
 
   return (
     <div className='mt-10 border-t pt-8'>
       <GetStartedHeaderUi stepId={stepId} open={open} onToggleOpen={onToggleOpen} />
       {open && (
-        <div className='mt-4 grid gap-8 md:grid-cols-[200px_minmax(0,1fr)]'>
+        <div className='mt-4 grid gap-8 md:grid-cols-[280px_minmax(0,1fr)]'>
           <GetStartedStepsUi stepId={stepId} done={done} onSelectStep={onSelectStep} />
           <div>
-            {stepId === 'connect' && <GetStartedInstallUi prompt={prompt} windows={windows} onCopy={onCopyPrompt} onToggleWindows={onToggleWindows} />}
-            {stepId === 'signetpass' && <GetStartedSignetpassUi created={signetPassCreated} onCreate={onCreateSignetPass} />}
-            {stepId === 'allowance' && (
-              <FormWrapper form={allowanceForm} onSubmit={onSubmitAllowance}>
-                <GetStartedAllowanceUi />
-              </FormWrapper>
-            )}
-            {stepId === 'funds' && <GetStartedFundsUi available={available} onAddFunds={onAddFunds} />}
             {stepId === 'learn' && <GetStartedTipsUi />}
+            {stepId === 'funds' && <GetStartedFundsUi balance={balanceLabel} onAddFunds={onAddFunds} />}
+            {stepId === 'signetpass' && <GetStartedSignetpassUi created={signetPassCreated} onCreate={onCreateSignetPass} />}
+            {stepId === 'move' && (
+              <GetStartedActionUi
+                text={t('get-started.text.move')}
+                actionLabel={t('get-started.actions.move')}
+                onAction={signetPassCreated ? onAddFunds : onCreateSignetPass}
+              />
+            )}
+            {stepId === 'install' &&
+              (signetPassCreated ? (
+                <GetStartedActionUi text={t('get-started.text.install')}>
+                  <GetStartedInstallUi prompt={prompt} windows={windows} onCopy={onCopyPrompt} onToggleWindows={onToggleWindows} />
+                </GetStartedActionUi>
+              ) : (
+                <GetStartedActionUi text={t('get-started.text.install')} actionLabel={t('get-started.actions.install')} onAction={onCreateSignetPass} />
+              ))}
+            {stepId === 'connect' && (
+              <GetStartedActionUi
+                text={t('get-started.text.connect')}
+                actionLabel={t('get-started.actions.install')}
+                onAction={() => onSelectStep(GET_STARTED_STEPS.indexOf('install'))}
+              />
+            )}
+            {stepId === 'session' && (
+              <GetStartedActionUi text={t('get-started.text.session')} actionLabel={t('get-started.actions.session')} onAction={onCreateSession} />
+            )}
           </div>
         </div>
       )}

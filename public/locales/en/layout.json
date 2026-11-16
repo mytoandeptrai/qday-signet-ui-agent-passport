@@ -9,7 +9,11 @@
     "help": "Help",
     "wallet": "Wallet",
     "agents": "Agents",
-    "sessions": "Sessions"
+    "sessions": "Spending Sessions",
+    "agentic-payments": "Agentic Payments",
+    "marketplace": "Marketplace",
+    "services": "Services",
+    "shopping": "Shopping"
   },
   "help": {
     "documentation": "Documentation",
