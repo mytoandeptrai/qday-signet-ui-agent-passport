@@ -117,7 +117,7 @@ const SettingsContainer = () => {
         <SettingsSecurityContainer />
       </SettingsSheetUi>
       <SettingsSheetUi open={sheet === 'resources'} title={t('rows.resources')} description={t('resources.description')} onClose={onCloseSheet}>
-        <div className='divide-y rounded-md border'>
+        <div className='divide-y rounded-md border overflow-hidden'>
           {RESOURCE_LINKS.map(({ id, href }) => (
             <a key={id} href={href} target='_blank' rel='noreferrer' className='flex items-center justify-between px-4 py-3 text-body transition-colors hover:bg-subtle'>
               {t(`resources.${id}`)}
