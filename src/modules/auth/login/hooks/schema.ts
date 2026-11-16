@@ -16,7 +16,7 @@ export const emailFormSchema = (t: TFunction) =>
   });
 
 export const codeFormSchema = (t: TFunction) =>
-  z.object({ code: z.string().regex(/^\d{6}$/, { message: t('errors.code-invalid') }) });
+  z.object({ code: z.string().regex(/^\d{8}$/, { message: t('errors.code-invalid') }) });
 
 export const initialEmailFormData = { email: '' };
 export const initialCodeFormData = { code: '' };

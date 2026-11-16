@@ -4,11 +4,13 @@
     "title-signup": "Signet を作成",
     "description": "ワンタイムコードをメールでお送りします。パスワードは不要です。",
     "new-here": "Signet は初めてですか？",
-    "have-account": "すでに Signet をお持ちですか？"
+    "have-account": "すでに Signet をお持ちですか？",
+    "note-label": "注意:",
+    "note": "そのメールのアカウント/ウォレットが既に存在する場合、OTP 検証後にホームページへ移動します。存在しない場合はアカウントが作成されます。ウォレットと残高を確認するにはウォレットの接続が必要です。"
   },
   "code": {
     "title": "メールをご確認ください",
-    "description": "送信した 6 桁のコードを入力してください："
+    "description": "送信した 8 桁のコードを入力してください："
   },
   "fields": {
     "email": {
@@ -17,7 +19,7 @@
     },
     "code": {
       "label": "コード",
-      "placeholder": "123456"
+      "placeholder": "12345678"
     }
   },
   "labels": {
@@ -32,7 +34,7 @@
   "errors": {
     "email-required": "メールアドレスを入力してください",
     "email-invalid": "有効なメールアドレスを入力してください",
-    "code-invalid": "6 桁のコードを入力してください",
+    "code-invalid": "8 桁のコードを入力してください",
     "generic": "問題が発生しました。"
   },
   "toasts": {

@@ -18,7 +18,7 @@ import {
   type LoginStep,
 } from './schema';
 
-const RESEND_SECONDS = 30;
+const RESEND_SECONDS = 60;
 const route = getRouteApi('/login');
 
 export const useLoginContainer = () => {
@@ -39,7 +39,7 @@ export const useLoginContainer = () => {
   const codeForm = useForm<CodeFormData>({
     resolver: zodResolver(codeFormSchema(t)),
     defaultValues: initialCodeFormData,
-    mode: 'onChange',
+    mode: 'onSubmit',
   });
 
   const requestCode = useRequestLoginCodeMutation();

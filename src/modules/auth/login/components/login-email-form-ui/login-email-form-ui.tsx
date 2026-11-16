@@ -1,9 +1,7 @@
 import { FormInput } from '@/components/form-fields/form-input';
 import { Button } from '@/components/ui/button';
-import { CustomLink } from '@/components/ui/custom-link';
 import { Spinner } from '@/components/ui/spinner';
 import { Show } from '@/components/utilities';
-import { ROUTES } from '@/constant';
 import { useTranslation } from '@/integrations/i18n';
 import { useFormContext } from 'react-hook-form';
 import type { EmailFormData } from '../../hooks';
@@ -11,10 +9,9 @@ import type { EmailFormData } from '../../hooks';
 type LoginEmailFormUiProps = {
   isSignup?: boolean;
   isLoading?: boolean;
-  redirect?: string;
 };
 
-const LoginEmailFormUi = ({ isSignup = false, isLoading = false, redirect }: LoginEmailFormUiProps) => {
+const LoginEmailFormUi = ({ isSignup = false, isLoading = false }: LoginEmailFormUiProps) => {
   const { control } = useFormContext<EmailFormData>();
   const { t } = useTranslation('login-page');
   return (
@@ -37,15 +34,8 @@ const LoginEmailFormUi = ({ isSignup = false, isLoading = false, redirect }: Log
         </Show>
         {t('labels.continue')}
       </Button>
-      <p className='flex justify-center items-center gap-1 pt-4 text-muted-foreground text-small'>
-        {isSignup ? t('email.have-account') : t('email.new-here')}
-        <CustomLink
-          to={ROUTES.LOGIN}
-          search={{ redirect, mode: isSignup ? 'login' : 'signup' }}
-          className='text-foreground underline underline-offset-4'
-        >
-          {isSignup ? t('labels.sign-in') : t('labels.create-one')}
-        </CustomLink>
+      <p className='pt-2 text-muted-foreground text-caption'>
+        <span className='font-medium text-foreground'>{t('email.note-label')}</span> {t('email.note')}
       </p>
     </div>
   );

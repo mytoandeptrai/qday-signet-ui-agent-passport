@@ -3,7 +3,7 @@ import { SERVICES } from './services';
 import type { Service, User } from '@/types/passport';
 
 /** The one-time code the mock accepts. */
-export const MOCK_OTP = '123456';
+export const MOCK_OTP = '12345678';
 
 export class MockApiError extends Error {
   constructor(
@@ -23,7 +23,7 @@ export async function requestLoginCode(email: string): Promise<void> {
 
 export async function verifyLoginCode(email: string, code: string): Promise<User> {
   await delay();
-  if (code !== MOCK_OTP) throw new MockApiError('That code is not right. Try 123456.', 'code');
+  if (code !== MOCK_OTP) throw new MockApiError('That code is not right. Try 12345678.', 'code');
   return { ...SEED_USER, email: email.toLowerCase() };
 }
 

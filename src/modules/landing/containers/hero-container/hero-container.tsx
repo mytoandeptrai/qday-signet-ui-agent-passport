@@ -41,7 +41,7 @@ const HeroContainer = () => {
               >
                 {t('hero.get-started')}
               </Link>
-              <InstallButtonUi />
+              {/*<InstallButtonUi />*/}
             </div>
           </div>
 

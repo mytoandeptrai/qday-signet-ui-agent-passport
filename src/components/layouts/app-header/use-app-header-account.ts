@@ -19,7 +19,7 @@ export const useAppHeaderAccount = () => {
   const onSignOut = () => {
     usePassportStore.getState().signOut();
     void disconnect();
-    toast(t('toasts.signed-out'));
+    toast.success(t('toasts.signed-out'));
     navigate({ to: ROUTES.HOME });
   };
 

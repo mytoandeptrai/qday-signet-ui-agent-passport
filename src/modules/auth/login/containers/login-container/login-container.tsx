@@ -7,7 +7,6 @@ const LoginContainer = () => {
   const {
     step,
     email,
-    redirect,
     isSignup,
     isLoading,
     cooldown,
@@ -26,7 +25,7 @@ const LoginContainer = () => {
         <div className='m-auto w-full max-w-95 py-12'>
           {step === 'email' && (
             <FormWrapper form={emailForm} onSubmit={onSubmitEmail}>
-              <LoginEmailFormUi isSignup={isSignup} isLoading={isLoading} redirect={redirect} />
+              <LoginEmailFormUi isSignup={isSignup} isLoading={isLoading} />
             </FormWrapper>
           )}
           {step === 'code' && (

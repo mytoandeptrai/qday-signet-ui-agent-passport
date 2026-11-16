@@ -4,11 +4,13 @@
     "title-signup": "建立你的 Signet",
     "description": "我們會以電郵發送一次性驗證碼，無需密碼。",
     "new-here": "初次使用 Signet？",
-    "have-account": "已有 Signet？"
+    "have-account": "已有 Signet？",
+    "note-label": "注意：",
+    "note": "若該電郵的帳戶／錢包已存在，OTP 驗證後會前往主頁；若不存在則會建立帳戶。你需要連接錢包才能查看錢包與餘額。"
   },
   "code": {
     "title": "請查看你的電郵",
-    "description": "請輸入我們發送至以下地址的 6 位數驗證碼"
+    "description": "請輸入我們發送至以下地址的 8 位數驗證碼"
   },
   "fields": {
     "email": {
@@ -17,7 +19,7 @@
     },
     "code": {
       "label": "驗證碼",
-      "placeholder": "123456"
+      "placeholder": "12345678"
     }
   },
   "labels": {
@@ -32,7 +34,7 @@
   "errors": {
     "email-required": "請輸入電郵",
     "email-invalid": "請輸入有效的電郵地址",
-    "code-invalid": "請輸入 6 位數驗證碼",
+    "code-invalid": "請輸入 8 位數驗證碼",
     "generic": "發生錯誤。"
   },
   "toasts": {

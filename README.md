@@ -13,7 +13,7 @@ pnpm build      # vite build + tsc
 
 ## Try it
 
-- Sign in with any email. The one-time code is `123456`.
+- Sign in with any email. The one-time code is `12345678`.
 - Click **Connect wallet** in the sidebar and connect a real MetaMask (RainbowKit modal). Money and signing screens stay hidden until it is connected on QDay or Base; switch networks from the wallet menu or the Wallet page.
 - Every action asks MetaMask for a real message signature (`signMessage`, no transaction, no gas). Decline it in MetaMask to see the rejected state. Balances and records stay mocked.
 - Settings → Account → "Reset demo data" restores the seed.

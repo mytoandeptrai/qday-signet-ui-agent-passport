@@ -4,11 +4,13 @@
     "title-signup": "Cipta Signet anda",
     "description": "Kami akan e-mel kod sekali guna kepada anda. Tanpa kata laluan.",
     "new-here": "Baharu di Signet?",
-    "have-account": "Sudah ada Signet?"
+    "have-account": "Sudah ada Signet?",
+    "note-label": "Nota:",
+    "note": "Jika akaun/dompet dengan e-mel tersebut sudah wujud, anda akan ke laman utama selepas pengesahan OTP. Jika belum, akaun akan dicipta. Anda perlu sambungkan dompet untuk melihat dompet dan baki."
   },
   "code": {
     "title": "Semak e-mel anda",
-    "description": "Masukkan kod 6 digit yang kami hantar kepada"
+    "description": "Masukkan kod 8 digit yang kami hantar kepada"
   },
   "fields": {
     "email": {
@@ -17,7 +19,7 @@
     },
     "code": {
       "label": "Kod",
-      "placeholder": "123456"
+      "placeholder": "12345678"
     }
   },
   "labels": {
@@ -32,7 +34,7 @@
   "errors": {
     "email-required": "Masukkan e-mel anda",
     "email-invalid": "Masukkan alamat e-mel yang sah",
-    "code-invalid": "Masukkan kod 6 digit",
+    "code-invalid": "Masukkan kod 8 digit",
     "generic": "Sesuatu telah berlaku."
   },
   "toasts": {

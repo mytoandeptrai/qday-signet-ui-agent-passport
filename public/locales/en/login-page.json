@@ -4,11 +4,13 @@
     "title-signup": "Create your Signet",
     "description": "We will email you a one-time code. No password.",
     "new-here": "New to Signet?",
-    "have-account": "Already have a Signet?"
+    "have-account": "Already have a Signet?",
+    "note-label": "Note:",
+    "note": "If an account/wallet with that email already exists, you will go to the home page after OTP validation. If not, an account will be created. You need to connect a wallet to see wallets and balances."
   },
   "code": {
     "title": "Check your email",
-    "description": "Enter the 6-digit code we sent to"
+    "description": "Enter the 8-digit code we sent to"
   },
   "fields": {
     "email": {
@@ -17,7 +19,7 @@
     },
     "code": {
       "label": "Code",
-      "placeholder": "123456"
+      "placeholder": "12345678"
     }
   },
   "labels": {
@@ -32,7 +34,7 @@
   "errors": {
     "email-required": "Enter your email",
     "email-invalid": "Enter a valid email address",
-    "code-invalid": "Enter the 6-digit code",
+    "code-invalid": "Enter the 8-digit code",
     "generic": "Something went wrong."
   },
   "toasts": {
