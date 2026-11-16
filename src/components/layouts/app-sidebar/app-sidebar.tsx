@@ -35,7 +35,7 @@ const AppSidebar = () => {
 
   return (
     <Sidebar collapsible='icon'>
-      <SidebarHeader className='px-4 pt-5 pb-6 group-data-[collapsible=icon]:px-0'>
+      <SidebarHeader className='px-4 pt-5 pb-6 group-data-[collapsible=icon]:px-2'>
         <CustomLink to={ROUTES.HOME} aria-label='Signet' className='flex items-center p-0 group-data-[collapsible=icon]:justify-center'>
           <SignetMark className='hidden size-7 shrink-0 group-data-[collapsible=icon]:block' />
           <span className='group-data-[collapsible=icon]:hidden'>
