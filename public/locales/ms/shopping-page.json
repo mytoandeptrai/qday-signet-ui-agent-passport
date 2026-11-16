@@ -1,4 +1,143 @@
 {
   "title": "Beli-belah",
-  "coming-soon": "Akan datang"
+  "coming-soon": "Akan datang",
+  "description": "Cari produk dan bayar menggunakan Dompet Utama atau SignetPass anda.",
+  "cart-label_other": "Buka troli, {{count}} item",
+  "tabs": {
+    "browse": "Layari",
+    "cart": "Troli",
+    "orders": "Pesanan"
+  },
+  "search": {
+    "placeholder": "Cari produk"
+  },
+  "sort": {
+    "label": "Susun produk",
+    "relevance": "Paling sepadan",
+    "newest": "Terbaru",
+    "price_asc": "Harga: rendah ke tinggi",
+    "price_desc": "Harga: tinggi ke rendah"
+  },
+  "categories": {
+    "label": "Kategori",
+    "all": "Semua"
+  },
+  "chips": {
+    "label": "Penapis digunakan",
+    "remove": "Buang penapis {{label}}",
+    "price": "Sehingga {{price}} {{token}}",
+    "ships-to": "Dihantar ke {{country}}"
+  },
+  "filters": {
+    "button": "Penapis",
+    "applied_other": "Penapis, {{count}} digunakan",
+    "title": "Penapis",
+    "description": "Sempitkan produk yang dipaparkan.",
+    "category": "Kategori",
+    "price": "Harga maksimum",
+    "price-aria": "Harga maksimum dalam {{token}}",
+    "price-placeholder": "Tiada had",
+    "price-error": "Masukkan harga seperti “25” atau “49.99” (sehingga 6 perpuluhan).",
+    "presets": "Harga pratetap",
+    "under": "Bawah {{value}}",
+    "tags": "Teg",
+    "tags-count": "{{count}} daripada {{max}}",
+    "tags-hint": "Produk mesti mempunyai setiap teg yang anda pilih.",
+    "shops": "Kedai",
+    "shops-count_other": "{{count}} dipilih",
+    "shops-hint": "Jangan pilih untuk melihat semua kedai.",
+    "ships-to": "Dihantar ke",
+    "ships-hint": "Sembunyikan produk yang tidak dijual oleh kedai di negara itu.",
+    "anywhere": "Mana-mana",
+    "no-match": "Tiada produk sepadan dengan penapis ini.",
+    "reset": "Set semula",
+    "apply": "Guna"
+  },
+  "results": {
+    "label": "Produk",
+    "count_other": "{{count}} hasil",
+    "showing": "Memaparkan {{shown}} daripada {{total}}",
+    "more": "Papar {{count}} lagi"
+  },
+  "empty": {
+    "title": "Tiada produk ditemui",
+    "hint": "Cuba perkataan lain, atau kurangkan penapis.",
+    "clear": "Kosongkan penapis"
+  },
+  "product": {
+    "view": "Lihat {{name}}",
+    "add": "Tambah",
+    "add-aria": "Tambah {{name}} ke troli",
+    "add-to-cart": "Tambah ke troli",
+    "added": "{{name}} ditambah ke troli",
+    "sold-out": "Habis dijual",
+    "low-stock_other": "Tinggal {{count}}",
+    "out-of-stock": "Kehabisan stok",
+    "shop": "Kedai",
+    "delivery": "Penghantaran",
+    "paid-in": "Dibayar dalam",
+    "paid-in-value": "{{token}} di {{chain}}",
+    "in-cart": "{{count}} dalam troli"
+  },
+  "stepper": {
+    "decrease": "Kurangkan kuantiti {{name}}",
+    "increase": "Tambah kuantiti {{name}}",
+    "quantity": "Kuantiti {{name}}"
+  },
+  "cart": {
+    "label": "Troli",
+    "empty-title": "Troli anda kosong",
+    "empty-hint": "Tambah produk daripada Layari, kemudian bayar di sini.",
+    "browse": "Layari produk",
+    "remove": "Buang {{name}}",
+    "not-accepted": "Tidak diterima di {{chain}}",
+    "each": "{{price}} setiap satu",
+    "unpayable": "Sesetengah item tidak boleh dibayar di {{chain}}. Buang item itu, atau tukar rangkaian di halaman Dompet.",
+    "checkout": "Daftar keluar · {{total}} {{token}}"
+  },
+  "checkout": {
+    "items_other": "{{count}} item",
+    "shops_other": "{{count}} kedai",
+    "total": "Jumlah",
+    "ship-to": "Hantar ke",
+    "pay-from": "Bayar daripada",
+    "main-wallet": "Dompet Utama",
+    "kind-wallet": "Akaun MetaMask anda",
+    "kind-signetpass": "SignetPass",
+    "short": "Baki tidak mencukupi",
+    "submit": "Bayar {{total}} {{token}}",
+    "paying": "Membayar…",
+    "summary": "Bayar {{total}} {{token}} daripada {{account}}",
+    "problems": {
+      "empty": "Troli anda kosong.",
+      "unpayable": "{{name}} tidak boleh dibayar di rangkaian ini.",
+      "sold-out": "{{name}} kehabisan stok.",
+      "too-many": "Hanya {{max}} {{name}} tersedia.",
+      "balance": "{{token}} tidak mencukupi dalam akaun ini."
+    },
+    "toasts": {
+      "paid": "Pesanan {{id}} dibayar"
+    }
+  },
+  "orders": {
+    "label": "Pesanan",
+    "empty-title": "Belum ada pesanan",
+    "empty-hint": "Pesanan yang anda bayar di sini akan muncul dalam senarai ini.",
+    "progress": "Kemajuan pesanan",
+    "status": {
+      "paid": "Dibayar",
+      "shipped": "Dihantar",
+      "delivered": "Diterima"
+    },
+    "paid-from": "Dibayar daripada",
+    "ship-to": "Hantar ke",
+    "total": "Jumlah",
+    "preview": {
+      "note": "Pratonton sahaja. Tiada apa yang dihantar, dicaj atau dikirim di luar demo ini. Dengan pedagang sebenar, ia dikirim selepas pembayaran.",
+      "ship": "Pratonton: kirim pesanan dibayar terlama",
+      "deliver": "Pratonton: serah pesanan dikirim terlama",
+      "clear": "Pratonton: kosongkan troli dan pesanan",
+      "cleared": "Troli dan pesanan dikosongkan"
+    }
+  }
 }

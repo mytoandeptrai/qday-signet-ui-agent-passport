@@ -29,7 +29,8 @@
       "send": "Sent to",
       "receive": "Received from",
       "fund": "Funded",
-      "fee": "SignetPass fee"
+      "fee": "SignetPass fee",
+      "purchase": "Shop order"
     }
   },
   "send": {

@@ -4,7 +4,8 @@ import type { TFunction } from 'i18next';
 import { getBalance } from '@/apis/account/requests';
 import { getSessionList } from '@/apis/sessions/requests';
 import { createSignetPassFormSchema } from '@/modules/signetpass/hooks/schema';
-import { currentMainWallet, selectedPass, usePassportStore, visiblePasses } from '@/stores/passport-store';
+import { cartTotal, formatAtomic, pricedCart } from '@/modules/shopping/utils';
+import { currentMainWallet, selectedPass, usePassportStore, visibleOrders, visiblePasses } from '@/stores/passport-store';
 
 const ALICE = '0xalice';
 const BOB = '0xbob';
@@ -154,5 +155,74 @@ describe('SignetPass', () => {
     expect(schema.safeParse({ name: '  ' }).success).toBe(false);
     expect(schema.safeParse({ name: 'x'.repeat(33) }).success).toBe(false);
     expect(schema.safeParse({ name: 'Travel' }).success).toBe(true);
+  });
+});
+
+describe('Shopping', () => {
+  const earbuds = 'p-earbuds';
+  const cartAmount = () => Number(formatAtomic(cartTotal(pricedCart(store().cart, 'base'))));
+
+  it('pays an order from the Main Wallet and records a purchase', () => {
+    store().addToCart(earbuds);
+    store().addToCart(earbuds);
+    const amount = cartAmount();
+    const order = store().placeOrder({ payFrom: 'wallet' });
+    const wallet = currentMainWallet(store());
+    expect(order).toMatchObject({ owner: ALICE, network: 'base', passId: null, status: 'paid' });
+    expect(wallet?.balance).toBe(1250 - amount);
+    expect(wallet?.transactions[0]).toMatchObject({ kind: 'purchase', counterparty: order.id, amount });
+    expect(store().cart).toEqual([]);
+    expect(store().securityLog[0].type).toBe('shop-order');
+  });
+
+  it('pays from an active SignetPass, not from an inactive one', () => {
+    const pass = createActive('Shopping');
+    store().fundFromMain(100);
+    store().addToCart(earbuds);
+    const amount = cartAmount();
+    const order = store().placeOrder({ payFrom: pass.id });
+    expect(order.passId).toBe(pass.id);
+    expect(selectedPass(store())?.balance.available).toBe(100 - amount);
+    expect(currentMainWallet(store())?.balance).toBe(1250 - PASS_FEE - 100);
+
+    const idle = store().createSignetPass({ name: 'Idle' });
+    store().addToCart(earbuds);
+    expect(() => store().placeOrder({ payFrom: idle.id })).toThrow();
+  });
+
+  it('refuses an empty cart, a missing balance and a stranger SignetPass', () => {
+    expect(() => store().placeOrder({ payFrom: 'wallet' })).toThrow();
+    store().addToCart(earbuds);
+    store().sendFromMain('0xabc', 1250);
+    expect(() => store().placeOrder({ payFrom: 'wallet' })).toThrow();
+    expect(() => store().placeOrder({ payFrom: 'pass_missing' })).toThrow();
+    expect(store().orders).toHaveLength(0);
+  });
+
+  it('keeps orders per account and network, and moves them along', () => {
+    store().addToCart(earbuds);
+    const order = store().placeOrder({ payFrom: 'wallet' });
+    store().setOrderStatus(order.id, 'shipped', 'delivered');
+    expect(visibleOrders(store())[0].status).toBe('paid');
+    store().setOrderStatus(order.id, 'paid', 'shipped');
+    expect(visibleOrders(store())[0].status).toBe('shipped');
+    store().setContext(BOB, 'base');
+    expect(visibleOrders(store())).toHaveLength(0);
+    store().setContext(ALICE, 'qday');
+    expect(visibleOrders(store())).toHaveLength(0);
+  });
+
+  it('clears the cart and the visible orders only', () => {
+    store().addToCart(earbuds);
+    store().placeOrder({ payFrom: 'wallet' });
+    store().setContext(BOB, 'base');
+    store().addToCart(earbuds);
+    store().placeOrder({ payFrom: 'wallet' });
+    store().addToCart(earbuds);
+    store().clearShop();
+    expect(store().cart).toEqual([]);
+    expect(visibleOrders(store())).toHaveLength(0);
+    store().setContext(ALICE, 'base');
+    expect(visibleOrders(store())).toHaveLength(1);
   });
 });

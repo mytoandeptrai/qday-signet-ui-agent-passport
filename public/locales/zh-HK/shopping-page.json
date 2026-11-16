@@ -1,4 +1,143 @@
 {
   "title": "購物",
-  "coming-soon": "即將推出"
+  "coming-soon": "即將推出",
+  "description": "搜尋商品，並用主錢包或 SignetPass 付款。",
+  "cart-label_other": "開啟購物車，{{count}} 件",
+  "tabs": {
+    "browse": "瀏覽",
+    "cart": "購物車",
+    "orders": "訂單"
+  },
+  "search": {
+    "placeholder": "搜尋商品"
+  },
+  "sort": {
+    "label": "商品排序",
+    "relevance": "最相關",
+    "newest": "最新",
+    "price_asc": "價格由低至高",
+    "price_desc": "價格由高至低"
+  },
+  "categories": {
+    "label": "類別",
+    "all": "全部"
+  },
+  "chips": {
+    "label": "已套用的篩選",
+    "remove": "移除篩選 {{label}}",
+    "price": "最高 {{price}} {{token}}",
+    "ships-to": "寄往 {{country}}"
+  },
+  "filters": {
+    "button": "篩選",
+    "applied_other": "篩選，已套用 {{count}} 項",
+    "title": "篩選",
+    "description": "縮小顯示的商品範圍。",
+    "category": "類別",
+    "price": "最高價格",
+    "price-aria": "最高價格（{{token}}）",
+    "price-placeholder": "不設上限",
+    "price-error": "請輸入如「25」或「49.99」的價格（最多 6 位小數）。",
+    "presets": "價格預設",
+    "under": "{{value}} 以下",
+    "tags": "標籤",
+    "tags-count": "{{count}} / {{max}}",
+    "tags-hint": "商品必須同時具備你選的所有標籤。",
+    "shops": "商店",
+    "shops-count_other": "已選 {{count}} 間",
+    "shops-hint": "不選則顯示所有商店。",
+    "ships-to": "寄往",
+    "ships-hint": "隱藏商店不在該國家銷售的商品。",
+    "anywhere": "不限",
+    "no-match": "沒有符合這些篩選的商品。",
+    "reset": "重設",
+    "apply": "套用"
+  },
+  "results": {
+    "label": "商品",
+    "count_other": "{{count}} 項結果",
+    "showing": "顯示 {{total}} 項中的 {{shown}} 項",
+    "more": "再顯示 {{count}} 項"
+  },
+  "empty": {
+    "title": "找不到商品",
+    "hint": "試試其他字詞，或減少篩選。",
+    "clear": "清除篩選"
+  },
+  "product": {
+    "view": "查看 {{name}}",
+    "add": "加入",
+    "add-aria": "將 {{name}} 加入購物車",
+    "add-to-cart": "加入購物車",
+    "added": "已將 {{name}} 加入購物車",
+    "sold-out": "已售罄",
+    "low-stock_other": "僅餘 {{count}} 件",
+    "out-of-stock": "缺貨",
+    "shop": "商店",
+    "delivery": "送貨",
+    "paid-in": "付款幣種",
+    "paid-in-value": "{{chain}} 上的 {{token}}",
+    "in-cart": "購物車內有 {{count}} 件"
+  },
+  "stepper": {
+    "decrease": "減少 {{name}} 的數量",
+    "increase": "增加 {{name}} 的數量",
+    "quantity": "{{name}} 的數量"
+  },
+  "cart": {
+    "label": "購物車",
+    "empty-title": "購物車是空的",
+    "empty-hint": "先在瀏覽頁加入商品，再回來付款。",
+    "browse": "瀏覽商品",
+    "remove": "移除 {{name}}",
+    "not-accepted": "{{chain}} 不接受",
+    "each": "每件 {{price}}",
+    "unpayable": "部分商品無法在 {{chain}} 付款。請移除，或在錢包頁切換網絡。",
+    "checkout": "結帳 · {{total}} {{token}}"
+  },
+  "checkout": {
+    "items_other": "{{count}} 件",
+    "shops_other": "{{count}} 間商店",
+    "total": "總額",
+    "ship-to": "寄往",
+    "pay-from": "付款來源",
+    "main-wallet": "主錢包",
+    "kind-wallet": "你的 MetaMask 帳戶",
+    "kind-signetpass": "SignetPass",
+    "short": "餘額不足",
+    "submit": "支付 {{total}} {{token}}",
+    "paying": "付款中…",
+    "summary": "從 {{account}} 支付 {{total}} {{token}}",
+    "problems": {
+      "empty": "購物車是空的。",
+      "unpayable": "{{name}} 無法在此網絡付款。",
+      "sold-out": "{{name}} 已缺貨。",
+      "too-many": "{{name}} 最多只能買 {{max}} 件。",
+      "balance": "此帳戶的 {{token}} 不足。"
+    },
+    "toasts": {
+      "paid": "訂單 {{id}} 已付款"
+    }
+  },
+  "orders": {
+    "label": "訂單",
+    "empty-title": "尚無訂單",
+    "empty-hint": "你在此付款的訂單會顯示在這裏。",
+    "progress": "訂單進度",
+    "status": {
+      "paid": "已付款",
+      "shipped": "已出貨",
+      "delivered": "已送達"
+    },
+    "paid-from": "付款來源",
+    "ship-to": "寄往",
+    "total": "總額",
+    "preview": {
+      "note": "僅供預覽。此示範以外不會發送、收費或出貨。真實商戶會在付款後出貨。",
+      "ship": "預覽：出貨最早的已付款訂單",
+      "deliver": "預覽：送達最早的已出貨訂單",
+      "clear": "預覽：清空購物車和訂單",
+      "cleared": "已清空購物車和訂單"
+    }
+  }
 }

@@ -29,7 +29,8 @@
       "send": "Dihantar kepada",
       "receive": "Diterima daripada",
       "fund": "Didanai",
-      "fee": "Yuran SignetPass"
+      "fee": "Yuran SignetPass",
+      "purchase": "Pesanan kedai"
     }
   },
   "send": {

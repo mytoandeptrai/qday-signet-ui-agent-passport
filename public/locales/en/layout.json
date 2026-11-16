@@ -84,6 +84,10 @@
     "activate-signetpass": {
       "title": "Activate SignetPass",
       "description": "Deploy your SignetPass smart wallet."
+    },
+    "shop-checkout": {
+      "title": "Checkout",
+      "description": "Pay for your cart and confirm in MetaMask."
     }
   },
   "signetpass": {

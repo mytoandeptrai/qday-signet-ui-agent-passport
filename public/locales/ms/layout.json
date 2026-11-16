@@ -84,6 +84,10 @@
     "activate-signetpass": {
       "title": "Aktifkan SignetPass",
       "description": "Tempatkan dompet pintar SignetPass anda."
+    },
+    "shop-checkout": {
+      "title": "Daftar keluar",
+      "description": "Bayar untuk troli anda dan sahkan dalam MetaMask."
     }
   },
   "signetpass": {

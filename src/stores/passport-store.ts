@@ -3,6 +3,18 @@ import { persist } from 'zustand/middleware';
 import { DEFAULT_NETWORK, NETWORKS, PASS_FEE, type NetworkKey } from '@/constant';
 import { randomAddress } from '@/lib/address';
 import { SEED_MAIN_WALLET, SEED_SETTINGS } from '@/mock/seed';
+import {
+  type CartLine,
+  SAMPLE_SHIP_TO,
+  addToCart as addLine,
+  cartTotal,
+  cartTotalAmount,
+  checkoutProblem,
+  formatAtomic,
+  pricedCart,
+  removeFromCart as removeLine,
+  setQuantity as setLineQuantity,
+} from '@/modules/shopping/utils';
 import type {
   ActivityItem,
   Agent,
@@ -14,6 +26,8 @@ import type {
   MainWallet,
   SecurityEvent,
   SecurityEventType,
+  ShopOrder,
+  ShopOrderStatus,
   SignetPass,
   SpendingSession,
   User,
@@ -36,6 +50,9 @@ interface PassportState {
   activity: ActivityItem[];
   escalations: Escalation[];
   deposits: Deposit[];
+  /** Shopping cart: ids and quantities only, prices come from the catalogue. */
+  cart: CartLine[];
+  orders: ShopOrder[];
   settings: AppSettings;
   agents: Agent[];
   securityLog: SecurityEvent[];
@@ -50,6 +67,13 @@ interface PassportState {
   selectPass: (id: string) => void;
   sendFromMain: (to: string, amount: number) => void;
   fundFromMain: (amount: number) => void;
+  addToCart: (productId: string) => void;
+  setCartQuantity: (productId: string, quantity: number) => void;
+  removeFromCart: (productId: string) => void;
+  /** Pays the cart from the Main Wallet (`'wallet'`) or from an active SignetPass of this account and network. */
+  placeOrder: (input: { payFrom: 'wallet' | string }) => ShopOrder;
+  setOrderStatus: (id: string, from: ShopOrderStatus, to: ShopOrderStatus) => void;
+  clearShop: () => void;
   approveAgent: (id: string) => void;
   revokeAgent: (id: string) => void;
   recordWalletEvent: (type: 'wallet-connected' | 'wallet-disconnected', address: string) => void;
@@ -101,6 +125,10 @@ const withWallet = (s: PassportState, change: (w: MainWallet) => MainWallet) => 
   mainWallets: { ...s.mainWallets, [walletKey(s.context)]: change(requireWallet(s)) },
 });
 
+/** Orders of the connected account on the network in use. */
+export const visibleOrders = (s: Pick<PassportState, 'orders' | 'context'>) =>
+  s.orders.filter((o) => o.owner === s.context.address && o.network === s.context.network);
+
 const requirePass = (s: PassportState) => {
   const pass = selectedPass(s);
   if (!pass) throw new Error('Create a SignetPass first');
@@ -122,6 +150,8 @@ const initial = () => ({
   activity: [] as ActivityItem[],
   escalations: [] as Escalation[],
   deposits: [] as Deposit[],
+  cart: [] as CartLine[],
+  orders: [] as ShopOrder[],
   settings: SEED_SETTINGS,
   agents: [] as Agent[],
   securityLog: [] as SecurityEvent[],
@@ -210,6 +240,56 @@ export const usePassportStore = create<PassportState>()(
         }));
       },
 
+      addToCart: (productId) => set((s) => ({ cart: addLine(s.cart, productId) })),
+
+      setCartQuantity: (productId, quantity) => set((s) => ({ cart: setLineQuantity(s.cart, productId, quantity) })),
+
+      removeFromCart: (productId) => set((s) => ({ cart: removeLine(s.cart, productId) })),
+
+      placeOrder: ({ payFrom }) => {
+        const state = get();
+        const wallet = requireWallet(state);
+        const { address, network } = state.context;
+        const pass = payFrom === 'wallet' ? null : visiblePasses(state).find((p) => p.id === payFrom);
+        if (payFrom !== 'wallet') {
+          if (!pass) throw new Error('SignetPass not found');
+          if (pass.status !== 'active') throw new Error('Activate the SignetPass first');
+        }
+        const problem = checkoutProblem(state.cart, network, pass ? pass.balance.available : wallet.balance);
+        if (problem) throw new Error(`Cannot check out: ${problem.code}`);
+        const lines = pricedCart(state.cart, network);
+        const amount = cartTotalAmount(lines);
+        const order: ShopOrder = {
+          id: `ORD-${Math.random().toString(36).slice(2, 8).toUpperCase()}`,
+          owner: address as string,
+          network,
+          passId: pass?.id ?? null,
+          paidFrom: pass?.name ?? 'Main Wallet',
+          status: 'paid',
+          lines: lines.map(({ product, quantity }) => ({ productId: product.id, name: product.name, price: product.price, quantity })),
+          total: formatAtomic(cartTotal(lines)),
+          shipTo: SAMPLE_SHIP_TO,
+          createdAt: now(),
+        };
+        set((s) => ({
+          cart: [],
+          orders: [order, ...s.orders],
+          ...(pass
+            ? { passes: withBalance(s.passes, pass.id, (b) => ({ available: b.available - amount })) }
+            : withWallet(s, (w) => ({
+                balance: w.balance - amount,
+                transactions: [{ id: uid('wtx'), kind: 'purchase', counterparty: order.id, amount, createdAt: now() }, ...w.transactions],
+              }))),
+          securityLog: logged('shop-order', `${order.id} · -${order.total} ${NETWORKS[network].token.symbol} · ${order.paidFrom}`, s.securityLog),
+        }));
+        return order;
+      },
+
+      // The merchant moves an order along. With no merchant yet, the Shopping page offers this as a preview control.
+      setOrderStatus: (id, from, to) => set((s) => ({ orders: s.orders.map((o) => (o.id === id && o.status === from ? { ...o, status: to } : o)) })),
+
+      clearShop: () => set((s) => ({ cart: [], orders: s.orders.filter((o) => !visibleOrders(s).includes(o)) })),
+
       approveAgent: (id) =>
         set((s) => ({
           agents: s.agents.map((a) => (a.id === id ? { ...a, status: 'active', approvedAt: now() } : a)),
@@ -291,6 +371,6 @@ export const usePassportStore = create<PassportState>()(
     }),
     // v4: the Main Wallet is the connected account (one balance per network) and passes belong to it; older saved data is dropped for the new seed.
     // The wallet context follows MetaMask on every load, so it is not saved.
-    { name: 'signet-passport-mock', version: 4, partialize: ({ context: _context, ...saved }) => saved }
+    { name: 'signet-passport-mock', version: 5, partialize: ({ context: _context, ...saved }) => saved }
   )
 );

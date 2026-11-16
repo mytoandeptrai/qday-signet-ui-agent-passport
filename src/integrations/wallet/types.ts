@@ -1,4 +1,4 @@
-export type SignRequestKind = 'create-signetpass' | 'transfer' | 'approve-agent' | 'create-session' | 'revoke' | 'enable-passkey' | 'disable-passkey';
+export type SignRequestKind = 'create-signetpass' | 'transfer' | 'shop-checkout' | 'approve-agent' | 'create-session' | 'revoke' | 'enable-passkey' | 'disable-passkey';
 
 export interface SignRequest {
   kind: SignRequestKind;

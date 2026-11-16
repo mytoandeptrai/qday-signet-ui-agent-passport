@@ -29,7 +29,8 @@
       "send": "發送至",
       "receive": "接收自",
       "fund": "已注資",
-      "fee": "SignetPass 費用"
+      "fee": "SignetPass 費用",
+      "purchase": "商店訂單"
     }
   },
   "send": {

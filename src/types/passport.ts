@@ -152,12 +152,12 @@ export interface PlaygroundScenario {
   steps: PlaygroundStep[];
 }
 
-export type WalletTxKind = 'send' | 'receive' | 'fund' | 'fee';
+export type WalletTxKind = 'send' | 'receive' | 'fund' | 'fee' | 'purchase';
 
 export interface WalletTx {
   id: string;
   kind: WalletTxKind;
-  /** Recipient for `send`, sender for `receive`, the SignetPass name for `fund` and `fee`. */
+  /** Recipient for `send`, sender for `receive`, the SignetPass name for `fund` and `fee`, the order id for `purchase`. */
   counterparty: string;
   amount: number;
   createdAt: string;
@@ -179,9 +179,28 @@ export interface SignetPass {
   /** Main Wallet (EOA, lowercase) that created the pass and pays for it. */
   owner: string;
   network: NetworkKey;
-  /** A new pass is `inactive` until the owner activates it (deploys the smart account and pays the fee). Only an active pass can hold funds or start sessions. */
+  /** A new pass is `inactive` until the owner activates it (deploys the smart account; the creation fee is already paid). Only an active pass can hold funds or start sessions. */
   status: SignetPassStatus;
   balance: Balance;
+  createdAt: string;
+}
+
+export type ShopOrderStatus = 'paid' | 'shipped' | 'delivered';
+
+/** A Shopping purchase paid from the Main Wallet or an active SignetPass of the same owner and network. */
+export interface ShopOrder {
+  id: string;
+  owner: string;
+  network: NetworkKey;
+  /** The SignetPass that paid, or null when the Main Wallet did. */
+  passId: string | null;
+  /** Name of the account that paid, kept as it was at checkout. */
+  paidFrom: string;
+  status: ShopOrderStatus;
+  lines: { productId: string; name: string; price: string; quantity: number }[];
+  /** Total as a decimal string. */
+  total: string;
+  shipTo: string;
   createdAt: string;
 }
 
@@ -202,6 +221,7 @@ export type SecurityEventType =
   | 'signetpass-created'
   | 'signetpass-activated'
   | 'transfer'
+  | 'shop-order'
   | 'agent-approved'
   | 'agent-revoked'
   | 'session-created'

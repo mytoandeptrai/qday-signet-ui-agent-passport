@@ -1,4 +1,150 @@
 {
   "title": "Shopping",
-  "coming-soon": "Coming soon"
+  "coming-soon": "Coming soon",
+  "description": "Search products and pay for them from your Main Wallet or a SignetPass.",
+  "cart-label_one": "Open cart, {{count}} item",
+  "cart-label_other": "Open cart, {{count}} items",
+  "tabs": {
+    "browse": "Browse",
+    "cart": "Cart",
+    "orders": "Orders"
+  },
+  "search": {
+    "placeholder": "Search products"
+  },
+  "sort": {
+    "label": "Sort products",
+    "relevance": "Best match",
+    "newest": "Newest",
+    "price_asc": "Price: low to high",
+    "price_desc": "Price: high to low"
+  },
+  "categories": {
+    "label": "Categories",
+    "all": "All"
+  },
+  "chips": {
+    "label": "Applied filters",
+    "remove": "Remove filter {{label}}",
+    "price": "Up to {{price}} {{token}}",
+    "ships-to": "Ships to {{country}}"
+  },
+  "filters": {
+    "button": "Filters",
+    "applied_one": "Filters, {{count}} applied",
+    "applied_other": "Filters, {{count}} applied",
+    "title": "Filters",
+    "description": "Narrow the products you see.",
+    "category": "Category",
+    "price": "Maximum price",
+    "price-aria": "Maximum price in {{token}}",
+    "price-placeholder": "No limit",
+    "price-error": "Enter a price like “25” or “49.99” (up to 6 decimals).",
+    "presets": "Price presets",
+    "under": "Under {{value}}",
+    "tags": "Tags",
+    "tags-count": "{{count}} of {{max}}",
+    "tags-hint": "A product must have every tag you pick.",
+    "shops": "Shops",
+    "shops-count_one": "{{count}} selected",
+    "shops-count_other": "{{count}} selected",
+    "shops-hint": "Pick none to see every shop.",
+    "ships-to": "Ships to",
+    "ships-hint": "Hides products the shop does not sell in that country.",
+    "anywhere": "Anywhere",
+    "no-match": "No products match these filters.",
+    "reset": "Reset",
+    "apply": "Apply"
+  },
+  "results": {
+    "label": "Products",
+    "count_one": "{{count}} result",
+    "count_other": "{{count}} results",
+    "showing": "Showing {{shown}} of {{total}}",
+    "more": "Show {{count}} more"
+  },
+  "empty": {
+    "title": "No products found",
+    "hint": "Try other words, or fewer filters.",
+    "clear": "Clear filters"
+  },
+  "product": {
+    "view": "View {{name}}",
+    "add": "Add",
+    "add-aria": "Add {{name}} to cart",
+    "add-to-cart": "Add to cart",
+    "added": "{{name}} added to cart",
+    "sold-out": "Sold out",
+    "low-stock_one": "Only {{count}} left",
+    "low-stock_other": "Only {{count}} left",
+    "out-of-stock": "Out of stock",
+    "shop": "Shop",
+    "delivery": "Delivery",
+    "paid-in": "Paid in",
+    "paid-in-value": "{{token}} on {{chain}}",
+    "in-cart": "{{count}} in cart"
+  },
+  "stepper": {
+    "decrease": "Decrease quantity of {{name}}",
+    "increase": "Increase quantity of {{name}}",
+    "quantity": "Quantity of {{name}}"
+  },
+  "cart": {
+    "label": "Cart",
+    "empty-title": "Your cart is empty",
+    "empty-hint": "Add products from Browse, then pay from here.",
+    "browse": "Browse products",
+    "remove": "Remove {{name}}",
+    "not-accepted": "Not accepted on {{chain}}",
+    "each": "{{price}} each",
+    "unpayable": "Some items cannot be paid on {{chain}}. Remove them, or switch network on the Wallet page.",
+    "checkout": "Checkout · {{total}} {{token}}"
+  },
+  "checkout": {
+    "items_one": "{{count}} item",
+    "items_other": "{{count}} items",
+    "shops_one": "{{count}} shop",
+    "shops_other": "{{count}} shops",
+    "total": "Total",
+    "ship-to": "Ship to",
+    "pay-from": "Pay from",
+    "main-wallet": "Main Wallet",
+    "kind-wallet": "Your MetaMask account",
+    "kind-signetpass": "SignetPass",
+    "short": "Not enough balance",
+    "submit": "Pay {{total}} {{token}}",
+    "paying": "Paying…",
+    "summary": "Pay {{total}} {{token}} from {{account}}",
+    "problems": {
+      "empty": "Your cart is empty.",
+      "unpayable": "{{name}} cannot be paid on this network.",
+      "sold-out": "{{name}} is out of stock.",
+      "too-many": "Only {{max}} of {{name}} available.",
+      "balance": "Not enough {{token}} in this account."
+    },
+    "toasts": {
+      "paid": "Order {{id}} paid"
+    }
+  },
+  "orders": {
+    "label": "Orders",
+    "empty-title": "No orders yet",
+    "empty-hint": "Orders you pay for here appear in this list.",
+    "progress": "Order progress",
+    "status": {
+      "paid": "Paid",
+      "shipped": "Shipped",
+      "delivered": "Delivered"
+    },
+    "paid-from": "Paid from",
+    "ship-to": "Ship to",
+    "total": "Total",
+    "preview": {
+      "note": "Preview only. Nothing is sent, charged or shipped outside this demo. With a real merchant, it ships after payment.",
+      "ship": "Preview: ship the oldest paid order",
+      "deliver": "Preview: deliver the oldest shipped order",
+      "clear": "Preview: clear cart and orders",
+      "cleared": "Cart and orders cleared"
+    }
+  }
 }

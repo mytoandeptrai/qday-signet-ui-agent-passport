@@ -36,7 +36,8 @@
       "agent-revoked": "Ejen dibatalkan",
       "session-created": "Sesi dicipta",
       "session-revoked": "Sesi dibatalkan",
-      "signetpass-activated": "SignetPass diaktifkan"
+      "signetpass-activated": "SignetPass diaktifkan",
+      "shop-order": "Pesanan kedai dibayar"
     }
   },
   "account": {

@@ -84,6 +84,10 @@
     "activate-signetpass": {
       "title": "SignetPass を有効化",
       "description": "SignetPass のスマートウォレットをデプロイします。"
+    },
+    "shop-checkout": {
+      "title": "お支払い",
+      "description": "カートの代金を支払い、MetaMask で確認します。"
     }
   },
   "signetpass": {

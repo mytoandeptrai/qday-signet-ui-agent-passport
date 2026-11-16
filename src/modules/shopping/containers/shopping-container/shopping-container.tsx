@@ -1,12 +1,140 @@
+import { ShoppingCartIcon } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import { PageHeader } from '@/components/ui/page-header';
-import { useTranslation } from '@/integrations/i18n';
+import { Skeleton } from '@/components/ui/skeleton';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import WalletGate from '@/components/ui/wallet-gate';
+import {
+  ShopCartUi,
+  ShopFiltersDialogUi,
+  ShopOrdersUi,
+  ShopProductDialogUi,
+  ShopProductGridUi,
+  ShopSearchUi,
+} from '../../components';
+import { useShoppingContainer } from '../../hooks';
 
 const ShoppingContainer = () => {
-  const { t } = useTranslation('shopping-page');
+  const s = useShoppingContainer();
+  const { t } = s;
+
+  // Shopping is for testnet only: a mainnet network shows the old placeholder.
+  if (!s.isTestnet) {
+    return (
+      <div>
+        <PageHeader title={t('title')} />
+        <p className='text-body text-muted-foreground'>{t('coming-soon')}</p>
+      </div>
+    );
+  }
+
   return (
-    <div>
-      <PageHeader title={t('title')} />
-      <p className='text-body text-muted-foreground'>{t('coming-soon')}</p>
+    <div className='mx-auto w-full max-w-275'>
+      <PageHeader
+        title={t('title')}
+        description={t('description')}
+        action={
+          <Button
+            type='button'
+            variant='outline'
+            aria-label={t('cart-label', { count: s.count })}
+            onClick={s.onOpenCart}
+          >
+            <ShoppingCartIcon />
+            {t('tabs.cart')}
+            {s.count > 0 && <span aria-hidden='true'>{s.count}</span>}
+          </Button>
+        }
+      />
+      <WalletGate>
+        {!s.ready ? (
+          <Skeleton className='h-60' />
+        ) : (
+          <Tabs value={s.tab} onValueChange={s.onTabChange} className='gap-6'>
+            <TabsList className='w-fit'>
+              <TabsTrigger value='browse'>{t('tabs.browse')}</TabsTrigger>
+              <TabsTrigger value='cart'>
+                {t('tabs.cart')}
+                {s.count > 0 && <span className='opacity-80'>{s.count}</span>}
+              </TabsTrigger>
+              <TabsTrigger value='orders'>
+                {t('tabs.orders')}
+                {s.orders.length > 0 && <span className='opacity-80'>{s.orders.length}</span>}
+              </TabsTrigger>
+            </TabsList>
+            <TabsContent value='browse'>
+              <ShopSearchUi
+                search={s.search}
+                sort={s.sort}
+                searching={s.searching}
+                category={s.category}
+                categories={s.categories}
+                filterCount={s.filterCount}
+                chips={s.chips}
+                onSearchChange={s.onSearchChange}
+                onSortChange={s.onSortChange}
+                onCategoryChange={s.onCategoryChange}
+                onOpenFilters={s.onOpenFilters}
+              />
+              <ShopProductGridUi
+                products={s.page.items}
+                total={s.page.total}
+                hasMore={s.page.hasMore}
+                pageSize={s.pageSize}
+                token={s.token}
+                filtered={s.filtered}
+                quantityOf={s.quantityOf}
+                onOpen={s.onView}
+                onAdd={s.onAdd}
+                onQuantity={s.onQuantity}
+                onShowMore={s.onShowMore}
+                onClearFilters={s.onClearFilters}
+              />
+            </TabsContent>
+            <TabsContent value='cart'>
+              <ShopCartUi
+                lines={s.lines}
+                total={s.total}
+                token={s.token}
+                chainName={s.chainName}
+                hasUnpayable={s.hasUnpayable}
+                onQuantity={s.onQuantity}
+                onRemove={s.onRemove}
+                onCheckout={s.onCheckout}
+                onBrowse={s.onBrowse}
+              />
+            </TabsContent>
+            <TabsContent value='orders'>
+              <ShopOrdersUi
+                orders={s.orders}
+                token={s.token}
+                canShip={s.canShip}
+                canDeliver={s.canDeliver}
+                onShip={s.onShip}
+                onDeliver={s.onDeliver}
+                onClear={s.onClear}
+              />
+            </TabsContent>
+          </Tabs>
+        )}
+      </WalletGate>
+      <ShopProductDialogUi
+        product={s.viewing}
+        token={s.token}
+        chainName={s.chainName}
+        inCart={s.viewing ? s.quantityOf(s.viewing.id) : 0}
+        onClose={s.onCloseView}
+        onAdd={s.onAddViewed}
+      />
+      <ShopFiltersDialogUi
+        open={s.filtersOpen}
+        applied={s.filters}
+        search={s.search}
+        chainId={s.chainId}
+        token={s.token}
+        onOpenChange={s.onFiltersOpenChange}
+        onApply={s.onApplyFilters}
+      />
     </div>
   );
 };

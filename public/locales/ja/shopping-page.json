@@ -1,4 +1,143 @@
 {
   "title": "ショッピング",
-  "coming-soon": "近日公開"
+  "coming-soon": "近日公開",
+  "description": "商品を検索し、メインウォレットまたは SignetPass で支払います。",
+  "cart-label_other": "カートを開く、{{count}} 点",
+  "tabs": {
+    "browse": "商品",
+    "cart": "カート",
+    "orders": "注文"
+  },
+  "search": {
+    "placeholder": "商品を検索"
+  },
+  "sort": {
+    "label": "商品の並び替え",
+    "relevance": "関連度順",
+    "newest": "新着順",
+    "price_asc": "価格の安い順",
+    "price_desc": "価格の高い順"
+  },
+  "categories": {
+    "label": "カテゴリ",
+    "all": "すべて"
+  },
+  "chips": {
+    "label": "適用中のフィルター",
+    "remove": "フィルター {{label}} を外す",
+    "price": "{{price}} {{token}} まで",
+    "ships-to": "{{country}} へ配送"
+  },
+  "filters": {
+    "button": "フィルター",
+    "applied_other": "フィルター、{{count}} 件適用中",
+    "title": "フィルター",
+    "description": "表示する商品を絞り込みます。",
+    "category": "カテゴリ",
+    "price": "上限価格",
+    "price-aria": "上限価格（{{token}}）",
+    "price-placeholder": "上限なし",
+    "price-error": "「25」や「49.99」のように入力してください（小数は6桁まで）。",
+    "presets": "価格の目安",
+    "under": "{{value}} 未満",
+    "tags": "タグ",
+    "tags-count": "{{count}} / {{max}}",
+    "tags-hint": "選んだタグをすべて持つ商品のみ表示します。",
+    "shops": "ショップ",
+    "shops-count_other": "{{count}} 件選択中",
+    "shops-hint": "選ばない場合はすべてのショップを表示します。",
+    "ships-to": "配送先",
+    "ships-hint": "その国で販売していない商品を非表示にします。",
+    "anywhere": "指定なし",
+    "no-match": "条件に合う商品がありません。",
+    "reset": "リセット",
+    "apply": "適用"
+  },
+  "results": {
+    "label": "商品",
+    "count_other": "{{count}} 件",
+    "showing": "{{total}} 件中 {{shown}} 件を表示",
+    "more": "さらに {{count}} 件表示"
+  },
+  "empty": {
+    "title": "商品が見つかりません",
+    "hint": "別の言葉か、少ないフィルターでお試しください。",
+    "clear": "フィルターを解除"
+  },
+  "product": {
+    "view": "{{name}} を見る",
+    "add": "追加",
+    "add-aria": "{{name}} をカートに追加",
+    "add-to-cart": "カートに追加",
+    "added": "{{name}} をカートに追加しました",
+    "sold-out": "売り切れ",
+    "low-stock_other": "残り {{count}} 点",
+    "out-of-stock": "在庫なし",
+    "shop": "ショップ",
+    "delivery": "配送",
+    "paid-in": "支払い通貨",
+    "paid-in-value": "{{chain}} の {{token}}",
+    "in-cart": "カートに {{count}} 点"
+  },
+  "stepper": {
+    "decrease": "{{name}} の数量を減らす",
+    "increase": "{{name}} の数量を増やす",
+    "quantity": "{{name}} の数量"
+  },
+  "cart": {
+    "label": "カート",
+    "empty-title": "カートは空です",
+    "empty-hint": "商品ページから追加して、ここで支払います。",
+    "browse": "商品を見る",
+    "remove": "{{name}} を削除",
+    "not-accepted": "{{chain}} では利用できません",
+    "each": "1 点 {{price}}",
+    "unpayable": "{{chain}} で支払えない商品があります。削除するか、ウォレットページでネットワークを切り替えてください。",
+    "checkout": "支払いへ · {{total}} {{token}}"
+  },
+  "checkout": {
+    "items_other": "{{count}} 点",
+    "shops_other": "{{count}} ショップ",
+    "total": "合計",
+    "ship-to": "配送先",
+    "pay-from": "支払い元",
+    "main-wallet": "メインウォレット",
+    "kind-wallet": "MetaMask アカウント",
+    "kind-signetpass": "SignetPass",
+    "short": "残高が足りません",
+    "submit": "{{total}} {{token}} を支払う",
+    "paying": "支払い中…",
+    "summary": "{{account}} から {{total}} {{token}} を支払う",
+    "problems": {
+      "empty": "カートは空です。",
+      "unpayable": "{{name}} はこのネットワークで支払えません。",
+      "sold-out": "{{name}} は在庫切れです。",
+      "too-many": "{{name}} は {{max}} 点までです。",
+      "balance": "このアカウントの {{token}} が足りません。"
+    },
+    "toasts": {
+      "paid": "注文 {{id}} を支払いました"
+    }
+  },
+  "orders": {
+    "label": "注文",
+    "empty-title": "注文はまだありません",
+    "empty-hint": "ここで支払った注文がこの一覧に表示されます。",
+    "progress": "注文の進行状況",
+    "status": {
+      "paid": "支払い済み",
+      "shipped": "発送済み",
+      "delivered": "配達済み"
+    },
+    "paid-from": "支払い元",
+    "ship-to": "配送先",
+    "total": "合計",
+    "preview": {
+      "note": "プレビューのみです。このデモの外では何も送信・請求・発送されません。実際の加盟店では支払い後に発送されます。",
+      "ship": "プレビュー：最も古い支払い済み注文を発送",
+      "deliver": "プレビュー：最も古い発送済み注文を配達",
+      "clear": "プレビュー：カートと注文を消去",
+      "cleared": "カートと注文を消去しました"
+    }
+  }
 }

@@ -3,6 +3,7 @@ import type { SignRequest, SignRequestKind } from './types';
 const TITLES: Record<SignRequestKind, string> = {
   'create-signetpass': 'Create SignetPass',
   transfer: 'Transfer funds',
+  'shop-checkout': 'Pay for shop order',
   'approve-agent': 'Approve agent registration',
   'create-session': 'Create spending session',
   revoke: 'Revoke access',

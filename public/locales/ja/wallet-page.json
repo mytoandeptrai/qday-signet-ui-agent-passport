@@ -29,7 +29,8 @@
       "send": "送金先",
       "receive": "受取元",
       "fund": "入金",
-      "fee": "SignetPass 手数料"
+      "fee": "SignetPass 手数料",
+      "purchase": "ショップ注文"
     }
   },
   "send": {

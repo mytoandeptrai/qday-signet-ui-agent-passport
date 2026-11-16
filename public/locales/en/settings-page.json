@@ -36,7 +36,8 @@
       "agent-revoked": "Agent revoked",
       "session-created": "Session created",
       "session-revoked": "Session revoked",
-      "signetpass-activated": "SignetPass activated"
+      "signetpass-activated": "SignetPass activated",
+      "shop-order": "Shop order paid"
     }
   },
   "account": {

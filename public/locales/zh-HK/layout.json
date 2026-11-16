@@ -84,6 +84,10 @@
     "activate-signetpass": {
       "title": "啟用 SignetPass",
       "description": "部署你的 SignetPass 智能錢包。"
+    },
+    "shop-checkout": {
+      "title": "結帳",
+      "description": "為購物車付款，並在 MetaMask 確認。"
     }
   },
   "signetpass": {
