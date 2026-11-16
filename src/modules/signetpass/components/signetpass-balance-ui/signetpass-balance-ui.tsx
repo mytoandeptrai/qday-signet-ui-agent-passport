@@ -1,4 +1,4 @@
-import { ArrowRightLeftIcon, ShieldCheckIcon } from 'lucide-react';
+import { PlusIcon, ShieldCheckIcon } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import CopyButton from '@/components/ui/copy-button';
@@ -10,11 +10,11 @@ import type { SignetPass } from '@/types/passport';
 interface SignetpassBalanceUiProps {
   pass: SignetPass;
   network: NetworkConfig;
-  onMoveFunds: () => void;
+  onAddFunds: () => void;
   onActivate: () => void;
 }
 
-const SignetpassBalanceUi = ({ pass, network, onMoveFunds, onActivate }: SignetpassBalanceUiProps) => {
+const SignetpassBalanceUi = ({ pass, network, onAddFunds, onActivate }: SignetpassBalanceUiProps) => {
   const { t } = useTranslation('signetpass-page');
   return (
     <section className='rounded-lg border bg-card p-6'>
@@ -30,8 +30,8 @@ const SignetpassBalanceUi = ({ pass, network, onMoveFunds, onActivate }: Signetp
           {pass.balance.held > 0 && <p className='mt-2 text-small text-muted-foreground'>{t('details.held', { amount: money(pass.balance.held) })}</p>}
         </div>
         {pass.status === 'active' ? (
-          <Button onClick={onMoveFunds}>
-            <ArrowRightLeftIcon /> {t('details.move-funds')}
+          <Button onClick={onAddFunds}>
+            <PlusIcon /> {t('details.add-funds')}
           </Button>
         ) : (
           <Button onClick={onActivate}>

@@ -13,7 +13,9 @@
     "agentic-payments": "Pembayaran Agentik",
     "marketplace": "Pasar",
     "services": "Perkhidmatan",
-    "shopping": "Beli-belah"
+    "shopping": "Beli-belah",
+    "main": "Utama",
+    "signetpass": "SignetPass"
   },
   "help": {
     "documentation": "Dokumentasi",
@@ -88,6 +90,10 @@
     "shop-checkout": {
       "title": "Daftar keluar",
       "description": "Bayar untuk troli anda dan sahkan dalam MetaMask."
+    },
+    "fund-signetpass": {
+      "title": "Tambah dana ke SignetPass",
+      "description": "Pindahkan dana dari Dompet Utama anda, atau terima melalui QR."
     }
   },
   "signetpass": {

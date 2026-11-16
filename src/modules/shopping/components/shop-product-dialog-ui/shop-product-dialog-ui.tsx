@@ -34,7 +34,7 @@ const ShopProductDialogUi = ({ product, token, chainName, inCart, onClose, onAdd
         {product && (
           <>
             <ShopProductThumbUi product={product} className='h-36 w-full' iconClassName='size-12' />
-            <dl className='grid grid-cols-[120px_1fr] items-center gap-y-3 text-sm'>
+            <dl className='grid grid-cols-[120px_1fr] items-center gap-y-3 text-body'>
               <dt className='text-muted-foreground'>{t('product.shop')}</dt>
               <dd>
                 {product.merchant.name} · {product.category}

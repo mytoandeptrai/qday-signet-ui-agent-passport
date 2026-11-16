@@ -28,7 +28,7 @@ const CommentComposerUi = ({ isSaving, onSave, onCancel }: CommentComposerUiProp
         }}
       />
       <div className='flex items-center justify-between gap-2'>
-        <span className='text-xs text-muted-foreground'>{t('composer.shortcut')}</span>
+        <span className='text-small text-muted-foreground'>{t('composer.shortcut')}</span>
         <div className='flex gap-2'>
           <Button size='sm' variant='ghost' disabled={isSaving} onClick={onCancel}>
             {t('composer.cancel')}

@@ -27,8 +27,8 @@ const ServiceGridUi = ({ services, isFetching, query, onPick }: ServiceGridUiPro
               <b className='font-display text-title leading-tight font-semibold'>{s.name}</b>
               <span className='text-body tabular-nums text-text-3'>{s.priceLabel}</span>
             </div>
-            <p className='mt-2 text-sm text-muted-foreground'>{s.description}</p>
-            <div className='mt-3 text-xs text-text-3'>
+            <p className='mt-2 text-body text-muted-foreground'>{s.description}</p>
+            <div className='mt-3 text-small text-text-3'>
               {s.category} · {s.provider}
             </div>
           </button>

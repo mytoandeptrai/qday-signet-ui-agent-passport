@@ -223,7 +223,7 @@ export function InputFileDropzone(props: InputFileDropzoneProps) {
                 </div>
                 <div className='space-y-px'>
                   <p className='font-medium'>{t('upload.drag-or-click')}</p>
-                  <p className='text-foreground/70 text-sm'>
+                  <p className='text-foreground/70 text-body'>
                     {maxFiles === Number.POSITIVE_INFINITY
                       ? t('upload.limit-unlimited', { size: formatBytes(maxSize) })
                       : maxFiles > 1
@@ -283,8 +283,8 @@ function FileCard({ file, progress, onRemove }: FileCardProps) {
         )}
         <div className='flex w-full flex-col gap-2'>
           <div className='space-y-px'>
-            <p className='line-clamp-1 font-medium text-foreground/80 text-sm'>{file.name}</p>
-            <p className='text-foreground text-xs'>{formatBytes(file.size)}</p>
+            <p className='line-clamp-1 font-medium text-foreground/80 text-body'>{file.name}</p>
+            <p className='text-foreground text-small'>{formatBytes(file.size)}</p>
           </div>
           {progress ? <Progress value={progress} /> : null}
         </div>

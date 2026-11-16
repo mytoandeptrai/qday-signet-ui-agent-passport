@@ -56,7 +56,7 @@ function FormRadioGroup<
                   <RadioGroupItem value={option.value} id={`${name}-${option.value}`} disabled={option.disabled} />
                   <Label
                     htmlFor={`${name}-${option.value}`}
-                    className='font-medium text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70'
+                    className='font-medium text-body leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70'
                   >
                     {option.label}
                   </Label>

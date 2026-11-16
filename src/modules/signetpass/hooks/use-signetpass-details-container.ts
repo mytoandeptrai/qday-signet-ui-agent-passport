@@ -72,7 +72,7 @@ export const useSignetpassDetailsContainer = () => {
     onOpenRename,
     onCloseRename: () => setRenaming(false),
     onRename,
-    onMoveFunds: () => open('move-funds'),
+    onAddFunds: () => open('fund-signetpass'),
     onActivate: () => open('activate-signetpass'),
     onCreateSession: () => open('create-session'),
   };

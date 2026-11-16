@@ -52,7 +52,7 @@ function FormTextarea<
                 {...field}
               />
               {showCharCount && maxLength && (
-                <div className='text-right text-muted-foreground text-sm'>
+                <div className='text-right text-muted-foreground text-body'>
                   {field.value?.length || 0} / {maxLength}
                 </div>
               )}

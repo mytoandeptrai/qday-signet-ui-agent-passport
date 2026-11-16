@@ -29,7 +29,7 @@ const alertVariants = cva('flex items-stretch w-full gap-2 group-[.toaster]:w-(-
       stroke: 'text-foreground',
     },
     size: {
-      lg: 'rounded-lg p-4 gap-3 text-base [&>[data-slot=alert-icon]>svg]:size-6 *:data-slot=alert-icon:mt-0.5 [&_[data-slot=alert-close]]:mt-1',
+      lg: 'rounded-lg p-4 gap-3 text-lead [&>[data-slot=alert-icon]>svg]:size-6 *:data-slot=alert-icon:mt-0.5 [&_[data-slot=alert-close]]:mt-1',
       md: 'rounded-lg p-3.5 gap-2.5 text-body [&>[data-slot=alert-icon]>svg]:size-5 *:data-slot=alert-icon:mt-0 [&_[data-slot=alert-close]]:mt-0.5',
       sm: 'rounded-md px-3 py-2.5 gap-2 text-caption [&>[data-slot=alert-icon]>svg]:size-4 *:data-alert-icon:mt-0.5 [&_[data-slot=alert-close]]:mt-0.25 [&_[data-slot=alert-close]_svg]:size-3.5',
     },

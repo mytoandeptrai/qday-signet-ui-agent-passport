@@ -13,7 +13,9 @@
     "agentic-payments": "エージェント決済",
     "marketplace": "マーケットプレイス",
     "services": "サービス",
-    "shopping": "ショッピング"
+    "shopping": "ショッピング",
+    "main": "メイン",
+    "signetpass": "SignetPass"
   },
   "help": {
     "documentation": "ドキュメント",
@@ -88,6 +90,10 @@
     "shop-checkout": {
       "title": "お支払い",
       "description": "カートの代金を支払い、MetaMask で確認します。"
+    },
+    "fund-signetpass": {
+      "title": "SignetPassに資金を追加",
+      "description": "メインウォレットから移すか、QRで受け取ります。"
     }
   },
   "signetpass": {

@@ -13,7 +13,9 @@
     "agentic-payments": "代理支付",
     "marketplace": "市集",
     "services": "服務",
-    "shopping": "購物"
+    "shopping": "購物",
+    "main": "主頁",
+    "signetpass": "SignetPass"
   },
   "help": {
     "documentation": "文件",
@@ -88,6 +90,10 @@
     "shop-checkout": {
       "title": "結帳",
       "description": "為購物車付款，並在 MetaMask 確認。"
+    },
+    "fund-signetpass": {
+      "title": "為 SignetPass 增值",
+      "description": "從主錢包轉入，或透過 QR 收款。"
     }
   },
   "signetpass": {

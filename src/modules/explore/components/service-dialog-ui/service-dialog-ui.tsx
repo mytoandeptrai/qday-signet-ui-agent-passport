@@ -27,7 +27,7 @@ const ServiceDialogUi = ({ service, detailsOpen, isSignedIn, onToggleDetails, on
         </DialogHeader>
         {service && (
           <>
-            <dl className='grid grid-cols-[120px_1fr] items-center gap-y-3 text-sm'>
+            <dl className='grid grid-cols-[120px_1fr] items-center gap-y-3 text-body'>
               <dt className='text-muted-foreground'>{t('dialog.endpoint')}</dt>
               <dd className='flex min-w-0 items-center gap-2'>
                 <span className='truncate font-mono text-small'>{service.endpoint}</span>
@@ -53,7 +53,7 @@ const ServiceDialogUi = ({ service, detailsOpen, isSignedIn, onToggleDetails, on
               {t(detailsOpen ? 'dialog.less-details' : 'dialog.more-details')}
             </Button>
             {detailsOpen && (
-              <dl className='grid grid-cols-[120px_1fr] gap-y-2 border-t pt-4 text-sm'>
+              <dl className='grid grid-cols-[120px_1fr] gap-y-2 border-t pt-4 text-body'>
                 {Object.entries(service.details).flatMap(([key, value]) => [
                   <dt key={`${key}-k`} className='text-muted-foreground'>{key}</dt>,
                   <dd key={`${key}-v`}>{value}</dd>,

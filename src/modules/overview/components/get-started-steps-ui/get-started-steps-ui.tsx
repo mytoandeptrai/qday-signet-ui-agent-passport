@@ -39,19 +39,19 @@ const GetStartedStepsUi = ({ stepId, done, onSelectStep }: GetStartedStepsUiProp
               variant='ghost'
               aria-current={current ? 'step' : undefined}
               onClick={() => onSelectStep(i)}
-              className='h-auto w-full justify-start gap-4 rounded-md px-0 py-1.5 text-left whitespace-normal md:flex-col md:items-center md:gap-2 md:px-2 md:text-center'
+              className='group h-auto w-full justify-start gap-4 rounded-md px-0 py-1.5 text-left whitespace-normal md:flex-col md:items-center md:gap-2 md:px-2 md:text-center hover:bg-transparent dark:hover:bg-transparent'
             >
               <span
                 className={cn(
                   'relative grid size-6 shrink-0 place-items-center rounded-full border bg-background text-small tabular-nums',
                   done[id] && 'border-success bg-success text-white',
                   current && !done[id] && 'border-brand text-foreground ring-2 ring-brand/25',
-                  !current && !done[id] && 'text-muted-foreground'
+                  !current && !done[id] && 'text-muted-foreground group-hover:border-foreground/50 group-hover:text-foreground'
                 )}
               >
                 {done[id] ? <Check className='size-3.5' strokeWidth={3} /> : i + 1}
               </span>
-              <span className={cn('text-body font-normal text-balance', current ? 'text-foreground' : 'text-muted-foreground')}>{t(`get-started.steps.${id}`)}</span>
+              <span className={cn('text-body font-normal text-balance', current ? 'text-foreground' : 'text-muted-foreground group-hover:text-foreground')}>{t(`get-started.steps.${id}`)}</span>
             </Button>
           </li>
         );

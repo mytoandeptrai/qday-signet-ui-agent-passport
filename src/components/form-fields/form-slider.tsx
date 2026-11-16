@@ -52,7 +52,7 @@ function FormSlider<
                 disabled={disabled}
               />
               {showValue && (
-                <div className='mt-1 flex justify-between text-muted-foreground text-sm'>
+                <div className='mt-1 flex justify-between text-muted-foreground text-body'>
                   <span>{formatValue ? formatValue(min) : min}</span>
                   <span>{formatValue ? formatValue(field.value || min) : field.value || min}</span>
                   <span>{formatValue ? formatValue(max) : max}</span>

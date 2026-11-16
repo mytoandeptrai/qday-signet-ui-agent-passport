@@ -6,19 +6,19 @@ type OverviewIdeasUiProps = {
   ideas: readonly IdeaId[];
 };
 
-/** The ten scenarios, numbered as in the playground: a strip to scroll through, not a list to scan. */
+/** The ten scenarios, numbered as in the playground: a compact grid of small thumbnails. */
 const OverviewIdeasUi = ({ ideas }: OverviewIdeasUiProps) => {
   const { t } = useTranslation('overview-page');
   return (
     <section className='mt-14'>
       <h2 className='text-body text-muted-foreground'>{t('ideas.title')}</h2>
-      <ul className='-mx-1 mt-4 flex snap-x snap-mandatory gap-5 overflow-x-auto px-1 pb-3'>
+      <ul className='mt-4 grid gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-3'>
         {ideas.map((id, i) => (
-          <li key={id} className='w-36 shrink-0 snap-start'>
-            <Link to='/playground' search={{ idea: id }} className='group block'>
-              <img src={`/images/ideas/${id}.svg`} alt='' className='aspect-square w-full rounded-md' />
-              <span className='mt-2 block text-small text-muted-foreground tabular-nums'>{String(i).padStart(2, '0')}</span>
-              <span className='block text-body leading-snug group-hover:underline'>{t(`ideas.items.${id}`)}</span>
+          <li key={id}>
+            <Link to='/playground' search={{ idea: id }} className='group flex items-center gap-3'>
+              <img src={`/images/ideas/${id}.svg`} alt='' className='size-12 shrink-0 rounded-md' />
+              <span className='text-small text-muted-foreground tabular-nums'>{String(i).padStart(2, '0')}</span>
+              <span className='min-w-0 text-body leading-snug group-hover:underline'>{t(`ideas.items.${id}`)}</span>
             </Link>
           </li>
         ))}

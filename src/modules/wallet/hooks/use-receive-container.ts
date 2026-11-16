@@ -1,7 +1,6 @@
-import { useQuery } from '@tanstack/react-query';
-import QRCode from 'qrcode';
 import { useGetMainWallet } from '@/apis/wallet';
 import { NETWORKS } from '@/constant';
+import { useAddressQr } from '@/hooks/use-address-qr';
 import { useTranslation } from '@/integrations/i18n';
 import { useWallet } from '@/integrations/wallet';
 
@@ -9,12 +8,7 @@ export const useReceiveContainer = () => {
   const { t } = useTranslation('wallet-page');
   const { address } = useWallet();
   const { data: wallet } = useGetMainWallet();
-  const { data: qr } = useQuery({
-    queryKey: ['wallet/receive-qr', address],
-    queryFn: () => QRCode.toDataURL(address ?? '', { margin: 1, width: 192 }),
-    enabled: !!address,
-    staleTime: Infinity,
-  });
+  const { data: qr } = useAddressQr(address);
 
   return { t, address, qr, network: NETWORKS[wallet?.network ?? 'base'] };
 };

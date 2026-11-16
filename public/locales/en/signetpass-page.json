@@ -60,7 +60,7 @@
     "balance": "SignetPass balance",
     "active": "Active",
     "held": "{{amount}} held for spending sessions",
-    "move-funds": "Move funds",
+    "add-funds": "Add funds",
     "copy-address": "Copy SignetPass address",
     "address-copied": "Address copied",
     "install": {
@@ -102,6 +102,15 @@
     "activating": "Activating…",
     "toasts": {
       "done": "{{name}} is active"
+    }
+  },
+  "fund": {
+    "tabs": {
+      "main": "From main wallet",
+      "receive": "Receive via QR"
+    },
+    "receive": {
+      "address": "Your SignetPass address"
     }
   }
 }

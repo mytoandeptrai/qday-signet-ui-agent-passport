@@ -28,11 +28,11 @@ const CommentRowUi = ({ comment, number, isMissing, onClick }: CommentRowUiProps
           {number}
         </span>
         <span className='min-w-0 flex-1'>
-          <span className={cn('line-clamp-2 text-sm', comment.resolved && 'text-muted-foreground line-through')}>{comment.text}</span>
+          <span className={cn('line-clamp-2 text-body', comment.resolved && 'text-muted-foreground line-through')}>{comment.text}</span>
           {!!comment.replies && (
-            <span className='block text-xs text-muted-foreground'>{t('list.reply', { count: comment.replies })}</span>
+            <span className='block text-small text-muted-foreground'>{t('list.reply', { count: comment.replies })}</span>
           )}
-          {isMissing && <span className='block text-xs text-destructive'>{t('list.not-found')}</span>}
+          {isMissing && <span className='block text-small text-destructive'>{t('list.not-found')}</span>}
         </span>
       </button>
     </li>

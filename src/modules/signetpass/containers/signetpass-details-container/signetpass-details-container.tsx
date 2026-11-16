@@ -24,7 +24,7 @@ const SignetpassDetailsContainer = () => {
     onOpenRename,
     onCloseRename,
     onRename,
-    onMoveFunds,
+    onAddFunds,
     onActivate,
     onCreateSession,
   } = useSignetpassDetailsContainer();
@@ -48,7 +48,7 @@ const SignetpassDetailsContainer = () => {
           </Button>
         }
       />
-      <SignetpassBalanceUi pass={pass} network={network} onMoveFunds={onMoveFunds} onActivate={onActivate} />
+      <SignetpassBalanceUi pass={pass} network={network} onAddFunds={onAddFunds} onActivate={onActivate} />
       <SignetpassInstallUi prompt={prompt} windows={windows} onCopy={onCopyInstall} onToggleWindows={onToggleWindows} />
       <SignetpassNextUi canCreateSession={pass.status === 'active'} onCreateSession={onCreateSession} />
       <Modal isOpen={renaming} title={t('details.rename.title')} description={t('details.rename.description')} onClose={onCloseRename}>

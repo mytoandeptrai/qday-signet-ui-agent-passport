@@ -16,6 +16,9 @@ export const initialTransferFormData: TransferFormData = { amount: 0 };
 export const ADD_FUNDS_TABS = ['crypto', 'card'] as const;
 export type AddFundsTab = (typeof ADD_FUNDS_TABS)[number];
 
+export const FUND_SIGNETPASS_TABS = ['main', 'receive'] as const;
+export type FundSignetpassTab = (typeof FUND_SIGNETPASS_TABS)[number];
+
 export const SIGNETPASS_NAME_MAX = 32;
 
 export const createSignetPassFormSchema = (t: TFunction, takenNames: string[]) =>

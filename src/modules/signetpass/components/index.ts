@@ -1,6 +1,7 @@
 export { default as CreateSignetpassUi } from './create-signetpass-ui';
 export { default as AddFundsCryptoUi } from './add-funds-crypto-ui';
 export { default as MoveFundsUi } from './move-funds-ui';
+export { default as FundSignetpassTabsUi } from './fund-signetpass-tabs-ui';
 export { default as AddFundsTabsUi } from './add-funds-tabs-ui';
 export { default as MoveFundsNeedsSignetpassUi } from './move-funds-needs-signetpass-ui';
 export { default as SignetpassBalanceUi } from './signetpass-balance-ui';

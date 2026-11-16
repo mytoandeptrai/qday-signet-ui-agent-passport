@@ -10,7 +10,7 @@ const FeaturedServicesUi = ({ services }: FeaturedServicesUiProps) => {
       {services.map((s) => (
         <div key={s.id} className='bg-background p-5'>
           <b className='font-display text-title font-semibold'>{s.name}</b>
-          <p className='mt-2 text-sm text-muted-foreground'>{s.description}</p>
+          <p className='mt-2 text-body text-muted-foreground'>{s.description}</p>
         </div>
       ))}
     </div>

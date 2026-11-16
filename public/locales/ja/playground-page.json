@@ -1,5 +1,5 @@
 {
-  "title": "プレイグラウンド",
+  "title": "チュートリアル",
   "description": "Signet セッション下でエージェントが動く様子を1行ずつ確認できます。",
   "terminal": {
     "title": "claude · ~/work"

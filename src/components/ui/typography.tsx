@@ -68,10 +68,10 @@ export function Paragraph({ children, className, color = 'default', size = 'defa
         'gray-900': 'text-gray-900',
       },
       size: {
-        default: 'text-body md:text-base',
+        default: 'text-body md:text-lead',
         xs: 'text-caption',
         sm: 'text-body',
-        md: 'text-base',
+        md: 'text-lead',
         lg: 'text-lg',
       },
     },

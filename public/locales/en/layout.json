@@ -13,7 +13,9 @@
     "agentic-payments": "Agentic Payments",
     "marketplace": "Marketplace",
     "services": "Services",
-    "shopping": "Shopping"
+    "shopping": "Shopping",
+    "main": "Main",
+    "signetpass": "SignetPass"
   },
   "help": {
     "documentation": "Documentation",
@@ -88,6 +90,10 @@
     "shop-checkout": {
       "title": "Checkout",
       "description": "Pay for your cart and confirm in MetaMask."
+    },
+    "fund-signetpass": {
+      "title": "Add funds to SignetPass",
+      "description": "Move funds from your Main Wallet, or receive them by QR."
     }
   },
   "signetpass": {

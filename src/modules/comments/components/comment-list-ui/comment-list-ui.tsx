@@ -25,21 +25,21 @@ const CommentListUi = ({ mode, openCount, unplaced, placed, onFocus, onCopyOpen 
   return (
     <div className='w-72 rounded-2xl border border-border bg-card p-2 text-card-foreground shadow-lg'>
       <div className='flex items-center justify-between px-2 py-1'>
-        <p className='text-sm font-semibold'>{t('list.title', { count: openCount })}</p>
+        <p className='text-body font-semibold'>{t('list.title', { count: openCount })}</p>
         <Button size='sm' variant='ghost' disabled={!openCount} onClick={onCopyOpen}>
           <CopyIcon />
           {t('list.copy-open')}
         </Button>
       </div>
-      <p className='px-2 pb-1 text-xs text-muted-foreground'>{t(modeKey[mode])}</p>
+      <p className='px-2 pb-1 text-small text-muted-foreground'>{t(modeKey[mode])}</p>
       {unplaced.length + placed.length === 0 ? (
-        <p className='px-2 py-3 text-sm text-muted-foreground'>{t('list.empty')}</p>
+        <p className='px-2 py-3 text-body text-muted-foreground'>{t('list.empty')}</p>
       ) : (
         <ul className='max-h-64 overflow-y-auto'>
-          {unplaced.length > 0 && <li className='px-2 pb-1 pt-2 text-xs font-medium text-destructive'>{t('list.unplaced')}</li>}
+          {unplaced.length > 0 && <li className='px-2 pb-1 pt-2 text-small font-medium text-destructive'>{t('list.unplaced')}</li>}
           {unplaced.map(renderRow)}
           {unplaced.length > 0 && placed.length > 0 && (
-            <li className='px-2 pb-1 pt-2 text-xs font-medium text-muted-foreground'>{t('list.on-page')}</li>
+            <li className='px-2 pb-1 pt-2 text-small font-medium text-muted-foreground'>{t('list.on-page')}</li>
           )}
           {placed.map(renderRow)}
         </ul>

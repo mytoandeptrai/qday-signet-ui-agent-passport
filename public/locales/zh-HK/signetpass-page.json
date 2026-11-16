@@ -60,7 +60,7 @@
     "balance": "SignetPass 餘額",
     "active": "已啟用",
     "held": "{{amount}} 已預留予支出會話",
-    "move-funds": "轉移資金",
+    "add-funds": "增值",
     "copy-address": "複製 SignetPass 地址",
     "address-copied": "已複製地址",
     "install": {
@@ -102,6 +102,15 @@
     "activating": "啟用中…",
     "toasts": {
       "done": "{{name}} 已啟用"
+    }
+  },
+  "fund": {
+    "tabs": {
+      "main": "從主錢包轉入",
+      "receive": "透過 QR 收款"
+    },
+    "receive": {
+      "address": "你的 SignetPass 地址"
     }
   }
 }

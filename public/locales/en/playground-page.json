@@ -1,5 +1,5 @@
 {
-  "title": "Playground",
+  "title": "Tutorials",
   "description": "Watch an agent work under a Signet session, one terminal line at a time.",
   "terminal": {
     "title": "claude · ~/work"

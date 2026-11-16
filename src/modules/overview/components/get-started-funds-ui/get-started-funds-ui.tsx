@@ -9,7 +9,7 @@ type GetStartedFundsUiProps = {
 const GetStartedFundsUi = ({ balance, onAddFunds }: GetStartedFundsUiProps) => {
   const { t } = useTranslation('overview-page');
   return (
-    <div className='max-w-md text-body text-muted-foreground'>
+    <div className='max-w-3xl text-body text-muted-foreground'>
       <p>{t('funds.balance', { amount: balance })}</p>
       <Button className='mt-4' variant='outline' onClick={onAddFunds}>
         {t('labels.add-funds')}

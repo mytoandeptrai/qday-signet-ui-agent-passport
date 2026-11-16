@@ -37,7 +37,7 @@ const GetStartedContainer = ({ step, open, onSelectStep, onToggleOpen }: GetStar
       {open && (
         <>
           <GetStartedStepsUi stepId={stepId} done={done} onSelectStep={onSelectStep} />
-          <div className='mt-6 max-w-2xl border-l-2 border-brand pl-5'>
+          <div className='mt-6 border-l-2 border-brand pl-5'>
             <p className='mb-3 text-body text-foreground'>{t(`get-started.hints.${stepId}`)}</p>
             {stepId === 'learn' && <GetStartedTipsUi />}
             {stepId === 'funds' && <GetStartedFundsUi balance={balanceLabel} onAddFunds={onAddFunds} />}

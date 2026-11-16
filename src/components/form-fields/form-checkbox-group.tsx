@@ -70,7 +70,7 @@ function FormCheckboxGroup<
                 </FormControl>
                 <label
                   htmlFor={`${name}-${option.value}`}
-                  className='font-medium text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70'
+                  className='font-medium text-body leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70'
                 >
                   {option.label}
                 </label>

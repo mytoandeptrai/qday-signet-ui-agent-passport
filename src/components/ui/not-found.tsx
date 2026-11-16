@@ -32,7 +32,7 @@ const NotFoundPage = () => {
           <EmptyTitle className='font-bold text-3xl'>
             {t('not-found.title', { defaultValue: 'Page Not Found' })}
           </EmptyTitle>
-          <EmptyDescription className='max-w-md text-base'>
+          <EmptyDescription className='max-w-md text-lead'>
             {t('not-found.description', {
               defaultValue:
                 "The page you're looking for doesn't exist or has been moved. Please check the URL and try again.",

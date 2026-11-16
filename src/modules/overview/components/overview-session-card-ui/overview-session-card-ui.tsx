@@ -16,7 +16,7 @@ const OverviewSessionCardUi = ({ session: s, onRevoke }: OverviewSessionCardUiPr
     <div className='rounded-md border p-5'>
       <div className='mb-4 flex items-start justify-between gap-3'>
         <div>
-          <Link to='/sessions/$sessionId' params={{ sessionId: s.id }} className='text-base font-medium hover:underline'>
+          <Link to='/sessions/$sessionId' params={{ sessionId: s.id }} className='text-lead font-medium hover:underline'>
             {s.task}
           </Link>
           <div className='mt-1 text-caption text-muted-foreground'>

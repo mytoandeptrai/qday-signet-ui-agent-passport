@@ -80,7 +80,7 @@ export const PageContainer: FCC<PageContainerProps> = ({
             <AlertTriangle className='size-6' />
           </div>
           <h2 className='font-semibold text-lg'>{t('errors.messages.error-title-loading-component')}</h2>
-          <p className='mt-2 text-base text-muted-foreground'>{t('errors.messages.error-loading-component')}</p>
+          <p className='mt-2 text-lead text-muted-foreground'>{t('errors.messages.error-loading-component')}</p>
           <div className='mt-6 flex gap-3'>
             <Button variant='outline' type='button' onClick={onGoBack}>
               {t('buttons.back')}

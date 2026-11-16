@@ -17,12 +17,12 @@ const CommentThreadUi = ({ id, loadReplies, addReply }: CommentThreadUiProps) =>
   return (
     <div className='space-y-2 border-t border-border pt-2'>
       {replies === null ? (
-        <p className='text-xs text-muted-foreground'>{t('thread.loading')}</p>
+        <p className='text-small text-muted-foreground'>{t('thread.loading')}</p>
       ) : (
         replies.map((reply) => (
           <div key={reply.id}>
-            <p className='whitespace-pre-wrap break-words text-sm'>{reply.text}</p>
-            <p className='text-xs text-muted-foreground'>{new Date(reply.createdAt).toLocaleString()}</p>
+            <p className='whitespace-pre-wrap break-words text-body'>{reply.text}</p>
+            <p className='text-small text-muted-foreground'>{new Date(reply.createdAt).toLocaleString()}</p>
           </div>
         ))
       )}

@@ -60,7 +60,7 @@
     "balance": "Baki SignetPass",
     "active": "Aktif",
     "held": "{{amount}} ditahan untuk sesi perbelanjaan",
-    "move-funds": "Pindahkan dana",
+    "add-funds": "Tambah dana",
     "copy-address": "Salin alamat SignetPass",
     "address-copied": "Alamat disalin",
     "install": {
@@ -102,6 +102,15 @@
     "activating": "Mengaktifkan…",
     "toasts": {
       "done": "{{name}} telah aktif"
+    }
+  },
+  "fund": {
+    "tabs": {
+      "main": "Dari dompet utama",
+      "receive": "Terima melalui QR"
+    },
+    "receive": {
+      "address": "Alamat SignetPass anda"
     }
   }
 }

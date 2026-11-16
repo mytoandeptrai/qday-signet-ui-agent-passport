@@ -60,7 +60,7 @@
     "balance": "SignetPass 残高",
     "active": "有効",
     "held": "{{amount}} は支出セッション用に確保されています",
-    "move-funds": "資金を移動",
+    "add-funds": "資金を追加",
     "copy-address": "SignetPass のアドレスをコピー",
     "address-copied": "アドレスをコピーしました",
     "install": {
@@ -102,6 +102,15 @@
     "activating": "有効化中…",
     "toasts": {
       "done": "{{name}} を有効化しました"
+    }
+  },
+  "fund": {
+    "tabs": {
+      "main": "メインウォレットから",
+      "receive": "QRで受け取る"
+    },
+    "receive": {
+      "address": "あなたのSignetPassアドレス"
     }
   }
 }

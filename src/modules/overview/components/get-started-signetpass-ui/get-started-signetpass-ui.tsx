@@ -11,7 +11,7 @@ type GetStartedSignetpassUiProps = {
 const GetStartedSignetpassUi = ({ created, needsActivation, onCreate, onActivate }: GetStartedSignetpassUiProps) => {
   const { t } = useTranslation('overview-page');
   return (
-    <div className='max-w-md text-body text-muted-foreground'>
+    <div className='max-w-3xl text-body text-muted-foreground'>
       <p>{!created ? t('signetpass.none') : needsActivation ? t('signetpass.inactive') : t('signetpass.created')}</p>
       {!created && (
         <Button className='mt-4' variant='outline' onClick={onCreate}>

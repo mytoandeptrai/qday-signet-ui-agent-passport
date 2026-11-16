@@ -21,7 +21,7 @@ export function DataTablePagination({ onPaginationChange, pagination }: DataTabl
   return (
     <div className='my-4 flex flex-col items-center justify-between gap-4 p-2 px-4 md:flex-row md:gap-0'>
       <div className='flex items-center space-x-2'>
-        <p className='font-medium text-sm'>{t('data-table.pagination.rows-per-page')}</p>
+        <p className='font-medium text-body'>{t('data-table.pagination.rows-per-page')}</p>
         <Select
           value={pagination?.pageSize.toString() ?? PAGE_SIZE_OPTIONS[0].toString()}
           onValueChange={(value) => {
@@ -41,7 +41,7 @@ export function DataTablePagination({ onPaginationChange, pagination }: DataTabl
         </Select>
       </div>
       <div className='flex items-center space-x-6 lg:space-x-8'>
-        <div className='flex w-25 items-center justify-center font-medium text-sm'>
+        <div className='flex w-25 items-center justify-center font-medium text-body'>
           {t('data-table.pagination.page-size', {
             pageSize: pagination?.pageIndex ?? 0 + 1,
             pageCount: pagination?.pageCount,

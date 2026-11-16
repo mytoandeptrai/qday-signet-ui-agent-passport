@@ -4,6 +4,7 @@ import { ROUTES } from '@/constant';
 
 export const navGroups = (t: TFunction) => [
   {
+    label: t('nav.main'),
     items: [
       { title: t('nav.home'), url: ROUTES.OVERVIEW, icon: HomeIcon },
       { title: t('nav.wallet'), url: ROUTES.WALLET, icon: WalletIcon },

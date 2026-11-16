@@ -30,14 +30,14 @@ const CommentDetailUi = ({
 
   return (
     <div className='space-y-2'>
-      {isMissing && <p className='rounded-lg bg-destructive/10 px-2 py-1 text-xs text-destructive'>{t('detail.missing')}</p>}
+      {isMissing && <p className='rounded-lg bg-destructive/10 px-2 py-1 text-small text-destructive'>{t('detail.missing')}</p>}
       <div className='flex items-start justify-between gap-2'>
-        <p className='whitespace-pre-wrap break-words text-sm'>{comment.text}</p>
+        <p className='whitespace-pre-wrap break-words text-body'>{comment.text}</p>
         <Button size='icon' variant='ghost' className='-mr-1 -mt-1 size-7 shrink-0' aria-label={t('detail.close')} onClick={onClose}>
           <XIcon />
         </Button>
       </div>
-      <p className='text-xs text-muted-foreground'>
+      <p className='text-small text-muted-foreground'>
         {new Date(comment.createdAt).toLocaleString()}
         {comment.resolved ? ` · ${t('detail.resolved')}` : ''}
         {comment.url && (

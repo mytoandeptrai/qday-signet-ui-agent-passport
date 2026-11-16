@@ -43,12 +43,10 @@ const AppSidebar = () => {
             <SignetLockup linked={false} className='h-8' />
           </span>
         </CustomLink>
-        <div>
-          <AppSidebarSignetPass />
-        </div>
       </SidebarHeader>
       <SidebarSeparator className='mx-0' />
       <SidebarContent className='overflow-x-hidden px-2 group-data-[collapsible=icon]:px-0'>
+        <AppSidebarSignetPass />
         {groups.map(({ label, items }) => (
           <SidebarGroup key={label ?? 'main'}>
             {label && <SidebarGroupLabel className='px-3 text-small font-medium text-muted-foreground'>{label}</SidebarGroupLabel>}

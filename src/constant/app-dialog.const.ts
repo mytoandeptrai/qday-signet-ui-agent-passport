@@ -4,6 +4,7 @@ import z from 'zod';
 export const APP_DIALOGS = [
   'add-funds',
   'move-funds',
+  'fund-signetpass',
   'shop-checkout',
   'send',
   'receive',
