@@ -1,5 +1,6 @@
 import { ChevronRightIcon, type LucideIcon } from 'lucide-react';
 import type { ReactNode } from 'react';
+import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
 type SettingsRowUiProps = {
@@ -27,9 +28,14 @@ const SettingsRowUi = ({ icon: Icon, label, detail, right, onClick }: SettingsRo
     </>
   );
   return onClick ? (
-    <button type='button' onClick={onClick} className={cn(rowClass, 'transition-colors hover:bg-subtle')}>
+    <Button
+      type='button'
+      variant='ghost'
+      onClick={onClick}
+      className={cn(rowClass, 'h-auto justify-start whitespace-normal rounded-none font-normal active:scale-100')}
+    >
       {body}
-    </button>
+    </Button>
   ) : (
     <div className={rowClass}>{body}</div>
   );

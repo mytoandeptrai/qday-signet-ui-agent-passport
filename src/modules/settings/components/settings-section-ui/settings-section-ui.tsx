@@ -8,7 +8,7 @@ type SettingsSectionUiProps = {
 const SettingsSectionUi = ({ title, children }: SettingsSectionUiProps) => (
   <section className='mt-8'>
     <h2 className='mb-2 text-body font-medium'>{title}</h2>
-    <div className='divide-y rounded-md border'>{children}</div>
+    <div className='divide-y overflow-hidden rounded-md border'>{children}</div>
   </section>
 );
 

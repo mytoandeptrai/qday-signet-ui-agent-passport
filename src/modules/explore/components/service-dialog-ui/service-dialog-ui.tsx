@@ -42,9 +42,16 @@ const ServiceDialogUi = ({ service, detailsOpen, isSignedIn, onToggleDetails, on
               <dt className='text-muted-foreground'>{t('dialog.provider')}</dt>
               <dd>{service.provider}</dd>
             </dl>
-            <button type='button' aria-expanded={detailsOpen} onClick={onToggleDetails} className='w-fit text-small underline underline-offset-2 text-muted-foreground hover:text-foreground'>
+            <Button
+              type='button'
+              variant='link'
+              size='sm'
+              aria-expanded={detailsOpen}
+              onClick={onToggleDetails}
+              className='h-auto w-fit p-0 text-small font-normal text-muted-foreground underline hover:text-foreground'
+            >
               {t(detailsOpen ? 'dialog.less-details' : 'dialog.more-details')}
-            </button>
+            </Button>
             {detailsOpen && (
               <dl className='grid grid-cols-[120px_1fr] gap-y-2 border-t pt-4 text-sm'>
                 {Object.entries(service.details).flatMap(([key, value]) => [
