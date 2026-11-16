@@ -15,12 +15,16 @@
   "ideas": {
     "title": "チュートリアル – Signet を学ぶ",
     "items": {
-      "learn": "Signet について知る",
-      "purchases": "おすすめを購入につなげる",
-      "cloud": "クラウドクエリと有料データ",
-      "apartments": "賃貸探しを自動化",
-      "candidates": "採用候補者を探す",
-      "onboarding": "新入社員のオンボーディングを自動化"
+      "install": "Signet CLI をインストール",
+      "esim": "旅行用 eSIM の購入",
+      "sound": "動画用のライセンス付き効果音",
+      "photos": "商品写真5枚の背景除去",
+      "translate": "商品説明の翻訳",
+      "tickets": "映画チケット2枚の予約",
+      "shipping": "配送ラベルの購入",
+      "coworking": "コワーキング1日券の予約",
+      "amazon-item": "オンラインで商品を購入",
+      "amazon-cart": "オンラインで複数の商品を購入"
     }
   },
   "get-started": {
@@ -74,7 +78,10 @@
   "balance": {
     "title": "SignetPass 残高",
     "wallet": "SignetPass",
-    "title-named": "{{name}} の残高（{{token}}）"
+    "title-named": "{{name}} の残高（{{token}}）",
+    "passkey-on": "パスキーはオンです。承認は MetaMask の署名で確認されます。",
+    "passkey-off": "パスキーはオフです。承認は署名なしで実行されます。",
+    "passkey-manage": "設定で管理"
   },
   "sessions": {
     "title": "セッション",

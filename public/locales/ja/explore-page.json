@@ -5,7 +5,7 @@
   "sort": {
     "label": "並び替え",
     "popular": "人気順",
-    "name": "名前",
+    "name": "アルファベット順",
     "price-asc": "価格：安い順",
     "price-desc": "価格：高い順"
   },
@@ -16,9 +16,22 @@
     "category": "カテゴリ",
     "provider": "提供元",
     "use": "セッションで使う",
-    "sign-in": "サインインして使う"
+    "sign-in": "サインインして使う",
+    "endpoint": "x402 エンドポイント",
+    "copy-endpoint": "エンドポイントをコピー",
+    "currencies": "対応通貨",
+    "more-details": "詳細を表示",
+    "less-details": "詳細を隠す",
+    "sales": "販売数（30日）"
   },
   "toasts": {
-    "added": "{{name}} を次のセッションに追加しました"
+    "added": "{{name}} を次のセッションに追加しました",
+    "endpoint-copied": "エンドポイントをコピーしました"
+  },
+  "pagination": {
+    "label": "ページ送り",
+    "previous": "前へ",
+    "next": "次へ",
+    "status": "{{page}} / {{count}} ページ"
   }
 }

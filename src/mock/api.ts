@@ -1,5 +1,5 @@
 import { SEED_USER } from './seed';
-import { SERVICES } from './services';
+import { ECOMMERCE_CATEGORY, SERVICES } from './services';
 import type { Service, User } from '@/types/passport';
 
 /** The one-time code the mock accepts. */
@@ -31,21 +31,26 @@ export interface ServiceQuery {
   search?: string;
   category?: string;
   sort?: 'popular' | 'price-asc' | 'price-desc' | 'name';
+  page?: number;
 }
 
-export async function listServices({ search = '', category = 'All', sort = 'popular' }: ServiceQuery): Promise<Service[]> {
+export const SERVICE_PAGE_SIZE = 12;
+
+export async function listServices({ search = '', category = 'All', sort = 'popular', page = 1 }: ServiceQuery): Promise<{ items: Service[]; total: number }> {
   await delay(250);
   const q = search.trim().toLowerCase();
   const out = SERVICES.filter(
     (s) =>
+      s.category !== ECOMMERCE_CATEGORY &&
       (category === 'All' || s.category === category) &&
       (!q || [s.name, s.description, s.provider, s.category].some((f) => f.toLowerCase().includes(q)))
   );
   const by: Record<NonNullable<ServiceQuery['sort']>, (a: Service, b: Service) => number> = {
-    popular: (a, b) => Number(b.popular) - Number(a.popular) || a.name.localeCompare(b.name),
+    popular: (a, b) => b.sales - a.sales || a.name.localeCompare(b.name),
     'price-asc': (a, b) => a.pricePerCall - b.pricePerCall,
     'price-desc': (a, b) => b.pricePerCall - a.pricePerCall,
     name: (a, b) => a.name.localeCompare(b.name),
   };
-  return out.sort(by[sort]);
+  out.sort(by[sort]);
+  return { items: out.slice((page - 1) * SERVICE_PAGE_SIZE, page * SERVICE_PAGE_SIZE), total: out.length };
 }

@@ -5,7 +5,7 @@
   "sort": {
     "label": "Isih",
     "popular": "Paling popular",
-    "name": "Nama",
+    "name": "Abjad",
     "price-asc": "Harga: rendah ke tinggi",
     "price-desc": "Harga: tinggi ke rendah"
   },
@@ -16,9 +16,22 @@
     "category": "Kategori",
     "provider": "Penyedia",
     "use": "Gunakan dalam sesi",
-    "sign-in": "Log masuk untuk menggunakan"
+    "sign-in": "Log masuk untuk menggunakan",
+    "endpoint": "Titik akhir x402",
+    "copy-endpoint": "Salin titik akhir",
+    "currencies": "Mata wang diterima",
+    "more-details": "Lebih banyak butiran",
+    "less-details": "Kurang butiran",
+    "sales": "Jualan (30 hari)"
   },
   "toasts": {
-    "added": "{{name}} ditambah ke sesi anda yang seterusnya"
+    "added": "{{name}} ditambah ke sesi anda yang seterusnya",
+    "endpoint-copied": "Titik akhir disalin"
+  },
+  "pagination": {
+    "label": "Penomboran",
+    "previous": "Sebelumnya",
+    "next": "Seterusnya",
+    "status": "Halaman {{page}} daripada {{count}}"
   }
 }

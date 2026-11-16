@@ -62,6 +62,50 @@
   },
   "toasts": {
     "saved": "設定を保存しました",
-    "reset": "デモデータを復元しました"
-  }
+    "reset": "デモデータを復元しました",
+    "passkey-on": "パスキーをオンにしました",
+    "passkey-off": "パスキーをオフにしました",
+    "soon": "このオプションはまだ利用できません。",
+    "signed-out": "サインアウトしました"
+  },
+  "sections": {
+    "wallet": "ウォレット",
+    "security": "セキュリティ",
+    "notifications": "通知",
+    "appearance": "外観",
+    "discover": "探す",
+    "data": "データ",
+    "about": "情報"
+  },
+  "rows": {
+    "address-book": "アドレス帳",
+    "address-book-detail": "保存済みの受取人",
+    "passkey": "パスキー",
+    "passkey-on": "すべてのウォレットでオン。承認は MetaMask の署名で確認されます。",
+    "passkey-off": "オフ。承認は署名なしで実行されます。",
+    "auto-lock": "自動ロック",
+    "auto-lock-detail": "5分後にロック",
+    "limits": "支出上限",
+    "limits-detail": "新しいセッションの既定値",
+    "history": "セキュリティ履歴",
+    "history-detail": "接続、署名、取り消し",
+    "notifications": "メール通知",
+    "notifications-detail": "セッションとブロックされた支払い",
+    "dark-mode": "ダークモード",
+    "faucet": "テストネット Faucet",
+    "faucet-detail": "テストトークンを入手",
+    "resources": "リソース",
+    "resources-detail": "Wiki、Price Oracle、Website、Explorer",
+    "reset": "アプリデータをリセット",
+    "reset-detail": "セッション、アクティビティ、ウォレット、残高をデモデータに戻します",
+    "version": "バージョン"
+  },
+  "resources": {
+    "description": "新しいタブで開きます。現在は仮のリンクです。",
+    "wiki": "Wiki",
+    "price-oracle": "Price Oracle",
+    "website": "ウェブサイト",
+    "explorer": "Explorer"
+  },
+  "sign-out": "Signet からサインアウト"
 }

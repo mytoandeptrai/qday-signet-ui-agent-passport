@@ -5,6 +5,7 @@ import WalletGate from '@/components/ui/wallet-gate';
 import { NETWORKS } from '@/constant';
 import { useSignAction, useWallet } from '@/integrations/wallet';
 import { WalletNotConnectedError, WalletUnsupportedNetworkError } from '@/integrations/wallet/types';
+import { usePassportStore } from '@/stores/passport-store';
 
 const t = (key: string) => key;
 vi.mock('@/integrations/i18n', () => ({ useTranslation: () => ({ t }) }));
@@ -95,6 +96,35 @@ describe('wallet: connect and sign', () => {
       await result.current.run({ kind: 'transfer', summary: 'x' }, async () => undefined);
     });
     expect(result.current.status).toBe('error');
+  });
+});
+
+describe('passkey setting', () => {
+  const setPasskey = (passkeyEnabled: boolean) =>
+    usePassportStore.setState((s) => ({ settings: { ...s.settings, passkeyEnabled } }));
+  afterEach(() => setPasskey(true));
+
+  it('signs before running the action while passkey is on', async () => {
+    connect(qdayChainId);
+    signMessageAsync.mockResolvedValue('0xsig');
+    const action = vi.fn().mockResolvedValue(undefined);
+    const { result } = renderHook(() => useSignAction());
+    await act(async () => {
+      expect(await result.current.run({ kind: 'transfer', summary: 'x' }, action)).toBe(true);
+    });
+    expect(signMessageAsync).toHaveBeenCalledTimes(1);
+    expect(action).toHaveBeenCalledTimes(1);
+  });
+
+  it('skips the signature and still runs the action while passkey is off', async () => {
+    setPasskey(false);
+    const action = vi.fn().mockResolvedValue(undefined);
+    const { result } = renderHook(() => useSignAction());
+    await act(async () => {
+      expect(await result.current.run({ kind: 'transfer', summary: 'x' }, action)).toBe(true);
+    });
+    expect(signMessageAsync).not.toHaveBeenCalled();
+    expect(action).toHaveBeenCalledTimes(1);
   });
 });
 

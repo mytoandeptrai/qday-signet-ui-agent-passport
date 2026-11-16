@@ -15,12 +15,16 @@
   "ideas": {
     "title": "Tutorials – Learn about Signet",
     "items": {
-      "learn": "Learn about your Signet",
-      "purchases": "Turn recommendations into purchases",
-      "cloud": "Cloud queries and paid data",
-      "apartments": "Automate apartment hunting",
-      "candidates": "Find candidates for a role",
-      "onboarding": "Automate new hire onboarding"
+      "install": "Install Signet CLI",
+      "esim": "Travel eSIM Purchase",
+      "sound": "Licensed Sound Effect for a Video",
+      "photos": "Clean Up Five Product Photos",
+      "translate": "Translate a Product Listing",
+      "tickets": "Book Two Movie Tickets",
+      "shipping": "Buy a Shipping Label",
+      "coworking": "Reserve a Coworking Day Pass",
+      "amazon-item": "Buy an Item Online",
+      "amazon-cart": "Buy Multiple Items Online"
     }
   },
   "get-started": {
@@ -74,7 +78,10 @@
   "balance": {
     "title": "SignetPass balance",
     "wallet": "SignetPass",
-    "title-named": "{{name}} balance ({{token}})"
+    "title-named": "{{name}} balance ({{token}})",
+    "passkey-on": "Passkey is on. Approvals are confirmed with a MetaMask signature.",
+    "passkey-off": "Passkey is off. Approvals go through without a signature.",
+    "passkey-manage": "Manage in Settings"
   },
   "sessions": {
     "title": "Sessions",

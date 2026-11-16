@@ -11,10 +11,11 @@
     "replay": "Main semula"
   },
   "meter": {
-    "title": "Had sesi"
+    "title": "Had perbelanjaan"
   },
   "notes": {
-    "title": "Apa yang berlaku"
+    "title": "Apa yang berlaku",
+    "description": "Apa yang Trellis Wallet lakukan semasa ejen bekerja."
   },
   "labels": {
     "start-session": "Mulakan ini sebagai sesi"

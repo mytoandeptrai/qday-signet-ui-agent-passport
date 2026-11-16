@@ -15,12 +15,16 @@
   "ideas": {
     "title": "教學 – 認識 Signet",
     "items": {
-      "learn": "認識你的 Signet",
-      "purchases": "把推薦變成購買",
-      "cloud": "雲端查詢與付費數據",
-      "apartments": "自動尋找租盤",
-      "candidates": "為職位尋找人選",
-      "onboarding": "自動處理新員工入職"
+      "install": "安裝 Signet CLI",
+      "esim": "購買旅遊 eSIM",
+      "sound": "影片授權音效",
+      "photos": "處理五張產品相片",
+      "translate": "翻譯產品說明",
+      "tickets": "預訂兩張電影票",
+      "shipping": "購買運送標籤",
+      "coworking": "預訂共享辦公室日票",
+      "amazon-item": "網上購買商品",
+      "amazon-cart": "網上購買多件商品"
     }
   },
   "get-started": {
@@ -74,7 +78,10 @@
   "balance": {
     "title": "SignetPass 餘額",
     "wallet": "SignetPass",
-    "title-named": "{{name}} 餘額（{{token}}）"
+    "title-named": "{{name}} 餘額（{{token}}）",
+    "passkey-on": "Passkey 已開啟。批准需以 MetaMask 簽署確認。",
+    "passkey-off": "Passkey 已關閉。批准將無需簽署即可進行。",
+    "passkey-manage": "在設定中管理"
   },
   "sessions": {
     "title": "會話",

@@ -62,6 +62,50 @@
   },
   "toasts": {
     "saved": "Tetapan disimpan",
-    "reset": "Data demo dipulihkan"
-  }
+    "reset": "Data demo dipulihkan",
+    "passkey-on": "Passkey dihidupkan",
+    "passkey-off": "Passkey dimatikan",
+    "soon": "Pilihan ini belum tersedia.",
+    "signed-out": "Telah log keluar"
+  },
+  "sections": {
+    "wallet": "Dompet",
+    "security": "Keselamatan",
+    "notifications": "Pemberitahuan",
+    "appearance": "Rupa",
+    "discover": "Terokai",
+    "data": "Data",
+    "about": "Perihal"
+  },
+  "rows": {
+    "address-book": "Buku alamat",
+    "address-book-detail": "Penerima disimpan",
+    "passkey": "Passkey",
+    "passkey-on": "Hidup untuk semua dompet. Kelulusan disahkan dengan tandatangan MetaMask.",
+    "passkey-off": "Mati. Kelulusan berjalan tanpa tandatangan.",
+    "auto-lock": "Kunci automatik",
+    "auto-lock-detail": "Kunci selepas 5 minit",
+    "limits": "Had perbelanjaan",
+    "limits-detail": "Lalai untuk sesi baharu",
+    "history": "Sejarah keselamatan",
+    "history-detail": "Sambungan, tandatangan dan pembatalan",
+    "notifications": "Amaran e-mel",
+    "notifications-detail": "Sesi dan pembayaran disekat",
+    "dark-mode": "Mod gelap",
+    "faucet": "Faucet testnet",
+    "faucet-detail": "Dapatkan token ujian",
+    "resources": "Sumber",
+    "resources-detail": "Wiki, Price Oracle, Laman web, Explorer",
+    "reset": "Tetap semula data aplikasi",
+    "reset-detail": "Sesi, aktiviti, dompet dan baki kembali kepada data demo",
+    "version": "Versi"
+  },
+  "resources": {
+    "description": "Dibuka dalam tab baharu. Pautan sementara buat masa ini.",
+    "wiki": "Wiki",
+    "price-oracle": "Price Oracle",
+    "website": "Laman web",
+    "explorer": "Explorer"
+  },
+  "sign-out": "Log keluar daripada Signet"
 }

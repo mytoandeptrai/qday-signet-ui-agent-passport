@@ -57,6 +57,14 @@ export interface Service {
   pricePerCall: number;
   priceLabel: string;
   popular: boolean;
+  /** Paid calls in the last 30 days; "most popular" sorts by it. */
+  sales: number;
+  /** x402 endpoint an agent calls. */
+  endpoint: string;
+  /** Tokens the service accepts, e.g. "USDC (Base)". */
+  currencies: string[];
+  /** Remaining columns of the Bazaar row, shown under "More details". */
+  details: Record<string, string>;
 }
 
 export interface Escalation {
@@ -87,6 +95,8 @@ export interface AppSettings {
   alertOnBlocked: boolean;
   requireApprovalAbove: number;
   appearance: Appearance;
+  /** Global: when on, every approval needs a MetaMask signature. Missing in older persisted state means on. */
+  passkeyEnabled?: boolean;
 }
 
 export interface CreateSessionInput {
@@ -115,14 +125,17 @@ export interface LandingMoment {
   stopped?: boolean;
 }
 
-export type PlaygroundStepKind = 'prompt' | 'agent' | 'cmd' | 'out' | 'pay' | 'stop' | 'done';
+/** The terminal only shows `you` and `agent`; `event` is what the Trellis Wallet does, shown beside it. */
+export type PlaygroundStepKind = 'you' | 'agent' | 'event';
+
+export type PlaygroundEventTone = 'info' | 'approval' | 'payment';
 
 export interface PlaygroundStep {
   kind: PlaygroundStepKind;
   text: string;
-  /** Plain-language explanation shown beside the terminal. */
-  note?: string;
-  /** Money moved by this step. */
+  /** Only for `event` steps. */
+  tone?: PlaygroundEventTone;
+  /** Money moved by a `payment` event. */
   amount?: number;
 }
 
@@ -132,7 +145,10 @@ export interface PlaygroundScenario {
   summary: string;
   /** Prefill for the real create-session form. */
   task: string;
+  /** Spending cap the meter counts against, in USDC. */
   limit: number;
+  /** True when the agent works inside a spending session rather than paying once. */
+  session?: boolean;
   steps: PlaygroundStep[];
 }
 

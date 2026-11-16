@@ -6,6 +6,8 @@ const TITLES: Record<SignRequestKind, string> = {
   'approve-agent': 'Approve agent registration',
   'create-session': 'Create spending session',
   revoke: 'Revoke access',
+  'enable-passkey': 'Turn on passkey',
+  'disable-passkey': 'Turn off passkey',
 };
 
 interface SignContext {

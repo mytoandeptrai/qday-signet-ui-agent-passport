@@ -15,6 +15,7 @@ export const SEED_SETTINGS: AppSettings = {
   alertOnBlocked: true,
   requireApprovalAbove: 25,
   appearance: 'light',
+  passkeyEnabled: true,
 };
 
 export const SEED_MAIN_WALLET: MainWallet = {

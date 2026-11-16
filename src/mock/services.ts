@@ -51,6 +51,17 @@ export const SERVICES: Service[] = rows.map(([name, category, description, provi
   pricePerCall: price,
   priceLabel: price < 0.01 ? `$${price.toFixed(3)} a call` : `$${price.toFixed(2)} a call`,
   popular: Boolean(popular),
+  sales: popular ? 5200 - i * 41 : 30 + ((i * 137) % 880),
+  endpoint: `https://api.${provider.toLowerCase()}.example/x402/${name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`,
+  currencies: popular || i % 3 === 0 ? ['USDC (Base)', 'USD8 (QDay)'] : ['USDC (Base)'],
+  details: { Protocol: 'x402', Provider: provider, Category: category, 'Response format': 'JSON', Settlement: 'Per call' },
 }));
 
-export const SERVICE_CATEGORIES = ['All', ...Array.from(new Set(SERVICES.map((s) => s.category))).sort()];
+/** Ecommerce offers live under Marketplace > Shopping, not Services. */
+export const ECOMMERCE_CATEGORY = 'Shopping';
+
+const MARKETPLACE_SERVICES = SERVICES.filter((s) => s.category !== ECOMMERCE_CATEGORY);
+
+export const MARKETPLACE_SERVICE_COUNT = MARKETPLACE_SERVICES.length;
+
+export const SERVICE_CATEGORIES = ['All', ...Array.from(new Set(MARKETPLACE_SERVICES.map((s) => s.category))).sort()];

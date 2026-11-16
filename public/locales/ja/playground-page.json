@@ -11,10 +11,11 @@
     "replay": "リプレイ"
   },
   "meter": {
-    "title": "セッション上限"
+    "title": "支出上限"
   },
   "notes": {
-    "title": "何が起きているか"
+    "title": "何が起きているか",
+    "description": "エージェントの作業中に Trellis Wallet が行うこと。"
   },
   "labels": {
     "start-session": "これをセッションとして開始"

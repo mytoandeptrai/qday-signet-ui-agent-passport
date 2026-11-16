@@ -5,7 +5,7 @@
   "sort": {
     "label": "排序",
     "popular": "最受歡迎",
-    "name": "名稱",
+    "name": "字母順序",
     "price-asc": "價格：由低至高",
     "price-desc": "價格：由高至低"
   },
@@ -16,9 +16,22 @@
     "category": "類別",
     "provider": "供應商",
     "use": "在會話中使用",
-    "sign-in": "登入後使用"
+    "sign-in": "登入後使用",
+    "endpoint": "x402 端點",
+    "copy-endpoint": "複製端點",
+    "currencies": "接受貨幣",
+    "more-details": "更多詳情",
+    "less-details": "收起詳情",
+    "sales": "銷量（30 天）"
   },
   "toasts": {
-    "added": "已將 {{name}} 加入你的下一個會話"
+    "added": "已將 {{name}} 加入你的下一個會話",
+    "endpoint-copied": "已複製端點"
+  },
+  "pagination": {
+    "label": "分頁",
+    "previous": "上一頁",
+    "next": "下一頁",
+    "status": "第 {{page}} 頁，共 {{count}} 頁"
   }
 }

@@ -62,6 +62,50 @@
   },
   "toasts": {
     "saved": "已儲存設定",
-    "reset": "已還原示範資料"
-  }
+    "reset": "已還原示範資料",
+    "passkey-on": "Passkey 已開啟",
+    "passkey-off": "Passkey 已關閉",
+    "soon": "此選項暫未提供。",
+    "signed-out": "已登出"
+  },
+  "sections": {
+    "wallet": "錢包",
+    "security": "安全",
+    "notifications": "通知",
+    "appearance": "外觀",
+    "discover": "探索",
+    "data": "資料",
+    "about": "關於"
+  },
+  "rows": {
+    "address-book": "地址簿",
+    "address-book-detail": "已儲存收款人",
+    "passkey": "Passkey",
+    "passkey-on": "所有錢包已開啟。批准需以 MetaMask 簽署確認。",
+    "passkey-off": "已關閉。批准將無需簽署即可進行。",
+    "auto-lock": "自動鎖定",
+    "auto-lock-detail": "5 分鐘後鎖定",
+    "limits": "支出上限",
+    "limits-detail": "新工作階段的預設值",
+    "history": "安全記錄",
+    "history-detail": "連接、簽署及撤銷",
+    "notifications": "電郵提醒",
+    "notifications-detail": "工作階段及被封鎖的付款",
+    "dark-mode": "深色模式",
+    "faucet": "測試網水龍頭",
+    "faucet-detail": "獲取測試代幣",
+    "resources": "資源",
+    "resources-detail": "Wiki、Price Oracle、網站、Explorer",
+    "reset": "重設應用程式資料",
+    "reset-detail": "工作階段、活動、錢包及餘額還原為示範資料",
+    "version": "版本"
+  },
+  "resources": {
+    "description": "在新分頁開啟。目前為暫代連結。",
+    "wiki": "Wiki",
+    "price-oracle": "Price Oracle",
+    "website": "網站",
+    "explorer": "Explorer"
+  },
+  "sign-out": "登出 Signet"
 }

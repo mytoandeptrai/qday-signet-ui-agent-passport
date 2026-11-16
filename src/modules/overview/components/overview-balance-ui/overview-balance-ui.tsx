@@ -8,14 +8,16 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useTranslation } from "@/integrations/i18n";
-import { NETWORKS } from "@/constant";
+import { NETWORKS, ROUTES } from "@/constant";
 import { money } from "@/lib/format";
 import type { SignetPass } from "@/types/passport";
+import { Link } from "@tanstack/react-router";
 import { Copy, Wallet } from "lucide-react";
 
 type OverviewBalanceUiProps = {
   available: number;
   pass?: SignetPass | null;
+  passkeyEnabled: boolean;
   onCopyAddress: () => void;
   onAddFunds: () => void;
 };
@@ -23,6 +25,7 @@ type OverviewBalanceUiProps = {
 const OverviewBalanceUi = ({
   available,
   pass,
+  passkeyEnabled,
   onCopyAddress,
   onAddFunds,
 }: OverviewBalanceUiProps) => {
@@ -71,6 +74,12 @@ const OverviewBalanceUi = ({
           </DropdownMenu>
         )}
       </div>
+      <p className="mt-4 text-small text-muted-foreground">
+        {passkeyEnabled ? t("balance.passkey-on") : t("balance.passkey-off")}{" "}
+        <Link to={ROUTES.SETTINGS} className="underline underline-offset-2 hover:text-foreground">
+          {t("balance.passkey-manage")}
+        </Link>
+      </p>
     </>
   );
 };

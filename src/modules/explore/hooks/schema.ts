@@ -6,6 +6,7 @@ export const exploreSearchSchema = z.object({
   q: z.string().optional().catch(undefined),
   category: z.string().optional().catch(undefined),
   sort: z.enum(SORTS).optional().catch(undefined),
+  page: z.coerce.number().int().min(1).optional().catch(undefined),
 });
 
 export type ExploreSearch = z.infer<typeof exploreSearchSchema>;

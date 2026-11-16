@@ -1,4 +1,4 @@
-import { useGetBalance } from '@/apis/account';
+import { useGetBalance, useGetSettings } from '@/apis/account';
 import { useGetSignetPasses } from '@/apis/signetpass';
 import { useAppDialog } from '@/hooks/use-app-dialog';
 import { useTranslation } from '@/integrations/i18n';
@@ -10,6 +10,7 @@ export const useOverviewBalanceContainer = () => {
   const { data: passes } = useGetSignetPasses();
   const pass = passes?.selected;
   const { data: balance } = useGetBalance();
+  const { data: settings } = useGetSettings();
 
   const onCopyAddress = () => {
     navigator.clipboard?.writeText(pass?.address ?? '').catch(() => undefined);
@@ -19,6 +20,7 @@ export const useOverviewBalanceContainer = () => {
   return {
     available: balance?.available ?? 0,
     pass,
+    passkeyEnabled: settings?.passkeyEnabled !== false,
     onCopyAddress,
     onAddFunds: () => open('add-funds'),
   };

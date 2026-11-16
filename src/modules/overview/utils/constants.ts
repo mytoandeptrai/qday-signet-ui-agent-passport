@@ -1,4 +1,15 @@
-export const IDEA_IDS = ['learn', 'purchases', 'cloud', 'apartments', 'candidates', 'onboarding'] as const;
+export const IDEA_IDS = [
+  'install',
+  'esim',
+  'sound',
+  'photos',
+  'translate',
+  'tickets',
+  'shipping',
+  'coworking',
+  'amazon-item',
+  'amazon-cart',
+] as const;
 
 export type IdeaId = (typeof IDEA_IDS)[number];
 

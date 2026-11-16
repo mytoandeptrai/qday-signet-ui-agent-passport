@@ -15,12 +15,16 @@
   "ideas": {
     "title": "Tutorial – Ketahui tentang Signet",
     "items": {
-      "learn": "Ketahui tentang Signet anda",
-      "purchases": "Ubah cadangan menjadi pembelian",
-      "cloud": "Pertanyaan awan dan data berbayar",
-      "apartments": "Automasikan pencarian pangsapuri",
-      "candidates": "Cari calon untuk sesuatu jawatan",
-      "onboarding": "Automasikan orientasi pekerja baharu"
+      "install": "Pasang Signet CLI",
+      "esim": "Pembelian eSIM pelancongan",
+      "sound": "Kesan bunyi berlesen untuk video",
+      "photos": "Bersihkan lima foto produk",
+      "translate": "Terjemah senarai produk",
+      "tickets": "Tempah dua tiket wayang",
+      "shipping": "Beli label penghantaran",
+      "coworking": "Tempah pas harian ruang kerja bersama",
+      "amazon-item": "Beli barang dalam talian",
+      "amazon-cart": "Beli berbilang barang dalam talian"
     }
   },
   "get-started": {
@@ -74,7 +78,10 @@
   "balance": {
     "title": "Baki SignetPass",
     "wallet": "SignetPass",
-    "title-named": "Baki {{name}} ({{token}})"
+    "title-named": "Baki {{name}} ({{token}})",
+    "passkey-on": "Passkey dihidupkan. Kelulusan disahkan dengan tandatangan MetaMask.",
+    "passkey-off": "Passkey dimatikan. Kelulusan berjalan tanpa tandatangan.",
+    "passkey-manage": "Urus dalam Tetapan"
   },
   "sessions": {
     "title": "Sesi",

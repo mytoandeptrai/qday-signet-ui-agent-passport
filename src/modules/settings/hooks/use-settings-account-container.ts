@@ -26,5 +26,5 @@ export const useSettingsAccountContainer = () => {
     toast.success(t('toasts.reset'));
   };
 
-  return { user, connectedWallet, signetPass: signetPasses?.selected, appearance: settings?.appearance, onChangeAppearance, onReset };
+  return { t, user, connectedWallet, signetPass: signetPasses?.selected, appearance: settings?.appearance, onChangeAppearance, onReset };
 };

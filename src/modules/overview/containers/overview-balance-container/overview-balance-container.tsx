@@ -3,11 +3,11 @@ import { OverviewBalanceUi } from '../../components';
 import { useOverviewBalanceContainer } from '../../hooks';
 
 const OverviewBalanceContainer = () => {
-  const { available, pass, onCopyAddress, onAddFunds } = useOverviewBalanceContainer();
+  const { available, pass, passkeyEnabled, onCopyAddress, onAddFunds } = useOverviewBalanceContainer();
   return (
     <aside>
       <WalletGate>
-        <OverviewBalanceUi available={available} pass={pass} onCopyAddress={onCopyAddress} onAddFunds={onAddFunds} />
+        <OverviewBalanceUi available={available} pass={pass} passkeyEnabled={passkeyEnabled} onCopyAddress={onCopyAddress} onAddFunds={onAddFunds} />
       </WalletGate>
     </aside>
   );

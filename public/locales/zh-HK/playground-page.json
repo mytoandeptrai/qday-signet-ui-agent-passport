@@ -11,10 +11,11 @@
     "replay": "重播"
   },
   "meter": {
-    "title": "會話上限"
+    "title": "支出上限"
   },
   "notes": {
-    "title": "發生了什麼"
+    "title": "發生了什麼",
+    "description": "代理運作期間 Trellis Wallet 所做的事。"
   },
   "labels": {
     "start-session": "以此開始會話"

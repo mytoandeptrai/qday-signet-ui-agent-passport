@@ -62,6 +62,50 @@
   },
   "toasts": {
     "saved": "Settings saved",
-    "reset": "Demo data restored"
-  }
+    "reset": "Demo data restored",
+    "passkey-on": "Passkey turned on",
+    "passkey-off": "Passkey turned off",
+    "soon": "This option isn't available yet.",
+    "signed-out": "Signed out"
+  },
+  "sections": {
+    "wallet": "Wallet",
+    "security": "Security",
+    "notifications": "Notifications",
+    "appearance": "Appearance",
+    "discover": "Discover",
+    "data": "Data",
+    "about": "About"
+  },
+  "rows": {
+    "address-book": "Address book",
+    "address-book-detail": "Saved recipients",
+    "passkey": "Passkey",
+    "passkey-on": "On for all wallets. Approvals are confirmed with a MetaMask signature.",
+    "passkey-off": "Off. Approvals go through without a signature.",
+    "auto-lock": "Auto-lock",
+    "auto-lock-detail": "Lock after 5 minutes",
+    "limits": "Spending limits",
+    "limits-detail": "Defaults for new sessions",
+    "history": "Security history",
+    "history-detail": "Connections, signatures and revocations",
+    "notifications": "Email alerts",
+    "notifications-detail": "Sessions and blocked payments",
+    "dark-mode": "Dark mode",
+    "faucet": "Testnet faucet",
+    "faucet-detail": "Get test tokens",
+    "resources": "Resources",
+    "resources-detail": "Wiki, Price Oracle, Website, Explorer",
+    "reset": "Reset app data",
+    "reset-detail": "Sessions, activity, wallets and balance return to the demo data",
+    "version": "Version"
+  },
+  "resources": {
+    "description": "Opens in a new tab. Placeholder links for now.",
+    "wiki": "Wiki",
+    "price-oracle": "Price Oracle",
+    "website": "Website",
+    "explorer": "Explorer"
+  },
+  "sign-out": "Sign out of Signet"
 }

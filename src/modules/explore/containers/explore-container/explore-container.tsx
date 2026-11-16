@@ -1,4 +1,4 @@
-import { ExploreFiltersUi, ServiceDialogUi, ServiceGridUi } from '../../components';
+import { ExploreFiltersUi, ServiceDialogUi, ServiceGridUi, ServicePaginationUi } from '../../components';
 import { useExploreContainer } from '../../hooks';
 
 const ExploreContainer = () => {
@@ -12,12 +12,17 @@ const ExploreContainer = () => {
     query,
     services,
     isFetching,
+    page,
+    pageCount,
     picked,
+    detailsOpen,
     isSignedIn,
     onSearchChange,
     onCategoryChange,
     onSortChange,
+    onPageChange,
     onPick,
+    onToggleDetails,
     onClosePicked,
     onUse,
   } = useExploreContainer();
@@ -36,7 +41,8 @@ const ExploreContainer = () => {
         onCategoryChange={onCategoryChange}
       />
       <ServiceGridUi services={services} isFetching={isFetching} query={query} onPick={onPick} />
-      <ServiceDialogUi service={picked} isSignedIn={isSignedIn} onClose={onClosePicked} onUse={onUse} />
+      <ServicePaginationUi page={page} pageCount={pageCount} onPageChange={onPageChange} />
+      <ServiceDialogUi service={picked} detailsOpen={detailsOpen} isSignedIn={isSignedIn} onToggleDetails={onToggleDetails} onClose={onClosePicked} onUse={onUse} />
     </div>
   );
 };
