@@ -6,7 +6,8 @@ import { NETWORKS } from '@/constant';
 import { useAppDialog } from '@/hooks/use-app-dialog';
 import { useTranslation } from '@/integrations/i18n';
 import { money } from '@/lib/format';
-import { useNavigate } from '@tanstack/react-router';
+import { useInstallPrompt } from '@/modules/signetpass/hooks';
+import { toast } from 'sonner';
 import { GET_STARTED_STEPS, type GetStartedStepId } from '../utils';
 
 type UseGetStartedContainerParams = {
@@ -15,7 +16,7 @@ type UseGetStartedContainerParams = {
 
 export const useGetStartedContainer = ({ step }: UseGetStartedContainerParams) => {
   const { t } = useTranslation('overview-page');
-  const navigate = useNavigate();
+  const install = useInstallPrompt();
   const { data: wallet } = useGetMainWallet();
   const { data: onboarding } = useGetOnboarding();
   const { data: signetPasses } = useGetSignetPasses();
@@ -34,6 +35,7 @@ export const useGetStartedContainer = ({ step }: UseGetStartedContainerParams) =
     funds: balance > 0,
     signetpass: hasSignetPass,
     move: passes.some((p) => p.balance.available + p.balance.held > 0),
+    agent: onboarding?.connected ?? false,
     install: onboarding?.connected ?? false,
     connect: onboarding?.connected ?? false,
     session: sessions.length > 0,
@@ -44,9 +46,9 @@ export const useGetStartedContainer = ({ step }: UseGetStartedContainerParams) =
   const onActivateSignetPass = () => open('activate-signetpass');
   // Funds go into an active SignetPass, so this starts by creating or activating one.
   const onMoveFunds = () => open(!hasSignetPass ? 'create-signetpass' : needsActivation ? 'activate-signetpass' : 'move-funds');
-  const onInstallCli = () => {
-    if (!selected) return open('create-signetpass');
-    navigate({ to: '/signetpass/$passId', params: { passId: selected.id }, hash: 'install' });
+  const onCopyInstall = () => {
+    install.copyPrompt();
+    toast.success(t('details.install.copied', { ns: 'signetpass-page' }));
   };
   const onCreateSession = () => open('create-session');
 
@@ -61,7 +63,8 @@ export const useGetStartedContainer = ({ step }: UseGetStartedContainerParams) =
     onActivateSignetPass,
     onAddFunds,
     onMoveFunds,
-    onInstallCli,
+    install,
+    onCopyInstall,
     onCreateSession,
   };
 };

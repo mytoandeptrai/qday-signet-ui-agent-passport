@@ -34,6 +34,7 @@
       "funds": "Fund your balance.",
       "signetpass": "Create the wallet your agents spend from.",
       "move": "Give your agents funds to spend.",
+      "agent": "Install it first, then open its terminal.",
       "install": "Run this in your agent terminal.",
       "connect": "Your agent registers itself.",
       "session": "Set the limits your agents spend within."
@@ -43,19 +44,20 @@
       "funds": "Fund your main wallet",
       "signetpass": "Create a SignetPass",
       "move": "Move funds to your spending wallet",
+      "agent": "Install an AI agent",
       "install": "Install Signet CLI",
       "connect": "Connect your agent",
       "session": "Create a spending session"
     },
     "text": {
       "move": "Agents can spend from the spending wallet. You need to create a spending session with limits to allow them to do so. You are in control.",
+      "agent": "Install an AI agent such as Claude or Codex on your computer, then open the agent terminal. You paste the Signet install command there in the next step. Without an agent installed, the command will not work.",
       "install": "Copy/paste and run the command provided in your SignetPass to your agent terminal. This will install the tools and protocols for your agent to communicate and interact with Signet.",
       "connect": "Installing the Signet CLI into your agent terminal will automatically register your agent to your SignetPass. Your agent is now ready to spend.",
       "session": "Control the spending of your agents within the limits of a spending session. You can define a budget, a max spending amount per transaction, a session time expiration. Spending sessions management is easy and flexible. You can create a spending session in advance and then let your agent spend autonomously when needed without your approval anymore. You can also let Signet propose you a spending session per default, matching with the expense the agent wants to spend to buy something. Get a notification on your Trellis wallet, review, adjust the amount if needed and approve. You have the control."
     },
     "actions": {
       "move": "Move funds",
-      "install": "Install Signet CLI",
       "session": "Create spending session"
     }
   },

@@ -34,6 +34,7 @@
       "funds": "Tambah dana ke baki anda.",
       "signetpass": "Cipta dompet tempat ejen berbelanja.",
       "move": "Beri ejen anda dana untuk dibelanjakan.",
+      "agent": "Pasang dahulu, kemudian buka terminalnya.",
       "install": "Jalankan ini dalam terminal ejen anda.",
       "connect": "Ejen anda mendaftar sendiri.",
       "session": "Tetapkan had perbelanjaan ejen anda."
@@ -43,19 +44,20 @@
       "funds": "Tambah dana ke dompet utama",
       "signetpass": "Cipta SignetPass",
       "move": "Pindahkan dana ke dompet perbelanjaan",
+      "agent": "Pasang ejen AI",
       "install": "Pasang Signet CLI",
       "connect": "Sambungkan ejen anda",
       "session": "Cipta sesi perbelanjaan"
     },
     "text": {
       "move": "Ejen boleh berbelanja daripada dompet perbelanjaan. Anda perlu mencipta sesi perbelanjaan dengan had untuk membenarkannya. Anda yang mengawal.",
+      "agent": "Pasang ejen AI seperti Claude atau Codex pada komputer anda, kemudian buka terminal ejen. Anda akan menampal arahan pemasangan Signet di situ pada langkah seterusnya. Tanpa ejen yang dipasang, arahan tersebut tidak akan berfungsi.",
       "install": "Salin/tampal dan jalankan arahan yang disediakan dalam SignetPass anda pada terminal ejen anda. Ini akan memasang alat dan protokol supaya ejen anda boleh berkomunikasi dan berinteraksi dengan Signet.",
       "connect": "Memasang Signet CLI dalam terminal ejen anda akan mendaftarkan ejen anda ke SignetPass secara automatik. Ejen anda kini sedia berbelanja.",
       "session": "Kawal perbelanjaan ejen anda dalam had sesi perbelanjaan. Anda boleh menetapkan bajet, jumlah maksimum bagi setiap transaksi dan tempoh tamat sesi. Pengurusan sesi perbelanjaan mudah dan fleksibel. Anda boleh mencipta sesi perbelanjaan lebih awal dan membiarkan ejen anda berbelanja secara autonomi apabila perlu tanpa kelulusan anda lagi. Anda juga boleh membiarkan Signet mencadangkan sesi perbelanjaan secara lalai, sepadan dengan perbelanjaan yang ingin dibuat oleh ejen. Terima pemberitahuan pada dompet Trellis anda, semak, laraskan jumlah jika perlu dan luluskan. Anda yang mengawal."
     },
     "actions": {
       "move": "Pindahkan dana",
-      "install": "Pasang Signet CLI",
       "session": "Cipta sesi perbelanjaan"
     }
   },

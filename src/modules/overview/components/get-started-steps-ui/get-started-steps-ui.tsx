@@ -13,7 +13,7 @@ type GetStartedStepsUiProps = {
 
 const LAST = GET_STARTED_STEPS.length - 1;
 
-/** The path from a funded wallet to a working agent: stations along a line on wide screens, a plain list on narrow ones. */
+/** The path from a funded wallet to a working agent: stations down a vertical line. */
 const GetStartedStepsUi = ({ stepId, done, onSelectStep }: GetStartedStepsUiProps) => {
   const { t } = useTranslation('overview-page');
   // The line runs up to the first step still to do. It starts empty and fills once, when the page opens.
@@ -23,11 +23,11 @@ const GetStartedStepsUi = ({ stepId, done, onSelectStep }: GetStartedStepsUiProp
   const reached = next === -1 ? LAST : next;
 
   return (
-    <ol className='relative mt-4 flex flex-col gap-1 md:grid md:grid-cols-7 md:gap-0'>
-      <span aria-hidden='true' className='absolute top-3 right-[calc(100%/14)] left-[calc(100%/14)] hidden h-px bg-border md:block'>
+    <ol className='relative flex flex-col gap-1'>
+      <span aria-hidden='true' className='absolute top-[18px] bottom-[18px] left-[11.5px] w-px bg-border'>
         <span
-          className='block h-full bg-brand transition-[width] duration-700 ease-out motion-reduce:transition-none'
-          style={{ width: mounted ? `${(reached / LAST) * 100}%` : '0%' }}
+          className='block w-full bg-brand transition-[height] duration-700 ease-out motion-reduce:transition-none'
+          style={{ height: mounted ? `${(reached / LAST) * 100}%` : '0%' }}
         />
       </span>
       {GET_STARTED_STEPS.map((id, i) => {
@@ -39,7 +39,7 @@ const GetStartedStepsUi = ({ stepId, done, onSelectStep }: GetStartedStepsUiProp
               variant='ghost'
               aria-current={current ? 'step' : undefined}
               onClick={() => onSelectStep(i)}
-              className='group h-auto w-full justify-start gap-4 rounded-md px-0 py-1.5 text-left whitespace-normal md:flex-col md:items-center md:gap-2 md:px-2 md:text-center hover:bg-transparent dark:hover:bg-transparent'
+              className='group h-auto w-full justify-start gap-4 rounded-md px-0 py-1.5 text-left whitespace-normal hover:bg-transparent dark:hover:bg-transparent'
             >
               <span
                 className={cn(
@@ -51,7 +51,7 @@ const GetStartedStepsUi = ({ stepId, done, onSelectStep }: GetStartedStepsUiProp
               >
                 {done[id] ? <Check className='size-3.5' strokeWidth={3} /> : i + 1}
               </span>
-              <span className={cn('text-body font-normal text-balance', current ? 'text-foreground' : 'text-muted-foreground group-hover:text-foreground')}>{t(`get-started.steps.${id}`)}</span>
+              <span className={cn('text-body font-normal', current ? 'text-foreground' : 'text-muted-foreground group-hover:text-foreground')}>{t(`get-started.steps.${id}`)}</span>
             </Button>
           </li>
         );

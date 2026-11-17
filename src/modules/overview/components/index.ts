@@ -3,6 +3,8 @@ export { default as OverviewIdeasUi } from './overview-ideas-ui';
 export { default as GetStartedHeaderUi } from './get-started-header-ui';
 export { default as GetStartedStepsUi } from './get-started-steps-ui';
 export { default as GetStartedAllowanceUi } from './get-started-allowance-ui';
+export { default as GetStartedInstallUi } from './get-started-install-ui';
+export { default as GetStartedAgentUi } from './get-started-agent-ui';
 export { default as GetStartedActionUi } from './get-started-action-ui';
 export { default as GetStartedFundsUi } from './get-started-funds-ui';
 export { default as GetStartedTipsUi } from './get-started-tips-ui';

@@ -1,7 +1,9 @@
 import {
   GetStartedActionUi,
+  GetStartedAgentUi,
   GetStartedFundsUi,
   GetStartedHeaderUi,
+  GetStartedInstallUi,
   GetStartedSignetpassUi,
   GetStartedStepsUi,
   GetStartedTipsUi,
@@ -27,7 +29,8 @@ const GetStartedContainer = ({ step, open, onSelectStep, onToggleOpen }: GetStar
     onActivateSignetPass,
     onAddFunds,
     onMoveFunds,
-    onInstallCli,
+    install,
+    onCopyInstall,
     onCreateSession,
   } = useGetStartedContainer({ step });
 
@@ -35,19 +38,20 @@ const GetStartedContainer = ({ step, open, onSelectStep, onToggleOpen }: GetStar
     <div className='mt-10'>
       <GetStartedHeaderUi open={open} onToggleOpen={onToggleOpen} />
       {open && (
-        <>
+        <div className='mt-4 md:grid md:grid-cols-[18rem_1fr] md:gap-10'>
           <GetStartedStepsUi stepId={stepId} done={done} onSelectStep={onSelectStep} />
-          <div className='mt-6 border-l-2 border-brand pl-5'>
+          <div className='mt-6 border-l-2 border-brand pl-5 md:mt-0 md:border-border md:pl-8'>
             <p className='mb-3 text-body text-foreground'>{t(`get-started.hints.${stepId}`)}</p>
             {stepId === 'learn' && <GetStartedTipsUi />}
             {stepId === 'funds' && <GetStartedFundsUi balance={balanceLabel} onAddFunds={onAddFunds} />}
             {stepId === 'signetpass' && <GetStartedSignetpassUi created={signetPassCreated} needsActivation={signetPassNeedsActivation} onCreate={onCreateSignetPass} onActivate={onActivateSignetPass} />}
             {stepId === 'move' && <GetStartedActionUi text={t('get-started.text.move')} actionLabel={t('get-started.actions.move')} onAction={onMoveFunds} />}
-            {stepId === 'install' && <GetStartedActionUi text={t('get-started.text.install')} actionLabel={t('get-started.actions.install')} onAction={onInstallCli} />}
-            {stepId === 'connect' && <GetStartedActionUi text={t('get-started.text.connect')} actionLabel={t('get-started.actions.install')} onAction={onInstallCli} />}
+            {stepId === 'agent' && <GetStartedAgentUi text={t('get-started.text.agent')} />}
+            {stepId === 'install' && <GetStartedInstallUi text={t('get-started.text.install')} prompt={install.prompt} windows={install.windows} onCopy={onCopyInstall} onToggleWindows={install.onToggleWindows} />}
+            {stepId === 'connect' && <GetStartedInstallUi text={t('get-started.text.connect')} prompt={install.prompt} windows={install.windows} onCopy={onCopyInstall} onToggleWindows={install.onToggleWindows} />}
             {stepId === 'session' && <GetStartedActionUi text={t('get-started.text.session')} actionLabel={t('get-started.actions.session')} onAction={onCreateSession} />}
           </div>
-        </>
+        </div>
       )}
     </div>
   );
