@@ -75,7 +75,7 @@
   "balance": {
     "title": "Baki Dompet Utama di {{chain}}",
     "wallet": "Dompet Utama",
-    "passkey-on": "Passkey dihidupkan. Kelulusan disahkan dengan tandatangan MetaMask.",
+    "passkey-on": "Passkey dihidupkan. Kelulusan disahkan dengan tandatangan dompet.",
     "passkey-off": "Passkey dimatikan. Kelulusan berjalan tanpa tandatangan.",
     "passkey-manage": "Urus dalam Tetapan"
   },
@@ -112,7 +112,7 @@
   "learn": {
     "intro": "Dalam bahagian Tutorial, tonton beberapa contoh konkrit Signet beraksi. Daripada memasukkan prompt ke dalam Signet CLI sehingga apa yang akan dilakukan ejen anda. Pelajari cara mengarahkan ejen anda menggunakan Signet untuk 3 jenis kes penggunaan perbelanjaan:",
     "items": {
-      "x402": "Bayaran x402 sekali jalan (API dan barangan atau perkhidmatan digital)",
+      "x402": "Pembayaran x402 setiap permintaan (API dan barangan atau perkhidmatan digital)",
       "ecommerce": "Pembayaran e-dagang",
       "prepaid": "Pembayaran prabayar"
     }

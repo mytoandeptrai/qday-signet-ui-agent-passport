@@ -1,6 +1,6 @@
 {
   "title": "Agents",
-  "description": "Register the AI agents that spend from your SignetPass. You approve each one in MetaMask.",
+  "description": "Register the AI agents that spend from your SignetPass. You approve each one in your wallet.",
   "connect": {
     "title": "Connect an agent",
     "hint": "Paste this into your coding agent. It will ask to register, and the request appears below."

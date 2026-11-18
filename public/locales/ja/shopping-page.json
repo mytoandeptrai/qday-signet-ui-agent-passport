@@ -102,7 +102,7 @@
     "ship-to": "配送先",
     "pay-from": "支払い元",
     "main-wallet": "メインウォレット",
-    "kind-wallet": "MetaMask アカウント",
+    "kind-wallet": "接続中のウォレット",
     "kind-signetpass": "SignetPass",
     "short": "残高が足りません",
     "submit": "{{total}} {{token}} を支払う",

@@ -1,12 +1,12 @@
 {
   "title": "メインウォレット",
-  "description": "あなたの MetaMask アカウントです。残高はネットワークごとに分かれ、SignetPass はここから作成します。",
+  "description": "接続中のウォレットです。残高はネットワークごとに分かれ、SignetPass はここから作成します。",
   "balance": {
     "label": "{{symbol}} 残高",
     "send": "送金",
     "receive": "受取",
     "title": "{{chain}} メインウォレット",
-    "metamask": "MetaMask で接続中",
+    "metamask": "接続中のウォレット",
     "hide": "残高を非表示",
     "show": "残高を表示",
     "copy-address": "ウォレットのアドレスをコピー",

@@ -49,7 +49,7 @@
   "dialogs": {
     "send": {
       "title": "發送",
-      "description": "從你的主錢包發送，並在 MetaMask 確認。"
+      "description": "從你的主錢包發送，並在錢包確認。"
     },
     "receive": {
       "title": "接收",
@@ -57,7 +57,7 @@
     },
     "create-signetpass": {
       "title": "建立 SignetPass",
-      "description": "為你的 SignetPass 命名並在 MetaMask 確認，下一步再啟用。"
+      "description": "為你的 SignetPass 命名並在錢包確認，下一步再啟用。"
     },
     "add-funds": {
       "title": "增值",
@@ -65,7 +65,7 @@
     },
     "create-session": {
       "title": "新增會話",
-      "description": "為代理指派任務及支出上限，並在 MetaMask 中確認。"
+      "description": "為代理指派任務及支出上限，並在錢包中確認。"
     },
     "approve-session": {
       "title": "批准會話",
@@ -77,11 +77,11 @@
     },
     "approve-agent": {
       "title": "批准代理",
-      "description": "登記代理須在 MetaMask 中簽署。"
+      "description": "登記代理須在錢包中簽署。"
     },
     "move-funds": {
       "title": "轉移資金",
-      "description": "將主錢包的資金轉移至你的 SignetPass，並在 MetaMask 確認。"
+      "description": "將主錢包的資金轉移至你的 SignetPass，並在錢包確認。"
     },
     "activate-signetpass": {
       "title": "啟用 SignetPass",
@@ -89,7 +89,7 @@
     },
     "shop-checkout": {
       "title": "結帳",
-      "description": "為購物車付款，並在 MetaMask 確認。"
+      "description": "為購物車付款，並在錢包確認。"
     },
     "fund-signetpass": {
       "title": "為 SignetPass 增值",

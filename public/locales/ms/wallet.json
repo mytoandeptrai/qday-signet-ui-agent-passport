@@ -1,11 +1,11 @@
 {
   "connect": {
     "button": "Sambung dompet",
-    "connecting": "Luluskan dalam MetaMask…"
+    "connecting": "Luluskan dalam dompet anda…"
   },
   "gate": {
     "title": "Sambungkan dompet anda",
-    "description": "Sambungkan MetaMask untuk melihat baki dan meluluskan pembayaran. Kunci anda kekal dalam MetaMask.",
+    "description": "Sambungkan dompet anda untuk melihat baki dan meluluskan pembayaran. Kunci anda tidak pernah meninggalkan dompet anda.",
     "unsupported-title": "Tukar ke rangkaian yang disokong",
     "unsupported-description": "Dompet anda berada pada rangkaian yang tidak disokong Signet. Tukar untuk teruskan.",
     "switch": "Tukar ke {{network}}"
@@ -20,15 +20,15 @@
     "testnet": "Testnet"
   },
   "sign": {
-    "waiting": "Semak MetaMask dan luluskan tandatangan…",
+    "waiting": "Semak dompet anda dan luluskan tandatangan…",
     "success": "Ditandatangani",
     "rejected": "Anda menolak tandatangan. Tiada apa-apa yang diubah — pilih butang sekali lagi untuk cuba semula.",
-    "error": "MetaMask tidak dapat menandatangani permintaan ini. Cuba lagi, atau muat semula jika MetaMask dikunci.",
-    "idle": "MetaMask akan meminta tandatangan. Ia bukan transaksi — tiada gas, tiada dana berpindah.",
-    "waiting-for": "Semak MetaMask dan luluskan tandatangan untuk {{summary}}…"
+    "error": "Dompet anda tidak dapat menandatangani permintaan ini. Cuba lagi, atau muat semula jika dompet anda dikunci.",
+    "idle": "Dompet anda akan meminta tandatangan. Ia bukan transaksi — tiada gas, tiada dana berpindah.",
+    "waiting-for": "Semak dompet anda dan luluskan tandatangan untuk {{summary}}…"
   },
   "network": {
-    "switch-rejected": "Pertukaran rangkaian ditolak dalam MetaMask.",
+    "switch-rejected": "Pertukaran rangkaian ditolak dalam dompet anda.",
     "switch-error": "Tidak dapat menukar rangkaian. Cuba lagi."
   }
 }

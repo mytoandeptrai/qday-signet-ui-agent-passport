@@ -1,7 +1,7 @@
 {
   "create": {
     "title": "Cipta SignetPass anda",
-    "description": "Dompet perbelanjaan pintar yang dimiliki oleh alamat MetaMask anda. Ejen berbelanja daripadanya dalam had yang anda tetapkan.",
+    "description": "Dompet perbelanjaan pintar yang dimiliki oleh alamat dompet anda. Ejen berbelanja daripadanya dalam had yang anda tetapkan.",
     "name": "Nama",
     "name-placeholder": "cth. Membeli-belah",
     "owner": "Pemilik",
@@ -17,7 +17,7 @@
       "name-taken": "Anda sudah ada SignetPass dengan nama ini",
       "balance": "Dompet Utama anda memerlukan sekurang-kurangnya {{fee}} {{token}} untuk membayar yuran penempatan."
     },
-    "note": "Yuran dibayar oleh Dompet Utama anda dan anda mengesahkan dalam MetaMask. Mengaktifkan SignetPass selepas itu adalah percuma.",
+    "note": "Yuran dibayar oleh Dompet Utama anda dan anda mengesahkan dalam dompet anda. Mengaktifkan SignetPass selepas itu adalah percuma.",
     "fee": "Yuran penempatan",
     "balance": "Baki Dompet Utama"
   },
@@ -80,7 +80,7 @@
     },
     "not-found": {
       "title": "SignetPass tidak ditemui",
-      "description": "Ia mungkin milik akaun atau rangkaian lain. Tukar semula dalam MetaMask, atau buka Dompet anda.",
+      "description": "Ia mungkin milik akaun atau rangkaian lain. Tukar semula dalam dompet anda, atau buka Dompet anda.",
       "action": "Pergi ke Dompet"
     },
     "rename": {

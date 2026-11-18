@@ -75,7 +75,7 @@
   "balance": {
     "title": "Main Wallet balance on {{chain}}",
     "wallet": "Main Wallet",
-    "passkey-on": "Passkey is on. Approvals are confirmed with a MetaMask signature.",
+    "passkey-on": "Passkey is on. Approvals are confirmed with a wallet signature.",
     "passkey-off": "Passkey is off. Approvals go through without a signature.",
     "passkey-manage": "Manage in Settings"
   },
@@ -112,9 +112,9 @@
   "learn": {
     "intro": "In the Tutorial section, watch some concrete examples of Signet in action. From entering a prompt into Signet CLI to what your agent will do. Learn how to tell your agent to use signet for those 3 different type of spending use cases:",
     "items": {
-      "x402": "1 shot x402 payment (API and digital goods or services)",
-      "ecommerce": "E-commerce payment",
-      "prepaid": "Prepaid payment"
+      "x402": "Per-Request x402 payments (API and digital goods or services)",
+      "ecommerce": "E-commerce payments",
+      "prepaid": "Prepaid payments"
     }
   }
 }

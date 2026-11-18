@@ -83,7 +83,7 @@
     "address-book": "アドレス帳",
     "address-book-detail": "保存済みの受取人",
     "passkey": "パスキー",
-    "passkey-on": "すべてのウォレットでオン。承認は MetaMask の署名で確認されます。",
+    "passkey-on": "すべてのウォレットでオン。承認は ウォレットの署名で確認されます。",
     "passkey-off": "オフ。承認は署名なしで実行されます。",
     "auto-lock": "自動ロック",
     "auto-lock-detail": "5分後にロック",

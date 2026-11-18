@@ -109,7 +109,7 @@
     "ship-to": "Ship to",
     "pay-from": "Pay from",
     "main-wallet": "Main Wallet",
-    "kind-wallet": "Your MetaMask account",
+    "kind-wallet": "Your connected wallet",
     "kind-signetpass": "SignetPass",
     "short": "Not enough balance",
     "submit": "Pay {{total}} {{token}}",

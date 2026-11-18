@@ -83,7 +83,7 @@
     "address-book": "Buku alamat",
     "address-book-detail": "Penerima disimpan",
     "passkey": "Passkey",
-    "passkey-on": "Hidup untuk semua dompet. Kelulusan disahkan dengan tandatangan MetaMask.",
+    "passkey-on": "Hidup untuk semua dompet. Kelulusan disahkan dengan tandatangan dompet.",
     "passkey-off": "Mati. Kelulusan berjalan tanpa tandatangan.",
     "auto-lock": "Kunci automatik",
     "auto-lock-detail": "Kunci selepas 5 minit",

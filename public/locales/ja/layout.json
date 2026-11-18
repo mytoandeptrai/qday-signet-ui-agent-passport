@@ -49,7 +49,7 @@
   "dialogs": {
     "send": {
       "title": "送金",
-      "description": "メインウォレットから送金します。MetaMask で確認します。"
+      "description": "メインウォレットから送金します。ウォレットで確認します。"
     },
     "receive": {
       "title": "受取",
@@ -57,7 +57,7 @@
     },
     "create-signetpass": {
       "title": "SignetPass を作成",
-      "description": "SignetPass に名前を付け、MetaMask で確認します。次に有効化します。"
+      "description": "SignetPass に名前を付け、ウォレットで確認します。次に有効化します。"
     },
     "add-funds": {
       "title": "入金",
@@ -65,7 +65,7 @@
     },
     "create-session": {
       "title": "新規セッション",
-      "description": "エージェントにタスクと支出上限を与えます。MetaMask で確認します。"
+      "description": "エージェントにタスクと支出上限を与えます。ウォレットで確認します。"
     },
     "approve-session": {
       "title": "セッションを承認",
@@ -77,11 +77,11 @@
     },
     "approve-agent": {
       "title": "エージェントを承認",
-      "description": "エージェントの登録は MetaMask で署名します。"
+      "description": "エージェントの登録は ウォレットで署名します。"
     },
     "move-funds": {
       "title": "資金を移動",
-      "description": "メインウォレットから SignetPass に資金を移動します。MetaMask で確認します。"
+      "description": "メインウォレットから SignetPass に資金を移動します。ウォレットで確認します。"
     },
     "activate-signetpass": {
       "title": "SignetPass を有効化",
@@ -89,7 +89,7 @@
     },
     "shop-checkout": {
       "title": "お支払い",
-      "description": "カートの代金を支払い、MetaMask で確認します。"
+      "description": "カートの代金を支払い、ウォレットで確認します。"
     },
     "fund-signetpass": {
       "title": "SignetPassに資金を追加",

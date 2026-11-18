@@ -1,12 +1,12 @@
 {
   "title": "主錢包",
-  "description": "你的 MetaMask 帳戶。餘額按網絡分開，SignetPass 由此建立。",
+  "description": "你已連接的錢包。餘額按網絡分開，SignetPass 由此建立。",
   "balance": {
     "label": "{{symbol}} 餘額",
     "send": "發送",
     "receive": "接收",
     "title": "{{chain}} 主錢包",
-    "metamask": "已透過 MetaMask 連接",
+    "metamask": "已連接錢包",
     "hide": "隱藏餘額",
     "show": "顯示餘額",
     "copy-address": "複製錢包地址",

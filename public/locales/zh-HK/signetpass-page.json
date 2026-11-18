@@ -1,7 +1,7 @@
 {
   "create": {
     "title": "建立你的 SignetPass",
-    "description": "由你的 MetaMask 地址擁有的智能支出錢包。代理在你設定的上限內從中支出。",
+    "description": "由你的錢包地址擁有的智能支出錢包。代理在你設定的上限內從中支出。",
     "name": "名稱",
     "name-placeholder": "例如：購物",
     "owner": "擁有者",
@@ -17,7 +17,7 @@
       "name-taken": "你已有同名的 SignetPass",
       "balance": "你的主錢包需要至少 {{fee}} {{token}} 才能支付部署費用。"
     },
-    "note": "費用由主錢包支付，並在 MetaMask 確認。之後啟用 SignetPass 免費。",
+    "note": "費用由主錢包支付，並在錢包確認。之後啟用 SignetPass 免費。",
     "fee": "部署費用",
     "balance": "主錢包餘額"
   },
@@ -80,7 +80,7 @@
     },
     "not-found": {
       "title": "找不到 SignetPass",
-      "description": "它可能屬於另一個帳戶或網絡。請在 MetaMask 切換，或開啟錢包。",
+      "description": "它可能屬於另一個帳戶或網絡。請在錢包切換，或開啟錢包。",
       "action": "前往錢包"
     },
     "rename": {

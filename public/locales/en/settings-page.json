@@ -83,7 +83,7 @@
     "address-book": "Address book",
     "address-book-detail": "Saved recipients",
     "passkey": "Passkey",
-    "passkey-on": "On for all wallets. Approvals are confirmed with a MetaMask signature.",
+    "passkey-on": "On for all wallets. Approvals are confirmed with a wallet signature.",
     "passkey-off": "Off. Approvals go through without a signature.",
     "auto-lock": "Auto-lock",
     "auto-lock-detail": "Lock after 5 minutes",

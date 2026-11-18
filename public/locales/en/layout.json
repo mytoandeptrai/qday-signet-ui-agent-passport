@@ -49,7 +49,7 @@
   "dialogs": {
     "send": {
       "title": "Send",
-      "description": "Send from your Main Wallet. You confirm in MetaMask."
+      "description": "Send from your Main Wallet. You confirm in your wallet."
     },
     "receive": {
       "title": "Receive",
@@ -57,7 +57,7 @@
     },
     "create-signetpass": {
       "title": "Create a SignetPass",
-      "description": "Name your SignetPass and confirm in MetaMask. You activate it next."
+      "description": "Name your SignetPass and confirm in your wallet. You activate it next."
     },
     "add-funds": {
       "title": "Add funds",
@@ -65,7 +65,7 @@
     },
     "create-session": {
       "title": "New session",
-      "description": "Give an agent a task and a spending limit. You confirm in MetaMask."
+      "description": "Give an agent a task and a spending limit. You confirm in your wallet."
     },
     "approve-session": {
       "title": "Approve session",
@@ -77,11 +77,11 @@
     },
     "approve-agent": {
       "title": "Approve agent",
-      "description": "Registering an agent is signed in MetaMask."
+      "description": "Registering an agent is signed in your wallet."
     },
     "move-funds": {
       "title": "Move funds",
-      "description": "Move funds from your Main Wallet to your SignetPass. You confirm in MetaMask."
+      "description": "Move funds from your Main Wallet to your SignetPass. You confirm in your wallet."
     },
     "activate-signetpass": {
       "title": "Activate SignetPass",
@@ -89,7 +89,7 @@
     },
     "shop-checkout": {
       "title": "Checkout",
-      "description": "Pay for your cart and confirm in MetaMask."
+      "description": "Pay for your cart and confirm in your wallet."
     },
     "fund-signetpass": {
       "title": "Add funds to SignetPass",

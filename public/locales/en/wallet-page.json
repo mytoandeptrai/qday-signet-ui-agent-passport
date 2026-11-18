@@ -1,12 +1,12 @@
 {
   "title": "Main Wallet",
-  "description": "Your MetaMask account. Balances are per network, and SignetPasses are created from it.",
+  "description": "Your connected wallet. Balances are per network, and SignetPasses are created from it.",
   "balance": {
     "label": "{{symbol}} balance",
     "send": "Send",
     "receive": "Receive",
     "title": "{{chain}} Main Wallet",
-    "metamask": "Connected via MetaMask",
+    "metamask": "Connected wallet",
     "hide": "Hide balance",
     "show": "Show balance",
     "copy-address": "Copy wallet address",

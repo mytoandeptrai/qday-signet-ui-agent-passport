@@ -1,12 +1,12 @@
 {
   "title": "Dompet Utama",
-  "description": "Akaun MetaMask anda. Baki mengikut rangkaian, dan SignetPass dicipta daripadanya.",
+  "description": "Dompet anda yang disambungkan. Baki mengikut rangkaian, dan SignetPass dicipta daripadanya.",
   "balance": {
     "label": "Baki {{symbol}}",
     "send": "Hantar",
     "receive": "Terima",
     "title": "Dompet Utama {{chain}}",
-    "metamask": "Disambung melalui MetaMask",
+    "metamask": "Dompet disambungkan",
     "hide": "Sembunyikan baki",
     "show": "Tunjukkan baki",
     "copy-address": "Salin alamat dompet",

@@ -83,7 +83,7 @@
     "address-book": "地址簿",
     "address-book-detail": "已儲存收款人",
     "passkey": "Passkey",
-    "passkey-on": "所有錢包已開啟。批准需以 MetaMask 簽署確認。",
+    "passkey-on": "所有錢包已開啟。批准需以 錢包簽署確認。",
     "passkey-off": "已關閉。批准將無需簽署即可進行。",
     "auto-lock": "自動鎖定",
     "auto-lock-detail": "5 分鐘後鎖定",

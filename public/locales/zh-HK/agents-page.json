@@ -1,6 +1,6 @@
 {
   "title": "代理",
-  "description": "登記從你的 SignetPass 支出的 AI 代理。每個代理都需在 MetaMask 中批准。",
+  "description": "登記從你的 SignetPass 支出的 AI 代理。每個代理都需在錢包中批准。",
   "connect": {
     "title": "連接代理",
     "hint": "將此內容貼到你的編程代理。它會請求登記，請求將顯示於下方。"

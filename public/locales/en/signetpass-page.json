@@ -1,7 +1,7 @@
 {
   "create": {
     "title": "Create your SignetPass",
-    "description": "A smart spending wallet owned by your MetaMask address. Agents spend from it within the limits you set.",
+    "description": "A smart spending wallet owned by your wallet address. Agents spend from it within the limits you set.",
     "name": "Name",
     "name-placeholder": "e.g. Shopping",
     "owner": "Owner",
@@ -17,7 +17,7 @@
       "name-taken": "You already have a SignetPass with this name",
       "balance": "Your Main Wallet needs at least {{fee}} {{token}} to pay the deployment fee."
     },
-    "note": "The fee is paid by your Main Wallet and you confirm in MetaMask. Activating the SignetPass afterwards is free.",
+    "note": "The fee is paid by your Main Wallet and you confirm in your wallet. Activating the SignetPass afterwards is free.",
     "fee": "Deployment fee",
     "balance": "Main Wallet balance"
   },
@@ -80,7 +80,7 @@
     },
     "not-found": {
       "title": "SignetPass not found",
-      "description": "It may belong to another account or network. Switch back in MetaMask, or open your Wallet.",
+      "description": "It may belong to another account or network. Switch back in your wallet, or open your Wallet.",
       "action": "Go to Wallet"
     },
     "rename": {

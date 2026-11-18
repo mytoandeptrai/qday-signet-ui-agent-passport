@@ -102,7 +102,7 @@
     "ship-to": "Hantar ke",
     "pay-from": "Bayar daripada",
     "main-wallet": "Dompet Utama",
-    "kind-wallet": "Akaun MetaMask anda",
+    "kind-wallet": "Dompet anda yang disambungkan",
     "kind-signetpass": "SignetPass",
     "short": "Baki tidak mencukupi",
     "submit": "Bayar {{total}} {{token}}",

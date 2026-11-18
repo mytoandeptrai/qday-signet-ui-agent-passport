@@ -75,7 +75,7 @@
   "balance": {
     "title": "{{chain}} 主錢包餘額",
     "wallet": "主錢包",
-    "passkey-on": "Passkey 已開啟。批准需以 MetaMask 簽署確認。",
+    "passkey-on": "Passkey 已開啟。批准需以 錢包簽署確認。",
     "passkey-off": "Passkey 已關閉。批准將無需簽署即可進行。",
     "passkey-manage": "在設定中管理"
   },
@@ -112,7 +112,7 @@
   "learn": {
     "intro": "在教學部分，觀看 Signet 實際運作的具體例子，從在 Signet CLI 輸入提示，到代理的行動。學習如何指示代理在以下 3 種支出情境中使用 Signet：",
     "items": {
-      "x402": "一次性 x402 付款（API 及數碼商品或服務）",
+      "x402": "按請求計費的 x402 付款（API 及數碼商品或服務）",
       "ecommerce": "電子商務付款",
       "prepaid": "預付款"
     }

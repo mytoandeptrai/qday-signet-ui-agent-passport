@@ -1,11 +1,11 @@
 {
   "connect": {
     "button": "Connect wallet",
-    "connecting": "Approve in MetaMask…"
+    "connecting": "Approve in your wallet…"
   },
   "gate": {
     "title": "Connect your wallet",
-    "description": "Connect MetaMask to see your balances and approve payments. Your keys stay in MetaMask.",
+    "description": "Connect your wallet to view balances and approve payments. Your keys never leave your wallet.",
     "unsupported-title": "Switch to a supported network",
     "unsupported-description": "Your wallet is on a network Signet doesn't support. Switch to continue.",
     "switch": "Switch to {{network}}"
@@ -20,15 +20,15 @@
     "testnet": "Testnet"
   },
   "sign": {
-    "waiting": "Check MetaMask and approve the signature…",
+    "waiting": "Check your wallet and approve the signature…",
     "success": "Signed",
     "rejected": "You declined the signature. Nothing was changed — select the button again to retry.",
-    "error": "MetaMask couldn't sign this request. Try again, or reload if MetaMask is locked.",
-    "idle": "MetaMask will ask for a signature. It isn't a transaction — no gas, no funds move.",
-    "waiting-for": "Check MetaMask and approve the signature to {{summary}}…"
+    "error": "Your wallet couldn't sign this request. Try again, or reload if your wallet is locked.",
+    "idle": "Your wallet will ask for a signature. It isn't a transaction — no gas, no funds move.",
+    "waiting-for": "Check your wallet and approve the signature to {{summary}}…"
   },
   "network": {
-    "switch-rejected": "Network switch declined in MetaMask.",
+    "switch-rejected": "Network switch declined in your wallet.",
     "switch-error": "Couldn't switch network. Try again."
   }
 }

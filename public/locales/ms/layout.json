@@ -49,7 +49,7 @@
   "dialogs": {
     "send": {
       "title": "Hantar",
-      "description": "Hantar daripada Dompet Utama anda. Anda mengesahkan dalam MetaMask."
+      "description": "Hantar daripada Dompet Utama anda. Anda mengesahkan dalam dompet anda."
     },
     "receive": {
       "title": "Terima",
@@ -57,7 +57,7 @@
     },
     "create-signetpass": {
       "title": "Cipta SignetPass",
-      "description": "Namakan SignetPass anda dan sahkan dalam MetaMask. Anda mengaktifkannya seterusnya."
+      "description": "Namakan SignetPass anda dan sahkan dalam dompet anda. Anda mengaktifkannya seterusnya."
     },
     "add-funds": {
       "title": "Tambah dana",
@@ -65,7 +65,7 @@
     },
     "create-session": {
       "title": "Sesi baharu",
-      "description": "Beri ejen satu tugasan dan had perbelanjaan. Anda mengesahkan dalam MetaMask."
+      "description": "Beri ejen satu tugasan dan had perbelanjaan. Anda mengesahkan dalam dompet anda."
     },
     "approve-session": {
       "title": "Luluskan sesi",
@@ -77,11 +77,11 @@
     },
     "approve-agent": {
       "title": "Luluskan ejen",
-      "description": "Pendaftaran ejen ditandatangani dalam MetaMask."
+      "description": "Pendaftaran ejen ditandatangani dalam dompet anda."
     },
     "move-funds": {
       "title": "Pindahkan dana",
-      "description": "Pindahkan dana daripada Dompet Utama ke SignetPass anda. Anda mengesahkan dalam MetaMask."
+      "description": "Pindahkan dana daripada Dompet Utama ke SignetPass anda. Anda mengesahkan dalam dompet anda."
     },
     "activate-signetpass": {
       "title": "Aktifkan SignetPass",
@@ -89,7 +89,7 @@
     },
     "shop-checkout": {
       "title": "Daftar keluar",
-      "description": "Bayar untuk troli anda dan sahkan dalam MetaMask."
+      "description": "Bayar untuk troli anda dan sahkan dalam dompet anda."
     },
     "fund-signetpass": {
       "title": "Tambah dana ke SignetPass",

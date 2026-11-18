@@ -102,7 +102,7 @@
     "ship-to": "寄往",
     "pay-from": "付款來源",
     "main-wallet": "主錢包",
-    "kind-wallet": "你的 MetaMask 帳戶",
+    "kind-wallet": "你已連接的錢包",
     "kind-signetpass": "SignetPass",
     "short": "餘額不足",
     "submit": "支付 {{total}} {{token}}",
