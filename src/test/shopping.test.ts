@@ -3,6 +3,7 @@ import {
   MAX_CART_QUANTITY,
   SHOP_PAGE_SIZE,
   addToCart,
+  budgetLeft,
   cartTotal,
   checkoutProblem,
   emptyFilters,
@@ -10,7 +11,9 @@ import {
   formatAtomic,
   maxQuantity,
   pricedCart,
+  proposedSession,
   searchProducts,
+  sessionProblem,
   setQuantity,
   shopCatalog,
   toAtomic,
@@ -89,5 +92,25 @@ describe('shop cart', () => {
     expect(checkoutProblem(cart, 'unknown', 1000)).toMatchObject({ code: 'unpayable', name: a.name });
     expect(checkoutProblem(cart, 'base', 0)).toEqual({ code: 'balance' });
     expect(checkoutProblem(cart, 'base', Number(a.price))).toBeNull();
+  });
+});
+
+describe('spending session checkout', () => {
+  const session = { limit: 100, spent: 95, perCallLimit: 100, expiresAt: '2026-11-18T12:00:00Z' };
+  const before = Date.parse('2026-11-18T11:00:00Z');
+
+  it('says what a session can pay', () => {
+    expect(budgetLeft(session)).toBe(5);
+    expect(sessionProblem(session, 5, before)).toBeNull();
+    expect(sessionProblem(session, 95, before)).toBe('budget');
+    expect(sessionProblem({ ...session, spent: 0, perCallLimit: 10 }, 20, before)).toBe('per-call');
+    expect(sessionProblem(session, 1, Date.parse('2026-11-18T12:00:00Z'))).toBe('expired');
+  });
+
+  it('proposes a session that covers the total, rounded up to 100, for one hour', () => {
+    expect(proposedSession(95)).toEqual({ limit: 100, perCall: 100, hours: 1 });
+    expect(proposedSession(100)).toEqual({ limit: 100, perCall: 100, hours: 1 });
+    expect(proposedSession(100.5)).toEqual({ limit: 200, perCall: 200, hours: 1 });
+    expect(proposedSession(39)).toEqual({ limit: 100, perCall: 100, hours: 1 });
   });
 });

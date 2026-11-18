@@ -7,12 +7,14 @@ import {
   type CartLine,
   SAMPLE_SHIP_TO,
   addToCart as addLine,
+  budgetLeft,
   cartTotal,
   cartTotalAmount,
   checkoutProblem,
   formatAtomic,
   pricedCart,
   removeFromCart as removeLine,
+  sessionProblem,
   setQuantity as setLineQuantity,
 } from '@/modules/shopping/utils';
 import type {
@@ -71,8 +73,8 @@ interface PassportState {
   addToCart: (productId: string) => void;
   setCartQuantity: (productId: string, quantity: number) => void;
   removeFromCart: (productId: string) => void;
-  /** Pays the cart from the Main Wallet (`'wallet'`) or from an active SignetPass of this account and network. */
-  placeOrder: (input: { payFrom: 'wallet' | string }) => ShopOrder;
+  /** Pays the cart from an active spending session of this account and network. An agent never pays from the Main Wallet. */
+  placeOrder: (input: { sessionId: string }) => ShopOrder;
   setOrderStatus: (id: string, from: ShopOrderStatus, to: ShopOrderStatus) => void;
   clearShop: () => void;
   approveAgent: (id: string) => void;
@@ -103,6 +105,7 @@ const mockAgents = (passId: string): Agent[] =>
     requestedAt: now(),
     ...(status === 'active' && { approvedAt: now() }),
   }));
+
 const logged = (type: SecurityEventType, detail: string, log: SecurityEvent[]): SecurityEvent[] => [
   { id: uid('sec'), type, detail, createdAt: now() },
   ...log,
@@ -263,40 +266,49 @@ export const usePassportStore = create<PassportState>()(
 
       removeFromCart: (productId) => set((s) => ({ cart: removeLine(s.cart, productId) })),
 
-      placeOrder: ({ payFrom }) => {
+      placeOrder: ({ sessionId }) => {
         const state = get();
-        const wallet = requireWallet(state);
+        requireWallet(state);
         const { address, network } = state.context;
-        const pass = payFrom === 'wallet' ? null : visiblePasses(state).find((p) => p.id === payFrom);
-        if (payFrom !== 'wallet') {
-          if (!pass) throw new Error('SignetPass not found');
-          if (pass.status !== 'active') throw new Error('Activate the SignetPass first');
-        }
-        const problem = checkoutProblem(state.cart, network, pass ? pass.balance.available : wallet.balance);
+        const session = state.sessions.find((x) => x.id === sessionId);
+        const pass = session && visiblePasses(state).find((p) => p.id === session.passId);
+        if (!session || !pass) throw new Error('Spending session not found');
+        if (pass.status !== 'active' || session.status !== 'active') throw new Error('Spending session is not active');
+        const problem = checkoutProblem(state.cart, network, budgetLeft(session));
         if (problem) throw new Error(`Cannot check out: ${problem.code}`);
         const lines = pricedCart(state.cart, network);
         const amount = cartTotalAmount(lines);
+        const sessionIssue = sessionProblem(session, amount, Date.now());
+        if (sessionIssue) throw new Error(`Cannot check out: ${sessionIssue}`);
         const order: ShopOrder = {
           id: `ORD-${Math.random().toString(36).slice(2, 8).toUpperCase()}`,
           owner: address as string,
           network,
-          passId: pass?.id ?? null,
-          paidFrom: pass?.name ?? 'Main Wallet',
+          passId: pass.id,
+          paidFrom: `${session.agent} (${pass.name})`,
           status: 'paid',
           lines: lines.map(({ product, quantity }) => ({ productId: product.id, name: product.name, price: product.price, quantity })),
           total: formatAtomic(cartTotal(lines)),
           shipTo: SAMPLE_SHIP_TO,
           createdAt: now(),
         };
+        const item: ActivityItem = {
+          id: uid('act'),
+          passId: pass.id,
+          sessionId: session.id,
+          service: 'Shopping',
+          description: order.id,
+          amount,
+          status: 'settled',
+          createdAt: now(),
+        };
         set((s) => ({
           cart: [],
           orders: [order, ...s.orders],
-          ...(pass
-            ? { passes: withBalance(s.passes, pass.id, (b) => ({ available: b.available - amount })) }
-            : withWallet(s, (w) => ({
-                balance: w.balance - amount,
-                transactions: [{ id: uid('wtx'), kind: 'purchase', counterparty: order.id, amount, createdAt: now() }, ...w.transactions],
-              }))),
+          activity: [item, ...s.activity],
+          sessions: s.sessions.map((x) => (x.id === session.id ? { ...x, spent: x.spent + amount } : x)),
+          // The session's limit was held when it was created, so paying spends from what is held.
+          passes: withBalance(s.passes, pass.id, (b) => ({ held: Math.max(0, b.held - amount) })),
           securityLog: logged('shop-order', `${order.id} · -${order.total} ${NETWORKS[network].token.symbol} · ${order.paidFrom}`, s.securityLog),
         }));
         return order;
@@ -334,11 +346,19 @@ export const usePassportStore = create<PassportState>()(
           expiresAt: new Date(Date.now() + input.durationHours * 3_600_000).toISOString(),
           allowedServices: [],
         };
-        set((s) => ({
-          sessions: [session, ...s.sessions],
-          passes: withBalance(s.passes, pass.id, (b) => ({ available: b.available - input.limit, held: b.held + input.limit })),
-          securityLog: logged('session-created', input.task, s.securityLog),
-        }));
+        set((s) => {
+          // An agent has one active session: a new one replaces it and gives back what it had not spent.
+          const replaced = s.sessions.filter((x) => x.passId === pass.id && x.agent === input.agent && x.status === 'active');
+          const released = replaced.reduce((sum, x) => sum + Math.max(0, x.limit - x.spent), 0);
+          return {
+            sessions: [session, ...s.sessions.map((x) => (replaced.includes(x) ? { ...x, status: 'revoked' as const } : x))],
+            passes: withBalance(s.passes, pass.id, (b) => ({
+              available: b.available + released - input.limit,
+              held: Math.max(0, b.held - released) + input.limit,
+            })),
+            securityLog: logged('session-created', input.task, s.securityLog),
+          };
+        });
         return session;
       },
 

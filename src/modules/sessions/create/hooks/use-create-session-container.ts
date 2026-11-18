@@ -35,9 +35,9 @@ export const useCreateSessionContainer = () => {
       ? {
           task: params.task ?? '',
           agent: agentNames.includes(params.agent ?? '') ? (params.agent as string) : (agentNames[0] ?? ''),
-          limit: settings.defaultLimit,
-          perCallLimit: settings.defaultPerCallLimit,
-          durationHours: DEFAULT_DURATION_HOURS,
+          limit: params.limit ?? settings.defaultLimit,
+          perCallLimit: params.perCall ?? settings.defaultPerCallLimit,
+          durationHours: params.hours ?? DEFAULT_DURATION_HOURS,
         }
       : undefined,
     mode: 'onChange',

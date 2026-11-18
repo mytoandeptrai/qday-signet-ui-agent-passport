@@ -163,47 +163,58 @@ describe('SignetPass', () => {
 describe('Shopping', () => {
   const earbuds = 'p-earbuds';
   const cartAmount = () => Number(formatAtomic(cartTotal(pricedCart(store().cart, 'base'))));
+  /** An active pass funded with 500, and a session of the agent with the given limit and per-call limit. */
+  const sessionOf = (limit: number, perCallLimit = limit, agent = 'Claude Code') => {
+    createActive('Shopping');
+    store().fundFromMain(500);
+    return store().createSession({ task: 'Shopping', agent, limit, perCallLimit, durationHours: 1 });
+  };
 
-  it('pays an order from the Main Wallet and records a purchase', () => {
+  it('pays an order from the spending session of an agent', () => {
+    const session = sessionOf(100);
     store().addToCart(earbuds);
     store().addToCart(earbuds);
     const amount = cartAmount();
-    const order = store().placeOrder({ payFrom: 'wallet' });
-    const wallet = currentMainWallet(store());
-    expect(order).toMatchObject({ owner: ALICE, network: 'base', passId: null, status: 'paid' });
-    expect(wallet?.balance).toBe(1250 - amount);
-    expect(wallet?.transactions[0]).toMatchObject({ kind: 'purchase', counterparty: order.id, amount });
+    const order = store().placeOrder({ sessionId: session.id });
+    expect(order).toMatchObject({ owner: ALICE, network: 'base', passId: session.passId, status: 'paid' });
+    expect(store().sessions[0]).toMatchObject({ spent: amount, status: 'active' });
+    expect(selectedPass(store())?.balance).toMatchObject({ available: 400, held: 100 - amount });
+    expect(currentMainWallet(store())?.balance).toBe(1250 - PASS_FEE - 500);
+    expect(store().activity[0]).toMatchObject({ sessionId: session.id, service: 'Shopping', amount, status: 'settled' });
     expect(store().cart).toEqual([]);
     expect(store().securityLog[0].type).toBe('shop-order');
   });
 
-  it('pays from an active SignetPass, not from an inactive one', () => {
-    const pass = createActive('Shopping');
-    store().fundFromMain(100);
+  it('refuses an empty cart and a session that cannot cover the order', () => {
+    const small = sessionOf(10);
+    expect(() => store().placeOrder({ sessionId: small.id })).toThrow();
     store().addToCart(earbuds);
-    const amount = cartAmount();
-    const order = store().placeOrder({ payFrom: pass.id });
-    expect(order.passId).toBe(pass.id);
-    expect(selectedPass(store())?.balance.available).toBe(100 - amount);
-    expect(currentMainWallet(store())?.balance).toBe(1250 - PASS_FEE - 100);
-
-    const idle = store().createSignetPass({ name: 'Idle' });
-    store().addToCart(earbuds);
-    expect(() => store().placeOrder({ payFrom: idle.id })).toThrow();
-  });
-
-  it('refuses an empty cart, a missing balance and a stranger SignetPass', () => {
-    expect(() => store().placeOrder({ payFrom: 'wallet' })).toThrow();
-    store().addToCart(earbuds);
-    store().sendFromMain('0xabc', 1250);
-    expect(() => store().placeOrder({ payFrom: 'wallet' })).toThrow();
-    expect(() => store().placeOrder({ payFrom: 'pass_missing' })).toThrow();
+    expect(() => store().placeOrder({ sessionId: small.id })).toThrow();
+    expect(() => store().placeOrder({ sessionId: 'ses_missing' })).toThrow();
+    const capped = store().createSession({ task: 'Capped', agent: 'Codex', limit: 100, perCallLimit: 10, durationHours: 1 });
+    expect(() => store().placeOrder({ sessionId: capped.id })).toThrow();
+    store().revokeSession(capped.id);
+    expect(() => store().placeOrder({ sessionId: capped.id })).toThrow();
     expect(store().orders).toHaveLength(0);
   });
 
-  it('keeps orders per account and network, and moves them along', () => {
+  it('lets a new session replace the active one of the same agent only', () => {
+    const first = sessionOf(100);
+    const other = store().createSession({ task: 'Other', agent: 'Codex', limit: 50, perCallLimit: 50, durationHours: 1 });
     store().addToCart(earbuds);
-    const order = store().placeOrder({ payFrom: 'wallet' });
+    store().placeOrder({ sessionId: first.id });
+    const spent = store().sessions.find((x) => x.id === first.id)?.spent ?? 0;
+    const next = store().createSession({ task: 'Next', agent: 'Claude Code', limit: 100, perCallLimit: 100, durationHours: 1 });
+    const status = (id: string) => store().sessions.find((x) => x.id === id)?.status;
+    expect([status(first.id), status(other.id), status(next.id)]).toEqual(['revoked', 'active', 'active']);
+    expect(selectedPass(store())?.balance).toMatchObject({ available: 500 - 100 - 50 - 100 + (100 - spent), held: 50 + 100 });
+    expect(() => store().placeOrder({ sessionId: first.id })).toThrow();
+  });
+
+  it('keeps orders per account and network, and moves them along', () => {
+    const session = sessionOf(100);
+    store().addToCart(earbuds);
+    const order = store().placeOrder({ sessionId: session.id });
     store().setOrderStatus(order.id, 'shipped', 'delivered');
     expect(visibleOrders(store())[0].status).toBe('paid');
     store().setOrderStatus(order.id, 'paid', 'shipped');
@@ -216,10 +227,10 @@ describe('Shopping', () => {
 
   it('clears the cart and the visible orders only', () => {
     store().addToCart(earbuds);
-    store().placeOrder({ payFrom: 'wallet' });
+    store().placeOrder({ sessionId: sessionOf(100).id });
     store().setContext(BOB, 'base');
     store().addToCart(earbuds);
-    store().placeOrder({ payFrom: 'wallet' });
+    store().placeOrder({ sessionId: sessionOf(100).id });
     store().addToCart(earbuds);
     store().clearShop();
     expect(store().cart).toEqual([]);
