@@ -14,17 +14,14 @@ i18n
     supportedLngs: SUPPORTED_LANGUAGE_CODES,
     debug: env.ENVIRONMENT === 'development',
 
-    /** Interpolation settings */
     interpolation: {
-      escapeValue: false, // React already escapes values
+      escapeValue: false,
     },
 
-    /** Backend settings for loading translation files */
     backend: {
       loadPath: '/locales/{{lng}}/{{ns}}.json',
     },
 
-    /** Default namespace */
     defaultNS: 'common',
     ns: [
       'common',
@@ -54,7 +51,6 @@ i18n
       'comments',
     ],
 
-    /** Detection settings */
     detection: {
       order: ['localStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
       caches: ['localStorage'],

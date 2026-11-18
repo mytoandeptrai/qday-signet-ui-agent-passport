@@ -15,7 +15,6 @@ export const useSessionDecideContainer = () => {
   const onDecide = async (approve: boolean) => {
     if (!escalation) return;
     const action = () => decide.mutateAsync({ id: escalation.id, approve });
-    // Approving moves money, so it needs a MetaMask signature; declining does not.
     const ok = approve ? await run({ kind: 'approve-agent', summary: `Approve ${escalation.amount} for ${escalation.agent}` }, action) : (await action(), true);
     if (!ok) return;
     if (approve) toast.success(t('toasts.approved'));

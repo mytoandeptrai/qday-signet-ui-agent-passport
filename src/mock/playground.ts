@@ -8,7 +8,6 @@ const payment = (text: string, amount: number): PlaygroundStep => ({ kind: 'even
 
 const APPROVE = 'You approve in your Trellis Wallet';
 
-/** Each scenario replays an agent working under Signet: the terminal on the left, the Trellis Wallet's side on the right. Amounts are USDC on Base. */
 export const PLAYGROUND_SCENARIOS: PlaygroundScenario[] = [
   {
     id: 'install',

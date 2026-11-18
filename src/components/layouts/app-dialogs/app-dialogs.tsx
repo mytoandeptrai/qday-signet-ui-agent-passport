@@ -6,7 +6,6 @@ import { useTranslation } from '@/integrations/i18n';
 import { useWallet } from '@/integrations/wallet';
 import { APP_DIALOG_CONFIG } from './app-dialogs.config';
 
-/** Renders whichever dialog or sheet the `dialog` search param names. Every one handles money or signing, so each is wallet-gated. */
 const AppDialogs = () => {
   const { t } = useTranslation('layout');
   const { dialog, close } = useAppDialog();

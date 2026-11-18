@@ -13,7 +13,6 @@ import { useNavigate } from '@tanstack/react-router';
 import type { CheckoutAgent } from '../components';
 import { budgetLeft, cartCount, cartTotal, checkoutProblem, formatAtomic, pricedCart, proposedSession, sessionProblem } from '../utils';
 
-/** Pays the cart from the spending session of an agent, signed in the wallet. An agent never pays from the Main Wallet. */
 export const useShopCheckoutContainer = () => {
   const { t } = useTranslation('shopping-page');
   const { open, close } = useAppDialog();
@@ -36,14 +35,12 @@ export const useShopCheckoutContainer = () => {
   const passReady = passes?.selected?.status === 'active';
   const nowMs = Date.now();
 
-  // The agents of the selected SignetPass, each with the session that is still open for it.
   const agentRows: CheckoutAgent[] = agents
     .filter((a) => a.status === 'active')
     .map((a) => {
       const session = sessions.find((x) => x.agent === a.name && x.status === 'active' && Date.parse(x.expiresAt) > nowMs);
       return { name: a.name, task: session?.task, left: session ? budgetLeft(session) : undefined, perCall: session?.perCallLimit };
     });
-  // Until the shopper picks one, the first agent pays.
   const agent = agentRows.find((a) => a.name === chosen) ?? agentRows[0];
   const session = sessions.find((x) => x.agent === agent?.name && x.status === 'active');
 

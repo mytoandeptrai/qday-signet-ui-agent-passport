@@ -7,7 +7,6 @@ import { ActivateSignetpassContainer, AddFundsContainer, CreateSignetpassContain
 import { ReceiveContainer, SendContainer } from '@/modules/wallet';
 
 interface AppDialogConfig {
-  /** Short, single-purpose actions are modals; flows with several options are sheets. */
   kind: 'modal' | 'sheet';
   Content: ComponentType;
 }

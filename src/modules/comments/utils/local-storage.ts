@@ -28,6 +28,5 @@ export const saveLocal = (list: PinComment[]) => {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
   } catch {
-    /* Persistence is optional. */
   }
 };

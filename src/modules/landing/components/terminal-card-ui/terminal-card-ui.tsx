@@ -3,7 +3,6 @@ import { cn } from '@/lib/utils';
 import { TERMINAL_TONES } from '../../utils';
 
 type TerminalCardUiProps = {
-  /** 0..1: how much of the terminal has typed in. */
   reveal: number;
 };
 

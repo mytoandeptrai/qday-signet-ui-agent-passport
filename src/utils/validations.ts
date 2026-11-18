@@ -37,7 +37,5 @@ export const numbersAndLettersRegex = (str: string) => {
 };
 
 export const accountHolderValidation = (str: string) => {
-  // Accept letters, numbers, spaces, hyphens, and dots
-  // Exclude special characters: ! # $ % ^ & * ( ) _ + = { } : ; " ' < > , ? / \ | ~ ` @
   return str.replace(/[^a-zA-Z0-9\s.-]+/g, '');
 };

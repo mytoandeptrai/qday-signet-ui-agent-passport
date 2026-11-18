@@ -2,25 +2,6 @@ import { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { siteConfig } from '@/constant';
 
-/**
- * SEO Component for Vite + React
- *
- * This component uses react-helmet-async for dynamic meta tag management.
- *
- * Installation:
- * npm install react-helmet-async
- *
- * Setup in main.tsx:
- * import { HelmetProvider } from 'react-helmet-async'
- *
- * ReactDOM.createRoot(document.getElementById('root')!).render(
- *   <React.StrictMode>
- *     <HelmetProvider>
- *       <App />
- *     </HelmetProvider>
- *   </React.StrictMode>,
- * )
- */
 
 interface SEOProps {
   title?: string;
@@ -53,7 +34,6 @@ export function SEO({
   modifiedTime,
   canonical,
 }: SEOProps) {
-  // Update document title as fallback
   useEffect(() => {
     document.title = title;
   }, [title]);
@@ -62,17 +42,14 @@ export function SEO({
 
   return (
     <Helmet>
-      {/* Primary Meta Tags */}
       <title>{title}</title>
       <meta name='title' content={title} />
       <meta name='description' content={description} />
       {keywords.length > 0 && <meta name='keywords' content={keywords.join(', ')} />}
       <meta name='author' content={author} />
 
-      {/* Canonical URL */}
       <link rel='canonical' href={canonicalUrl} />
 
-      {/* Open Graph / Facebook */}
       <meta property='og:type' content={type} />
       <meta property='og:url' content={url} />
       <meta property='og:title' content={title} />
@@ -85,7 +62,6 @@ export function SEO({
       {type === 'article' && publishedTime && <meta property='article:published_time' content={publishedTime} />}
       {type === 'article' && modifiedTime && <meta property='article:modified_time' content={modifiedTime} />}
 
-      {/* Twitter */}
       <meta name='twitter:card' content='summary_large_image' />
       <meta name='twitter:url' content={url} />
       <meta name='twitter:title' content={title} />

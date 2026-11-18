@@ -62,7 +62,6 @@ interface ShopFiltersDialogUiProps {
   onApply: (filters: ShopFilters) => void;
 }
 
-/** Filters the Bazaar search offers: category, maximum price, tags (a product needs all), shops and the country it ships to. Changes stay a draft until Apply. */
 const ShopFiltersDialogUi = ({
   open,
   applied,
@@ -74,7 +73,6 @@ const ShopFiltersDialogUi = ({
 }: ShopFiltersDialogUiProps) => {
   const { t } = useTranslation('shopping-page');
   const [draft, setDraft] = useState<ShopFilters>(applied);
-  // Start each opening from what is applied now.
   // biome-ignore lint/correctness/useExhaustiveDependencies: only reset when the dialog opens
   useEffect(() => {
     if (open) setDraft(applied);
@@ -218,7 +216,6 @@ const ShopFiltersDialogUi = ({
             {!priceError && matches === 0 ? t('filters.no-match') : ''}
           </p>
           <div className='flex gap-2'>
-            {/* Sorting is not a filter: a reset keeps the order the shopper chose. */}
             <Button
               type='button'
               variant='ghost'

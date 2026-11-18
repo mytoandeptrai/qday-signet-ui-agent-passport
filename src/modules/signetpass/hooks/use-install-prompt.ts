@@ -4,10 +4,6 @@ import { INSTALL_CODE_PLACEHOLDER, installCommand, installPrompt } from '@/mock/
 import type { SignetPass } from '@/types/passport';
 import { useState } from 'react';
 
-/**
- * The command that installs Signet in an agent's terminal, for macOS/Linux or Windows. The command carries an install
- * code from the backend, which links the CLI to one active SignetPass. Copying it counts as connecting the agent.
- */
 export const useInstallPrompt = (pass?: SignetPass | null) => {
   const completeOnboarding = useCompleteOnboardingMutation();
   const getCode = useGetInstallCodeMutation();

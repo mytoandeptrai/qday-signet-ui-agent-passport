@@ -7,7 +7,6 @@ import type { CallServiceParams, GetServiceListParams, ServiceCallResult } from 
 
 export const getServiceList = (params: GetServiceListParams) => listServices(params);
 
-/** Mock of calling a service through the Bazaar with a SignetPass. Only an active pass can call. */
 export const callService = async ({ serviceId, passId }: CallServiceParams): Promise<ServiceCallResult> => {
   await mockDelay();
   return mockRequest((s) => {

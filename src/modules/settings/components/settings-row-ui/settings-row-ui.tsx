@@ -7,7 +7,6 @@ type SettingsRowUiProps = {
   icon: LucideIcon;
   label: string;
   detail?: ReactNode;
-  /** Replaces the chevron, e.g. a Switch. A row with `onClick` and no `right` shows the chevron. */
   right?: ReactNode;
   onClick?: () => void;
 };

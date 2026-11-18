@@ -39,7 +39,6 @@ const CATEGORY_ICONS: Record<string, LucideIcon> = {
   Home: CupSoda,
 };
 
-/** Each product keeps one hue, so a grid does not read as twelve identical tiles. */
 const HUES = [188, 205, 160, 235, 330, 45];
 const productHue = (sku: string) => {
   let hash = 0;
@@ -53,7 +52,6 @@ interface ShopProductThumbUiProps {
   iconClassName?: string;
 }
 
-/** The sample catalogue has no photos, so a product shows its own icon on a tinted tile. The tint is translucent, so it reads in light and dark. */
 const ShopProductThumbUi = ({ product, className, iconClassName }: ShopProductThumbUiProps) => {
   const Icon = SKU_ICONS[product.sku] ?? CATEGORY_ICONS[product.category] ?? Package;
   const hue = productHue(product.sku);

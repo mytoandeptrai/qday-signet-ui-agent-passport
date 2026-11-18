@@ -1,27 +1,19 @@
-// Illustrative listings, as the Bazaar returns ecommerce products. Prices and stock are sample data, not a real shop.
 export interface ShopProduct {
   id: string;
-  /** The merchant's own SKU. */
   sku: string;
   name: string;
   description: string;
   category: string;
   tags: string[];
-  /** Face value as a decimal string, in the stablecoin of the blockchain it is paid on. */
   price: string;
-  /** Units in stock at the merchant's last upload. Null = unlimited. */
   quantity: number | null;
-  /** Blockchains the merchant accepts payment on (`base` pays USDC, `qday` pays USD8). */
   chains: string[];
   merchant: { id: string; name: string };
   fulfillment: string;
-  /** Countries (ISO 3166-1 alpha-2) the merchant sells to. Empty = no restriction. */
   acceptedLocations: string[];
-  /** Countries the merchant does not sell to. */
   bannedLocations: string[];
 }
 
-/** A listing as written below: the country lists may be left out. */
 type ShopListing = Omit<ShopProduct, 'acceptedLocations' | 'bannedLocations'> &
   Partial<Pick<ShopProduct, 'acceptedLocations' | 'bannedLocations'>>;
 
@@ -30,7 +22,6 @@ const DESK = { id: 'm-desk', name: 'Desk & Paper Co.' };
 const CABLE = { id: 'm-cable', name: 'Cable Corner' };
 const BOTH = ['base', 'qday'];
 
-/** Illustrative listings, newest first. Prices and stock are sample data, not a real shop. */
 const listings: ShopListing[] = [
   {
     id: 'p-earbuds',

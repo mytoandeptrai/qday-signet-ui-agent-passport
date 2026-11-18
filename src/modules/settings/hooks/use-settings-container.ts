@@ -20,7 +20,6 @@ export const useSettingsContainer = () => {
 
   const passkeyEnabled = settings.passkeyEnabled !== false;
 
-  /** On the web a MetaMask signature stands in for the mobile passkey prompt, for turning it on and off alike. */
   const onTogglePasskey = async (next: boolean) => {
     if (!isConnected) {
       connect();

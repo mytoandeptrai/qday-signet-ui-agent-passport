@@ -1,4 +1,3 @@
-// Names are written in their own language so people can find theirs without reading English.
 export const LANGUAGES = [
   { code: 'en', nativeName: 'English', walletLocale: 'en-US' },
   { code: 'zh-HK', nativeName: '繁體中文', walletLocale: 'zh-HK' },

@@ -1,6 +1,5 @@
 import z from 'zod';
 
-/** Dialogs and sheets that open on top of any (app) page, driven by the `dialog` search param. */
 export const APP_DIALOGS = [
   'add-funds',
   'move-funds',
@@ -23,9 +22,7 @@ const optionalString = z.string().optional().catch(undefined);
 
 export const appDialogSearchSchema = z.object({
   dialog: z.enum(APP_DIALOGS).optional().catch(undefined),
-  /** Escalation id for `decide-request`, agent id for `approve-agent`. */
   id: optionalString,
-  /** Pre-fills for `create-session`, and the request shown by `approve-session`. */
   task: optionalString,
   agent: optionalString,
   limit: optionalNumber,

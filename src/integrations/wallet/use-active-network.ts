@@ -4,7 +4,6 @@ import { DEFAULT_NETWORK, getNetworkByChainId, NETWORKS, type NetworkKey } from 
 import { useTranslation } from '@/integrations/i18n';
 import { isUserRejectedError } from '@/utils/common';
 
-/** The network the wallet is on, falling back to the default while disconnected. */
 export const useActiveNetwork = () => {
   const { t } = useTranslation('wallet');
   const { chainId, isConnected } = useAccount();

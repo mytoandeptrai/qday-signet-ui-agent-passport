@@ -5,7 +5,6 @@ interface CreateSessionNeedsActivationUiProps {
   onActivate: () => void;
 }
 
-/** A SignetPass that is not activated yet can't hold funds, so it can't back a session. */
 const CreateSessionNeedsActivationUi = ({ onActivate }: CreateSessionNeedsActivationUiProps) => {
   const { t } = useTranslation('create-session-page');
   return (

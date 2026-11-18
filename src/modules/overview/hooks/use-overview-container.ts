@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { GET_STARTED_STEPS } from '../utils';
 
-/** Page-level state for the Get started stepper. */
 export const useOverviewContainer = () => {
   const [step, setStep] = useState(0);
   const [open, setOpen] = useState(true);

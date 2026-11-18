@@ -96,9 +96,9 @@ export const PROTOCOL_CHAIN_MAPPING: Record<string, string> = {
   ERC20: "ETH",
 };
 
-export const BASE_REFRESH_INTERVAL = 1000 * 10; // 10 seconds
+export const BASE_REFRESH_INTERVAL = 1000 * 10;
 
-export const MAX_WALLETS_PER_CHAIN = 2; // Maximum number of wallets allowed per chain
+export const MAX_WALLETS_PER_CHAIN = 2;
 
 export const STABLE_TOKEN: Record<string, string> = {
   USDC: "USDC",

@@ -23,6 +23,5 @@ function MobileLogo() {
 }
 
 export function Logo({ variant = 'default' }: LogoProps) {
-  /** Navigate with tanstack router */
   return <>{variant === 'default' ? <DefaultLogo /> : variant === 'mobile' ? <MobileLogo /> : <GlassLogo />}</>;
 }

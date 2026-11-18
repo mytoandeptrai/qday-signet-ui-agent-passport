@@ -12,7 +12,6 @@ interface SignetpassInstallUiProps {
   onToggleWindows: () => void;
 }
 
-/** Has the `install` id so Get Started can send people straight to the command. */
 const SignetpassInstallUi = (props: SignetpassInstallUiProps) => {
   const { t } = useTranslation('signetpass-page');
   return (

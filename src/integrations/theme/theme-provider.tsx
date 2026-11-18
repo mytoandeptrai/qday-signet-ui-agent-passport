@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { type Theme, ThemeProviderContext } from './theme-context';
 import { useSystemColorScheme } from './use-system-color-scheme';
 
-/** Browser chrome colour per theme: the v5 ground colours (trellis-teal.900, neutral.50). */
 const THEME_COLOR = { dark: '#06343a', light: '#f4f7f8' };
 const THEME_TRANSITION_CLASS = 'theme-transition';
 const THEME_TRANSITION_MS = 250;

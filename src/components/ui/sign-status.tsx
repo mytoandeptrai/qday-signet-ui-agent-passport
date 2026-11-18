@@ -4,11 +4,9 @@ import type { SignStatus } from '@/integrations/wallet';
 
 interface SignStatusProps {
   status: SignStatus;
-  /** What is being signed, shown while waiting so the MetaMask prompt is recognisable. */
   summary?: string;
 }
 
-/** Feedback for a MetaMask signature: what it is before, while waiting, and after a rejection or failure. Success is shown by each flow's own result. */
 const SignStatusUi = ({ status, summary }: SignStatusProps) => {
   const { t } = useTranslation('wallet');
   if (status === 'waiting')

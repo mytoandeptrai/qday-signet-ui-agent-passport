@@ -4,7 +4,6 @@ import { addToCart, clearShop, getShop, loginEcommerce, logoutEcommerce, placeOr
 
 export const useGetShop = () => useQuery({ queryKey: [KEYS.SHOP], queryFn: getShop });
 
-// The demo store is one database, so a write can change any screen (balances too): refresh everything.
 const useRefreshAll = () => {
   const queryClient = useQueryClient();
   return () => queryClient.invalidateQueries();

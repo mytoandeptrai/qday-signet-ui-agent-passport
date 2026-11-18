@@ -1,6 +1,5 @@
 import { VIEW_BOX } from '../signet-plate.constants';
 
-/** The Signet ring and mark, scaled to a 15-unit radius. */
 const Mark = () => {
   return (
     <g>

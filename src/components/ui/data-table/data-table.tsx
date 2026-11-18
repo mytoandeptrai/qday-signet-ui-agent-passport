@@ -26,7 +26,6 @@ import { useMemo, useState } from 'react';
 import { Skeleton } from '../skeleton';
 import { DataTablePagination } from './data-table-pagination';
 
-// Define a custom fuzzy filter function
 const fuzzyFilter: FilterFn<any, any> = (row, columnId, value, addMeta) => {
   const itemRank = rankItem(row.getValue(columnId), value);
   addMeta?.({

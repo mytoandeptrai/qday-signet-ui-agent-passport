@@ -6,7 +6,6 @@ import { useWallet } from '@/integrations/wallet';
 import { useState } from 'react';
 import type { AddFundsTab } from './schema';
 
-/** Adds funds to the Main Wallet: the connected MetaMask account, on the network it is on. */
 export const useAddFundsContainer = () => {
   const { t } = useTranslation('signetpass-page');
   const { address } = useWallet();

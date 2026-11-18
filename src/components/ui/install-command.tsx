@@ -13,7 +13,6 @@ type InstallCommandProps = {
   onToggleWindows: () => void;
 };
 
-/** The install command, with a button for the install code it needs. Copying only works once the code is in the command. */
 const InstallCommand = ({ prompt, windows, hasCode, canGetCode, isGettingCode, onGetCode, onCopy, onToggleWindows }: InstallCommandProps) => {
   const { t } = useTranslation('signetpass-page');
   return (

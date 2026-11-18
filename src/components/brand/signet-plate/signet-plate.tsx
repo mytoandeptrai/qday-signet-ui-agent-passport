@@ -12,17 +12,13 @@ export type PlateScene = 'lattice' | 'install' | 'limits' | 'job' | 'ledger' | '
 
 interface SignetPlateProps {
   scene: PlateScene;
-  /** 0..1. Drives the scene through a CSS variable, so scrolling never re-renders the artwork. */
   progress?: number;
-  /** Width over height of the box the plate fills; the scene is drawn for it, so wide plates are not zoomed. */
   aspect?: number;
-  /** Your own artwork. When set it replaces the drawn scene. */
   src?: string;
   className?: string;
   label?: string;
 }
 
-/** Scenes drawn in a 100-unit box sit in the middle of wider plates. */
 const SCENES: Record<PlateScene, (props: { w: number }) => ReactNode> = {
   lattice: () => <Lattice />,
   install: () => <Install />,
@@ -33,7 +29,6 @@ const SCENES: Record<PlateScene, (props: { w: number }) => ReactNode> = {
 };
 const CENTERED: PlateScene[] = ['lattice', 'install', 'limits', 'job'];
 
-/** Brand artwork in the Trellis blue family: each scene reads `--p` (0..1), set once on the root. */
 export const SignetPlate = memo(function SignetPlate({ scene, progress = 0.5, aspect = 1, src, className, label }: SignetPlateProps) {
   if (src) return <img src={src} alt={label ?? ''} className={cn('block size-full rounded-3xl object-cover', className)} draggable={false} />;
   const Scene = SCENES[scene];

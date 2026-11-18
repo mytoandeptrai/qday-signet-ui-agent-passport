@@ -36,7 +36,6 @@ import type {
   User,
 } from '@/types/passport';
 
-/** The Main Wallet in use: the connected MetaMask account on the network it is on. Set by the wallet integration. */
 interface WalletContext {
   address: string | null;
   network: NetworkKey;
@@ -45,7 +44,6 @@ interface WalletContext {
 interface PassportState {
   user: User | null;
   context: WalletContext;
-  /** One Main Wallet balance per account and network, keyed `address:network`. */
   mainWallets: Record<string, MainWallet>;
   passes: SignetPass[];
   selectedPassId: string | null;
@@ -53,10 +51,8 @@ interface PassportState {
   activity: ActivityItem[];
   escalations: Escalation[];
   deposits: Deposit[];
-  /** Shopping cart: ids and quantities only, prices come from the catalogue. */
   cart: CartLine[];
   orders: ShopOrder[];
-  /** E-commerce login per connected address. */
   ecommerceAccounts: Record<string, EcommerceAccount>;
   settings: AppSettings;
   agents: Agent[];
@@ -75,7 +71,6 @@ interface PassportState {
   addToCart: (productId: string) => void;
   setCartQuantity: (productId: string, quantity: number) => void;
   removeFromCart: (productId: string) => void;
-  /** Pays the cart from an active spending session of this account and network. An agent never pays from the Main Wallet. */
   placeOrder: (input: { sessionId: string }) => ShopOrder;
   loginEcommerce: (account: EcommerceAccount) => void;
   logoutEcommerce: () => void;
@@ -115,23 +110,19 @@ const logged = (type: SecurityEventType, detail: string, log: SecurityEvent[]): 
   ...log,
 ];
 
-/** Applies a balance change to one pass. */
 const withBalance = (passes: SignetPass[], id: string, change: (b: Balance) => Partial<Balance>) =>
   passes.map((p) => (p.id === id ? { ...p, balance: { ...p.balance, ...change(p.balance) } } : p));
 
 const walletKey = (c: WalletContext) => `${c.address}:${c.network}`;
 
-/** Gives an account that shows up for the first time a Main Wallet on this network. */
 const provision = (wallets: Record<string, MainWallet>, c: WalletContext) =>
   c.address && !wallets[walletKey(c)] ? { ...wallets, [walletKey(c)]: structuredClone(SEED_MAIN_WALLET) } : wallets;
 
 export const currentMainWallet = (s: Pick<PassportState, 'context' | 'mainWallets'>) => (s.context.address ? (s.mainWallets[walletKey(s.context)] ?? null) : null);
 
-/** SignetPasses of the connected account on the network in use. */
 export const visiblePasses = (s: Pick<PassportState, 'passes' | 'context'>) =>
   s.passes.filter((p) => p.owner === s.context.address && p.network === s.context.network);
 
-/** The chosen pass when it is visible, else the first visible one, so switching account or network never leaves a stale selection. */
 export const selectedPass = (s: Pick<PassportState, 'passes' | 'selectedPassId' | 'context'>) => {
   const visible = visiblePasses(s);
   return visible.find((p) => p.id === s.selectedPassId) ?? visible[0] ?? null;
@@ -143,16 +134,13 @@ const requireWallet = (s: PassportState) => {
   return wallet;
 };
 
-/** Applies a change to the Main Wallet in use. */
 const withWallet = (s: PassportState, change: (w: MainWallet) => MainWallet) => ({
   mainWallets: { ...s.mainWallets, [walletKey(s.context)]: change(requireWallet(s)) },
 });
 
-/** Orders of the connected account on the network in use. */
 export const visibleOrders = (s: Pick<PassportState, 'orders' | 'context'>) =>
   s.orders.filter((o) => o.owner === s.context.address && o.network === s.context.network);
 
-/** The e-commerce login of the connected address, if it has logged in. */
 export const currentEcommerceAccount = (s: Pick<PassportState, 'ecommerceAccounts' | 'context'>) =>
   s.context.address ? (s.ecommerceAccounts[s.context.address] ?? null) : null;
 
@@ -162,7 +150,6 @@ const requirePass = (s: PassportState) => {
   return pass;
 };
 
-/** Funds and sessions need a pass whose smart account is deployed. */
 const requireActivePass = (s: PassportState) => {
   const pass = requirePass(s);
   if (pass.status !== 'active') throw new Error('Activate the SignetPass first');
@@ -203,7 +190,6 @@ export const usePassportStore = create<PassportState>()(
           return { context, mainWallets: provision(s.mainWallets, context) };
         }),
 
-      // Creating costs the fee, paid by the Main Wallet.
       createSignetPass: ({ name }) => {
         const state = get();
         if (requireWallet(state).balance < PASS_FEE) throw new Error('Not enough balance for the SignetPass fee');
@@ -230,7 +216,6 @@ export const usePassportStore = create<PassportState>()(
         return pass;
       },
 
-      // Deploys the smart account. The fee was already paid at creation.
       activateSignetPass: (id) => {
         const state = get();
         const pass = visiblePasses(state).find((p) => p.id === id);
@@ -335,7 +320,6 @@ export const usePassportStore = create<PassportState>()(
           return { ecommerceAccounts: rest };
         }),
 
-      // The merchant moves an order along. With no merchant yet, the Shopping page offers this as a preview control.
       setOrderStatus: (id, from, to) => set((s) => ({ orders: s.orders.map((o) => (o.id === id && o.status === from ? { ...o, status: to } : o)) })),
 
       clearShop: () => set((s) => ({ cart: [], orders: s.orders.filter((o) => !visibleOrders(s).includes(o)) })),

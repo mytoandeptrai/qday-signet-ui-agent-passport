@@ -1,6 +1,5 @@
 import type { ActivityRow } from './types';
 
-/** Downloads the rows as a CSV file in the browser. */
 export const downloadCsv = (rows: ActivityRow[], filename: string) => {
   const csv = [
     'id,type,detail,category,amount,status,created_at',

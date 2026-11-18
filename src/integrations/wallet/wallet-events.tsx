@@ -4,7 +4,6 @@ import { useAccount, useAccountEffect } from 'wagmi';
 import { DEFAULT_NETWORK, getNetworkByChainId } from '@/constant';
 import { usePassportStore } from '@/stores/passport-store';
 
-/** Mounted once: records connect/disconnect in the security log (not the silent reconnect after a reload), and tells the store which account and network the app shows. */
 export const WalletEvents = () => {
   const recordWalletEvent = usePassportStore((s) => s.recordWalletEvent);
   const setContext = usePassportStore((s) => s.setContext);

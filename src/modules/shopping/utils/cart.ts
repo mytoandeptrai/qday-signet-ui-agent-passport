@@ -12,11 +12,9 @@ export interface PricedLine {
   product: ShopProduct;
   quantity: number;
   total: bigint;
-  /** Whether the merchant accepts payment on the blockchain in use. */
   payable: boolean;
 }
 
-/** The most of a product one cart may hold: the stock, and never more than a sensible cap. */
 export const maxQuantity = (product: ShopProduct) => Math.min(MAX_CART_QUANTITY, product.quantity ?? MAX_CART_QUANTITY);
 
 export const inStock = (product: ShopProduct) => product.quantity === null || product.quantity > 0;
@@ -26,7 +24,6 @@ export const canPayOn = (product: ShopProduct, chainId: string) => product.chain
 export const removeFromCart = (cart: CartLine[], productId: string) =>
   cart.filter((line) => line.productId !== productId);
 
-/** Zero or less removes the line; more than the stock allows is held at the stock. */
 export function setQuantity(cart: CartLine[], productId: string, quantity: number): CartLine[] {
   const product = getShopProduct(productId);
   if (!product) return cart;
@@ -62,9 +59,7 @@ export function pricedCart(cart: CartLine[], chainId: string): PricedLine[] {
 
 export const cartTotal = (lines: readonly PricedLine[]) => lines.reduce((sum, line) => sum + line.total, 0n);
 
-/** The stable-coin amount of a priced cart as the number the mock balances use. */
 export const cartTotalAmount = (lines: readonly PricedLine[]) => Number(formatAtomic(cartTotal(lines)));
 
-/** How many are left when stock is low (up to 5), else null. Out of stock reads as 0. */
 export const lowStock = (product: ShopProduct) =>
   product.quantity !== null && product.quantity <= 5 ? product.quantity : null;

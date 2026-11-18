@@ -10,7 +10,6 @@ import type {
   SelectSignetPassParams,
 } from './types';
 
-/** Passes of the connected account on the network in use, and which one the app screens follow. */
 export const getSignetPasses = () => mockRequest((s) => ({ passes: visiblePasses(s), selectedId: selectedPass(s)?.id ?? null }));
 
 export const getSignetPass = (id: string) => mockRequest((s) => visiblePasses(s).find((p) => p.id === id) ?? null);
@@ -37,7 +36,6 @@ export const fundFromMain = async ({ amount }: FundFromMainParams) => {
   return mockRequest((s) => s.fundFromMain(amount));
 };
 
-/** The one-time code that links a CLI install to an active SignetPass. Only an active pass can get one. */
 export const getInstallCode = async ({ passId }: GetInstallCodeParams) => {
   await mockDelay();
   return mockRequest((s) => {

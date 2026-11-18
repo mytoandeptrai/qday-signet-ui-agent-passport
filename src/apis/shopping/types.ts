@@ -11,7 +11,6 @@ export interface SetCartQuantityParams {
 }
 
 export interface PlaceOrderParams {
-  /** The active spending session that pays. */
   sessionId: string;
 }
 

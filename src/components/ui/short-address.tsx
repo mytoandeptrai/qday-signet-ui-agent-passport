@@ -5,7 +5,6 @@ interface ShortAddressProps {
   value: string;
 }
 
-/** Shortens a 0x address and shows the full one in a tooltip; anything else renders as is. */
 const ShortAddress = ({ value }: ShortAddressProps) => {
   if (!value.startsWith('0x') || value.length <= 20) return <>{value}</>;
   return (

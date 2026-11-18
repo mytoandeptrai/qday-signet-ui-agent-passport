@@ -3,7 +3,6 @@ import { useScrollToTop } from '@/hooks/use-scroll-to-top';
 import { useTranslation } from '@/integrations/i18n';
 import { cn } from '@/lib/utils';
 
-/** Floating button that appears after scrolling down and returns to the top of the page. */
 const ScrollToTop = () => {
   const { t } = useTranslation('public-layout');
   const { visible, onScrollToTop } = useScrollToTop();

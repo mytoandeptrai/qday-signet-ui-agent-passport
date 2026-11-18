@@ -6,7 +6,6 @@ type OverviewIdeasUiProps = {
   ideas: readonly IdeaId[];
 };
 
-/** The ten scenarios, numbered as in the playground: a compact grid of small thumbnails. */
 const OverviewIdeasUi = ({ ideas }: OverviewIdeasUiProps) => {
   const { t } = useTranslation('overview-page');
   return (

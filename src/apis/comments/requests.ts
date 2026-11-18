@@ -15,7 +15,6 @@ export const getCommentList = async (): Promise<CommentList> => {
   try {
     return await call<CommentList>();
   } catch {
-    // No function behind /api (plain `vite` dev server): behave as "no token".
     if (import.meta.env.DEV) return { configured: false, comments: [] };
     throw new Error('Comments API unavailable');
   }

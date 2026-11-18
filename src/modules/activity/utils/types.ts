@@ -6,9 +6,7 @@ export interface ActivityRow {
   kind: Kind;
   detail: string;
   sub: string;
-  /** Translation key suffix: service | session | deposit | wallet. */
   category: string;
-  /** Signed: negative leaves the balance, positive arrives. Sessions hold funds, so they carry the limit. */
   amount: number;
   createdAt: string;
   status: string;

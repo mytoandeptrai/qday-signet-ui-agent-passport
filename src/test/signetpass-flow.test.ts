@@ -164,7 +164,6 @@ describe('SignetPass', () => {
 describe('Shopping', () => {
   const earbuds = 'p-earbuds';
   const cartAmount = () => Number(formatAtomic(cartTotal(pricedCart(store().cart, 'base'))));
-  /** An active pass funded with 500, and a session of the agent with the given limit and per-call limit. */
   const sessionOf = (limit: number, perCallLimit = limit, agent = 'Claude Code') => {
     store().loginEcommerce({ email: 'alex@shop.test', name: 'Alex', shippingAddress: '1 Test Street' });
     createActive('Shopping');

@@ -1,7 +1,6 @@
 import { DayPanelUi, SectionWrapUi } from '../../components';
 import { useDayContainer } from '../../hooks';
 
-/** A day on Signet: the section pins and the scroll draws a line through six moments while the day's budget fills. */
 const DayContainer = () => {
   const { t, track, isWide, total, now, line, spent, stoppedCount, moments } = useDayContainer();
 

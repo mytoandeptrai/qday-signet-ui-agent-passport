@@ -4,7 +4,6 @@ export const BRAND = 'Signet';
 export const INSTALL_COMMAND = 'curl -fsSL https://cli.qday.info/install.sh | sh';
 export const INSTALL_CODE_PLACEHOLDER = '<INSTALL_CODE>';
 
-/** The install command with a code from the backend. Without a code the CLI still installs, but has no operations. */
 export const installCommand = (code: string, windows: boolean) =>
   windows ? `$env:QDAY_CODE='${code}'; irm https://cli.qday.info/install.ps1 | iex` : `${INSTALL_COMMAND} -s -- ${code}`;
 
@@ -67,10 +66,6 @@ export const FOOTER_COLUMNS = [
   ] },
 ];
 
-/**
- * Swap the artwork here. Put files in `public/images/landing/` and reference them as
- * '/images/landing/hero.jpg'. Leave a value empty to keep the drawn print.
- */
 export const PLATE_IMAGES: { hero: string; session: string; how: [string, string, string]; close: string } = {
   hero: '',
   session: '',
@@ -78,7 +73,6 @@ export const PLATE_IMAGES: { hero: string; session: string; how: [string, string
   close: '',
 };
 
-/** Page lighting. `spill` is the glow the hero plate casts on the white page as it lights up. */
 export const LANDING_LIGHT = {
   spill: '96, 242, 255',
 };

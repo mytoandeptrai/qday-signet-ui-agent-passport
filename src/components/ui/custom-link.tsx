@@ -3,7 +3,6 @@ import { createLink, type LinkComponent } from '@tanstack/react-router';
 import { cn } from '@/lib/utils';
 
 interface BasicLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
-  // Add any additional props you want to pass to the anchor element
   ref?: React.Ref<HTMLAnchorElement>;
 }
 

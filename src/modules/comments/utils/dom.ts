@@ -6,7 +6,6 @@ export const clamp = (value: number, min: number, max: number) => Math.min(max, 
 export const isUi = (el: Element | null) => !!el?.closest(`[${UI_ATTR}]`);
 export const asElement = (target: EventTarget | null) => (target instanceof Element ? target : null);
 
-/** Builds a selector from stable ids where possible, otherwise from tag + nth-of-type. */
 export const selectorFor = (el: Element): string => {
   const parts: string[] = [];
   let node: Element | null = el;

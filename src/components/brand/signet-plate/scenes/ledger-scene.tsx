@@ -1,7 +1,6 @@
 import { useTranslation } from '@/integrations/i18n';
 import { ACCENT } from '../signet-plate.constants';
 
-/** Catmull-Rom through the points, as cubic Béziers. */
 function smooth(pts: number[][]) {
   return pts.reduce((d, p, i) => {
     if (i === 0) return `M${p[0]} ${p[1]}`;

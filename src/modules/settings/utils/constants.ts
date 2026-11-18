@@ -1,6 +1,5 @@
 export const APP_VERSION = '1.0.0';
 
-/** Placeholder links, as in the Trellis mockup. */
 export const RESOURCE_LINKS = [
   { id: 'wiki', href: 'https://example.com' },
   { id: 'price-oracle', href: 'https://example.com' },

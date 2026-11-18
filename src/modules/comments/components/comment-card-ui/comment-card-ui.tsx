@@ -5,7 +5,6 @@ import { clamp } from '../../utils';
 type CommentCardUiProps = {
   left?: number;
   top?: number;
-  /** Pins the card above the toolbar, for comments whose element can no longer be found. */
   corner?: boolean;
 };
 

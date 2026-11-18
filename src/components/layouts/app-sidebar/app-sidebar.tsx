@@ -1,5 +1,5 @@
 import { Link, useMatchRoute } from '@tanstack/react-router';
-import { ChevronDownIcon, CircleHelpIcon, PlusIcon /* , WaypointsIcon */ } from 'lucide-react';
+import { ChevronDownIcon, CircleHelpIcon, PlusIcon } from 'lucide-react';
 import { SignetLockup, SignetMark } from '@/components/brand/signet-mark';
 import { CustomLink } from '@/components/ui/custom-link';
 import {
@@ -19,7 +19,6 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarRail,
-  SidebarSeparator,
 } from '@/components/ui/sidebar';
 import { ROUTES } from '@/constant';
 import { useTranslation } from '@/integrations/i18n';
@@ -32,7 +31,7 @@ const menuButtonClass = 'h-10 gap-3 px-3 text-body [&_svg]:size-4.5 [&_svg]:text
 const AppSidebar = () => {
   const { t } = useTranslation('layout');
   const matchRoute = useMatchRoute();
-  const { groups, /* onRouterClick, */ onDocsClick, onSupportClick } = useAppSidebar();
+  const { groups, onDocsClick, onSupportClick } = useAppSidebar();
 
   return (
     <Sidebar collapsible='icon'>
@@ -68,21 +67,6 @@ const AppSidebar = () => {
             </SidebarMenu>
           </SidebarGroup>
         ))}
-        {/* Signet Router is not available yet; restore this group (and onRouterClick) when it ships.
-        <SidebarGroup className='mt-4'>
-          <SidebarGroupLabel className='px-3 text-small font-medium text-muted-foreground'>
-            {t('nav.products')}
-          </SidebarGroupLabel>
-          <SidebarMenu>
-            <SidebarMenuItem>
-              <SidebarMenuButton tooltip={t('nav.signet-router')} onClick={onRouterClick} className={menuButtonClass}>
-                <WaypointsIcon strokeWidth={1.4} />
-                <span>{t('nav.signet-router')}</span>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-          </SidebarMenu>
-        </SidebarGroup>
-        */}
       </SidebarContent>
       <SidebarFooter className='px-2 pb-3'>
         <SidebarMenu>

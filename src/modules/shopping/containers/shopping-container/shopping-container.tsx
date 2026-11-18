@@ -19,7 +19,6 @@ const ShoppingContainer = () => {
   const s = useShoppingContainer();
   const { t } = s;
 
-  // Shopping is for testnet only: a mainnet network shows the old placeholder.
   if (!s.isTestnet) {
     return (
       <div>

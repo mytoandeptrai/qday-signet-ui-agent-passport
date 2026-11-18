@@ -35,7 +35,6 @@ const alertVariants = cva('flex items-stretch w-full gap-2 group-[.toaster]:w-(-
     },
   },
   compoundVariants: [
-    /* Solid */
     {
       variant: 'secondary',
       appearance: 'solid',
@@ -75,7 +74,6 @@ const alertVariants = cva('flex items-stretch w-full gap-2 group-[.toaster]:w-(-
       className: 'bg-zinc-950 text-white dark:bg-zinc-300 dark:text-black *:data-slot-[alert=close]:text-white',
     },
 
-    /* Outline */
     {
       variant: 'secondary',
       appearance: 'outline',
@@ -115,7 +113,6 @@ const alertVariants = cva('flex items-stretch w-full gap-2 group-[.toaster]:w-(-
       className: 'border border-border bg-background text-foreground [&_[data-slot=alert-close]]:text-foreground',
     },
 
-    /* Light */
     {
       variant: 'secondary',
       appearance: 'light',
@@ -152,7 +149,6 @@ const alertVariants = cva('flex items-stretch w-full gap-2 group-[.toaster]:w-(-
         'bg-[var(--color-warning-soft,var(--color-yellow-50))] border border-[var(--color-warning-alpha,var(--color-yellow-200))] text-foreground [&_[data-slot=alert-icon]]:text-[var(--color-warning-foreground,var(--color-yellow-600))] dark:bg-[var(--color-warning-soft,var(--color-yellow-950))] dark:border-[var(--color-warning-alpha,var(--color-yellow-900))]',
     },
 
-    /* Mono */
     {
       variant: 'mono',
       icon: 'primary',

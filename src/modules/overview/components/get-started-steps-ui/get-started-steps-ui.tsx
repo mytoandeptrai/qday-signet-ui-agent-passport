@@ -13,10 +13,8 @@ type GetStartedStepsUiProps = {
 
 const LAST = GET_STARTED_STEPS.length - 1;
 
-/** The path from a funded wallet to a working agent: stations down a vertical line. */
 const GetStartedStepsUi = ({ stepId, done, onSelectStep }: GetStartedStepsUiProps) => {
   const { t } = useTranslation('overview-page');
-  // The line runs up to the first step still to do. It starts empty and fills once, when the page opens.
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
   const next = GET_STARTED_STEPS.findIndex((id) => !done[id]);

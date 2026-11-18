@@ -28,7 +28,6 @@ export const useCreateSignetPassContainer = () => {
     mode: 'onChange',
   });
 
-  // Creating is signed in MetaMask and pays the fee from the Main Wallet. Activating the pass afterwards is free and unsigned.
   const onSubmit = async (values: CreateSignetPassFormData) => {
     const result: { id?: string } = {};
     const ok = await run({ kind: 'create-signetpass', summary: `Create SignetPass "${values.name}" on ${network.name}` }, async () => {
@@ -36,7 +35,6 @@ export const useCreateSignetPassContainer = () => {
     });
     if (!ok || !result.id) return;
     toast.success(t('create.toasts.created', { name: values.name }));
-    // Leaves the page the dialog was opened on, which also closes the dialog.
     navigate({ to: '/signetpass/$passId', params: { passId: result.id } });
   };
 

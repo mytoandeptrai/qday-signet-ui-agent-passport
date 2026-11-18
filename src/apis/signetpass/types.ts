@@ -2,7 +2,6 @@ import type { SignetPass } from '@/types/passport';
 
 export type { SignetPass };
 
-/** The pass is created on the network the Main Wallet is on. */
 export interface CreateSignetPassParams {
   name: string;
 }

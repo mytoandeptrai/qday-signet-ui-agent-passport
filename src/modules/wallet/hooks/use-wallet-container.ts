@@ -12,7 +12,6 @@ export type WalletTokenId = 'native' | 'stable';
 export interface WalletToken {
   id: WalletTokenId;
   symbol: string;
-  /** Formatted balance. */
   amount: string;
 }
 
@@ -27,7 +26,6 @@ export const useWalletContainer = () => {
   const [hidden, setHidden] = useState(false);
 
   const network = NETWORKS[wallet?.network ?? 'base'];
-  // The gas token has no balance in the demo; the stablecoin is the one Send, Receive and SignetPasses use.
   const tokens: WalletToken[] = [
     { id: 'stable', symbol: network.token.symbol, amount: money(wallet?.balance ?? 0) },
     { id: 'native', symbol: network.nativeSymbol, amount: '0.00' },

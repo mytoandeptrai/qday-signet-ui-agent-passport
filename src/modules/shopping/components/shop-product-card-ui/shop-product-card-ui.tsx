@@ -9,7 +9,6 @@ import ShopQuantityStepperUi from '../shop-quantity-stepper-ui';
 interface ShopProductCardUiProps {
   product: ShopProduct;
   token: string;
-  /** How many are already in the cart. */
   inCart: number;
   onOpen: () => void;
   onAdd: () => void;

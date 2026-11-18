@@ -10,7 +10,6 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { initialTransferFormData, type TransferFormData, transferFormSchema } from './schema';
 
-/** Moves funds from the Main Wallet into the selected SignetPass. */
 export const useMoveFundsContainer = () => {
   const { t } = useTranslation('signetpass-page');
   const { open, close } = useAppDialog();

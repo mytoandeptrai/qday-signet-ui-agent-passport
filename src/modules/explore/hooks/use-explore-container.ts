@@ -56,7 +56,6 @@ export const useExploreContainer = () => {
     pageCount,
     picked,
     detailsOpen,
-    // Calling a service goes through a SignetPass, and only an active one can.
     canCall: pass?.status === 'active',
     isCalling: callService.isPending,
     result,

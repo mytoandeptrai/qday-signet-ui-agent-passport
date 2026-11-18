@@ -5,7 +5,6 @@ import { SidebarGroup, SidebarGroupLabel, useSidebar } from '@/components/ui/sid
 import { NETWORKS } from '@/constant';
 import { useTranslation } from '@/integrations/i18n';
 
-/** Picks the SignetPass every app screen shows: its balance, sessions, agents and activity. */
 const AppSidebarSignetPass = () => {
   const { t } = useTranslation('layout');
   const { open: sidebarOpen } = useSidebar();
@@ -16,7 +15,6 @@ const AppSidebarSignetPass = () => {
 
   if (!selected) return null;
 
-  // The collapsed icon rail has no room for a select.
   if (!sidebarOpen) return null;
 
   const onValueChange = (value: string) => {

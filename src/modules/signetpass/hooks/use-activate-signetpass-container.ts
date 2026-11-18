@@ -4,7 +4,6 @@ import { useAppDialog } from '@/hooks/use-app-dialog';
 import { useTranslation } from '@/integrations/i18n';
 import { toast } from 'sonner';
 
-/** Activates the selected SignetPass: deploys its smart account. Free and unsigned, creating the pass was the paid and signed step. */
 export const useActivateSignetPassContainer = () => {
   const { t } = useTranslation('signetpass-page');
   const { close } = useAppDialog();

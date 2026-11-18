@@ -3,15 +3,10 @@ import { currentEcommerceAccount, visibleOrders } from '@/stores/passport-store'
 import { mockRequest } from '../mock-transport';
 import type { LoginEcommerceParams, PlaceOrderParams, SetCartQuantityParams, SetOrderStatusParams } from './types';
 
-/** The cart, the orders of the connected account on this network, and its e-commerce login (null before it logged in). */
 export const getShop = () => mockRequest((s) => ({ cart: s.cart, orders: visibleOrders(s), account: currentEcommerceAccount(s) }));
 
 const titleCase = (word: string) => word.charAt(0).toUpperCase() + word.slice(1);
 
-/**
- * Mock of the e-commerce site's login: any email and password get in, and the site answers with the shopper's name and
- * shipping address. An email that starts with "noaddress" gets an account without an address.
- */
 export const loginEcommerce = async ({ email }: LoginEcommerceParams) => {
   await mockDelay();
   const name = email.split('@')[0].split(/[._-]+/).filter(Boolean).map(titleCase).join(' ');

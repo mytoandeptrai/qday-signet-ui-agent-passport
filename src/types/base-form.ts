@@ -1,7 +1,6 @@
 import type { Control, FieldPath, FieldValues } from 'react-hook-form';
 import type { InputFileDropzoneProps } from '@/components/ui/input-file-dropzone';
 
-// Base props that all form components will share
 export interface BaseFormFieldProps<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
@@ -17,19 +16,16 @@ export interface BaseFormFieldProps<
   fullWidth?: boolean;
 }
 
-// Common option type for selects, radio groups, etc.
 export interface FormOption {
   value: string;
   label: string;
   disabled?: boolean;
 }
 
-// File upload specific types
 export interface FileUploadConfig extends InputFileDropzoneProps {
   acceptedTypes?: string[];
 }
 
-// Date picker specific types
 export interface DatePickerConfig {
   minDate?: Date;
   maxDate?: Date;
@@ -37,7 +33,6 @@ export interface DatePickerConfig {
   placeholder?: string;
 }
 
-// Slider specific types
 export interface SliderConfig {
   min: number;
   max: number;
@@ -45,14 +40,12 @@ export interface SliderConfig {
   formatValue?: (value: number) => string;
 }
 
-// Checkbox group specific types
 export interface CheckboxGroupOption {
   value: string;
   label: string;
   disabled?: boolean;
 }
 
-// Radio group specific types
 export interface RadioGroupOption {
   value: string;
   label: string;
@@ -60,7 +53,6 @@ export interface RadioGroupOption {
   customLabel?: React.ReactElement;
 }
 
-// Textarea specific types
 export interface TextareaConfig {
   maxLength?: number;
   showCharCount?: boolean;

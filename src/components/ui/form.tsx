@@ -144,7 +144,6 @@ const FormDescription = ({ className, ref, ...props }: React.ComponentProps<'p'>
   );
 };
 
-/** Add another type to this formmessage */
 const FormMessage = ({ className, children, type, ref, ...props }: React.ComponentProps<'p'> & { type?: string }) => {
   const { error, formMessageId } = useFormField();
   const body = error ? String(error?.message) : children;

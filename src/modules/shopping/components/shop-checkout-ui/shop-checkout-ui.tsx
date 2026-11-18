@@ -9,11 +9,8 @@ import type { CheckoutProblem, SessionProblem } from '../../utils';
 
 export interface CheckoutAgent {
   name: string;
-  /** The task of the agent's open spending session, when it has one. */
   task?: string;
-  /** What that session has left to spend. */
   left?: number;
-  /** The most that session lets one payment spend. */
   perCall?: number;
 }
 

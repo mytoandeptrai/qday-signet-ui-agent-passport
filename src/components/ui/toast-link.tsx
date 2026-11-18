@@ -8,10 +8,6 @@ interface ToastLinkProps {
   className?: string;
 }
 
-/**
- * A Link component that works inside toast messages without requiring RouterProvider context.
- * Uses the router instance directly instead of hooks.
- */
 export const ToastLink = ({ to, search, children, className = 'hover:underline' }: ToastLinkProps) => {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();

@@ -26,7 +26,6 @@ export const useCreateSessionContainer = () => {
   const createSession = useCreateSessionMutation();
   const { status, summary, run } = useSignAction();
   const available = balance?.available ?? 0;
-  // Only agents the user approved on the selected SignetPass can hold a session.
   const agentNames = agents.filter((a) => a.status === 'active').map((a) => a.name);
 
   const form = useForm<CreateSessionFormData>({

@@ -38,7 +38,6 @@ import type { ShopFilterChip } from '../components';
 export const SHOP_TABS = ['browse', 'cart', 'orders'] as const;
 export type ShopTab = (typeof SHOP_TABS)[number];
 
-/** Page state for Shopping: browse, cart and orders. Cart and orders live in the store; search, filters and dialogs are local. */
 export const useShoppingContainer = () => {
   const { t } = useTranslation('shopping-page');
   const { open } = useAppDialog();
@@ -69,7 +68,6 @@ export const useShoppingContainer = () => {
   const [shown, setShown] = useState(SHOP_PAGE_SIZE);
   const [viewing, setViewing] = useState<ShopProduct | null>(null);
 
-  // A paid order lands the shopper on the Orders tab.
   const orderCount = useRef(orders.length);
   useEffect(() => {
     if (orders.length > orderCount.current) setTab('orders');
@@ -86,7 +84,6 @@ export const useShoppingContainer = () => {
   const filterCount = activeFilterCount(filters);
   const merchantNames = useMemo(() => new Map(shopMerchants(chainId).map((m) => [m.id, m.name])), [chainId]);
 
-  // One removable chip per filter in force, so none hides inside the dialog.
   const chips: ShopFilterChip[] = [
     ...(filters.category
       ? [{ key: 'category', label: filters.category, remove: () => setFilters((f) => ({ ...f, category: undefined })) }]
@@ -138,7 +135,6 @@ export const useShoppingContainer = () => {
     category: filters.category,
     categories: shopCategories(chainId),
     merchants: shopMerchants(chainId),
-    // The dropdown picks one merchant; several picked in the Filters dialog read as none of the options.
     merchantId: filters.merchantIds.length === 0 ? ALL_MERCHANTS : filters.merchantIds.length === 1 ? filters.merchantIds[0] : '',
     account,
     loginForm,

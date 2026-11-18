@@ -14,7 +14,6 @@ import {
 import { useTranslation } from '@/integrations/i18n';
 import { loadLocal, newId, saveLocal, STORAGE_KEY } from '../utils';
 
-/** "remote": stored as GitHub Issues. "local": no server token, so this browser only. */
 export type StoreMode = 'loading' | 'remote' | 'local';
 
 export const useCommentStore = (enabled: boolean) => {
@@ -41,15 +40,12 @@ export const useCommentStore = (enabled: boolean) => {
         setComments(loadLocal());
       }
     } catch {
-      // Keep whatever is on screen; only tell the user once per outage.
       if (!failedLoad.current) toast.error(t('toasts.load-failed'));
       failedLoad.current = true;
       if (modeRef.current === 'loading') applyMode('local');
     }
   }, [t]);
 
-  // Comments are read after hydration only, and again whenever the tab regains focus
-  // so changes made on another machine show up without a manual reload.
   useEffect(() => {
     if (!enabled) return;
     void refresh();
@@ -72,7 +68,6 @@ export const useCommentStore = (enabled: boolean) => {
       return result;
     });
 
-  /** Resolves with the saved comment, or null if it could not be saved. */
   const add = async (input: NewComment): Promise<PinComment | null> => {
     if (modeRef.current !== 'remote') {
       const comment: PinComment = { id: newId(), ...input, resolved: false, createdAt: Date.now() };
@@ -89,7 +84,6 @@ export const useCommentStore = (enabled: boolean) => {
     }
   };
 
-  // Resolve and delete update the screen first and roll back if GitHub rejects the change.
   const optimistic = async (next: (list: PinComment[]) => PinComment[], remote: () => Promise<unknown>, failure: string) => {
     if (modeRef.current !== 'remote') return mutateLocal(next);
     let previous: PinComment[] = [];
@@ -119,7 +113,6 @@ export const useCommentStore = (enabled: boolean) => {
       t('toasts.delete-failed')
     );
 
-  // Replies exist only for comments stored on GitHub; they are fetched when a pin is opened.
   const loadReplies = useCallback(
     async (id: string): Promise<Reply[] | null> => {
       try {

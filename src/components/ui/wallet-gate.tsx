@@ -11,7 +11,6 @@ interface WalletGateProps {
 
 const gateClass = 'flex flex-col items-center gap-3 rounded-lg border border-dashed border-border bg-card px-6 py-10 text-center';
 
-/** Renders money/signing UI only once a wallet is connected on a supported network; otherwise shows what to do next. */
 const WalletGate = ({ children }: WalletGateProps) => {
   const { t } = useTranslation('wallet');
   const { isConnected, status, connect } = useWallet();

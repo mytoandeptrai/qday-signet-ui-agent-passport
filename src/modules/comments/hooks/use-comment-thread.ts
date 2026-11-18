@@ -27,7 +27,6 @@ export const useCommentThread = ({ id, loadReplies, addReply }: UseCommentThread
     setIsSending(true);
     const reply = await addReply(id, value);
     setIsSending(false);
-    // On failure the text stays in the box so it isn't lost.
     if (!reply) return;
     setText('');
     setReplies((list) => [...(list ?? []), reply]);

@@ -19,10 +19,6 @@ dayjs.extend(advancedFormat);
 
 export const range = (start: number, end: number) => {
   const length = end - start + 1;
-  /*
-        Create an array of certain length and set the elements within it from
-      start value to end value.
-    */
   return Array.from({ length }, (_, idx) => idx + start);
 };
 
@@ -210,7 +206,6 @@ export const formatCurrencyWithDecimals = (payload: { num?: number; minDecimals?
   });
 };
 
-/** Splits `$1,234.56` into `{ whole: '$1,234', fraction: '.56' }` so cents can be styled separately. */
 export const splitCurrencyUSD = (amount: number) => {
   const formatted = formatCurrencyUSD(amount);
   const dotIndex = formatted.lastIndexOf('.');
@@ -370,7 +365,6 @@ export function formatDuration(ms: number) {
   return parts.join(' ');
 }
 
-/** Validate Ethereum address format using ethers library */
 export const isValidEthereumAddress = (address: string): boolean => {
   return isAddress(address);
 };
@@ -408,7 +402,6 @@ export const getWalletErrorMessage = (error: unknown, t: TFunction, fallback: st
   return fallback;
 };
 
-/** Calendar days are local midnights; widen them to cover the whole day(s). A lone `from` means that single day. */
 export const toDayRangeISO = (range?: { from?: Date; to?: Date }) => {
   const from = range?.from;
   const to = range?.to ?? from;

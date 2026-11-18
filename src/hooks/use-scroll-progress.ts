@@ -2,10 +2,6 @@ import { type RefObject, useEffect, useState } from 'react';
 
 const clamp01 = (x: number) => Math.min(1, Math.max(0, x));
 
-/**
- * Progress (0..1) through a tall track while its sticky child is pinned.
- * `length` is how many px of scrolling map to the full range; the value eases toward the target.
- */
 export function useScrollProgress(track: RefObject<HTMLElement | null>, length: number, enabled = true) {
   const [progress, setProgress] = useState(0);
 

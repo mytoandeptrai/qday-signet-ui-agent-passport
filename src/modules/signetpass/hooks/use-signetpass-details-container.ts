@@ -24,7 +24,6 @@ export const useSignetpassDetailsContainer = () => {
   const install = useInstallPrompt(pass);
   const [renaming, setRenaming] = useState(false);
 
-  // Sessions, Agents and Activity follow the selected pass, so opening a pass selects it.
   const selectedId = passes?.selected?.id;
   useEffect(() => {
     if (pass && selectedId !== pass.id) selectPass({ id: pass.id });

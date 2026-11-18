@@ -56,11 +56,9 @@ const safeErrorToString = (error: string | object | undefined): string | null =>
   if (!error) return null;
   if (typeof error === 'string') return error;
   if (typeof error === 'object') {
-    // Handle Zod validation errors with issues array
     if ('issues' in error && Array.isArray(error.issues)) {
       return error.issues.map((issue) => issue.message || i18n.t('errors.fluid.validation-error')).join(', ');
     }
-    // For other objects, try to stringify safely
     try {
       return JSON.stringify(error);
     } catch {

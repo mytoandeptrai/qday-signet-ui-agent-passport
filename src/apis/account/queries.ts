@@ -15,7 +15,6 @@ export const useGetBalance = () => useQuery({ queryKey: [KEYS.BALANCE], queryFn:
 export const useGetSettings = () => useQuery({ queryKey: [KEYS.SETTINGS], queryFn: getSettings });
 export const useGetOnboarding = () => useQuery({ queryKey: [KEYS.ONBOARDING], queryFn: getOnboarding });
 
-// The demo store is one database, so a write can change any screen: refresh everything.
 const useRefreshAll = () => {
   const queryClient = useQueryClient();
   return () => queryClient.invalidateQueries();

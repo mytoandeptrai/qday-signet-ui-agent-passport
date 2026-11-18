@@ -2,7 +2,6 @@ export type SignRequestKind = 'create-signetpass' | 'transfer' | 'shop-checkout'
 
 export interface SignRequest {
   kind: SignRequestKind;
-  /** Human-readable line shown while waiting for the signature, and written into the signed message. */
   summary: string;
 }
 

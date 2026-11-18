@@ -44,7 +44,6 @@ export const useGetStartedContainer = ({ step }: UseGetStartedContainerParams) =
   const onCreateSignetPass = () => open('create-signetpass');
   const onAddFunds = () => open('add-funds');
   const onActivateSignetPass = () => open('activate-signetpass');
-  // Funds go into an active SignetPass, so this starts by creating or activating one.
   const onMoveFunds = () => open(!hasSignetPass ? 'create-signetpass' : needsActivation ? 'activate-signetpass' : 'move-funds');
   const onCopyInstall = () => {
     install.copyPrompt();

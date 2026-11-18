@@ -19,7 +19,6 @@ export const useCommentLayerContainer = () => {
   const [isListOpen, setIsListOpen] = useState(false);
   const [, relayout] = useReducer((n: number) => n + 1, 0);
 
-  // Comments are loaded after hydration only.
   useEffect(() => setIsMounted(true), []);
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: reset whenever the route changes
@@ -30,7 +29,6 @@ export const useCommentLayerContainer = () => {
     setIsListOpen(false);
   }, [pathname]);
 
-  // Pins are fixed-positioned, so they are re-measured whenever the page moves or changes.
   useEffect(() => {
     if (!isMounted) return;
     let frame = 0;
@@ -55,7 +53,6 @@ export const useCommentLayerContainer = () => {
     };
   }, [isMounted]);
 
-  // Pick mode: highlight the hovered element and turn the next click into a draft comment.
   useEffect(() => {
     if (!isPicking) {
       setHoverEl(null);

@@ -57,7 +57,6 @@ export const SERVICES: Service[] = rows.map(([name, category, description, provi
   details: { Protocol: 'x402', Provider: provider, Category: category, 'Response format': 'JSON', Settlement: 'Per call' },
 }));
 
-/** Ecommerce offers live under Marketplace > Shopping, not Services. */
 export const ECOMMERCE_CATEGORY = 'Shopping';
 
 const MARKETPLACE_SERVICES = SERVICES.filter((s) => s.category !== ECOMMERCE_CATEGORY);

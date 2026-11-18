@@ -11,7 +11,6 @@ const CLEARED: AppDialogSearch = {
   hours: undefined,
 };
 
-/** Opens and closes the global (app) dialogs through URL search params, so they are deep-linkable. */
 export const useAppDialog = () => {
   const navigate = useNavigate();
   const search = useSearch({ strict: false }) as AppDialogSearch;

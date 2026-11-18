@@ -11,7 +11,6 @@ export const useGetSignetPasses = () =>
 
 export const useGetSignetPass = (id: string) => useQuery({ queryKey: [KEYS.SIGNETPASSES, id], queryFn: () => getSignetPass(id) });
 
-// The demo store is one database, so a write can change any screen: refresh everything.
 const useRefreshAll = () => {
   const queryClient = useQueryClient();
   return () => queryClient.invalidateQueries();
@@ -26,12 +25,10 @@ export const useActivateSignetPassMutation = () =>
 export const useRenameSignetPassMutation = () =>
   useMutation({ mutationKey: [KEYS.RENAME], mutationFn: renameSignetPass, onSuccess: useRefreshAll() });
 
-// Every screen shows the selected pass, so switching refreshes them all.
 export const useSelectSignetPassMutation = () =>
   useMutation({ mutationKey: [KEYS.SELECT], mutationFn: selectSignetPass, onSuccess: useRefreshAll() });
 
 export const useFundFromMainMutation = () =>
   useMutation({ mutationKey: [KEYS.FUND], mutationFn: fundFromMain, onSuccess: useRefreshAll() });
 
-// Reads nothing back into the store, so no refresh.
 export const useGetInstallCodeMutation = () => useMutation({ mutationKey: [KEYS.INSTALL_CODE], mutationFn: getInstallCode });

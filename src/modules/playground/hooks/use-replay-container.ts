@@ -2,7 +2,6 @@ import type { PlaygroundScenario } from '@/types/passport';
 import { useEffect, useRef, useState } from 'react';
 import { PAUSE_MS, prefersReducedMotion, TYPE_MS, TYPED_KINDS } from '../utils';
 
-/** Drives the replay: types what you say, pauses between steps, and tallies what the Trellis Wallet paid. */
 export const useReplayContainer = (scenario: PlaygroundScenario) => {
   const { steps } = scenario;
   const [pos, setPos] = useState({ i: 0, c: 0 });

@@ -6,7 +6,6 @@ import { isUserRejectedError } from '@/utils/common';
 import { buildSignMessage } from './sign-message';
 import { type SignRequest, type SignStatus, WalletNotConnectedError, WalletUnsupportedNetworkError } from './types';
 
-/** Wraps a MetaMask signature in idle → waiting → success | rejected | error. */
 export const useSignAction = () => {
   const [status, setStatus] = useState<SignStatus>('idle');
   const [summary, setSummary] = useState<string>();

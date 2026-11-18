@@ -9,7 +9,6 @@ interface ShopLoginUiProps {
   isLoading: boolean;
 }
 
-/** Shopping starts with the shopper's e-commerce account, which tells us their name and shipping address. */
 const ShopLoginUi = ({ isLoading }: ShopLoginUiProps) => {
   const { t } = useTranslation('shopping-page');
   const { control } = useFormContext<EcommerceLoginFormData>();

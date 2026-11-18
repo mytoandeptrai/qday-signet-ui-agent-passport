@@ -9,12 +9,9 @@ export interface NetworkConfig {
   rpcUrl?: string;
   explorerUrl?: string;
   token: { symbol: string; decimals: number };
-  /** Gas token of the chain. The Main Wallet shows it next to the stablecoin. */
   nativeSymbol: string;
   testnet: boolean;
-  /** How the chain's test network is called in the UI. */
   testnetName: string;
-  /** Disabled networks are hidden from the network switcher. */
   enabled: boolean;
 }
 
@@ -49,9 +46,7 @@ export const NETWORKS: Record<NetworkKey, NetworkConfig> = {
 
 export const DEFAULT_NETWORK: NetworkKey = (import.meta.env.VITE_DEFAULT_NETWORK as NetworkKey | undefined) ?? 'qday';
 
-/** The enabled network for a wallet chain id, or undefined when the wallet is on an unsupported chain. */
 export const getNetworkByChainId = (chainId?: number) =>
   Object.values(NETWORKS).find((n) => n.enabled && n.chainId === chainId);
 
-/** Deployment fee of a new SignetPass, in the chain's stablecoin. Paid by the Main Wallet that creates it. */
 export const PASS_FEE = 3;

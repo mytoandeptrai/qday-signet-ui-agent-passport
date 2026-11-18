@@ -6,7 +6,6 @@ export function toAtomic(price: string): bigint {
   return BigInt(whole) * UNIT + BigInt(fraction.padEnd(6, '0').slice(0, 6));
 }
 
-/** `12000000n` -> "12.00", `4500000n` -> "4.50", `1234500n` -> "1.2345". */
 export function formatAtomic(value: bigint): string {
   const whole = value / UNIT;
   const fraction = (value % UNIT).toString().padStart(6, '0').replace(/0+$/, '').padEnd(2, '0');

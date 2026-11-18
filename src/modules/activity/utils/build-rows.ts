@@ -11,7 +11,6 @@ interface BuildRowsParams {
   t: TFunction;
 }
 
-/** Merges service payments, sessions and money in into one newest-first list. */
 export const buildRows = ({ activity, sessions, deposits, walletTxs, t }: BuildRowsParams): ActivityRow[] => {
   const service: ActivityRow[] = activity.map((a) => ({
     id: a.id,

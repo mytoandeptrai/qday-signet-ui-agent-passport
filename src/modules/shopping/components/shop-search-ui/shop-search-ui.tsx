@@ -19,7 +19,6 @@ interface ShopSearchUiProps {
   category?: string;
   categories: string[];
   merchants: { id: string; name: string }[];
-  /** The merchant picked in the dropdown; '' when the Filters dialog picked several. */
   merchantId: string;
   filterCount: number;
   chips: ShopFilterChip[];

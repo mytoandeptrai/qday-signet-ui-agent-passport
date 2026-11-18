@@ -2,7 +2,6 @@ import { SEED_USER } from './seed';
 import { ECOMMERCE_CATEGORY, SERVICES } from './services';
 import type { Service, User } from '@/types/passport';
 
-/** The one-time code the mock accepts. */
 export const MOCK_OTP = '12345678';
 
 export class MockApiError extends Error {

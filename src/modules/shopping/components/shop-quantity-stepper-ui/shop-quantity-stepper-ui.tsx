@@ -11,7 +11,6 @@ interface ShopQuantityStepperUiProps {
   onChange: (quantity: number) => void;
 }
 
-/** "− 2 +", with the product name in the labels so it is clear in a list which one it changes. */
 const ShopQuantityStepperUi = ({ name, quantity, max, className, onChange }: ShopQuantityStepperUiProps) => {
   const { t } = useTranslation('shopping-page');
   return (

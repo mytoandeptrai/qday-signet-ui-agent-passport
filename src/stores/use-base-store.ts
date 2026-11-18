@@ -1,26 +1,17 @@
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 
-/**
- * Currency domain model
- */
 export type Currency = {
-  code: string; // ISO code: USD, VND, EUR
-  symbol: string; // $, ₫, €
-  locale: string; // en-US, vi-VN
-  decimalPlaces: number; // 2, 0
+  code: string;
+  symbol: string;
+  locale: string;
+  decimalPlaces: number;
 };
 
-/**
- * Store state
- */
 export type CurrencyStoreState = {
   currency: Currency;
 };
 
-/**
- * Store actions
- */
 export type CurrencyStoreActions = {
   setCurrency: (currency: Currency) => void;
   reset: () => void;
@@ -28,9 +19,6 @@ export type CurrencyStoreActions = {
 
 export type CurrencyStore = CurrencyStoreState & CurrencyStoreActions;
 
-/**
- * Default currency (USD)
- */
 export const DEFAULT_CURRENCY: Currency = {
   code: 'USD',
   symbol: '$',
@@ -42,9 +30,6 @@ export const DEFAULT_CURRENCY_STORE_STATE: CurrencyStoreState = {
   currency: DEFAULT_CURRENCY,
 };
 
-/**
- * Currency store (persisted)
- */
 export const useCurrencyStore = create<CurrencyStore>()(
   persist(
     (set) => ({
