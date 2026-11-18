@@ -15,17 +15,18 @@
     "price": "Harga",
     "category": "Kategori",
     "provider": "Penyedia",
-    "use": "Gunakan dalam sesi",
-    "sign-in": "Log masuk untuk menggunakan",
     "endpoint": "Titik akhir x402",
     "copy-endpoint": "Salin titik akhir",
     "currencies": "Mata wang diterima",
     "more-details": "Lebih banyak butiran",
     "less-details": "Kurang butiran",
-    "sales": "Jualan (30 hari)"
+    "sales": "Jualan (30 hari)",
+    "call": "Panggil API",
+    "calling": "Memanggil…",
+    "needs-pass": "Cipta dan aktifkan SignetPass untuk memanggil perkhidmatan ini.",
+    "response": "Respons · {{status}}"
   },
   "toasts": {
-    "added": "{{name}} ditambah ke sesi anda yang seterusnya",
     "endpoint-copied": "Titik akhir disalin"
   },
   "pagination": {

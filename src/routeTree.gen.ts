@@ -16,13 +16,13 @@ import { Route as publicLayoutRouteImport } from './routes/(public)/layout'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as appActivityRouteImport } from './routes/(app)/activity'
 import { Route as appAgentsRouteImport } from './routes/(app)/agents'
+import { Route as appExploreRouteImport } from './routes/(app)/explore'
 import { Route as appOverviewRouteImport } from './routes/(app)/overview'
 import { Route as appPlaygroundRouteImport } from './routes/(app)/playground'
 import { Route as appSettingsRouteImport } from './routes/(app)/settings'
 import { Route as appShoppingRouteImport } from './routes/(app)/shopping'
 import { Route as appWalletRouteImport } from './routes/(app)/wallet'
 import { Route as publicEcosystemRouteImport } from './routes/(public)/ecosystem'
-import { Route as publicExploreRouteImport } from './routes/(public)/explore'
 import { Route as publicPrivacyRouteImport } from './routes/(public)/privacy'
 import { Route as publicTermsRouteImport } from './routes/(public)/terms'
 import { Route as appSessionsIndexRouteImport } from './routes/(app)/sessions.index'
@@ -62,6 +62,11 @@ const appAgentsRoute = appAgentsRouteImport.update({
   path: '/agents',
   getParentRoute: () => appLayoutRoute,
 } as any)
+const appExploreRoute = appExploreRouteImport.update({
+  id: '/explore',
+  path: '/explore',
+  getParentRoute: () => appLayoutRoute,
+} as any)
 const appOverviewRoute = appOverviewRouteImport.update({
   id: '/overview',
   path: '/overview',
@@ -90,11 +95,6 @@ const appWalletRoute = appWalletRouteImport.update({
 const publicEcosystemRoute = publicEcosystemRouteImport.update({
   id: '/ecosystem',
   path: '/ecosystem',
-  getParentRoute: () => publicLayoutRoute,
-} as any)
-const publicExploreRoute = publicExploreRouteImport.update({
-  id: '/explore',
-  path: '/explore',
   getParentRoute: () => publicLayoutRoute,
 } as any)
 const publicPrivacyRoute = publicPrivacyRouteImport.update({
@@ -129,13 +129,13 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/activity': typeof appActivityRoute
   '/agents': typeof appAgentsRoute
+  '/explore': typeof appExploreRoute
   '/overview': typeof appOverviewRoute
   '/playground': typeof appPlaygroundRoute
   '/settings': typeof appSettingsRoute
   '/shopping': typeof appShoppingRoute
   '/wallet': typeof appWalletRoute
   '/ecosystem': typeof publicEcosystemRoute
-  '/explore': typeof publicExploreRoute
   '/privacy': typeof publicPrivacyRoute
   '/terms': typeof publicTermsRoute
   '/sessions/$sessionId': typeof appSessionsSessionIdRoute
@@ -148,13 +148,13 @@ export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/activity': typeof appActivityRoute
   '/agents': typeof appAgentsRoute
+  '/explore': typeof appExploreRoute
   '/overview': typeof appOverviewRoute
   '/playground': typeof appPlaygroundRoute
   '/settings': typeof appSettingsRoute
   '/shopping': typeof appShoppingRoute
   '/wallet': typeof appWalletRoute
   '/ecosystem': typeof publicEcosystemRoute
-  '/explore': typeof publicExploreRoute
   '/privacy': typeof publicPrivacyRoute
   '/terms': typeof publicTermsRoute
   '/sessions/$sessionId': typeof appSessionsSessionIdRoute
@@ -170,13 +170,13 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/(app)/activity': typeof appActivityRoute
   '/(app)/agents': typeof appAgentsRoute
+  '/(app)/explore': typeof appExploreRoute
   '/(app)/overview': typeof appOverviewRoute
   '/(app)/playground': typeof appPlaygroundRoute
   '/(app)/settings': typeof appSettingsRoute
   '/(app)/shopping': typeof appShoppingRoute
   '/(app)/wallet': typeof appWalletRoute
   '/(public)/ecosystem': typeof publicEcosystemRoute
-  '/(public)/explore': typeof publicExploreRoute
   '/(public)/privacy': typeof publicPrivacyRoute
   '/(public)/terms': typeof publicTermsRoute
   '/(app)/sessions/$sessionId': typeof appSessionsSessionIdRoute
@@ -191,13 +191,13 @@ export interface FileRouteTypes {
     | '/login'
     | '/activity'
     | '/agents'
+    | '/explore'
     | '/overview'
     | '/playground'
     | '/settings'
     | '/shopping'
     | '/wallet'
     | '/ecosystem'
-    | '/explore'
     | '/privacy'
     | '/terms'
     | '/sessions/$sessionId'
@@ -210,13 +210,13 @@ export interface FileRouteTypes {
     | '/login'
     | '/activity'
     | '/agents'
+    | '/explore'
     | '/overview'
     | '/playground'
     | '/settings'
     | '/shopping'
     | '/wallet'
     | '/ecosystem'
-    | '/explore'
     | '/privacy'
     | '/terms'
     | '/sessions/$sessionId'
@@ -231,13 +231,13 @@ export interface FileRouteTypes {
     | '/login'
     | '/(app)/activity'
     | '/(app)/agents'
+    | '/(app)/explore'
     | '/(app)/overview'
     | '/(app)/playground'
     | '/(app)/settings'
     | '/(app)/shopping'
     | '/(app)/wallet'
     | '/(public)/ecosystem'
-    | '/(public)/explore'
     | '/(public)/privacy'
     | '/(public)/terms'
     | '/(app)/sessions/$sessionId'
@@ -304,6 +304,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof appAgentsRouteImport
       parentRoute: typeof appLayoutRoute
     }
+    '/(app)/explore': {
+      id: '/(app)/explore'
+      path: '/explore'
+      fullPath: '/explore'
+      preLoaderRoute: typeof appExploreRouteImport
+      parentRoute: typeof appLayoutRoute
+    }
     '/(app)/overview': {
       id: '/(app)/overview'
       path: '/overview'
@@ -344,13 +351,6 @@ declare module '@tanstack/react-router' {
       path: '/ecosystem'
       fullPath: '/ecosystem'
       preLoaderRoute: typeof publicEcosystemRouteImport
-      parentRoute: typeof publicLayoutRoute
-    }
-    '/(public)/explore': {
-      id: '/(public)/explore'
-      path: '/explore'
-      fullPath: '/explore'
-      preLoaderRoute: typeof publicExploreRouteImport
       parentRoute: typeof publicLayoutRoute
     }
     '/(public)/privacy': {
@@ -394,6 +394,7 @@ declare module '@tanstack/react-router' {
 interface appLayoutRouteChildren {
   appActivityRoute: typeof appActivityRoute
   appAgentsRoute: typeof appAgentsRoute
+  appExploreRoute: typeof appExploreRoute
   appOverviewRoute: typeof appOverviewRoute
   appPlaygroundRoute: typeof appPlaygroundRoute
   appSettingsRoute: typeof appSettingsRoute
@@ -407,6 +408,7 @@ interface appLayoutRouteChildren {
 const appLayoutRouteChildren: appLayoutRouteChildren = {
   appActivityRoute: appActivityRoute,
   appAgentsRoute: appAgentsRoute,
+  appExploreRoute: appExploreRoute,
   appOverviewRoute: appOverviewRoute,
   appPlaygroundRoute: appPlaygroundRoute,
   appSettingsRoute: appSettingsRoute,
@@ -423,14 +425,12 @@ const appLayoutRouteWithChildren = appLayoutRoute._addFileChildren(
 
 interface publicLayoutRouteChildren {
   publicEcosystemRoute: typeof publicEcosystemRoute
-  publicExploreRoute: typeof publicExploreRoute
   publicPrivacyRoute: typeof publicPrivacyRoute
   publicTermsRoute: typeof publicTermsRoute
 }
 
 const publicLayoutRouteChildren: publicLayoutRouteChildren = {
   publicEcosystemRoute: publicEcosystemRoute,
-  publicExploreRoute: publicExploreRoute,
   publicPrivacyRoute: publicPrivacyRoute,
   publicTermsRoute: publicTermsRoute,
 }

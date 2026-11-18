@@ -1,21 +1,21 @@
-import { Link } from '@tanstack/react-router';
-import type { Service } from '@/apis/services';
+import type { Service, ServiceCallResult } from '@/apis/services';
 import { Button } from '@/components/ui/button';
 import CopyButton from '@/components/ui/copy-button';
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { ROUTES } from '@/constant';
 import { useTranslation } from '@/integrations/i18n';
 
 type ServiceDialogUiProps = {
   service: Service | null;
   detailsOpen: boolean;
-  isSignedIn: boolean;
+  canCall: boolean;
+  isCalling: boolean;
+  result: ServiceCallResult | null;
   onToggleDetails: () => void;
   onClose: () => void;
-  onUse: () => void;
+  onCall: () => void;
 };
 
-const ServiceDialogUi = ({ service, detailsOpen, isSignedIn, onToggleDetails, onClose, onUse }: ServiceDialogUiProps) => {
+const ServiceDialogUi = ({ service, detailsOpen, canCall, isCalling, result, onToggleDetails, onClose, onCall }: ServiceDialogUiProps) => {
   const { t } = useTranslation('explore-page');
 
   return (
@@ -64,18 +64,17 @@ const ServiceDialogUi = ({ service, detailsOpen, isSignedIn, onToggleDetails, on
             )}
           </>
         )}
-        <DialogFooter>
-          {isSignedIn ? (
-            <Button asChild onClick={onUse}>
-              <Link to={ROUTES.OVERVIEW} search={{ dialog: 'create-session' }}>{t('dialog.use')}</Link>
-            </Button>
-          ) : (
-            <Button asChild>
-              <Link to={ROUTES.LOGIN} search={{ redirect: ROUTES.EXPLORE }}>
-                {t('dialog.sign-in')}
-              </Link>
-            </Button>
-          )}
+        {result && (
+          <div className='min-w-0 border-t pt-4'>
+            <p className='text-small text-muted-foreground'>{t('dialog.response', { status: result.status })}</p>
+            <pre className='mt-2 max-h-48 overflow-auto bg-subtle p-3 font-mono text-small'>{result.body}</pre>
+          </div>
+        )}
+        <DialogFooter className='items-center sm:justify-between'>
+          {!canCall && <p className='text-small text-muted-foreground'>{t('dialog.needs-pass')}</p>}
+          <Button type='button' disabled={!canCall || isCalling} onClick={onCall}>
+            {t(isCalling ? 'dialog.calling' : 'dialog.call')}
+          </Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

@@ -15,17 +15,18 @@
     "price": "價格",
     "category": "類別",
     "provider": "供應商",
-    "use": "在會話中使用",
-    "sign-in": "登入後使用",
     "endpoint": "x402 端點",
     "copy-endpoint": "複製端點",
     "currencies": "接受貨幣",
     "more-details": "更多詳情",
     "less-details": "收起詳情",
-    "sales": "銷量（30 天）"
+    "sales": "銷量（30 天）",
+    "call": "呼叫 API",
+    "calling": "呼叫中…",
+    "needs-pass": "請先建立並啟用 SignetPass，才能呼叫此服務。",
+    "response": "回應 · {{status}}"
   },
   "toasts": {
-    "added": "已將 {{name}} 加入你的下一個會話",
     "endpoint-copied": "已複製端點"
   },
   "pagination": {

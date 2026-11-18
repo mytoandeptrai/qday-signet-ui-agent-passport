@@ -1,3 +1,4 @@
+import { PageHeader } from '@/components/ui/page-header';
 import { ExploreFiltersUi, ServiceDialogUi, ServiceGridUi, ServicePaginationUi } from '../../components';
 import { useExploreContainer } from '../../hooks';
 
@@ -16,7 +17,9 @@ const ExploreContainer = () => {
     pageCount,
     picked,
     detailsOpen,
-    isSignedIn,
+    canCall,
+    isCalling,
+    result,
     onSearchChange,
     onCategoryChange,
     onSortChange,
@@ -24,13 +27,12 @@ const ExploreContainer = () => {
     onPick,
     onToggleDetails,
     onClosePicked,
-    onUse,
+    onCall,
   } = useExploreContainer();
 
   return (
     <div className='mx-auto w-full max-w-275'>
-      <h1 className='font-display text-[clamp(34px,3.1vw,46px)] leading-tight font-semibold tracking-tight'>{t('title')}</h1>
-      <p className='mt-3 text-muted-foreground'>{t('description', { count: featuredCount })}</p>
+      <PageHeader title={t('title')} description={t('description', { count: featuredCount })} />
       <ExploreFiltersUi
         search={search}
         sort={sort}
@@ -42,7 +44,16 @@ const ExploreContainer = () => {
       />
       <ServiceGridUi services={services} isFetching={isFetching} query={query} onPick={onPick} />
       <ServicePaginationUi page={page} pageCount={pageCount} onPageChange={onPageChange} />
-      <ServiceDialogUi service={picked} detailsOpen={detailsOpen} isSignedIn={isSignedIn} onToggleDetails={onToggleDetails} onClose={onClosePicked} onUse={onUse} />
+      <ServiceDialogUi
+        service={picked}
+        detailsOpen={detailsOpen}
+        canCall={canCall}
+        isCalling={isCalling}
+        result={result}
+        onToggleDetails={onToggleDetails}
+        onClose={onClosePicked}
+        onCall={onCall}
+      />
     </div>
   );
 };

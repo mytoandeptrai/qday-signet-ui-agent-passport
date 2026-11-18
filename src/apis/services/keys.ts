@@ -1,1 +1,1 @@
-export const KEYS = { SERVICES: 'services' };
+export const KEYS = { SERVICES: 'services', CALL: 'services/call' };

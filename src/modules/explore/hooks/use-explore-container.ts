@@ -1,24 +1,26 @@
 import { getRouteApi, useNavigate } from '@tanstack/react-router';
 import { useEffect, useState } from 'react';
-import { toast } from 'sonner';
-import { type Service, useGetServiceList } from '@/apis/services';
+import { useGetSignetPasses } from '@/apis/signetpass';
+import { type Service, type ServiceCallResult, useCallServiceMutation, useGetServiceList } from '@/apis/services';
 import { ROUTES } from '@/constant';
 import { useTranslation } from '@/integrations/i18n';
 import { SERVICE_PAGE_SIZE } from '@/mock/api';
 import { MARKETPLACE_SERVICE_COUNT, SERVICE_CATEGORIES } from '@/mock/services';
-import { usePassportStore } from '@/stores/passport-store';
 import { SORTS } from './schema';
 
-const route = getRouteApi('/(public)/explore');
+const route = getRouteApi('/(app)/explore');
 
 export const useExploreContainer = () => {
   const { t } = useTranslation('explore-page');
   const navigate = useNavigate();
   const { q = '', category = 'All', sort = 'popular', page = 1 } = route.useSearch();
-  const isSignedIn = usePassportStore((s) => Boolean(s.user));
+  const { data: passes } = useGetSignetPasses();
+  const callService = useCallServiceMutation();
+  const pass = passes?.selected;
   const [search, setSearch] = useState(q);
   const [picked, setPicked] = useState<Service | null>(null);
   const [detailsOpen, setDetailsOpen] = useState(false);
+  const [result, setResult] = useState<ServiceCallResult | null>(null);
 
   const { data, isFetching } = useGetServiceList({ search: q, category, sort, page });
   const services = data?.items ?? [];
@@ -35,7 +37,10 @@ export const useExploreContainer = () => {
     // biome-ignore lint/correctness/useExhaustiveDependencies: only the typed value should restart the debounce
   }, [search]);
 
-  const onUse = () => toast.success(t('toasts.added', { name: picked?.name }));
+  const onCall = async () => {
+    if (!picked || !pass) return;
+    setResult(await callService.mutateAsync({ serviceId: picked.id, passId: pass.id }));
+  };
 
   return {
     t,
@@ -51,17 +56,24 @@ export const useExploreContainer = () => {
     pageCount,
     picked,
     detailsOpen,
-    isSignedIn,
+    // Calling a service goes through a SignetPass, and only an active one can.
+    canCall: pass?.status === 'active',
+    isCalling: callService.isPending,
+    result,
     onSearchChange: setSearch,
     onCategoryChange: (next: string) => setParams({ category: next }),
     onSortChange: (next: (typeof SORTS)[number]) => setParams({ sort: next }),
     onPageChange: (next: number) => setParams({ page: next }),
     onPick: (service: Service) => {
       setDetailsOpen(false);
+      setResult(null);
       setPicked(service);
     },
     onToggleDetails: () => setDetailsOpen((open) => !open),
-    onClosePicked: () => setPicked(null),
-    onUse,
+    onClosePicked: () => {
+      setPicked(null);
+      setResult(null);
+    },
+    onCall,
   };
 };

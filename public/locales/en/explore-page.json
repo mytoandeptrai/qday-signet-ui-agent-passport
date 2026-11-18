@@ -15,17 +15,18 @@
     "price": "Price",
     "category": "Category",
     "provider": "Provider",
-    "use": "Use in a session",
-    "sign-in": "Sign in to use",
     "endpoint": "x402 endpoint",
     "copy-endpoint": "Copy endpoint",
     "currencies": "Accepted currencies",
     "more-details": "More details",
     "less-details": "Fewer details",
-    "sales": "Sales (30 days)"
+    "sales": "Sales (30 days)",
+    "call": "Call API",
+    "calling": "Calling…",
+    "needs-pass": "Create and activate a SignetPass to call this service.",
+    "response": "Response · {{status}}"
   },
   "toasts": {
-    "added": "{{name}} added to your next session",
     "endpoint-copied": "Endpoint copied"
   },
   "pagination": {

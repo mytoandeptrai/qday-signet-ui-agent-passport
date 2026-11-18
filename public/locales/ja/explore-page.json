@@ -15,17 +15,18 @@
     "price": "価格",
     "category": "カテゴリ",
     "provider": "提供元",
-    "use": "セッションで使う",
-    "sign-in": "サインインして使う",
     "endpoint": "x402 エンドポイント",
     "copy-endpoint": "エンドポイントをコピー",
     "currencies": "対応通貨",
     "more-details": "詳細を表示",
     "less-details": "詳細を隠す",
-    "sales": "販売数（30日）"
+    "sales": "販売数（30日）",
+    "call": "API を呼び出す",
+    "calling": "呼び出し中…",
+    "needs-pass": "このサービスを呼び出すには、SignetPass を作成して有効化してください。",
+    "response": "レスポンス · {{status}}"
   },
   "toasts": {
-    "added": "{{name}} を次のセッションに追加しました",
     "endpoint-copied": "エンドポイントをコピーしました"
   },
   "pagination": {
