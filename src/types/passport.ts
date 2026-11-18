@@ -188,6 +188,14 @@ export interface SignetPass {
 export type ShopOrderStatus = 'paid' | 'shipped' | 'delivered';
 
 /** A Shopping purchase paid from the Main Wallet or an active SignetPass of the same owner and network. */
+/** The account the shopper has at the e-commerce site. Name and address come from that site; there is no address book here. */
+export interface EcommerceAccount {
+  email: string;
+  name: string;
+  /** Empty when the account has no shipping address. */
+  shippingAddress: string;
+}
+
 export interface ShopOrder {
   id: string;
   owner: string;

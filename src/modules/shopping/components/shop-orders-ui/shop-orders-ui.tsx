@@ -1,4 +1,3 @@
-import { Button } from '@/components/ui/button';
 import { useTranslation } from '@/integrations/i18n';
 import { cn } from '@/lib/utils';
 import type { ShopOrder } from '@/types/passport';
@@ -7,14 +6,9 @@ import { ORDER_STEPS, formatPrice } from '../../utils';
 interface ShopOrdersUiProps {
   orders: ShopOrder[];
   token: string;
-  canShip: boolean;
-  canDeliver: boolean;
-  onShip: () => void;
-  onDeliver: () => void;
-  onClear: () => void;
 }
 
-const ShopOrdersUi = ({ orders, token, canShip, canDeliver, onShip, onDeliver, onClear }: ShopOrdersUiProps) => {
+const ShopOrdersUi = ({ orders, token }: ShopOrdersUiProps) => {
   const { t } = useTranslation('shopping-page');
   return (
     <div className='max-w-3xl'>
@@ -84,21 +78,7 @@ const ShopOrdersUi = ({ orders, token, canShip, canDeliver, onShip, onDeliver, o
           ))}
         </ul>
       )}
-      {/* There is no merchant yet, so these stand in for one. */}
-      <div className='mt-6 border border-dashed p-4'>
-        <p className='text-small text-muted-foreground'>{t('orders.preview.note')}</p>
-        <div className='mt-3 flex flex-wrap gap-2'>
-          <Button variant='outline' disabled={!canShip} onClick={onShip}>
-            {t('orders.preview.ship')}
-          </Button>
-          <Button variant='outline' disabled={!canDeliver} onClick={onDeliver}>
-            {t('orders.preview.deliver')}
-          </Button>
-          <Button variant='ghost' onClick={onClear}>
-            {t('orders.preview.clear')}
-          </Button>
-        </div>
-      </div>
+      <p className='mt-6 border border-dashed p-4 text-small text-muted-foreground'>{t('orders.managed')}</p>
     </div>
   );
 };

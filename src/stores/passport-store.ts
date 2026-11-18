@@ -5,7 +5,6 @@ import { randomAddress } from '@/lib/address';
 import { SEED_MAIN_WALLET, SEED_SETTINGS } from '@/mock/seed';
 import {
   type CartLine,
-  SAMPLE_SHIP_TO,
   addToCart as addLine,
   budgetLeft,
   cartTotal,
@@ -21,6 +20,7 @@ import type {
   ActivityItem,
   Agent,
   AgentStatus,
+  EcommerceAccount,
   AppSettings,
   Balance,
   CreateSessionInput,
@@ -56,6 +56,8 @@ interface PassportState {
   /** Shopping cart: ids and quantities only, prices come from the catalogue. */
   cart: CartLine[];
   orders: ShopOrder[];
+  /** E-commerce login per connected address. */
+  ecommerceAccounts: Record<string, EcommerceAccount>;
   settings: AppSettings;
   agents: Agent[];
   securityLog: SecurityEvent[];
@@ -75,6 +77,8 @@ interface PassportState {
   removeFromCart: (productId: string) => void;
   /** Pays the cart from an active spending session of this account and network. An agent never pays from the Main Wallet. */
   placeOrder: (input: { sessionId: string }) => ShopOrder;
+  loginEcommerce: (account: EcommerceAccount) => void;
+  logoutEcommerce: () => void;
   setOrderStatus: (id: string, from: ShopOrderStatus, to: ShopOrderStatus) => void;
   clearShop: () => void;
   approveAgent: (id: string) => void;
@@ -148,6 +152,10 @@ const withWallet = (s: PassportState, change: (w: MainWallet) => MainWallet) => 
 export const visibleOrders = (s: Pick<PassportState, 'orders' | 'context'>) =>
   s.orders.filter((o) => o.owner === s.context.address && o.network === s.context.network);
 
+/** The e-commerce login of the connected address, if it has logged in. */
+export const currentEcommerceAccount = (s: Pick<PassportState, 'ecommerceAccounts' | 'context'>) =>
+  s.context.address ? (s.ecommerceAccounts[s.context.address] ?? null) : null;
+
 const requirePass = (s: PassportState) => {
   const pass = selectedPass(s);
   if (!pass) throw new Error('Create a SignetPass first');
@@ -171,6 +179,7 @@ const initial = () => ({
   deposits: [] as Deposit[],
   cart: [] as CartLine[],
   orders: [] as ShopOrder[],
+  ecommerceAccounts: {} as Record<string, EcommerceAccount>,
   settings: SEED_SETTINGS,
   agents: [] as Agent[],
   securityLog: [] as SecurityEvent[],
@@ -270,6 +279,8 @@ export const usePassportStore = create<PassportState>()(
         const state = get();
         requireWallet(state);
         const { address, network } = state.context;
+        const account = currentEcommerceAccount(state);
+        if (!account?.shippingAddress) throw new Error('No shipping address available');
         const session = state.sessions.find((x) => x.id === sessionId);
         const pass = session && visiblePasses(state).find((p) => p.id === session.passId);
         if (!session || !pass) throw new Error('Spending session not found');
@@ -289,7 +300,7 @@ export const usePassportStore = create<PassportState>()(
           status: 'paid',
           lines: lines.map(({ product, quantity }) => ({ productId: product.id, name: product.name, price: product.price, quantity })),
           total: formatAtomic(cartTotal(lines)),
-          shipTo: SAMPLE_SHIP_TO,
+          shipTo: `${account.name} · ${account.shippingAddress}`,
           createdAt: now(),
         };
         const item: ActivityItem = {
@@ -313,6 +324,16 @@ export const usePassportStore = create<PassportState>()(
         }));
         return order;
       },
+
+      loginEcommerce: (account) =>
+        set((s) => (s.context.address ? { ecommerceAccounts: { ...s.ecommerceAccounts, [s.context.address]: account } } : s)),
+
+      logoutEcommerce: () =>
+        set((s) => {
+          if (!s.context.address) return s;
+          const { [s.context.address]: _gone, ...rest } = s.ecommerceAccounts;
+          return { ecommerceAccounts: rest };
+        }),
 
       // The merchant moves an order along. With no merchant yet, the Shopping page offers this as a preview control.
       setOrderStatus: (id, from, to) => set((s) => ({ orders: s.orders.map((o) => (o.id === id && o.status === from ? { ...o, status: to } : o)) })),

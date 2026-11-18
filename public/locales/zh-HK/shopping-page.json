@@ -84,6 +84,29 @@
     "increase": "增加 {{name}} 的數量",
     "quantity": "{{name}} 的數量"
   },
+  "account": {
+    "as": "已以 {{name}} 登入",
+    "ship-to": "寄往 {{address}}",
+    "no-address": "沒有可用的送貨地址",
+    "logout": "登出"
+  },
+  "login": {
+    "title": "登入你的電子商貿帳戶",
+    "description": "請登入你購物用的帳戶。",
+    "email": "電郵",
+    "password": "密碼",
+    "submit": "登入",
+    "logging-in": "登入中…",
+    "errors": {
+      "email": "請輸入有效的電郵",
+      "password": "請輸入密碼"
+    }
+  },
+  "merchant": {
+    "label": "商戶",
+    "all": "所有商戶",
+    "several": "多個商戶"
+  },
   "cart": {
     "label": "購物車",
     "empty-title": "購物車是空的",
@@ -137,18 +160,12 @@
     "progress": "訂單進度",
     "status": {
       "paid": "已付款",
-      "shipped": "已出貨",
-      "delivered": "已送達"
+      "shipped": "出貨",
+      "delivered": "送達"
     },
     "paid-from": "付款來源",
     "ship-to": "寄往",
     "total": "總額",
-    "preview": {
-      "note": "僅供預覽。此示範以外不會發送、收費或出貨。真實商戶會在付款後出貨。",
-      "ship": "預覽：出貨最早的已付款訂單",
-      "deliver": "預覽：送達最早的已出貨訂單",
-      "clear": "預覽：清空購物車和訂單",
-      "cleared": "已清空購物車和訂單"
-    }
+    "managed": "出貨及送貨流程由商戶管理。請登入你的電子商貿帳戶查看進度。"
   }
 }

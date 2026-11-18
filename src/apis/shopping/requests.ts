@@ -1,10 +1,25 @@
 import { mockDelay } from '@/lib/mock-delay';
-import { visibleOrders } from '@/stores/passport-store';
+import { currentEcommerceAccount, visibleOrders } from '@/stores/passport-store';
 import { mockRequest } from '../mock-transport';
-import type { PlaceOrderParams, SetCartQuantityParams, SetOrderStatusParams } from './types';
+import type { LoginEcommerceParams, PlaceOrderParams, SetCartQuantityParams, SetOrderStatusParams } from './types';
 
-/** The cart and the orders of the connected account on this network. */
-export const getShop = () => mockRequest((s) => ({ cart: s.cart, orders: visibleOrders(s) }));
+/** The cart, the orders of the connected account on this network, and its e-commerce login (null before it logged in). */
+export const getShop = () => mockRequest((s) => ({ cart: s.cart, orders: visibleOrders(s), account: currentEcommerceAccount(s) }));
+
+const titleCase = (word: string) => word.charAt(0).toUpperCase() + word.slice(1);
+
+/**
+ * Mock of the e-commerce site's login: any email and password get in, and the site answers with the shopper's name and
+ * shipping address. An email that starts with "noaddress" gets an account without an address.
+ */
+export const loginEcommerce = async ({ email }: LoginEcommerceParams) => {
+  await mockDelay();
+  const name = email.split('@')[0].split(/[._-]+/).filter(Boolean).map(titleCase).join(' ');
+  const shippingAddress = email.toLowerCase().startsWith('noaddress') ? '' : '12 Example Street, Springfield';
+  return mockRequest((s) => s.loginEcommerce({ email, name, shippingAddress }));
+};
+
+export const logoutEcommerce = () => mockRequest((s) => s.logoutEcommerce());
 
 export const addToCart = (productId: string) => mockRequest((s) => s.addToCart(productId));
 

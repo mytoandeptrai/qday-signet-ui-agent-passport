@@ -8,6 +8,7 @@ const ShopCheckoutContainer = () => {
       items={checkout.items}
       shops={checkout.shops}
       total={checkout.total}
+      shipTo={checkout.shipTo}
       token={checkout.token}
       passReady={checkout.passReady}
       agents={checkout.agents}

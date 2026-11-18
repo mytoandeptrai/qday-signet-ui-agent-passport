@@ -1,9 +1,6 @@
 import type { SpendingSession } from '@/types/passport';
 import { type CartLine, inStock, maxQuantity, pricedCart } from './cart';
 
-/** Illustrative shipping address; there is no address book. */
-export const SAMPLE_SHIP_TO = 'Home · 12 Example Street, Springfield';
-
 export type CheckoutProblem =
   | { code: 'empty' }
   | { code: 'unpayable'; name: string }

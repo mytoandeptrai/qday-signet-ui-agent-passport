@@ -1,5 +1,10 @@
 import type { ShopOrderStatus } from '@/types/passport';
 
+export interface LoginEcommerceParams {
+  email: string;
+  password: string;
+}
+
 export interface SetCartQuantityParams {
   productId: string;
   quantity: number;

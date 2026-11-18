@@ -3,11 +3,12 @@ import { DEFAULT_NETWORK, NETWORKS, PASS_FEE } from '@/constant';
 import type { TFunction } from 'i18next';
 import { getBalance } from '@/apis/account/requests';
 import { getSessionList } from '@/apis/sessions/requests';
+import { loginEcommerce } from '@/apis/shopping/requests';
 import { getInstallCode } from '@/apis/signetpass/requests';
 import { INSTALL_CODE_PLACEHOLDER, installCommand } from '@/mock/landing';
 import { createSignetPassFormSchema } from '@/modules/signetpass/hooks/schema';
 import { cartTotal, formatAtomic, pricedCart } from '@/modules/shopping/utils';
-import { currentMainWallet, selectedPass, usePassportStore, visibleOrders, visiblePasses } from '@/stores/passport-store';
+import { currentEcommerceAccount, currentMainWallet, selectedPass, usePassportStore, visibleOrders, visiblePasses } from '@/stores/passport-store';
 
 const ALICE = '0xalice';
 const BOB = '0xbob';
@@ -165,6 +166,7 @@ describe('Shopping', () => {
   const cartAmount = () => Number(formatAtomic(cartTotal(pricedCart(store().cart, 'base'))));
   /** An active pass funded with 500, and a session of the agent with the given limit and per-call limit. */
   const sessionOf = (limit: number, perCallLimit = limit, agent = 'Claude Code') => {
+    store().loginEcommerce({ email: 'alex@shop.test', name: 'Alex', shippingAddress: '1 Test Street' });
     createActive('Shopping');
     store().fundFromMain(500);
     return store().createSession({ task: 'Shopping', agent, limit, perCallLimit, durationHours: 1 });
@@ -183,6 +185,26 @@ describe('Shopping', () => {
     expect(store().activity[0]).toMatchObject({ sessionId: session.id, service: 'Shopping', amount, status: 'settled' });
     expect(store().cart).toEqual([]);
     expect(store().securityLog[0].type).toBe('shop-order');
+  });
+
+  it('ships to the name and address of the e-commerce login, and needs an address', () => {
+    const session = sessionOf(100);
+    store().addToCart(earbuds);
+    expect(store().placeOrder({ sessionId: session.id }).shipTo).toBe('Alex · 1 Test Street');
+    store().loginEcommerce({ email: 'noaddress@shop.test', name: 'Noaddress', shippingAddress: '' });
+    store().addToCart(earbuds);
+    expect(() => store().placeOrder({ sessionId: session.id })).toThrow('No shipping address');
+    store().logoutEcommerce();
+    expect(currentEcommerceAccount(store())).toBeNull();
+    store().setContext(BOB, 'base');
+    expect(currentEcommerceAccount(store())).toBeNull();
+  });
+
+  it('mocks the e-commerce login with a name and address from the email', async () => {
+    await loginEcommerce({ email: 'jane.doe@shop.test', password: 'x' });
+    expect(currentEcommerceAccount(store())).toMatchObject({ name: 'Jane Doe', shippingAddress: expect.stringContaining('Example Street') });
+    await loginEcommerce({ email: 'noaddress@shop.test', password: 'x' });
+    expect(currentEcommerceAccount(store())?.shippingAddress).toBe('');
   });
 
   it('refuses an empty cart and a session that cannot cover the order', () => {

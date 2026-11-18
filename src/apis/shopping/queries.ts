@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { KEYS } from './keys';
-import { addToCart, clearShop, getShop, placeOrder, removeFromCart, setCartQuantity, setOrderStatus } from './requests';
+import { addToCart, clearShop, getShop, loginEcommerce, logoutEcommerce, placeOrder, removeFromCart, setCartQuantity, setOrderStatus } from './requests';
 
 export const useGetShop = () => useQuery({ queryKey: [KEYS.SHOP], queryFn: getShop });
 
@@ -27,3 +27,9 @@ export const useSetOrderStatusMutation = () =>
 
 export const useClearShopMutation = () =>
   useMutation({ mutationKey: [KEYS.CLEAR], mutationFn: clearShop, onSuccess: useRefreshAll() });
+
+export const useLoginEcommerceMutation = () =>
+  useMutation({ mutationKey: [KEYS.LOGIN], mutationFn: loginEcommerce, onSuccess: useRefreshAll() });
+
+export const useLogoutEcommerceMutation = () =>
+  useMutation({ mutationKey: [KEYS.LOGOUT], mutationFn: logoutEcommerce, onSuccess: useRefreshAll() });

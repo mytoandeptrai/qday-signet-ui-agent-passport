@@ -4,7 +4,7 @@ import { SearchInput } from '@/components/ui/search-input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useTranslation } from '@/integrations/i18n';
 import { cn } from '@/lib/utils';
-import { SHOP_SORTS, type ShopSort } from '../../utils';
+import { ALL_MERCHANTS, SHOP_SORTS, type ShopSort } from '../../utils';
 
 export interface ShopFilterChip {
   key: string;
@@ -18,11 +18,15 @@ interface ShopSearchUiProps {
   searching: boolean;
   category?: string;
   categories: string[];
+  merchants: { id: string; name: string }[];
+  /** The merchant picked in the dropdown; '' when the Filters dialog picked several. */
+  merchantId: string;
   filterCount: number;
   chips: ShopFilterChip[];
   onSearchChange: (value: string) => void;
   onSortChange: (value: ShopSort) => void;
   onCategoryChange: (value?: string) => void;
+  onMerchantChange: (value: string) => void;
   onOpenFilters: () => void;
 }
 
@@ -32,11 +36,14 @@ const ShopSearchUi = ({
   searching,
   category,
   categories,
+  merchants,
+  merchantId,
   filterCount,
   chips,
   onSearchChange,
   onSortChange,
   onCategoryChange,
+  onMerchantChange,
   onOpenFilters,
 }: ShopSearchUiProps) => {
   const { t } = useTranslation('shopping-page');
@@ -51,6 +58,19 @@ const ShopSearchUi = ({
           maxLength={200}
           onChange={(e) => onSearchChange(e.target.value)}
         />
+        <Select value={merchantId} onValueChange={onMerchantChange}>
+          <SelectTrigger className='w-48' aria-label={t('merchant.label')}>
+            <SelectValue placeholder={t('merchant.several')} />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value={ALL_MERCHANTS}>{t('merchant.all')}</SelectItem>
+            {merchants.map((m) => (
+              <SelectItem key={m.id} value={m.id}>
+                {m.name}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
         <Select value={sort} onValueChange={(v) => onSortChange(v as ShopSort)}>
           <SelectTrigger className='w-48' aria-label={t('sort.label')}>
             <SelectValue />

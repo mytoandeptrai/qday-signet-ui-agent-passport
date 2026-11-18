@@ -84,6 +84,29 @@
     "increase": "Tambah kuantiti {{name}}",
     "quantity": "Kuantiti {{name}}"
   },
+  "account": {
+    "as": "Log masuk sebagai {{name}}",
+    "ship-to": "Hantar ke {{address}}",
+    "no-address": "Tiada alamat penghantaran tersedia",
+    "logout": "Log keluar"
+  },
+  "login": {
+    "title": "Log masuk ke akaun e-dagang anda",
+    "description": "Log masuk ke akaun yang anda gunakan untuk membeli-belah.",
+    "email": "E-mel",
+    "password": "Kata laluan",
+    "submit": "Log masuk",
+    "logging-in": "Sedang log masuk…",
+    "errors": {
+      "email": "Masukkan e-mel yang sah",
+      "password": "Masukkan kata laluan anda"
+    }
+  },
+  "merchant": {
+    "label": "Peniaga",
+    "all": "Semua peniaga",
+    "several": "Beberapa peniaga"
+  },
   "cart": {
     "label": "Troli",
     "empty-title": "Troli anda kosong",
@@ -137,18 +160,12 @@
     "progress": "Kemajuan pesanan",
     "status": {
       "paid": "Dibayar",
-      "shipped": "Dihantar",
-      "delivered": "Diterima"
+      "shipped": "Penghantaran",
+      "delivered": "Serahan"
     },
     "paid-from": "Dibayar daripada",
     "ship-to": "Hantar ke",
     "total": "Jumlah",
-    "preview": {
-      "note": "Pratonton sahaja. Tiada apa yang dihantar, dicaj atau dikirim di luar demo ini. Dengan pedagang sebenar, ia dikirim selepas pembayaran.",
-      "ship": "Pratonton: kirim pesanan dibayar terlama",
-      "deliver": "Pratonton: serah pesanan dikirim terlama",
-      "clear": "Pratonton: kosongkan troli dan pesanan",
-      "cleared": "Troli dan pesanan dikosongkan"
-    }
+    "managed": "Proses penghantaran dan serahan diuruskan oleh peniaga. Log masuk ke akaun e-dagang anda untuk mengikuti perkembangan."
   }
 }

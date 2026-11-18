@@ -49,7 +49,9 @@ export const useShopCheckoutContainer = () => {
 
   const cartProblem = checkoutProblem(cart, network.key, Number.POSITIVE_INFINITY);
   const sessionIssue = !agent ? null : !session ? 'expired' : sessionProblem(session, total, nowMs);
-  const canPay = passReady && !!agent && !!session && !cartProblem && !sessionIssue;
+  const account = shop?.account;
+  const hasAddress = !!account?.shippingAddress;
+  const canPay = hasAddress && passReady && !!agent && !!session && !cartProblem && !sessionIssue;
 
   const onPay = async () => {
     if (!canPay || !session) return;
@@ -75,6 +77,7 @@ export const useShopCheckoutContainer = () => {
     items: cartCount(cart),
     shops: new Set(lines.map((l) => l.product.merchant.id)).size,
     total: formatAtomic(atomicTotal),
+    shipTo: hasAddress ? `${account?.name} · ${account?.shippingAddress}` : undefined,
     token,
     passReady,
     agents: agentRows,

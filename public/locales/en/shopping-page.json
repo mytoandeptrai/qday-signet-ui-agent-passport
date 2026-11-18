@@ -89,6 +89,29 @@
     "increase": "Increase quantity of {{name}}",
     "quantity": "Quantity of {{name}}"
   },
+  "account": {
+    "as": "Logged in as {{name}}",
+    "ship-to": "Ship to {{address}}",
+    "no-address": "No shipping address available",
+    "logout": "Log out"
+  },
+  "login": {
+    "title": "Log in to your e-commerce account",
+    "description": "Log in to the account you shop with.",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Log in",
+    "logging-in": "Logging in…",
+    "errors": {
+      "email": "Enter a valid email",
+      "password": "Enter your password"
+    }
+  },
+  "merchant": {
+    "label": "Merchant",
+    "all": "All merchants",
+    "several": "Several merchants"
+  },
   "cart": {
     "label": "Cart",
     "empty-title": "Your cart is empty",
@@ -144,18 +167,12 @@
     "progress": "Order progress",
     "status": {
       "paid": "Paid",
-      "shipped": "Shipped",
-      "delivered": "Delivered"
+      "shipped": "Shipping",
+      "delivered": "Delivery"
     },
     "paid-from": "Paid from",
     "ship-to": "Ship to",
     "total": "Total",
-    "preview": {
-      "note": "Preview only. Nothing is sent, charged or shipped outside this demo. With a real merchant, it ships after payment.",
-      "ship": "Preview: ship the oldest paid order",
-      "deliver": "Preview: deliver the oldest shipped order",
-      "clear": "Preview: clear cart and orders",
-      "cleared": "Cart and orders cleared"
-    }
+    "managed": "Shipping and delivery processes are managed by the merchant. Login to your e-commerce account to follow the progress."
   }
 }

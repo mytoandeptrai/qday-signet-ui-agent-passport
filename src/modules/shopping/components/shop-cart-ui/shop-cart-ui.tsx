@@ -11,6 +11,7 @@ interface ShopCartUiProps {
   token: string;
   chainName: string;
   hasUnpayable: boolean;
+  hasAddress: boolean;
   onQuantity: (productId: string, quantity: number) => void;
   onRemove: (productId: string) => void;
   onCheckout: () => void;
@@ -23,6 +24,7 @@ const ShopCartUi = ({
   token,
   chainName,
   hasUnpayable,
+  hasAddress,
   onQuantity,
   onRemove,
   onCheckout,
@@ -87,9 +89,10 @@ const ShopCartUi = ({
           {t('cart.unpayable', { chain: chainName })}
         </p>
       )}
-      <Button className='mt-4' disabled={hasUnpayable} onClick={onCheckout}>
+      <Button className='mt-4' disabled={hasUnpayable || !hasAddress} onClick={onCheckout}>
         {t('cart.checkout', { total: formatAtomic(total), token })}
       </Button>
+      {!hasAddress && <p className='mt-2 text-small text-muted-foreground'>{t('account.no-address')}</p>}
     </div>
   );
 };

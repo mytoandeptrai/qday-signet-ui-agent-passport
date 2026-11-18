@@ -35,6 +35,9 @@ export function relevance(product: ShopProduct, words: string[]): number {
   return score;
 }
 
+/** The merchant dropdown's value for "every merchant". */
+export const ALL_MERCHANTS = 'all';
+
 export const MAX_TAGS = 5;
 export const MAX_MERCHANT_FILTER = 50;
 

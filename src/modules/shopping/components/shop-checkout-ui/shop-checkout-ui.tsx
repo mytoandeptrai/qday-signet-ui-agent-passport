@@ -5,7 +5,7 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { useTranslation } from '@/integrations/i18n';
 import type { SignStatus } from '@/integrations/wallet';
 import { money } from '@/lib/format';
-import { type CheckoutProblem, SAMPLE_SHIP_TO, type SessionProblem } from '../../utils';
+import type { CheckoutProblem, SessionProblem } from '../../utils';
 
 export interface CheckoutAgent {
   name: string;
@@ -21,6 +21,7 @@ interface ShopCheckoutUiProps {
   items: number;
   shops: number;
   total: string;
+  shipTo?: string;
   token: string;
   passReady: boolean;
   agents: CheckoutAgent[];
@@ -44,6 +45,7 @@ const ShopCheckoutUi = ({
   items,
   shops,
   total,
+  shipTo,
   token,
   passReady,
   agents,
@@ -77,7 +79,7 @@ const ShopCheckoutUi = ({
         </div>
         <div className='flex items-center justify-between gap-3 px-4 py-3'>
           <dt className='text-muted-foreground'>{t('checkout.ship-to')}</dt>
-          <dd className='text-right'>{SAMPLE_SHIP_TO}</dd>
+          <dd className={shipTo ? 'text-right' : 'text-right text-muted-foreground'}>{shipTo ?? t('account.no-address')}</dd>
         </div>
       </dl>
       <fieldset disabled={isLoading} className='min-w-0'>

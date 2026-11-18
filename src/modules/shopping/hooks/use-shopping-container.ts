@@ -1,18 +1,22 @@
+import { zodResolver } from '@hookform/resolvers/zod';
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import {
   useAddToCartMutation,
-  useClearShopMutation,
   useGetShop,
+  useLoginEcommerceMutation,
+  useLogoutEcommerceMutation,
   useRemoveFromCartMutation,
   useSetCartQuantityMutation,
-  useSetOrderStatusMutation,
 } from '@/apis/shopping';
 import { useGetMainWallet } from '@/apis/wallet';
 import { NETWORKS } from '@/constant';
 import { useAppDialog } from '@/hooks/use-app-dialog';
 import { useTranslation } from '@/integrations/i18n';
+import { type EcommerceLoginFormData, ecommerceLoginSchema, initialEcommerceLoginFormData } from './schema';
 import {
+  ALL_MERCHANTS,
   SHOP_PAGE_SIZE,
   type ShopFilters,
   type ShopProduct,
@@ -43,14 +47,20 @@ export const useShoppingContainer = () => {
   const addToCart = useAddToCartMutation();
   const setQuantity = useSetCartQuantityMutation();
   const removeFromCart = useRemoveFromCartMutation();
-  const setOrderStatus = useSetOrderStatusMutation();
-  const clearShop = useClearShopMutation();
+  const login = useLoginEcommerceMutation();
+  const logout = useLogoutEcommerceMutation();
+  const loginForm = useForm<EcommerceLoginFormData>({
+    resolver: zodResolver(ecommerceLoginSchema(t)),
+    defaultValues: initialEcommerceLoginFormData,
+    mode: 'onChange',
+  });
 
   const network = NETWORKS[mainWallet?.network ?? 'base'];
   const chainId = network.key;
   const token = network.token.symbol;
   const cart = shop?.cart ?? [];
   const orders = shop?.orders ?? [];
+  const account = shop?.account ?? null;
 
   const [tab, setTab] = useState<ShopTab>('browse');
   const [search, setSearch] = useState('');
@@ -112,7 +122,6 @@ export const useShoppingContainer = () => {
   ];
 
   const lines = pricedCart(cart, chainId);
-  const oldest = (status: 'paid' | 'shipped') => [...orders].reverse().find((o) => o.status === status);
   const resetPage = () => setShown(SHOP_PAGE_SIZE);
 
   return {
@@ -128,6 +137,12 @@ export const useShoppingContainer = () => {
     searching,
     category: filters.category,
     categories: shopCategories(chainId),
+    merchants: shopMerchants(chainId),
+    // The dropdown picks one merchant; several picked in the Filters dialog read as none of the options.
+    merchantId: filters.merchantIds.length === 0 ? ALL_MERCHANTS : filters.merchantIds.length === 1 ? filters.merchantIds[0] : '',
+    account,
+    loginForm,
+    isLoggingIn: login.isPending,
     filters,
     filterCount,
     filtered: searching || filterCount > 0,
@@ -141,11 +156,8 @@ export const useShoppingContainer = () => {
     total: cartTotal(lines),
     hasUnpayable: lines.some((line) => !line.payable),
     orders,
-    canShip: !!oldest('paid'),
-    canDeliver: !!oldest('shipped'),
     quantityOf: (id: string) => cart.find((l) => l.productId === id)?.quantity ?? 0,
     onTabChange: (value: string) => setTab(value as ShopTab),
-    onOpenCart: () => setTab('cart'),
     onBrowse: () => setTab('browse'),
     onSearchChange: (value: string) => {
       setSearch(value);
@@ -159,6 +171,15 @@ export const useShoppingContainer = () => {
       setFilters((f) => ({ ...f, category: value }));
       resetPage();
     },
+    onMerchantChange: (value: string) => {
+      setFilters((f) => ({ ...f, merchantIds: value === ALL_MERCHANTS ? [] : [value] }));
+      resetPage();
+    },
+    onLogin: async (values: EcommerceLoginFormData) => {
+      await login.mutateAsync(values);
+      loginForm.reset(initialEcommerceLoginFormData);
+    },
+    onLogout: () => logout.mutate(),
     onApplyFilters: (next: ShopFilters) => {
       setFilters(next);
       resetPage();
@@ -183,17 +204,5 @@ export const useShoppingContainer = () => {
     onQuantity: (productId: string, quantity: number) => setQuantity.mutate({ productId, quantity }),
     onRemove: (productId: string) => removeFromCart.mutate(productId),
     onCheckout: () => open('shop-checkout'),
-    onShip: () => {
-      const order = oldest('paid');
-      if (order) setOrderStatus.mutate({ id: order.id, from: 'paid', to: 'shipped' });
-    },
-    onDeliver: () => {
-      const order = oldest('shipped');
-      if (order) setOrderStatus.mutate({ id: order.id, from: 'shipped', to: 'delivered' });
-    },
-    onClear: () => {
-      clearShop.mutate();
-      toast.success(t('orders.preview.cleared'));
-    },
   };
 };
