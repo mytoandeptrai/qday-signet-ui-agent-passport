@@ -7,7 +7,9 @@
       "placeholder": "12名のチームディナー"
     },
     "agent": {
-      "label": "エージェント"
+      "label": "エージェント",
+      "empty": "登録済みのエージェントがありません",
+      "register": "エージェントを登録"
     },
     "limit": {
       "label": "セッション上限（USD）"

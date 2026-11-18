@@ -7,7 +7,9 @@
       "placeholder": "12 人團體晚餐"
     },
     "agent": {
-      "label": "代理"
+      "label": "代理",
+      "empty": "尚未登記任何代理",
+      "register": "登記代理"
     },
     "limit": {
       "label": "會話上限（USD）"

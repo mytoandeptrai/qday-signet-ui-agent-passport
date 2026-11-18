@@ -7,7 +7,9 @@
       "placeholder": "Team dinner for 12"
     },
     "agent": {
-      "label": "Agent"
+      "label": "Agent",
+      "empty": "No Agent registered yet",
+      "register": "Register an Agent"
     },
     "limit": {
       "label": "Session limit (USD)"

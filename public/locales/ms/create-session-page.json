@@ -7,7 +7,9 @@
       "placeholder": "Makan malam pasukan untuk 12 orang"
     },
     "agent": {
-      "label": "Ejen"
+      "label": "Ejen",
+      "empty": "Belum ada ejen didaftarkan",
+      "register": "Daftarkan ejen"
     },
     "limit": {
       "label": "Had sesi (USD)"

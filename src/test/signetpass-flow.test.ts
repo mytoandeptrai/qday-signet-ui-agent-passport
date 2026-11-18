@@ -242,3 +242,14 @@ describe('install code', () => {
     await expect(getInstallCode({ passId: pass.id })).resolves.toEqual({ code: expect.stringMatching(/^SGN-/) });
   });
 });
+
+describe('agents (mock)', () => {
+  it('lists registered and pending agents for a pass once it is activated', () => {
+    const pass = createActive('Shopping');
+    expect(store().agents.filter((a) => a.passId === pass.id).map((a) => [a.name, a.status])).toEqual([
+      ['Claude Code', 'active'],
+      ['Codex', 'active'],
+      ['Cursor', 'pending'],
+    ]);
+  });
+});

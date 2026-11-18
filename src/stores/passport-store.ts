@@ -18,6 +18,7 @@ import {
 import type {
   ActivityItem,
   Agent,
+  AgentStatus,
   AppSettings,
   Balance,
   CreateSessionInput,
@@ -87,6 +88,21 @@ interface PassportState {
 
 const uid = (prefix: string) => `${prefix}_${Math.random().toString(36).slice(2, 8)}`;
 const now = () => new Date().toISOString();
+
+/** Mock: the agents a backend would already list for a freshly activated pass. */
+const mockAgents = (passId: string): Agent[] =>
+  [
+    { name: 'Claude Code', status: 'active' },
+    { name: 'Codex', status: 'active' },
+    { name: 'Cursor', status: 'pending' },
+  ].map(({ name, status }) => ({
+    id: uid('agt'),
+    passId,
+    name,
+    status: status as AgentStatus,
+    requestedAt: now(),
+    ...(status === 'active' && { approvedAt: now() }),
+  }));
 const logged = (type: SecurityEventType, detail: string, log: SecurityEvent[]): SecurityEvent[] => [
   { id: uid('sec'), type, detail, createdAt: now() },
   ...log,
@@ -210,6 +226,7 @@ export const usePassportStore = create<PassportState>()(
         if (pass.status === 'active') return;
         set((s) => ({
           passes: s.passes.map((p) => (p.id === id ? { ...p, status: 'active' } : p)),
+          agents: [...mockAgents(id), ...s.agents],
           securityLog: logged('signetpass-activated', `${pass.name} · ${pass.address}`, s.securityLog),
         }));
       },
