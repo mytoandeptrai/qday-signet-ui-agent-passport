@@ -65,11 +65,15 @@
     "address-copied": "已複製地址",
     "install": {
       "title": "安裝 Signet CLI",
-      "description": "複製此指令並在代理的終端機執行。它會安裝 Signet，並將代理登記到此 SignetPass。",
+      "description": "取得安裝碼，然後複製完整的安裝指令並貼到代理的終端機。觀看教學中的各種例子，了解如何在不同情境下讓代理與 SignetPass 互動。",
       "copy-aria": "複製安裝指令",
       "copied": "已複製，請貼到代理的終端機。",
       "on-windows": "使用 Windows？",
-      "on-unix": "使用 macOS 或 Linux？"
+      "on-unix": "使用 macOS 或 Linux？",
+      "get-code": "取得安裝碼",
+      "getting-code": "正在取得…",
+      "needs-pass": "請先建立並啟用 SignetPass，才能取得安裝碼。",
+      "without-code": "沒有安裝碼時，指令仍會安裝 Signet，但你的代理將沒有任何操作。"
     },
     "next": {
       "title": "支出",

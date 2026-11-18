@@ -3,6 +3,8 @@ import { DEFAULT_NETWORK, NETWORKS, PASS_FEE } from '@/constant';
 import type { TFunction } from 'i18next';
 import { getBalance } from '@/apis/account/requests';
 import { getSessionList } from '@/apis/sessions/requests';
+import { getInstallCode } from '@/apis/signetpass/requests';
+import { INSTALL_CODE_PLACEHOLDER, installCommand } from '@/mock/landing';
 import { createSignetPassFormSchema } from '@/modules/signetpass/hooks/schema';
 import { cartTotal, formatAtomic, pricedCart } from '@/modules/shopping/utils';
 import { currentMainWallet, selectedPass, usePassportStore, visibleOrders, visiblePasses } from '@/stores/passport-store';
@@ -224,5 +226,19 @@ describe('Shopping', () => {
     expect(visibleOrders(store())).toHaveLength(0);
     store().setContext(ALICE, 'base');
     expect(visibleOrders(store())).toHaveLength(1);
+  });
+});
+
+describe('install code', () => {
+  it('goes into the macOS/Linux and Windows commands', () => {
+    expect(installCommand('ABC', false)).toBe('curl -fsSL https://cli.qday.info/install.sh | sh -s -- ABC');
+    expect(installCommand(INSTALL_CODE_PLACEHOLDER, true)).toBe("$env:QDAY_CODE='<INSTALL_CODE>'; irm https://cli.qday.info/install.ps1 | iex");
+  });
+
+  it('is only issued for an active SignetPass', async () => {
+    const pass = store().createSignetPass({ name: 'Shopping' });
+    await expect(getInstallCode({ passId: pass.id })).rejects.toThrow('not active');
+    store().activateSignetPass(pass.id);
+    await expect(getInstallCode({ passId: pass.id })).resolves.toEqual({ code: expect.stringMatching(/^SGN-/) });
   });
 });

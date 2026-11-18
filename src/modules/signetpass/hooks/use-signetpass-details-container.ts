@@ -21,7 +21,7 @@ export const useSignetpassDetailsContainer = () => {
   const { data: passes } = useGetSignetPasses();
   const { mutate: selectPass } = useSelectSignetPassMutation();
   const rename = useRenameSignetPassMutation();
-  const install = useInstallPrompt();
+  const install = useInstallPrompt(pass);
   const [renaming, setRenaming] = useState(false);
 
   // Sessions, Agents and Activity follow the selected pass, so opening a pass selects it.
@@ -62,12 +62,10 @@ export const useSignetpassDetailsContainer = () => {
     pass,
     isLoading,
     network: NETWORKS[pass?.network ?? 'base'],
-    prompt: install.prompt,
-    windows: install.windows,
+    install,
     renaming,
     form,
     isRenaming: rename.isPending,
-    onToggleWindows: install.onToggleWindows,
     onCopyInstall,
     onOpenRename,
     onCloseRename: () => setRenaming(false),

@@ -1,7 +1,8 @@
 import { useGetAgentList, useRevokeAgentMutation } from '@/apis/agents';
 import { useAppDialog } from '@/hooks/use-app-dialog';
 import { useTranslation } from '@/integrations/i18n';
-import { INSTALL_PROMPT } from '@/mock/landing';
+import { useGetSignetPasses } from '@/apis/signetpass';
+import { useInstallPrompt } from '@/modules/signetpass/hooks';
 import { useState } from 'react';
 import { toast } from 'sonner';
 
@@ -9,10 +10,17 @@ export const useAgentsContainer = () => {
   const { t } = useTranslation('agents-page');
   const { open } = useAppDialog();
   const { data: agents = [] } = useGetAgentList();
+  const { data: signetPasses } = useGetSignetPasses();
+  const install = useInstallPrompt(signetPasses?.selected);
   const revoke = useRevokeAgentMutation();
   const [revokeId, setRevokeId] = useState<string>();
 
   const target = agents.find((a) => a.id === revokeId);
+
+  const onCopyInstall = () => {
+    install.copyPrompt();
+    toast.success(t('details.install.copied', { ns: 'signetpass-page' }));
+  };
 
   const onConfirmRevoke = async () => {
     if (!target) return;
@@ -23,7 +31,8 @@ export const useAgentsContainer = () => {
 
   return {
     t,
-    prompt: INSTALL_PROMPT,
+    install,
+    onCopyInstall,
     pending: agents.filter((a) => a.status === 'pending'),
     registered: agents.filter((a) => a.status !== 'pending'),
     target,

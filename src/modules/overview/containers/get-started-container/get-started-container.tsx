@@ -47,8 +47,8 @@ const GetStartedContainer = ({ step, open, onSelectStep, onToggleOpen }: GetStar
             {stepId === 'signetpass' && <GetStartedSignetpassUi created={signetPassCreated} needsActivation={signetPassNeedsActivation} onCreate={onCreateSignetPass} onActivate={onActivateSignetPass} />}
             {stepId === 'move' && <GetStartedActionUi text={t('get-started.text.move')} actionLabel={t('get-started.actions.move')} onAction={onMoveFunds} />}
             {stepId === 'agent' && <GetStartedAgentUi text={t('get-started.text.agent')} />}
-            {stepId === 'install' && <GetStartedInstallUi text={t('get-started.text.install')} prompt={install.prompt} windows={install.windows} onCopy={onCopyInstall} onToggleWindows={install.onToggleWindows} />}
-            {stepId === 'connect' && <GetStartedInstallUi text={t('get-started.text.connect')} prompt={install.prompt} windows={install.windows} onCopy={onCopyInstall} onToggleWindows={install.onToggleWindows} />}
+            {stepId === 'install' && <GetStartedInstallUi text={t('get-started.text.install')} prompt={install.prompt} windows={install.windows} hasCode={install.hasCode} canGetCode={install.canGetCode} isGettingCode={install.isGettingCode} onGetCode={install.onGetCode} onCopy={onCopyInstall} onToggleWindows={install.onToggleWindows} />}
+            {stepId === 'connect' && <GetStartedInstallUi text={t('get-started.text.connect')} prompt={install.prompt} windows={install.windows} hasCode={install.hasCode} canGetCode={install.canGetCode} isGettingCode={install.isGettingCode} onGetCode={install.onGetCode} onCopy={onCopyInstall} onToggleWindows={install.onToggleWindows} />}
             {stepId === 'session' && <GetStartedActionUi text={t('get-started.text.session')} actionLabel={t('get-started.actions.session')} onAction={onCreateSession} />}
           </div>
         </div>

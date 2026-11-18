@@ -1,8 +1,17 @@
 import type { LandingLedgerRow, LandingMoment } from '@/types/passport';
 
 export const BRAND = 'Signet';
-export const INSTALL_COMMAND = 'curl -fsSL https://signet.example/install.sh | bash';
-export const INSTALL_PROMPT = `Install Signet: run \`${INSTALL_COMMAND}\`. It adds the signet command and the Signet skills, and you can read the script first. When it finishes, tell me in plain words what it printed, including the examples and the part about ideas for my own work.`;
+export const INSTALL_COMMAND = 'curl -fsSL https://cli.qday.info/install.sh | sh';
+export const INSTALL_CODE_PLACEHOLDER = '<INSTALL_CODE>';
+
+/** The install command with a code from the backend. Without a code the CLI still installs, but has no operations. */
+export const installCommand = (code: string, windows: boolean) =>
+  windows ? `$env:QDAY_CODE='${code}'; irm https://cli.qday.info/install.ps1 | iex` : `${INSTALL_COMMAND} -s -- ${code}`;
+
+export const installPrompt = (command: string) =>
+  `Install Signet: run \`${command}\`. It adds the signet command and the Signet skills, and you can read the script first. When it finishes, tell me in plain words what it printed, including the examples and the part about ideas for my own work.`;
+
+export const INSTALL_PROMPT = installPrompt(INSTALL_COMMAND);
 
 export const HERO_WORDS = ['shopping', 'APIs', 'leads'] as const;
 

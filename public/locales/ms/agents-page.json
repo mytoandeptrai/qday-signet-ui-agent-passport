@@ -3,7 +3,7 @@
   "description": "Daftarkan ejen AI yang berbelanja daripada SignetPass anda. Anda meluluskan setiap satu dalam dompet anda.",
   "connect": {
     "title": "Sambungkan ejen",
-    "hint": "Tampal ini ke dalam ejen pengekodan anda. Ia akan meminta pendaftaran, dan permintaan muncul di bawah."
+    "hint": "Dapatkan kod pemasangan, kemudian tampal arahan penuh ke dalam ejen pengekodan anda. Ia akan meminta pendaftaran, dan permintaan muncul di bawah."
   },
   "pending": {
     "title": "Menunggu kelulusan",

@@ -65,11 +65,15 @@
     "address-copied": "Alamat disalin",
     "install": {
       "title": "Pasang Signet CLI",
-      "description": "Salin arahan ini dan jalankan dalam terminal ejen anda. Ia memasang Signet dan mendaftarkan ejen ke SignetPass ini.",
+      "description": "Dapatkan kod pemasangan anda, kemudian salin arahan pemasangan penuh dan tampal dalam terminal ejen anda. Tonton pelbagai contoh dalam tutorial untuk belajar cara ejen anda berinteraksi dengan SignetPass dalam pelbagai kes penggunaan.",
       "copy-aria": "Salin arahan pemasangan",
       "copied": "Disalin. Tampalkan ke dalam terminal ejen anda.",
       "on-windows": "Guna Windows?",
-      "on-unix": "Guna macOS atau Linux?"
+      "on-unix": "Guna macOS atau Linux?",
+      "get-code": "Dapatkan kod pemasangan",
+      "getting-code": "Mendapatkan kod…",
+      "needs-pass": "Cipta dan aktifkan SignetPass untuk mendapatkan kod pemasangan.",
+      "without-code": "Tanpa kod pemasangan, arahan ini masih memasang Signet, tetapi ejen anda tidak akan mempunyai sebarang operasi."
     },
     "next": {
       "title": "Perbelanjaan",

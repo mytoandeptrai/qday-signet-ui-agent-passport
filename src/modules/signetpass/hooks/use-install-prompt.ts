@@ -1,19 +1,42 @@
 import { useCompleteOnboardingMutation } from '@/apis/account';
-import { INSTALL_PROMPT } from '@/mock/landing';
+import { useGetInstallCodeMutation } from '@/apis/signetpass';
+import { INSTALL_CODE_PLACEHOLDER, installCommand, installPrompt } from '@/mock/landing';
+import type { SignetPass } from '@/types/passport';
 import { useState } from 'react';
 
-const WINDOWS_PROMPT = INSTALL_PROMPT.replace('curl -fsSL https://signet.example/install.sh | bash', 'irm https://signet.example/install.ps1 | iex');
-
-/** The command that installs Signet in an agent's terminal, for macOS/Linux or Windows. Copying it counts as connecting the agent. */
-export const useInstallPrompt = () => {
+/**
+ * The command that installs Signet in an agent's terminal, for macOS/Linux or Windows. The command carries an install
+ * code from the backend, which links the CLI to one active SignetPass. Copying it counts as connecting the agent.
+ */
+export const useInstallPrompt = (pass?: SignetPass | null) => {
   const completeOnboarding = useCompleteOnboardingMutation();
+  const getCode = useGetInstallCodeMutation();
   const [windows, setWindows] = useState(false);
-  const prompt = windows ? WINDOWS_PROMPT : INSTALL_PROMPT;
+  const [issued, setIssued] = useState<{ passId: string; code: string }>();
+
+  // A code belongs to the pass it was issued for, so switching pass drops it.
+  const code = issued?.passId === pass?.id ? issued?.code : undefined;
+  const prompt = installPrompt(installCommand(code ?? INSTALL_CODE_PLACEHOLDER, windows));
+
+  const onGetCode = async () => {
+    if (!pass) return;
+    const { code: next } = await getCode.mutateAsync({ passId: pass.id });
+    setIssued({ passId: pass.id, code: next });
+  };
 
   const copyPrompt = () => {
     navigator.clipboard?.writeText(prompt).catch(() => undefined);
     completeOnboarding.mutate('connected');
   };
 
-  return { prompt, windows, onToggleWindows: () => setWindows((w) => !w), copyPrompt };
+  return {
+    prompt,
+    windows,
+    hasCode: code !== undefined,
+    canGetCode: pass?.status === 'active',
+    isGettingCode: getCode.isPending,
+    onToggleWindows: () => setWindows((w) => !w),
+    onGetCode,
+    copyPrompt,
+  };
 };

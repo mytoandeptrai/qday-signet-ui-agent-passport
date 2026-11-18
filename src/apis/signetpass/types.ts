@@ -20,6 +20,10 @@ export interface SelectSignetPassParams {
   id: string;
 }
 
+export interface GetInstallCodeParams {
+  passId: string;
+}
+
 export interface FundFromMainParams {
   amount: number;
 }

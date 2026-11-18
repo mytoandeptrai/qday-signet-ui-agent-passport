@@ -16,10 +16,10 @@ type UseGetStartedContainerParams = {
 
 export const useGetStartedContainer = ({ step }: UseGetStartedContainerParams) => {
   const { t } = useTranslation('overview-page');
-  const install = useInstallPrompt();
   const { data: wallet } = useGetMainWallet();
   const { data: onboarding } = useGetOnboarding();
   const { data: signetPasses } = useGetSignetPasses();
+  const install = useInstallPrompt(signetPasses?.selected);
   const { data: sessions = [] } = useGetSessionList();
   const { open } = useAppDialog();
 

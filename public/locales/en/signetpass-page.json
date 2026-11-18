@@ -65,11 +65,15 @@
     "address-copied": "Address copied",
     "install": {
       "title": "Install Signet CLI",
-      "description": "Copy this command and run it in your agent's terminal. It installs Signet and registers the agent to this SignetPass.",
+      "description": "Get your install code, then copy the full installation command and paste it in your agent terminal. Watch the different examples in the tutorial to learn how to interact your agent with the SignetPass in different use cases.",
       "copy-aria": "Copy the install command",
       "copied": "Copied. Paste it into your agent terminal.",
       "on-windows": "On Windows?",
-      "on-unix": "On macOS or Linux?"
+      "on-unix": "On macOS or Linux?",
+      "get-code": "Get install code",
+      "getting-code": "Getting code…",
+      "needs-pass": "Create and activate a SignetPass to get an install code.",
+      "without-code": "Without an install code, the command still installs Signet, but your agent will have no operations."
     },
     "next": {
       "title": "Spending",

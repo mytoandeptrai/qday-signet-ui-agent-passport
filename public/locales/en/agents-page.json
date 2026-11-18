@@ -3,7 +3,7 @@
   "description": "Register the AI agents that spend from your SignetPass. You approve each one in your wallet.",
   "connect": {
     "title": "Connect an agent",
-    "hint": "Paste this into your coding agent. It will ask to register, and the request appears below."
+    "hint": "Get an install code, then paste the full command into your coding agent. It will ask to register, and the request appears below."
   },
   "pending": { "title": "Waiting for approval", "empty": "No registration requests." },
   "registered": { "title": "Registered agents", "empty": "No agents yet." },

@@ -14,12 +14,10 @@ const SignetpassDetailsContainer = () => {
     pass,
     isLoading,
     network,
-    prompt,
-    windows,
+    install,
     renaming,
     form,
     isRenaming,
-    onToggleWindows,
     onCopyInstall,
     onOpenRename,
     onCloseRename,
@@ -49,7 +47,16 @@ const SignetpassDetailsContainer = () => {
         }
       />
       <SignetpassBalanceUi pass={pass} network={network} onAddFunds={onAddFunds} onActivate={onActivate} />
-      <SignetpassInstallUi prompt={prompt} windows={windows} onCopy={onCopyInstall} onToggleWindows={onToggleWindows} />
+      <SignetpassInstallUi
+        prompt={install.prompt}
+        windows={install.windows}
+        hasCode={install.hasCode}
+        canGetCode={install.canGetCode}
+        isGettingCode={install.isGettingCode}
+        onGetCode={install.onGetCode}
+        onCopy={onCopyInstall}
+        onToggleWindows={install.onToggleWindows}
+      />
       <SignetpassNextUi canCreateSession={pass.status === 'active'} onCreateSession={onCreateSession} />
       <Modal isOpen={renaming} title={t('details.rename.title')} description={t('details.rename.description')} onClose={onCloseRename}>
         <FormWrapper form={form} onSubmit={onRename}>

@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { KEYS } from './keys';
-import { activateSignetPass, createSignetPass, fundFromMain, getSignetPass, getSignetPasses, renameSignetPass, selectSignetPass } from './requests';
+import { activateSignetPass, createSignetPass, fundFromMain, getInstallCode, getSignetPass, getSignetPasses, renameSignetPass, selectSignetPass } from './requests';
 
 export const useGetSignetPasses = () =>
   useQuery({
@@ -32,3 +32,6 @@ export const useSelectSignetPassMutation = () =>
 
 export const useFundFromMainMutation = () =>
   useMutation({ mutationKey: [KEYS.FUND], mutationFn: fundFromMain, onSuccess: useRefreshAll() });
+
+// Reads nothing back into the store, so no refresh.
+export const useGetInstallCodeMutation = () => useMutation({ mutationKey: [KEYS.INSTALL_CODE], mutationFn: getInstallCode });
