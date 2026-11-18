@@ -25,8 +25,7 @@ const AppHeaderAccount = () => {
       </DropdownMenuTrigger>
       <DropdownMenuContent align='end' className='w-56'>
         <DropdownMenuLabel className='font-normal'>
-          <div className='text-body font-medium'>{user?.name}</div>
-          <div className='text-caption text-muted-foreground'>{user?.email}</div>
+          <div className='text-body font-medium'>{user?.email}</div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem onSelect={() => onNavigate(ROUTES.SETTINGS)}>{t('account.settings')}</DropdownMenuItem>

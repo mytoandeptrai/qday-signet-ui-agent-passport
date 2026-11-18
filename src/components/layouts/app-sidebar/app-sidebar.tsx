@@ -48,7 +48,7 @@ const AppSidebar = () => {
         <AppSidebarSignetPass />
         {groups.map(({ label, items }) => (
           <SidebarGroup key={label ?? 'main'}>
-            {label && <SidebarGroupLabel className='px-3 text-small font-medium text-muted-foreground'>{label}</SidebarGroupLabel>}
+            {label && <SidebarGroupLabel className='px-3 text-small font-semibold text-foreground'>{label}</SidebarGroupLabel>}
             <SidebarMenu>
               {items.map(({ url, title, icon: Icon }) => (
                 <SidebarMenuItem key={url}>

@@ -21,18 +21,6 @@ export interface NetworkConfig {
 // QDay is not a known chain, so it comes from env. Base is built into viem/wagmi, so it needs no env.
 // The QDay chain id and USD8 decimals fall back to placeholders until the testnet details are confirmed.
 export const NETWORKS: Record<NetworkKey, NetworkConfig> = {
-  qday: {
-    key: 'qday',
-    name: 'QDay',
-    chainId: Number(import.meta.env.VITE_QDAY_CHAIN_ID ?? 0),
-    rpcUrl: import.meta.env.VITE_QDAY_RPC_URL,
-    explorerUrl: import.meta.env.VITE_QDAY_EXPLORER_URL,
-    token: { symbol: 'USD8', decimals: Number(import.meta.env.VITE_QDAY_USD8_DECIMALS || 8) },
-    nativeSymbol: 'QDAY',
-    testnet: true,
-    testnetName: 'Aevum Testnet',
-    enabled: true,
-  },
   base: {
     key: 'base',
     name: 'Base',
@@ -43,6 +31,18 @@ export const NETWORKS: Record<NetworkKey, NetworkConfig> = {
     nativeSymbol: 'ETH',
     testnet: true,
     testnetName: 'Sepolia Testnet',
+    enabled: true,
+  },
+  qday: {
+    key: 'qday',
+    name: 'QDay',
+    chainId: Number(import.meta.env.VITE_QDAY_CHAIN_ID ?? 0),
+    rpcUrl: import.meta.env.VITE_QDAY_RPC_URL,
+    explorerUrl: import.meta.env.VITE_QDAY_EXPLORER_URL,
+    token: { symbol: 'USD8', decimals: Number(import.meta.env.VITE_QDAY_USD8_DECIMALS || 8) },
+    nativeSymbol: 'QDAY',
+    testnet: true,
+    testnetName: 'Aevum Testnet',
     enabled: true,
   },
 };

@@ -29,10 +29,10 @@ export const useWalletContainer = () => {
   const network = NETWORKS[wallet?.network ?? 'base'];
   // The gas token has no balance in the demo; the stablecoin is the one Send, Receive and SignetPasses use.
   const tokens: WalletToken[] = [
-    { id: 'native', symbol: network.nativeSymbol, amount: '0.00' },
     { id: 'stable', symbol: network.token.symbol, amount: money(wallet?.balance ?? 0) },
+    { id: 'native', symbol: network.nativeSymbol, amount: '0.00' },
   ];
-  const selected = tokens.find((token) => token.id === tokenId) ?? tokens[1];
+  const selected = tokens.find((token) => token.id === tokenId) ?? tokens[0];
 
   return {
     t,

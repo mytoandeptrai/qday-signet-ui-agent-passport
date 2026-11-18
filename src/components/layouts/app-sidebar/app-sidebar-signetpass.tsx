@@ -25,7 +25,7 @@ const AppSidebarSignetPass = () => {
 
   return (
     <SidebarGroup>
-      <SidebarGroupLabel className='px-3 text-small font-medium text-muted-foreground'>{t('nav.signetpass')}</SidebarGroupLabel>
+      <SidebarGroupLabel className='px-3 text-small font-semibold text-foreground'>{t('nav.signetpass')}</SidebarGroupLabel>
       <Select value={selected.id} onValueChange={onValueChange}>
         <SelectTrigger className='w-full cursor-pointer' aria-label={t('signetpass.label', { count: passes.length })}>
           <ShieldCheckIcon />

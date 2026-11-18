@@ -1,5 +1,4 @@
 import {
-  BellIcon,
   BookOpenIcon,
   BookUserIcon,
   DropletsIcon,
@@ -19,7 +18,6 @@ import { SettingsProfileUi, SettingsRowUi, SettingsSectionUi, SettingsSheetUi } 
 import { useSettingsContainer } from '../../hooks';
 import { APP_VERSION, RESOURCE_LINKS } from '../../utils';
 import SettingsLimitsContainer from '../settings-limits-container';
-import SettingsNotificationsContainer from '../settings-notifications-container';
 import SettingsSecurityContainer from '../settings-security-container';
 
 const SettingsContainer = () => {
@@ -74,10 +72,6 @@ const SettingsContainer = () => {
         <SettingsRowUi icon={HistoryIcon} label={t('rows.history')} detail={t('rows.history-detail')} onClick={() => onOpenSheet('history')} />
       </SettingsSectionUi>
 
-      <SettingsSectionUi title={t('sections.notifications')}>
-        <SettingsRowUi icon={BellIcon} label={t('rows.notifications')} detail={t('rows.notifications-detail')} onClick={() => onOpenSheet('notifications')} />
-      </SettingsSectionUi>
-
       <SettingsSectionUi title={t('sections.appearance')}>
         <SettingsRowUi
           icon={MoonIcon}
@@ -101,9 +95,6 @@ const SettingsContainer = () => {
 
       <SettingsSheetUi open={sheet === 'limits'} title={t('rows.limits')} onClose={onCloseSheet}>
         <SettingsLimitsContainer />
-      </SettingsSheetUi>
-      <SettingsSheetUi open={sheet === 'notifications'} title={t('rows.notifications')} onClose={onCloseSheet}>
-        <SettingsNotificationsContainer />
       </SettingsSheetUi>
       <SettingsSheetUi open={sheet === 'history'} title={t('rows.history')} onClose={onCloseSheet}>
         <SettingsSecurityContainer />

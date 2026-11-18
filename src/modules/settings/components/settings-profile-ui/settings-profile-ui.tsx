@@ -12,8 +12,6 @@ const SettingsProfileUi = ({ user, connectedWallet, signetPass }: SettingsProfil
   const { t } = useTranslation('settings-page');
   return (
     <dl className='grid grid-cols-[max-content_1fr] items-baseline gap-x-8 gap-y-3 text-body'>
-      <dt className='text-muted-foreground'>{t('account.name')}</dt>
-      <dd>{user?.name}</dd>
       <dt className='text-muted-foreground'>{t('account.email')}</dt>
       <dd>{user?.email}</dd>
       <dt className='text-muted-foreground'>{t('account.connected-wallet')}</dt>
