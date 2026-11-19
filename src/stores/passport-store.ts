@@ -11,6 +11,7 @@ import {
   cartTotalAmount,
   checkoutProblem,
   formatAtomic,
+  cartOfMerchant,
   pricedCart,
   removeFromCart as removeLine,
   sessionProblem,
@@ -71,9 +72,9 @@ interface PassportState {
   addToCart: (productId: string) => void;
   setCartQuantity: (productId: string, quantity: number) => void;
   removeFromCart: (productId: string) => void;
-  placeOrder: (input: { sessionId: string }) => ShopOrder;
-  loginEcommerce: (account: EcommerceAccount) => void;
-  logoutEcommerce: () => void;
+  placeOrder: (input: { sessionId: string; merchantId: string }) => ShopOrder;
+  loginEcommerce: (merchantId: string, account: EcommerceAccount) => void;
+  logoutEcommerce: (merchantId: string) => void;
   setOrderStatus: (id: string, from: ShopOrderStatus, to: ShopOrderStatus) => void;
   clearShop: () => void;
   approveAgent: (id: string) => void;
@@ -141,8 +142,19 @@ const withWallet = (s: PassportState, change: (w: MainWallet) => MainWallet) => 
 export const visibleOrders = (s: Pick<PassportState, 'orders' | 'context'>) =>
   s.orders.filter((o) => o.owner === s.context.address && o.network === s.context.network);
 
-export const currentEcommerceAccount = (s: Pick<PassportState, 'ecommerceAccounts' | 'context'>) =>
-  s.context.address ? (s.ecommerceAccounts[s.context.address] ?? null) : null;
+const accountKey = (address: string, merchantId: string) => `${address}:${merchantId}`;
+
+export const visibleEcommerceAccounts = (s: Pick<PassportState, 'ecommerceAccounts' | 'context'>) => {
+  const prefix = `${s.context.address}:`;
+  return Object.fromEntries(
+    Object.entries(s.ecommerceAccounts)
+      .filter(([key]) => key.startsWith(prefix))
+      .map(([key, account]) => [key.slice(prefix.length), account])
+  ) as Record<string, EcommerceAccount>;
+};
+
+export const ecommerceAccountOf = (s: Pick<PassportState, 'ecommerceAccounts' | 'context'>, merchantId: string) =>
+  s.context.address ? (s.ecommerceAccounts[accountKey(s.context.address, merchantId)] ?? null) : null;
 
 const requirePass = (s: PassportState) => {
   const pass = selectedPass(s);
@@ -260,19 +272,20 @@ export const usePassportStore = create<PassportState>()(
 
       removeFromCart: (productId) => set((s) => ({ cart: removeLine(s.cart, productId) })),
 
-      placeOrder: ({ sessionId }) => {
+      placeOrder: ({ sessionId, merchantId }) => {
         const state = get();
         requireWallet(state);
         const { address, network } = state.context;
-        const account = currentEcommerceAccount(state);
+        const account = ecommerceAccountOf(state, merchantId);
+        const merchantCart = cartOfMerchant(state.cart, merchantId);
         if (!account?.shippingAddress) throw new Error('No shipping address available');
         const session = state.sessions.find((x) => x.id === sessionId);
         const pass = session && visiblePasses(state).find((p) => p.id === session.passId);
         if (!session || !pass) throw new Error('Spending session not found');
         if (pass.status !== 'active' || session.status !== 'active') throw new Error('Spending session is not active');
-        const problem = checkoutProblem(state.cart, network, budgetLeft(session));
+        const problem = checkoutProblem(merchantCart, network, budgetLeft(session));
         if (problem) throw new Error(`Cannot check out: ${problem.code}`);
-        const lines = pricedCart(state.cart, network);
+        const lines = pricedCart(merchantCart, network);
         const amount = cartTotalAmount(lines);
         const sessionIssue = sessionProblem(session, amount, Date.now());
         if (sessionIssue) throw new Error(`Cannot check out: ${sessionIssue}`);
@@ -280,6 +293,7 @@ export const usePassportStore = create<PassportState>()(
           id: `ORD-${Math.random().toString(36).slice(2, 8).toUpperCase()}`,
           owner: address as string,
           network,
+          merchant: lines[0].product.merchant,
           passId: pass.id,
           paidFrom: `${session.agent} (${pass.name})`,
           status: 'paid',
@@ -299,7 +313,7 @@ export const usePassportStore = create<PassportState>()(
           createdAt: now(),
         };
         set((s) => ({
-          cart: [],
+          cart: s.cart.filter((line) => !merchantCart.includes(line)),
           orders: [order, ...s.orders],
           activity: [item, ...s.activity],
           sessions: s.sessions.map((x) => (x.id === session.id ? { ...x, spent: x.spent + amount } : x)),
@@ -310,13 +324,13 @@ export const usePassportStore = create<PassportState>()(
         return order;
       },
 
-      loginEcommerce: (account) =>
-        set((s) => (s.context.address ? { ecommerceAccounts: { ...s.ecommerceAccounts, [s.context.address]: account } } : s)),
+      loginEcommerce: (merchantId, account) =>
+        set((s) => (s.context.address ? { ecommerceAccounts: { ...s.ecommerceAccounts, [accountKey(s.context.address, merchantId)]: account } } : s)),
 
-      logoutEcommerce: () =>
+      logoutEcommerce: (merchantId) =>
         set((s) => {
           if (!s.context.address) return s;
-          const { [s.context.address]: _gone, ...rest } = s.ecommerceAccounts;
+          const { [accountKey(s.context.address, merchantId)]: _gone, ...rest } = s.ecommerceAccounts;
           return { ecommerceAccounts: rest };
         }),
 
@@ -411,8 +425,8 @@ export const usePassportStore = create<PassportState>()(
 
       reset: () => set((s) => ({ ...initial(), mainWallets: provision({}, s.context) })),
     }),
-    // v4: the Main Wallet is the connected account (one balance per network) and passes belong to it; older saved data is dropped for the new seed.
+    // v6: e-commerce logins are per merchant and an order belongs to one merchant. v4: the Main Wallet is the connected account (one balance per network) and passes belong to it; older saved data is dropped for the new seed.
     // The wallet context follows MetaMask on every load, so it is not saved.
-    { name: 'signet-passport-mock', version: 5, partialize: ({ context: _context, ...saved }) => saved }
+    { name: 'signet-passport-mock', version: 6, partialize: ({ context: _context, ...saved }) => saved }
   )
 );

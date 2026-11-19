@@ -1,5 +1,3 @@
-import { Button } from '@/components/ui/button';
-import { FormWrapper } from '@/components/ui/form';
 import { PageHeader } from '@/components/ui/page-header';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -7,7 +5,6 @@ import WalletGate from '@/components/ui/wallet-gate';
 import {
   ShopCartUi,
   ShopFiltersDialogUi,
-  ShopLoginUi,
   ShopOrdersUi,
   ShopProductDialogUi,
   ShopProductGridUi,
@@ -34,21 +31,8 @@ const ShoppingContainer = () => {
       <WalletGate>
         {!s.ready ? (
           <Skeleton className='h-60' />
-        ) : !s.account ? (
-          <FormWrapper form={s.loginForm} onSubmit={s.onLogin}>
-            <ShopLoginUi isLoading={s.isLoggingIn} />
-          </FormWrapper>
         ) : (
           <>
-            <div className='mb-4 flex flex-wrap items-center justify-between gap-x-4 gap-y-1 text-body'>
-              <p className='text-muted-foreground'>
-                {t('account.as', { name: s.account.name })} ·{' '}
-                {s.account.shippingAddress ? t('account.ship-to', { address: s.account.shippingAddress }) : t('account.no-address')}
-              </p>
-              <Button type='button' variant='link' size='sm' onClick={s.onLogout} className='h-auto px-0 font-normal text-muted-foreground underline'>
-                {t('account.logout')}
-              </Button>
-            </div>
             <Tabs value={s.tab} onValueChange={s.onTabChange} className='gap-6'>
               <TabsList className='w-fit'>
                 <TabsTrigger value='browse'>{t('tabs.browse')}</TabsTrigger>
@@ -95,14 +79,13 @@ const ShoppingContainer = () => {
               </TabsContent>
               <TabsContent value='cart'>
                 <ShopCartUi
-                  lines={s.lines}
-                  total={s.total}
+                  groups={s.groups}
                   token={s.token}
                   chainName={s.chainName}
-                  hasUnpayable={s.hasUnpayable}
-                  hasAddress={!!s.account.shippingAddress}
                   onQuantity={s.onQuantity}
                   onRemove={s.onRemove}
+                  onLogin={s.onLogin}
+                  onLogout={s.onLogout}
                   onCheckout={s.onCheckout}
                   onBrowse={s.onBrowse}
                 />

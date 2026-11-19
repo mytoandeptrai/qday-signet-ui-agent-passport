@@ -59,6 +59,25 @@ export function pricedCart(cart: CartLine[], chainId: string): PricedLine[] {
 
 export const cartTotal = (lines: readonly PricedLine[]) => lines.reduce((sum, line) => sum + line.total, 0n);
 
+export interface MerchantGroup<T> {
+  merchant: { id: string; name: string };
+  items: T[];
+}
+
+export function groupByMerchant<T>(items: readonly T[], merchantOf: (item: T) => { id: string; name: string }): MerchantGroup<T>[] {
+  const groups = new Map<string, MerchantGroup<T>>();
+  for (const item of items) {
+    const merchant = merchantOf(item);
+    const group = groups.get(merchant.id) ?? { merchant, items: [] };
+    group.items.push(item);
+    groups.set(merchant.id, group);
+  }
+  return [...groups.values()];
+}
+
+export const cartOfMerchant = (cart: CartLine[], merchantId: string) =>
+  cart.filter((line) => getShopProduct(line.productId)?.merchant.id === merchantId);
+
 export const cartTotalAmount = (lines: readonly PricedLine[]) => Number(formatAtomic(cartTotal(lines)));
 
 export const lowStock = (product: ShopProduct) =>

@@ -88,11 +88,10 @@
     "as": "{{name}} としてログイン中",
     "ship-to": "配送先：{{address}}",
     "no-address": "利用できる配送先住所がありません",
-    "logout": "ログアウト"
+    "logout": "ログアウト",
+    "not-logged-in": "ログインしていません"
   },
   "login": {
-    "title": "Eコマースアカウントにログイン",
-    "description": "お買い物に使っているアカウントにログインしてください。",
     "email": "メールアドレス",
     "password": "パスワード",
     "submit": "ログイン",
@@ -100,7 +99,10 @@
     "errors": {
       "email": "有効なメールアドレスを入力してください",
       "password": "パスワードを入力してください"
-    }
+    },
+    "merchant": "{{merchant}}にログイン",
+    "no-account": "アカウントをお持ちでないですか？",
+    "sign-up": "今すぐ登録"
   },
   "merchant": {
     "label": "マーチャント",
@@ -116,11 +118,14 @@
     "not-accepted": "{{chain}} では利用できません",
     "each": "1 点 {{price}}",
     "unpayable": "{{chain}} で支払えない商品があります。削除するか、ウォレットページでネットワークを切り替えてください。",
-    "checkout": "支払いへ · {{total}} {{token}}"
+    "checkout": "支払いへ · {{total}} {{token}}",
+    "merchant-title": "カート {{merchant}}",
+    "login": "Eコマースアカウントにログイン",
+    "no-address-error": "チェックアウトできません。Eコマースアカウントで配送先住所を追加してください。",
+    "no-address-link": "アカウント"
   },
   "checkout": {
     "items_other": "{{count}} 点",
-    "shops_other": "{{count}} ショップ",
     "total": "合計",
     "ship-to": "配送先",
     "pay-from": "支払い方法",

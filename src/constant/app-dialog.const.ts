@@ -5,6 +5,7 @@ export const APP_DIALOGS = [
   'move-funds',
   'fund-signetpass',
   'shop-checkout',
+  'shop-login',
   'send',
   'receive',
   'create-signetpass',

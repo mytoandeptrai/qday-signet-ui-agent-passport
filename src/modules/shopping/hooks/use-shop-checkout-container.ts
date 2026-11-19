@@ -11,11 +11,11 @@ import { useTranslation } from '@/integrations/i18n';
 import { useSignAction } from '@/integrations/wallet';
 import { useNavigate } from '@tanstack/react-router';
 import type { CheckoutAgent } from '../components';
-import { budgetLeft, cartCount, cartTotal, checkoutProblem, formatAtomic, pricedCart, proposedSession, sessionProblem } from '../utils';
+import { budgetLeft, cartCount, cartOfMerchant, getShopMerchant, cartTotal, checkoutProblem, formatAtomic, pricedCart, proposedSession, sessionProblem } from '../utils';
 
 export const useShopCheckoutContainer = () => {
   const { t } = useTranslation('shopping-page');
-  const { open, close } = useAppDialog();
+  const { open, close, params } = useAppDialog();
   const navigate = useNavigate();
   const { data: shop } = useGetShop();
   const { data: mainWallet } = useGetMainWallet();
@@ -28,7 +28,8 @@ export const useShopCheckoutContainer = () => {
 
   const network = NETWORKS[mainWallet?.network ?? 'base'];
   const token = network.token.symbol;
-  const cart = shop?.cart ?? [];
+  const merchantId = params.id ?? '';
+  const cart = cartOfMerchant(shop?.cart ?? [], merchantId);
   const lines = pricedCart(cart, network.key);
   const atomicTotal = cartTotal(lines);
   const total = Number(formatAtomic(atomicTotal));
@@ -46,7 +47,7 @@ export const useShopCheckoutContainer = () => {
 
   const cartProblem = checkoutProblem(cart, network.key, Number.POSITIVE_INFINITY);
   const sessionIssue = !agent ? null : !session ? 'expired' : sessionProblem(session, total, nowMs);
-  const account = shop?.account;
+  const account = shop?.accounts[merchantId];
   const hasAddress = !!account?.shippingAddress;
   const canPay = hasAddress && passReady && !!agent && !!session && !cartProblem && !sessionIssue;
 
@@ -59,7 +60,7 @@ export const useShopCheckoutContainer = () => {
         summary: t('checkout.summary', { total: formatAtomic(atomicTotal), token, account: session.agent }),
       },
       async () => {
-        orderId = (await placeOrder.mutateAsync({ sessionId: session.id })).id;
+        orderId = (await placeOrder.mutateAsync({ sessionId: session.id, merchantId })).id;
       }
     );
     if (!ok) return;
@@ -72,7 +73,7 @@ export const useShopCheckoutContainer = () => {
   return {
     t,
     items: cartCount(cart),
-    shops: new Set(lines.map((l) => l.product.merchant.id)).size,
+    merchantName: getShopMerchant(merchantId)?.name ?? merchantId,
     total: formatAtomic(atomicTotal),
     shipTo: hasAddress ? `${account?.name} · ${account?.shippingAddress}` : undefined,
     token,

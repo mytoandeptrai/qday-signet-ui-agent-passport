@@ -94,6 +94,10 @@
     "fund-signetpass": {
       "title": "Tambah dana ke SignetPass",
       "description": "Pindahkan dana dari Dompet Utama anda, atau terima melalui QR."
+    },
+    "shop-login": {
+      "title": "Log masuk ke akaun e-dagang anda",
+      "description": "Log masuk ke kedai yang anda mahu bayar."
     }
   },
   "signetpass": {

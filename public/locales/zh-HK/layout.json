@@ -94,6 +94,10 @@
     "fund-signetpass": {
       "title": "為 SignetPass 增值",
       "description": "從主錢包轉入，或透過 QR 收款。"
+    },
+    "shop-login": {
+      "title": "登入你的電商帳戶",
+      "description": "登入你要付款的商店。"
     }
   },
   "signetpass": {

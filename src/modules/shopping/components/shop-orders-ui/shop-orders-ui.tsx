@@ -1,7 +1,7 @@
 import { useTranslation } from '@/integrations/i18n';
 import { cn } from '@/lib/utils';
 import type { ShopOrder } from '@/types/passport';
-import { ORDER_STEPS, formatPrice } from '../../utils';
+import { ORDER_STEPS, formatPrice, groupByMerchant } from '../../utils';
 
 interface ShopOrdersUiProps {
   orders: ShopOrder[];
@@ -18,8 +18,12 @@ const ShopOrdersUi = ({ orders, token }: ShopOrdersUiProps) => {
           <p className='mt-1 text-small text-muted-foreground'>{t('orders.empty-hint')}</p>
         </div>
       ) : (
-        <ul className='space-y-4' aria-label={t('orders.label')}>
-          {orders.map((order) => (
+        <div className='space-y-8' aria-label={t('orders.label')}>
+          {groupByMerchant(orders, (order) => order.merchant).map(({ merchant, items }) => (
+            <section key={merchant.id}>
+              <h2 className='mb-3 text-lead font-medium'>{merchant.name}</h2>
+              <ul className='space-y-4'>
+                {items.map((order) => (
             <li key={order.id} className='border p-4'>
               <div className='flex items-center justify-between gap-3'>
                 <span className='font-medium'>{order.id}</span>
@@ -76,7 +80,10 @@ const ShopOrdersUi = ({ orders, token }: ShopOrdersUiProps) => {
               </dl>
             </li>
           ))}
-        </ul>
+              </ul>
+            </section>
+          ))}
+        </div>
       )}
       <p className='mt-6 border border-dashed p-4 text-small text-muted-foreground'>{t('orders.managed')}</p>
     </div>

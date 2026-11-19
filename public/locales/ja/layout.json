@@ -94,6 +94,10 @@
     "fund-signetpass": {
       "title": "SignetPassに資金を追加",
       "description": "メインウォレットから移すか、QRで受け取ります。"
+    },
+    "shop-login": {
+      "title": "Eコマースアカウントにログイン",
+      "description": "お支払いするショップにログインします。"
     }
   },
   "signetpass": {

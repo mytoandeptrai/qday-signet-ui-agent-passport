@@ -1,4 +1,5 @@
 export { default as ShopCartUi } from './shop-cart-ui';
+export type { CartGroup } from './shop-cart-ui';
 export { default as ShopCheckoutUi } from './shop-checkout-ui';
 export type { CheckoutAgent } from './shop-checkout-ui';
 export { default as ShopFiltersDialogUi } from './shop-filters-dialog-ui';

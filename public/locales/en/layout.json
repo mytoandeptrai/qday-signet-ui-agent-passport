@@ -94,6 +94,10 @@
     "fund-signetpass": {
       "title": "Add funds to SignetPass",
       "description": "Move funds from your Main Wallet, or receive them by QR."
+    },
+    "shop-login": {
+      "title": "Log in to your e-commerce account",
+      "description": "Log in to the shop you want to pay."
     }
   },
   "signetpass": {

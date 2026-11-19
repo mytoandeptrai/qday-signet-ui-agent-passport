@@ -88,11 +88,10 @@
     "as": "已以 {{name}} 登入",
     "ship-to": "寄往 {{address}}",
     "no-address": "沒有可用的送貨地址",
-    "logout": "登出"
+    "logout": "登出",
+    "not-logged-in": "未登入"
   },
   "login": {
-    "title": "登入你的電子商貿帳戶",
-    "description": "請登入你購物用的帳戶。",
     "email": "電郵",
     "password": "密碼",
     "submit": "登入",
@@ -100,7 +99,10 @@
     "errors": {
       "email": "請輸入有效的電郵",
       "password": "請輸入密碼"
-    }
+    },
+    "merchant": "登入 {{merchant}}",
+    "no-account": "還沒有帳戶？",
+    "sign-up": "立即註冊"
   },
   "merchant": {
     "label": "商戶",
@@ -116,11 +118,14 @@
     "not-accepted": "{{chain}} 不接受",
     "each": "每件 {{price}}",
     "unpayable": "部分商品無法在 {{chain}} 付款。請移除，或在錢包頁切換網絡。",
-    "checkout": "結帳 · {{total}} {{token}}"
+    "checkout": "結帳 · {{total}} {{token}}",
+    "merchant-title": "購物車 {{merchant}}",
+    "login": "登入你的電商帳戶",
+    "no-address-error": "無法結帳。請在你的電商帳戶新增送貨地址。",
+    "no-address-link": "帳戶"
   },
   "checkout": {
     "items_other": "{{count}} 件",
-    "shops_other": "{{count}} 間商店",
     "total": "總額",
     "ship-to": "寄往",
     "pay-from": "付款方式",

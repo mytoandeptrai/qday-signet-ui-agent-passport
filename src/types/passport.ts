@@ -177,6 +177,7 @@ export interface ShopOrder {
   id: string;
   owner: string;
   network: NetworkKey;
+  merchant: { id: string; name: string };
   passId: string | null;
   paidFrom: string;
   status: ShopOrderStatus;

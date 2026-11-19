@@ -93,11 +93,10 @@
     "as": "Logged in as {{name}}",
     "ship-to": "Ship to {{address}}",
     "no-address": "No shipping address available",
-    "logout": "Log out"
+    "logout": "Log out",
+    "not-logged-in": "Not logged in"
   },
   "login": {
-    "title": "Log in to your e-commerce account",
-    "description": "Log in to the account you shop with.",
     "email": "Email",
     "password": "Password",
     "submit": "Log in",
@@ -105,7 +104,10 @@
     "errors": {
       "email": "Enter a valid email",
       "password": "Enter your password"
-    }
+    },
+    "merchant": "Log in to the {{merchant}}",
+    "no-account": "Don't have an account?",
+    "sign-up": "Sign up now"
   },
   "merchant": {
     "label": "Merchant",
@@ -121,13 +123,15 @@
     "not-accepted": "Not accepted on {{chain}}",
     "each": "{{price}} each",
     "unpayable": "Some items cannot be paid on {{chain}}. Remove them, or switch network on the Wallet page.",
-    "checkout": "Checkout · {{total}} {{token}}"
+    "checkout": "Checkout · {{total}} {{token}}",
+    "merchant-title": "Cart {{merchant}}",
+    "login": "Login to your E-commerce account",
+    "no-address-error": "You cannot checkout. Add a shipping address in your E-commerce account.",
+    "no-address-link": "account"
   },
   "checkout": {
     "items_one": "{{count}} item",
     "items_other": "{{count}} items",
-    "shops_one": "{{count}} shop",
-    "shops_other": "{{count}} shops",
     "total": "Total",
     "ship-to": "Ship to",
     "pay-from": "Pay with",

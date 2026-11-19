@@ -6,7 +6,7 @@ const ShopCheckoutContainer = () => {
   return (
     <ShopCheckoutUi
       items={checkout.items}
-      shops={checkout.shops}
+      merchantName={checkout.merchantName}
       total={checkout.total}
       shipTo={checkout.shipTo}
       token={checkout.token}

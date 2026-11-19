@@ -88,11 +88,10 @@
     "as": "Log masuk sebagai {{name}}",
     "ship-to": "Hantar ke {{address}}",
     "no-address": "Tiada alamat penghantaran tersedia",
-    "logout": "Log keluar"
+    "logout": "Log keluar",
+    "not-logged-in": "Belum log masuk"
   },
   "login": {
-    "title": "Log masuk ke akaun e-dagang anda",
-    "description": "Log masuk ke akaun yang anda gunakan untuk membeli-belah.",
     "email": "E-mel",
     "password": "Kata laluan",
     "submit": "Log masuk",
@@ -100,7 +99,10 @@
     "errors": {
       "email": "Masukkan e-mel yang sah",
       "password": "Masukkan kata laluan anda"
-    }
+    },
+    "merchant": "Log masuk ke {{merchant}}",
+    "no-account": "Belum ada akaun?",
+    "sign-up": "Daftar sekarang"
   },
   "merchant": {
     "label": "Peniaga",
@@ -116,11 +118,14 @@
     "not-accepted": "Tidak diterima di {{chain}}",
     "each": "{{price}} setiap satu",
     "unpayable": "Sesetengah item tidak boleh dibayar di {{chain}}. Buang item itu, atau tukar rangkaian di halaman Dompet.",
-    "checkout": "Daftar keluar · {{total}} {{token}}"
+    "checkout": "Daftar keluar · {{total}} {{token}}",
+    "merchant-title": "Troli {{merchant}}",
+    "login": "Log masuk ke akaun E-dagang anda",
+    "no-address-error": "Anda tidak boleh checkout. Tambah alamat penghantaran dalam akaun E-dagang anda.",
+    "no-address-link": "akaun"
   },
   "checkout": {
     "items_other": "{{count}} item",
-    "shops_other": "{{count}} kedai",
     "total": "Jumlah",
     "ship-to": "Hantar ke",
     "pay-from": "Bayar dengan",

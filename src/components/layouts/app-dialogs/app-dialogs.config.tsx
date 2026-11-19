@@ -1,7 +1,7 @@
 import type { ComponentType } from 'react';
 import type { AppDialogName } from '@/constant';
 import { ApproveAgentContainer } from '@/modules/agents';
-import { ShopCheckoutContainer } from '@/modules/shopping';
+import { ShopCheckoutContainer, ShopLoginContainer } from '@/modules/shopping';
 import { CreateSessionContainer, SessionApproveContainer, SessionDecideContainer } from '@/modules/sessions';
 import { ActivateSignetpassContainer, AddFundsContainer, CreateSignetpassContainer, FundSignetpassContainer, MoveFundsContainer } from '@/modules/signetpass';
 import { ReceiveContainer, SendContainer } from '@/modules/wallet';
@@ -20,6 +20,7 @@ export const APP_DIALOG_CONFIG: Partial<Record<AppDialogName, AppDialogConfig>> 
   'move-funds': { kind: 'modal', Content: MoveFundsContainer },
   'fund-signetpass': { kind: 'modal', Content: FundSignetpassContainer },
   'shop-checkout': { kind: 'modal', Content: ShopCheckoutContainer },
+  'shop-login': { kind: 'modal', Content: ShopLoginContainer },
   'create-session': { kind: 'sheet', Content: CreateSessionContainer },
   'approve-session': { kind: 'modal', Content: SessionApproveContainer },
   'approve-agent': { kind: 'modal', Content: ApproveAgentContainer },

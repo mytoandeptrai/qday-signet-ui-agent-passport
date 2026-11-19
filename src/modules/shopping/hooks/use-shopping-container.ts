@@ -1,11 +1,8 @@
-import { zodResolver } from '@hookform/resolvers/zod';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import {
   useAddToCartMutation,
   useGetShop,
-  useLoginEcommerceMutation,
   useLogoutEcommerceMutation,
   useRemoveFromCartMutation,
   useSetCartQuantityMutation,
@@ -14,7 +11,6 @@ import { useGetMainWallet } from '@/apis/wallet';
 import { NETWORKS } from '@/constant';
 import { useAppDialog } from '@/hooks/use-app-dialog';
 import { useTranslation } from '@/integrations/i18n';
-import { type EcommerceLoginFormData, ecommerceLoginSchema, initialEcommerceLoginFormData } from './schema';
 import {
   ALL_MERCHANTS,
   SHOP_PAGE_SIZE,
@@ -24,6 +20,7 @@ import {
   activeFilterCount,
   cartCount,
   cartTotal,
+  groupByMerchant,
   countryName,
   emptyFilters,
   filtersToQuery,
@@ -33,7 +30,7 @@ import {
   shopCategories,
   shopMerchants,
 } from '../utils';
-import type { ShopFilterChip } from '../components';
+import type { CartGroup, ShopFilterChip } from '../components';
 
 export const SHOP_TABS = ['browse', 'cart', 'orders'] as const;
 export type ShopTab = (typeof SHOP_TABS)[number];
@@ -46,20 +43,14 @@ export const useShoppingContainer = () => {
   const addToCart = useAddToCartMutation();
   const setQuantity = useSetCartQuantityMutation();
   const removeFromCart = useRemoveFromCartMutation();
-  const login = useLoginEcommerceMutation();
   const logout = useLogoutEcommerceMutation();
-  const loginForm = useForm<EcommerceLoginFormData>({
-    resolver: zodResolver(ecommerceLoginSchema(t)),
-    defaultValues: initialEcommerceLoginFormData,
-    mode: 'onChange',
-  });
 
   const network = NETWORKS[mainWallet?.network ?? 'base'];
   const chainId = network.key;
   const token = network.token.symbol;
   const cart = shop?.cart ?? [];
   const orders = shop?.orders ?? [];
-  const account = shop?.account ?? null;
+  const accounts = shop?.accounts ?? {};
 
   const [tab, setTab] = useState<ShopTab>('browse');
   const [search, setSearch] = useState('');
@@ -70,9 +61,9 @@ export const useShoppingContainer = () => {
 
   const orderCount = useRef(orders.length);
   useEffect(() => {
-    if (orders.length > orderCount.current) setTab('orders');
+    if (orders.length > orderCount.current && cart.length === 0) setTab('orders');
     orderCount.current = orders.length;
-  }, [orders.length]);
+  }, [orders.length, cart.length]);
 
   const searching = searchWords(search).length > 0;
   const sort: ShopSort =
@@ -118,7 +109,17 @@ export const useShoppingContainer = () => {
       : []),
   ];
 
-  const lines = pricedCart(cart, chainId);
+  const groups: CartGroup[] = groupByMerchant(pricedCart(cart, chainId), (line) => line.product.merchant).map(({ merchant, items }) => {
+    const account = accounts[merchant.id] ?? null;
+    return {
+      merchant,
+      lines: items,
+      total: cartTotal(items),
+      account,
+      hasAddress: !!account?.shippingAddress,
+      hasUnpayable: items.some((line) => !line.payable),
+    };
+  });
   const resetPage = () => setShown(SHOP_PAGE_SIZE);
 
   return {
@@ -136,9 +137,6 @@ export const useShoppingContainer = () => {
     categories: shopCategories(chainId),
     merchants: shopMerchants(chainId),
     merchantId: filters.merchantIds.length === 0 ? ALL_MERCHANTS : filters.merchantIds.length === 1 ? filters.merchantIds[0] : '',
-    account,
-    loginForm,
-    isLoggingIn: login.isPending,
     filters,
     filterCount,
     filtered: searching || filterCount > 0,
@@ -148,9 +146,7 @@ export const useShoppingContainer = () => {
     pageSize: SHOP_PAGE_SIZE,
     viewing,
     count: cartCount(cart),
-    lines,
-    total: cartTotal(lines),
-    hasUnpayable: lines.some((line) => !line.payable),
+    groups,
     orders,
     quantityOf: (id: string) => cart.find((l) => l.productId === id)?.quantity ?? 0,
     onTabChange: (value: string) => setTab(value as ShopTab),
@@ -171,11 +167,8 @@ export const useShoppingContainer = () => {
       setFilters((f) => ({ ...f, merchantIds: value === ALL_MERCHANTS ? [] : [value] }));
       resetPage();
     },
-    onLogin: async (values: EcommerceLoginFormData) => {
-      await login.mutateAsync(values);
-      loginForm.reset(initialEcommerceLoginFormData);
-    },
-    onLogout: () => logout.mutate(),
+    onLogin: (merchantId: string) => open('shop-login', { id: merchantId }),
+    onLogout: (merchantId: string) => logout.mutate(merchantId),
     onApplyFilters: (next: ShopFilters) => {
       setFilters(next);
       resetPage();
@@ -199,6 +192,6 @@ export const useShoppingContainer = () => {
     },
     onQuantity: (productId: string, quantity: number) => setQuantity.mutate({ productId, quantity }),
     onRemove: (productId: string) => removeFromCart.mutate(productId),
-    onCheckout: () => open('shop-checkout'),
+    onCheckout: (merchantId: string) => open('shop-checkout', { id: merchantId }),
   };
 };

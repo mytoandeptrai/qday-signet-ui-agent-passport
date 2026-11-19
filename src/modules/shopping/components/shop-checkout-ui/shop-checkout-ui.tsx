@@ -16,7 +16,7 @@ export interface CheckoutAgent {
 
 interface ShopCheckoutUiProps {
   items: number;
-  shops: number;
+  merchantName: string;
   total: string;
   shipTo?: string;
   token: string;
@@ -40,7 +40,7 @@ interface ShopCheckoutUiProps {
 
 const ShopCheckoutUi = ({
   items,
-  shops,
+  merchantName,
   total,
   shipTo,
   token,
@@ -65,7 +65,7 @@ const ShopCheckoutUi = ({
   return (
     <div className='flex flex-col gap-4'>
       <p className='text-small text-muted-foreground'>
-        {t('checkout.items', { count: items })} · {t('checkout.shops', { count: shops })}
+        {t('checkout.items', { count: items })} · {merchantName}
       </p>
       <dl className='divide-y border text-body'>
         <div className='flex items-center justify-between px-4 py-3'>

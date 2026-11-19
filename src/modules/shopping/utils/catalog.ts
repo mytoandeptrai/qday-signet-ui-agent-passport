@@ -190,4 +190,6 @@ export const shopCatalog: ShopProduct[] = listings.map((listing) => ({
   ...listing,
 }));
 
+export const getShopMerchant = (id: string) => shopCatalog.find((product) => product.merchant.id === id)?.merchant;
+
 export const getShopProduct = (id: string) => shopCatalog.find((product) => product.id === id);

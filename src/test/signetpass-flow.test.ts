@@ -8,7 +8,7 @@ import { getInstallCode } from '@/apis/signetpass/requests';
 import { INSTALL_CODE_PLACEHOLDER, installCommand } from '@/mock/landing';
 import { createSignetPassFormSchema } from '@/modules/signetpass/hooks/schema';
 import { cartTotal, formatAtomic, pricedCart } from '@/modules/shopping/utils';
-import { currentEcommerceAccount, currentMainWallet, selectedPass, usePassportStore, visibleOrders, visiblePasses } from '@/stores/passport-store';
+import { currentMainWallet, ecommerceAccountOf, selectedPass, usePassportStore, visibleOrders, visiblePasses } from '@/stores/passport-store';
 
 const ALICE = '0xalice';
 const BOB = '0xbob';
@@ -163,9 +163,12 @@ describe('SignetPass', () => {
 
 describe('Shopping', () => {
   const earbuds = 'p-earbuds';
+  const stickers = 'p-sticker-pack';
+  const CABLE = 'm-cable';
+  const DESK = 'm-desk';
   const cartAmount = () => Number(formatAtomic(cartTotal(pricedCart(store().cart, 'base'))));
   const sessionOf = (limit: number, perCallLimit = limit, agent = 'Claude Code') => {
-    store().loginEcommerce({ email: 'alex@shop.test', name: 'Alex', shippingAddress: '1 Test Street' });
+    store().loginEcommerce(CABLE, { email: 'alex@shop.test', name: 'Alex', shippingAddress: '1 Test Street' });
     createActive('Shopping');
     store().fundFromMain(500);
     return store().createSession({ task: 'Shopping', agent, limit, perCallLimit, durationHours: 1 });
@@ -176,7 +179,7 @@ describe('Shopping', () => {
     store().addToCart(earbuds);
     store().addToCart(earbuds);
     const amount = cartAmount();
-    const order = store().placeOrder({ sessionId: session.id });
+    const order = store().placeOrder({ sessionId: session.id, merchantId: CABLE });
     expect(order).toMatchObject({ owner: ALICE, network: 'base', passId: session.passId, status: 'paid' });
     expect(store().sessions[0]).toMatchObject({ spent: amount, status: 'active' });
     expect(selectedPass(store())?.balance).toMatchObject({ available: 400, held: 100 - amount });
@@ -189,33 +192,50 @@ describe('Shopping', () => {
   it('ships to the name and address of the e-commerce login, and needs an address', () => {
     const session = sessionOf(100);
     store().addToCart(earbuds);
-    expect(store().placeOrder({ sessionId: session.id }).shipTo).toBe('Alex · 1 Test Street');
-    store().loginEcommerce({ email: 'noaddress@shop.test', name: 'Noaddress', shippingAddress: '' });
+    expect(store().placeOrder({ sessionId: session.id, merchantId: CABLE }).shipTo).toBe('Alex · 1 Test Street');
+    store().loginEcommerce(CABLE, { email: 'noaddress@shop.test', name: 'Noaddress', shippingAddress: '' });
     store().addToCart(earbuds);
-    expect(() => store().placeOrder({ sessionId: session.id })).toThrow('No shipping address');
-    store().logoutEcommerce();
-    expect(currentEcommerceAccount(store())).toBeNull();
+    expect(() => store().placeOrder({ sessionId: session.id, merchantId: CABLE })).toThrow('No shipping address');
+    store().logoutEcommerce(CABLE);
+    expect(ecommerceAccountOf(store(), CABLE)).toBeNull();
     store().setContext(BOB, 'base');
-    expect(currentEcommerceAccount(store())).toBeNull();
+    expect(ecommerceAccountOf(store(), CABLE)).toBeNull();
+  });
+
+  it('keeps a cart and a login per merchant, and pays one merchant at a time', () => {
+    const session = sessionOf(100);
+    store().addToCart(earbuds);
+    store().addToCart(stickers);
+    expect(ecommerceAccountOf(store(), DESK)).toBeNull();
+    expect(() => store().placeOrder({ sessionId: session.id, merchantId: DESK })).toThrow('No shipping address');
+    store().loginEcommerce(DESK, { email: 'alex@shop.test', name: 'Alex', shippingAddress: '1 Test Street' });
+    const order = store().placeOrder({ sessionId: session.id, merchantId: CABLE });
+    expect(order.merchant).toEqual({ id: CABLE, name: 'Cable Corner' });
+    expect(order.lines.map((l) => l.productId)).toEqual([earbuds]);
+    expect(store().cart).toEqual([{ productId: stickers, quantity: 1 }]);
+    store().logoutEcommerce(CABLE);
+    expect(ecommerceAccountOf(store(), DESK)).not.toBeNull();
+    expect(store().placeOrder({ sessionId: session.id, merchantId: DESK }).merchant.id).toBe(DESK);
+    expect(store().cart).toEqual([]);
   });
 
   it('mocks the e-commerce login with a name and address from the email', async () => {
-    await loginEcommerce({ email: 'jane.doe@shop.test', password: 'x' });
-    expect(currentEcommerceAccount(store())).toMatchObject({ name: 'Jane Doe', shippingAddress: expect.stringContaining('Example Street') });
-    await loginEcommerce({ email: 'noaddress@shop.test', password: 'x' });
-    expect(currentEcommerceAccount(store())?.shippingAddress).toBe('');
+    await loginEcommerce({ merchantId: CABLE, email: 'jane.doe@shop.test', password: 'x' });
+    expect(ecommerceAccountOf(store(), CABLE)).toMatchObject({ name: 'Jane Doe', shippingAddress: expect.stringContaining('Example Street') });
+    await loginEcommerce({ merchantId: CABLE, email: 'noaddress@shop.test', password: 'x' });
+    expect(ecommerceAccountOf(store(), CABLE)?.shippingAddress).toBe('');
   });
 
   it('refuses an empty cart and a session that cannot cover the order', () => {
     const small = sessionOf(10);
-    expect(() => store().placeOrder({ sessionId: small.id })).toThrow();
+    expect(() => store().placeOrder({ sessionId: small.id, merchantId: CABLE })).toThrow();
     store().addToCart(earbuds);
-    expect(() => store().placeOrder({ sessionId: small.id })).toThrow();
-    expect(() => store().placeOrder({ sessionId: 'ses_missing' })).toThrow();
+    expect(() => store().placeOrder({ sessionId: small.id, merchantId: CABLE })).toThrow();
+    expect(() => store().placeOrder({ sessionId: 'ses_missing', merchantId: CABLE })).toThrow();
     const capped = store().createSession({ task: 'Capped', agent: 'Codex', limit: 100, perCallLimit: 10, durationHours: 1 });
-    expect(() => store().placeOrder({ sessionId: capped.id })).toThrow();
+    expect(() => store().placeOrder({ sessionId: capped.id, merchantId: CABLE })).toThrow();
     store().revokeSession(capped.id);
-    expect(() => store().placeOrder({ sessionId: capped.id })).toThrow();
+    expect(() => store().placeOrder({ sessionId: capped.id, merchantId: CABLE })).toThrow();
     expect(store().orders).toHaveLength(0);
   });
 
@@ -223,19 +243,19 @@ describe('Shopping', () => {
     const first = sessionOf(100);
     const other = store().createSession({ task: 'Other', agent: 'Codex', limit: 50, perCallLimit: 50, durationHours: 1 });
     store().addToCart(earbuds);
-    store().placeOrder({ sessionId: first.id });
+    store().placeOrder({ sessionId: first.id, merchantId: CABLE });
     const spent = store().sessions.find((x) => x.id === first.id)?.spent ?? 0;
     const next = store().createSession({ task: 'Next', agent: 'Claude Code', limit: 100, perCallLimit: 100, durationHours: 1 });
     const status = (id: string) => store().sessions.find((x) => x.id === id)?.status;
     expect([status(first.id), status(other.id), status(next.id)]).toEqual(['revoked', 'active', 'active']);
     expect(selectedPass(store())?.balance).toMatchObject({ available: 500 - 100 - 50 - 100 + (100 - spent), held: 50 + 100 });
-    expect(() => store().placeOrder({ sessionId: first.id })).toThrow();
+    expect(() => store().placeOrder({ sessionId: first.id, merchantId: CABLE })).toThrow();
   });
 
   it('keeps orders per account and network, and moves them along', () => {
     const session = sessionOf(100);
     store().addToCart(earbuds);
-    const order = store().placeOrder({ sessionId: session.id });
+    const order = store().placeOrder({ sessionId: session.id, merchantId: CABLE });
     store().setOrderStatus(order.id, 'shipped', 'delivered');
     expect(visibleOrders(store())[0].status).toBe('paid');
     store().setOrderStatus(order.id, 'paid', 'shipped');
@@ -248,10 +268,10 @@ describe('Shopping', () => {
 
   it('clears the cart and the visible orders only', () => {
     store().addToCart(earbuds);
-    store().placeOrder({ sessionId: sessionOf(100).id });
+    store().placeOrder({ sessionId: sessionOf(100).id, merchantId: CABLE });
     store().setContext(BOB, 'base');
     store().addToCart(earbuds);
-    store().placeOrder({ sessionId: sessionOf(100).id });
+    store().placeOrder({ sessionId: sessionOf(100).id, merchantId: CABLE });
     store().addToCart(earbuds);
     store().clearShop();
     expect(store().cart).toEqual([]);

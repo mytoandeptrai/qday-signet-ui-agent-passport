@@ -1,1 +1,1 @@
-export { ShopCheckoutContainer, ShoppingContainer } from './containers';
+export { ShopCheckoutContainer, ShopLoginContainer, ShoppingContainer } from './containers';
